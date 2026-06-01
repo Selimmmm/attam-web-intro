@@ -14,7 +14,7 @@ Le but du jour : construire **ta carte web**, une mini-page qui te présente. C'
 
 ## Ressources
 
-- MDN, le manuel de référence du web (en français) : <https://developer.mozilla.org/fr/docs/Learn>
+- MDN, le manuel de référence du web (en français) : <https://developer.mozilla.org/fr/docs/Learn_web_development>
 - Toxicode pour s'entraîner de façon ludique : <https://www.toxicode.fr/learn>
 - Un éditeur de code (VS Code) avec l'extension Live Server.
 - Tutoriel Git pas à pas : <https://github.com/Selimmmm/git_step_by_step>

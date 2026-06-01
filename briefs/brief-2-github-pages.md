@@ -19,7 +19,7 @@ Au passage, tu découvres **GitHub**, l'outil que tu retrouveras dans absolument
 - Doc GitHub (upload de fichiers via le navigateur) : <https://docs.github.com/fr/repositories>
 - Tutoriel Git pas à pas (pour l'étape bonus) : <https://github.com/Selimmmm/git_step_by_step>
 - Antisèche Markdown : <https://www.markdownguide.org/cheat-sheet/>
-- Galerie d'idées de features JS : <https://developer.mozilla.org/fr/docs/Learn/JavaScript>
+- Galerie d'idées de features JS : <https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting>
 
 ## Modalités pédagogiques
 
