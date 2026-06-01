@@ -1,0 +1,1 @@
+- 🔴 Colorisation syntaxique JS

@@ -4,7 +4,7 @@
 **Durée visée** : 1 journée (7h)
 **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 
-Tu sais déjà demander à une IA de te coder une page. Cette fois, on fait l'inverse : tu écris le code toi-même, ligne par ligne, pour comprendre ce qu'il y a vraiment dessous. À la fin de la journée, tu auras une carte de profil web bien à toi, écrite à la main, et tu sauras lire n'importe quelle page web.
+Aujourd'hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une carte de profil web complète, et tu sauras lire et modifier le code d'une page.
 
 ## Contexte du projet
 
@@ -71,7 +71,21 @@ Objectif : comprendre qu'on peut réagir à un clic et modifier la page en direc
 
 À la fin : un clic produit un effet visible sur ta page.
 
-### Étape 4 (○ bonus, si le temps)
+### Étape 4 (⭐ principal) : découverte de Git et GitHub
+
+Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta carte demain.
+
+1. Retiens la différence en une phrase :
+   - **Git** : un outil qui garde l'historique des versions de ton code (qui a changé quoi, et quand).
+   - **GitHub** : le site où on dépose ce code, où on le partage et où on le publie.
+2. Crée un compte sur GitHub (gratuit) et confirme ton adresse e-mail.
+3. Ouvre le tutoriel pas à pas : <https://github.com/Selimmmm/git_step_by_step>.
+4. Parcours-le tranquillement et repère les quatre commandes qui reviennent : `git init`, `git add`, `git commit`, `git push`.
+5. Note dans ton `JOURNAL.md`, avec tes mots, à quoi sert chacune de ces commandes.
+
+On ne tape pas encore les commandes aujourd'hui : c'est une première découverte. On s'en sert pour de vrai au brief 2 (la pratique de Git en ligne de commande y est en bonus).
+
+### Étape 5 (○ bonus, si le temps)
 
 À piocher dans l'ordre que tu veux, un seul suffit :
 
@@ -79,6 +93,7 @@ Objectif : comprendre qu'on peut réagir à un clic et modifier la page en direc
 2. Proposer **plusieurs thèmes** de couleurs au lieu d'un seul mode sombre.
 3. Rendre la carte **responsive** : jolie aussi sur téléphone.
 4. Ajouter une petite icône d'onglet (favicon).
+5. Installer Git et **essayer** les commandes du tutoriel sur un dossier de test.
 
 ## Travail sur le Markdown (⭐ principal, transverse)
 
@@ -104,6 +119,7 @@ Démonstration de la carte au formateur en fin de journée, et dépôt des fichi
 - La page s'ouvre dans le navigateur et affiche une carte de profil complète.
 - Le HTML, le CSS et le JS sont dans **trois fichiers séparés** et reliés correctement.
 - Au moins une interaction JS fonctionne (un clic produit un effet visible).
+- Le compte GitHub est créé, et l'élève sait dire à quoi servent `git add`, `git commit` et `git push`.
 - Le `JOURNAL.md` est lisible et utilise au moins quatre éléments Markdown différents.
 
 ## Situation professionnelle

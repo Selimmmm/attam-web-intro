@@ -1,16 +1,15 @@
-# Bienvenue (:
+# Bienvenue
 
-- Tu sais déjà faire pondre une page par une IA. Cette semaine, on passe sous le capot.
-- Le but : écrire le code toi-même, comprendre ce qu'il y a dessous, et le mettre en ligne pour de vrai.
-- Pas de magie, pas de blabla : on construit, on casse, on répare.
+- Cette semaine : apprendre à construire une page web, la publier en ligne, et la connecter à une base de données.
+- Tu écris le code toi-même, étape par étape, pour comprendre comment chaque morceau fonctionne.
 
 ## Au programme
 
-- **Git et GitHub** : versionner ton code et le publier.
+- **Git et GitHub** : suivre les versions de son code et le publier.
 - **HTML** : le contenu et la structure de la page.
 - **CSS** : l'apparence (couleurs, formes, mise en page).
-- **JavaScript** : le comportement, ce qui réagit quand on clique.
-- **Supabase** : interagir avec une vraie base de données, directement depuis le front, sans backend.
+- **JavaScript** : le comportement, ce qui réagit aux actions de l'utilisateur.
+- **Supabase** : lire et écrire dans une base de données, directement depuis la page, sans serveur à développer.
 
 ```mermaid
 flowchart LR
@@ -20,11 +19,11 @@ flowchart LR
   Git --> Supa[Supabase<br/>la base de données]
 ```
 
-## Le fil rouge : un projet qui grandit
+## Le projet de la semaine
 
-- **Jour 1** : ta carte web (HTML, CSS, un peu de JS).
-- **Jour 2** : la même carte en ligne sur GitHub Pages, avec une feature sympa.
-- **Jour 3** : le mur de la promo, branché sur Supabase. Tout le monde écrit sur la même base.
+- **Jour 1** : ta carte de profil web (HTML, CSS, une première interaction en JavaScript).
+- **Jour 2** : mise en ligne de la carte sur GitHub Pages, avec une fonctionnalité supplémentaire.
+- **Jour 3** : un mur de messages partagé par la promo, connecté à Supabase.
 
 ```mermaid
 flowchart LR
@@ -32,15 +31,15 @@ flowchart LR
   J2 --> J3[Jour 3<br/>le mur de la promo]
 ```
 
-## Comment ça marche, une base de données depuis le front
+## L'accès à une base de données depuis le navigateur
 
-- Ta page envoie une requête à l'API de Supabase.
-- Supabase parle à la base de données et renvoie les données en JSON.
-- Ta page affiche le résultat. Pas de serveur à coder.
+- La page envoie une requête à l'API de Supabase.
+- Supabase interroge la base de données et renvoie les données au format JSON.
+- La page affiche le résultat. Aucun serveur à développer.
 
 ```mermaid
 flowchart LR
-  Page[Ta page web] -->|requête| API[API Supabase]
+  Page[La page web] -->|requête| API[API Supabase]
   API --> BDD[(Base de données)]
   BDD --> API
   API -->|données JSON| Page
@@ -48,15 +47,15 @@ flowchart LR
 
 ## Ce que tu sauras faire à la fin
 
-- Lire et modifier n'importe quelle page web.
-- Versionner ton code et le publier avec une vraie URL.
-- Brancher une page sur une base de données.
-- Écrire de la doc propre en Markdown.
+- Lire et modifier une page web.
+- Suivre les versions de ton code et le publier avec une adresse publique.
+- Connecter une page à une base de données.
+- Rédiger de la documentation en Markdown.
 
-## Comment bosser
+## Méthode de travail
 
-- Les étapes **● principal** : à finir, c'est le cœur de la journée.
-- Les étapes **○ bonus** : si tu as le temps, pour aller plus loin.
-- Tiens un **`JOURNAL.md`** en Markdown à chaque étape.
-- Tu bloques ? La page « Cours » est interactive, va y tester du code.
-- Choisis un brief dans le menu de gauche, et c'est parti.
+- Les étapes **● principal** constituent le cœur de chaque journée : à terminer en priorité.
+- Les étapes **○ bonus** servent à aller plus loin une fois le principal terminé.
+- Tiens un fichier **`JOURNAL.md`** en Markdown à chaque étape.
+- La page « Cours » est interactive : utilise-la pour tester du code.
+- Choisis un brief dans le menu de gauche pour commencer.

@@ -256,73 +256,71 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
   <div class="page-toolbar">
     <button class="src-toggle" data-src="src-accueil">Voir la source Markdown</button>
   </div>
-  <article class="prose"><h1 id="bienvenue">Bienvenue (:</h1>
+  <article class="prose"><h1 id="bienvenue">Bienvenue</h1>
 <ul>
-<li>Tu sais déjà faire pondre une page par une IA. Cette semaine, on passe sous le capot.</li>
-<li>Le but : écrire le code toi-même, comprendre ce qu'il y a dessous, et le mettre en ligne pour de vrai.</li>
-<li>Pas de magie, pas de blabla : on construit, on casse, on répare.</li>
+<li>Cette semaine : apprendre à construire une page web, la publier en ligne, et la connecter à une base de données.</li>
+<li>Tu écris le code toi-même, étape par étape, pour comprendre comment chaque morceau fonctionne.</li>
 </ul>
 <h2 id="au-programme">Au programme</h2>
 <ul>
-<li><strong>Git et GitHub</strong> : versionner ton code et le publier.</li>
+<li><strong>Git et GitHub</strong> : suivre les versions de son code et le publier.</li>
 <li><strong>HTML</strong> : le contenu et la structure de la page.</li>
 <li><strong>CSS</strong> : l'apparence (couleurs, formes, mise en page).</li>
-<li><strong>JavaScript</strong> : le comportement, ce qui réagit quand on clique.</li>
-<li><strong>Supabase</strong> : interagir avec une vraie base de données, directement depuis le front, sans backend.</li>
+<li><strong>JavaScript</strong> : le comportement, ce qui réagit aux actions de l'utilisateur.</li>
+<li><strong>Supabase</strong> : lire et écrire dans une base de données, directement depuis la page, sans serveur à développer.</li>
 </ul>
 <pre class="mermaid">flowchart LR
   HTML[HTML&lt;br/&gt;le contenu] --&gt; CSS[CSS&lt;br/&gt;l&#x27;apparence]
   CSS --&gt; JS[JavaScript&lt;br/&gt;le comportement]
   JS --&gt; Git[Git + GitHub&lt;br/&gt;publier]
   Git --&gt; Supa[Supabase&lt;br/&gt;la base de données]</pre>
-<h2 id="le-fil-rouge-un-projet-qui-grandit">Le fil rouge : un projet qui grandit</h2>
+<h2 id="le-projet-de-la-semaine">Le projet de la semaine</h2>
 <ul>
-<li><strong>Jour 1</strong> : ta carte web (HTML, CSS, un peu de JS).</li>
-<li><strong>Jour 2</strong> : la même carte en ligne sur GitHub Pages, avec une feature sympa.</li>
-<li><strong>Jour 3</strong> : le mur de la promo, branché sur Supabase. Tout le monde écrit sur la même base.</li>
+<li><strong>Jour 1</strong> : ta carte de profil web (HTML, CSS, une première interaction en JavaScript).</li>
+<li><strong>Jour 2</strong> : mise en ligne de la carte sur GitHub Pages, avec une fonctionnalité supplémentaire.</li>
+<li><strong>Jour 3</strong> : un mur de messages partagé par la promo, connecté à Supabase.</li>
 </ul>
 <pre class="mermaid">flowchart LR
   J1[Jour 1&lt;br/&gt;ma carte web] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
   J2 --&gt; J3[Jour 3&lt;br/&gt;le mur de la promo]</pre>
-<h2 id="comment-ca-marche-une-base-de-donnees-depuis-le-front">Comment ça marche, une base de données depuis le front</h2>
+<h2 id="lacces-a-une-base-de-donnees-depuis-le-navigateur">L'accès à une base de données depuis le navigateur</h2>
 <ul>
-<li>Ta page envoie une requête à l'API de Supabase.</li>
-<li>Supabase parle à la base de données et renvoie les données en JSON.</li>
-<li>Ta page affiche le résultat. Pas de serveur à coder.</li>
+<li>La page envoie une requête à l'API de Supabase.</li>
+<li>Supabase interroge la base de données et renvoie les données au format JSON.</li>
+<li>La page affiche le résultat. Aucun serveur à développer.</li>
 </ul>
 <pre class="mermaid">flowchart LR
-  Page[Ta page web] --&gt;|requête| API[API Supabase]
+  Page[La page web] --&gt;|requête| API[API Supabase]
   API --&gt; BDD[(Base de données)]
   BDD --&gt; API
   API --&gt;|données JSON| Page</pre>
 <h2 id="ce-que-tu-sauras-faire-a-la-fin">Ce que tu sauras faire à la fin</h2>
 <ul>
-<li>Lire et modifier n'importe quelle page web.</li>
-<li>Versionner ton code et le publier avec une vraie URL.</li>
-<li>Brancher une page sur une base de données.</li>
-<li>Écrire de la doc propre en Markdown.</li>
+<li>Lire et modifier une page web.</li>
+<li>Suivre les versions de ton code et le publier avec une adresse publique.</li>
+<li>Connecter une page à une base de données.</li>
+<li>Rédiger de la documentation en Markdown.</li>
 </ul>
-<h2 id="comment-bosser">Comment bosser</h2>
+<h2 id="methode-de-travail">Méthode de travail</h2>
 <ul>
-<li>Les étapes <strong>● principal</strong> : à finir, c'est le cœur de la journée.</li>
-<li>Les étapes <strong>○ bonus</strong> : si tu as le temps, pour aller plus loin.</li>
-<li>Tiens un <strong><code>JOURNAL.md</code></strong> en Markdown à chaque étape.</li>
-<li>Tu bloques ? La page « Cours » est interactive, va y tester du code.</li>
-<li>Choisis un brief dans le menu de gauche, et c'est parti.</li>
+<li>Les étapes <strong>● principal</strong> constituent le cœur de chaque journée : à terminer en priorité.</li>
+<li>Les étapes <strong>○ bonus</strong> servent à aller plus loin une fois le principal terminé.</li>
+<li>Tiens un fichier <strong><code>JOURNAL.md</code></strong> en Markdown à chaque étape.</li>
+<li>La page « Cours » est interactive : utilise-la pour tester du code.</li>
+<li>Choisis un brief dans le menu de gauche pour commencer.</li>
 </ul></article>
-  <pre class="md-source" id="src-accueil" hidden><code># Bienvenue (:
+  <pre class="md-source" id="src-accueil" hidden><code># Bienvenue
 
-- Tu sais déjà faire pondre une page par une IA. Cette semaine, on passe sous le capot.
-- Le but : écrire le code toi-même, comprendre ce qu&#x27;il y a dessous, et le mettre en ligne pour de vrai.
-- Pas de magie, pas de blabla : on construit, on casse, on répare.
+- Cette semaine : apprendre à construire une page web, la publier en ligne, et la connecter à une base de données.
+- Tu écris le code toi-même, étape par étape, pour comprendre comment chaque morceau fonctionne.
 
 ## Au programme
 
-- **Git et GitHub** : versionner ton code et le publier.
+- **Git et GitHub** : suivre les versions de son code et le publier.
 - **HTML** : le contenu et la structure de la page.
 - **CSS** : l&#x27;apparence (couleurs, formes, mise en page).
-- **JavaScript** : le comportement, ce qui réagit quand on clique.
-- **Supabase** : interagir avec une vraie base de données, directement depuis le front, sans backend.
+- **JavaScript** : le comportement, ce qui réagit aux actions de l&#x27;utilisateur.
+- **Supabase** : lire et écrire dans une base de données, directement depuis la page, sans serveur à développer.
 
 ```mermaid
 flowchart LR
@@ -332,11 +330,11 @@ flowchart LR
   Git --&gt; Supa[Supabase&lt;br/&gt;la base de données]
 ```
 
-## Le fil rouge : un projet qui grandit
+## Le projet de la semaine
 
-- **Jour 1** : ta carte web (HTML, CSS, un peu de JS).
-- **Jour 2** : la même carte en ligne sur GitHub Pages, avec une feature sympa.
-- **Jour 3** : le mur de la promo, branché sur Supabase. Tout le monde écrit sur la même base.
+- **Jour 1** : ta carte de profil web (HTML, CSS, une première interaction en JavaScript).
+- **Jour 2** : mise en ligne de la carte sur GitHub Pages, avec une fonctionnalité supplémentaire.
+- **Jour 3** : un mur de messages partagé par la promo, connecté à Supabase.
 
 ```mermaid
 flowchart LR
@@ -344,15 +342,15 @@ flowchart LR
   J2 --&gt; J3[Jour 3&lt;br/&gt;le mur de la promo]
 ```
 
-## Comment ça marche, une base de données depuis le front
+## L&#x27;accès à une base de données depuis le navigateur
 
-- Ta page envoie une requête à l&#x27;API de Supabase.
-- Supabase parle à la base de données et renvoie les données en JSON.
-- Ta page affiche le résultat. Pas de serveur à coder.
+- La page envoie une requête à l&#x27;API de Supabase.
+- Supabase interroge la base de données et renvoie les données au format JSON.
+- La page affiche le résultat. Aucun serveur à développer.
 
 ```mermaid
 flowchart LR
-  Page[Ta page web] --&gt;|requête| API[API Supabase]
+  Page[La page web] --&gt;|requête| API[API Supabase]
   API --&gt; BDD[(Base de données)]
   BDD --&gt; API
   API --&gt;|données JSON| Page
@@ -360,18 +358,18 @@ flowchart LR
 
 ## Ce que tu sauras faire à la fin
 
-- Lire et modifier n&#x27;importe quelle page web.
-- Versionner ton code et le publier avec une vraie URL.
-- Brancher une page sur une base de données.
-- Écrire de la doc propre en Markdown.
+- Lire et modifier une page web.
+- Suivre les versions de ton code et le publier avec une adresse publique.
+- Connecter une page à une base de données.
+- Rédiger de la documentation en Markdown.
 
-## Comment bosser
+## Méthode de travail
 
-- Les étapes **● principal** : à finir, c&#x27;est le cœur de la journée.
-- Les étapes **○ bonus** : si tu as le temps, pour aller plus loin.
-- Tiens un **`JOURNAL.md`** en Markdown à chaque étape.
-- Tu bloques ? La page « Cours » est interactive, va y tester du code.
-- Choisis un brief dans le menu de gauche, et c&#x27;est parti.
+- Les étapes **● principal** constituent le cœur de chaque journée : à terminer en priorité.
+- Les étapes **○ bonus** servent à aller plus loin une fois le principal terminé.
+- Tiens un fichier **`JOURNAL.md`** en Markdown à chaque étape.
+- La page « Cours » est interactive : utilise-la pour tester du code.
+- Choisis un brief dans le menu de gauche pour commencer.
 </code></pre>
 </section>
 <section class="page" id="cours-js" hidden>
@@ -379,8 +377,11 @@ flowchart LR
     <button class="src-toggle" data-src="src-cours-js">Voir la source Markdown</button>
   </div>
   <article class="prose"><h1 id="cours-javascript-et-le-dom">Cours : JavaScript et le DOM</h1>
-<p>Cette page est interactive. Chaque bloc de code a un bouton <strong>▶ Exécuter</strong> : le code tourne directement dans la page et le résultat s'affiche dessous. La plupart sont <strong>modifiables</strong> (change le code, relance), certains sont en lecture seule. Le bouton ↺ remet le code d'origine.</p>
-<p>Il y a beaucoup d'exemples : ne te contente pas de lire, <strong>clique sur Exécuter et bricole le code</strong>. C'est en cassant des trucs qu'on apprend. On va du plus simple au plus utile : rappel HTML, variables, types, hasard, conditions, listes, objets, requêtes <code>fetch</code>, et enfin la modification de la page (le DOM).</p>
+<p>Cette page est interactive. Chaque bloc de code a un bouton <strong>▶ Exécuter</strong> : le code s'exécute directement dans la page et le résultat s'affiche dessous. La plupart des blocs sont <strong>modifiables</strong> (change le code, puis relance), certains sont en lecture seule. Le bouton ↺ remet le code d'origine.</p>
+<ul>
+<li>Lis l'explication, exécute le bloc, puis modifie-le pour vérifier que tu as compris.</li>
+<li>Le contenu va du plus simple au plus utile : rappel HTML, variables, types, hasard, conditions, listes, objets, requêtes <code>fetch</code>, et enfin la modification de la page (le DOM).</li>
+</ul>
 <h2 id="dabord-un-rappel-html">D'abord, un rappel HTML</h2>
 <p>Une page web est faite de <strong>balises</strong>. Une balise ouvre (<code>&lt;p&gt;</code>) et ferme (<code>&lt;/p&gt;</code>), et ce qu'il y a entre les deux est le contenu. Quelques balises de base :</p>
 <ul>
@@ -946,25 +947,28 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
 </div>
 <h3 id="un-mini-pokedex">Un mini-Pokédex</h3>
 <p>Le grand final : on tape un nom de Pokémon, on interroge l'API, et on affiche son image et ses stats. C'est exactement le mécanisme qu'on utilisera avec Supabase au brief 3.</p>
+<p>Important : l'API ne connaît que les noms <strong>en anglais</strong> (ou le numéro du Pokémon). Donc <code>charizard</code> fonctionne, mais <code>dracaufeu</code> non.</p>
 <div class="pg" data-kind="dom">
 <div class="pg-htmllabel">HTML de départ</div>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;pikachu&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:6px&quot;</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;pikachu&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;nom en anglais ou numéro&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:6px&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;chercher&quot;</span><span class="p">&gt;</span>Chercher<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:13px;color:#666;margin:6px 0&quot;</span><span class="p">&gt;</span>Exemples : bulbasaur, charizard, eevee, mewtwo, ou un numéro de 1 à 1000.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;resultat&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-top:10px;display:flex;align-items:center;gap:12px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 
-<template class="pg-html"><input id="nom" value="pikachu" style="padding:6px">
+<template class="pg-html"><input id="nom" value="pikachu" placeholder="nom en anglais ou numéro" style="padding:6px">
 <button id="chercher">Chercher</button>
+<p style="font-size:13px;color:#666;margin:6px 0">Exemples : bulbasaur, charizard, eevee, mewtwo, ou un numéro de 1 à 1000.</p>
 <div id="resultat" style="margin-top:10px;display:flex;align-items:center;gap:12px"></div></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="19">document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+<textarea class="pg-code" spellcheck="false" rows="21">document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   const nom = document.querySelector(&quot;#nom&quot;).value.toLowerCase().trim();
   const res = document.querySelector(&quot;#resultat&quot;);
   res.textContent = &quot;Recherche…&quot;;
 
   fetch(&quot;https://pokeapi.co/api/v2/pokemon/&quot; + nom)
     .then(reponse =&gt; {
-      if (!reponse.ok) throw new Error(&quot;Pokémon introuvable&quot;);
+      if (!reponse.ok) throw new Error(&quot;introuvable&quot;);
       return reponse.json();
     })
     .then(p =&gt; {
@@ -974,7 +978,9 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
         &quot;Type : &quot; + p.types[0].type.name + &quot;&lt;br&gt;&quot; +
         &quot;Taille : &quot; + p.height + &quot; · Poids : &quot; + p.weight + &quot;&lt;/span&gt;&quot;;
     })
-    .catch(erreur =&gt; { res.textContent = erreur.message; });
+    .catch(() =&gt; {
+      res.textContent = &quot;Pas trouvé. Essaie un nom en anglais (bulbasaur, charizard…) ou un numéro.&quot;;
+    });
 });</textarea>
 <textarea class="pg-initial" hidden>document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   const nom = document.querySelector(&quot;#nom&quot;).value.toLowerCase().trim();
@@ -983,7 +989,7 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
 
   fetch(&quot;https://pokeapi.co/api/v2/pokemon/&quot; + nom)
     .then(reponse =&gt; {
-      if (!reponse.ok) throw new Error(&quot;Pokémon introuvable&quot;);
+      if (!reponse.ok) throw new Error(&quot;introuvable&quot;);
       return reponse.json();
     })
     .then(p =&gt; {
@@ -993,7 +999,9 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
         &quot;Type : &quot; + p.types[0].type.name + &quot;&lt;br&gt;&quot; +
         &quot;Taille : &quot; + p.height + &quot; · Poids : &quot; + p.weight + &quot;&lt;/span&gt;&quot;;
     })
-    .catch(erreur =&gt; { res.textContent = erreur.message; });
+    .catch(() =&gt; {
+      res.textContent = &quot;Pas trouvé. Essaie un nom en anglais (bulbasaur, charizard…) ou un numéro.&quot;;
+    });
 });</textarea>
 <iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
 <div class="pg-console" aria-live="polite"></div>
@@ -1009,9 +1017,10 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
 <p>Quand tu es à l'aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta carte web, puis le mur partagé de la promo.</p></article>
   <pre class="md-source" id="src-cours-js" hidden><code># Cours : JavaScript et le DOM
 
-Cette page est interactive. Chaque bloc de code a un bouton **▶ Exécuter** : le code tourne directement dans la page et le résultat s&#x27;affiche dessous. La plupart sont **modifiables** (change le code, relance), certains sont en lecture seule. Le bouton ↺ remet le code d&#x27;origine.
+Cette page est interactive. Chaque bloc de code a un bouton **▶ Exécuter** : le code s&#x27;exécute directement dans la page et le résultat s&#x27;affiche dessous. La plupart des blocs sont **modifiables** (change le code, puis relance), certains sont en lecture seule. Le bouton ↺ remet le code d&#x27;origine.
 
-Il y a beaucoup d&#x27;exemples : ne te contente pas de lire, **clique sur Exécuter et bricole le code**. C&#x27;est en cassant des trucs qu&#x27;on apprend. On va du plus simple au plus utile : rappel HTML, variables, types, hasard, conditions, listes, objets, requêtes `fetch`, et enfin la modification de la page (le DOM).
+- Lis l&#x27;explication, exécute le bloc, puis modifie-le pour vérifier que tu as compris.
+- Le contenu va du plus simple au plus utile : rappel HTML, variables, types, hasard, conditions, listes, objets, requêtes `fetch`, et enfin la modification de la page (le DOM).
 
 ## D&#x27;abord, un rappel HTML
 
@@ -1381,9 +1390,12 @@ document.querySelector(&quot;#chien&quot;).addEventListener(&quot;click&quot;, (
 
 Le grand final : on tape un nom de Pokémon, on interroge l&#x27;API, et on affiche son image et ses stats. C&#x27;est exactement le mécanisme qu&#x27;on utilisera avec Supabase au brief 3.
 
+Important : l&#x27;API ne connaît que les noms **en anglais** (ou le numéro du Pokémon). Donc `charizard` fonctionne, mais `dracaufeu` non.
+
 ```domrun
-&lt;input id=&quot;nom&quot; value=&quot;pikachu&quot; style=&quot;padding:6px&quot;&gt;
+&lt;input id=&quot;nom&quot; value=&quot;pikachu&quot; placeholder=&quot;nom en anglais ou numéro&quot; style=&quot;padding:6px&quot;&gt;
 &lt;button id=&quot;chercher&quot;&gt;Chercher&lt;/button&gt;
+&lt;p style=&quot;font-size:13px;color:#666;margin:6px 0&quot;&gt;Exemples : bulbasaur, charizard, eevee, mewtwo, ou un numéro de 1 à 1000.&lt;/p&gt;
 &lt;div id=&quot;resultat&quot; style=&quot;margin-top:10px;display:flex;align-items:center;gap:12px&quot;&gt;&lt;/div&gt;
 ===
 document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
@@ -1393,7 +1405,7 @@ document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;
 
   fetch(&quot;https://pokeapi.co/api/v2/pokemon/&quot; + nom)
     .then(reponse =&gt; {
-      if (!reponse.ok) throw new Error(&quot;Pokémon introuvable&quot;);
+      if (!reponse.ok) throw new Error(&quot;introuvable&quot;);
       return reponse.json();
     })
     .then(p =&gt; {
@@ -1403,7 +1415,9 @@ document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;
         &quot;Type : &quot; + p.types[0].type.name + &quot;&lt;br&gt;&quot; +
         &quot;Taille : &quot; + p.height + &quot; · Poids : &quot; + p.weight + &quot;&lt;/span&gt;&quot;;
     })
-    .catch(erreur =&gt; { res.textContent = erreur.message; });
+    .catch(() =&gt; {
+      res.textContent = &quot;Pas trouvé. Essaie un nom en anglais (bulbasaur, charizard…) ou un numéro.&quot;;
+    });
 });
 ```
 
@@ -1427,7 +1441,7 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <p><strong>Type</strong> : brief individuel
 <strong>Durée visée</strong> : 1 journée (7h)
 <strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales</p>
-<p>Tu sais déjà demander à une IA de te coder une page. Cette fois, on fait l'inverse : tu écris le code toi-même, ligne par ligne, pour comprendre ce qu'il y a vraiment dessous. À la fin de la journée, tu auras une carte de profil web bien à toi, écrite à la main, et tu sauras lire n'importe quelle page web.</p>
+<p>Aujourd'hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une carte de profil web complète, et tu sauras lire et modifier le code d'une page.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
 <p>Une page web, c'est trois langages qui travaillent ensemble : le <strong>HTML</strong> (le contenu et la structure : « voici un titre, voici une image »), le <strong>CSS</strong> (l'apparence : couleurs, polices, mise en page) et le <strong>JavaScript</strong> (le comportement : ce qui bouge quand on clique). On va les découvrir dans cet ordre, du plus simple au plus vivant.</p>
 <p>Le but du jour : construire <strong>ta carte web</strong>, une mini-page qui te présente. C'est la première brique d'un projet qu'on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.</p>
@@ -1436,6 +1450,7 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <li>MDN, le manuel de référence du web (en français) : <a href="https://developer.mozilla.org/fr/docs/Learn">https://developer.mozilla.org/fr/docs/Learn</a></li>
 <li>Toxicode pour s'entraîner de façon ludique : <a href="https://www.toxicode.fr/learn">https://www.toxicode.fr/learn</a></li>
 <li>Un éditeur de code (VS Code) avec l'extension Live Server.</li>
+<li>Tutoriel Git pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a></li>
 <li>Antisèche Markdown : <a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></li>
 </ul>
 <h2 id="modalites-pedagogiques">Modalités pédagogiques</h2>
@@ -1481,13 +1496,26 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
    - <strong>compter les clics</strong> (une variable qui augmente et s'affiche).</li>
 </ol>
 <p>À la fin : un clic produit un effet visible sur ta page.</p>
-<h3 class="is-bonus" id="etape-4-bonus-si-le-temps">Étape 4 (○ bonus, si le temps)</h3>
+<h3 class="is-principal" id="etape-4-principal-decouverte-de-git-et-github">Étape 4 (⭐ principal) : découverte de Git et GitHub</h3>
+<p>Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta carte demain.</p>
+<ol>
+<li>Retiens la différence en une phrase :
+   - <strong>Git</strong> : un outil qui garde l'historique des versions de ton code (qui a changé quoi, et quand).
+   - <strong>GitHub</strong> : le site où on dépose ce code, où on le partage et où on le publie.</li>
+<li>Crée un compte sur GitHub (gratuit) et confirme ton adresse e-mail.</li>
+<li>Ouvre le tutoriel pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a>.</li>
+<li>Parcours-le tranquillement et repère les quatre commandes qui reviennent : <code>git init</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>.</li>
+<li>Note dans ton <code>JOURNAL.md</code>, avec tes mots, à quoi sert chacune de ces commandes.</li>
+</ol>
+<p>On ne tape pas encore les commandes aujourd'hui : c'est une première découverte. On s'en sert pour de vrai au brief 2 (la pratique de Git en ligne de commande y est en bonus).</p>
+<h3 class="is-bonus" id="etape-5-bonus-si-le-temps">Étape 5 (○ bonus, si le temps)</h3>
 <p>À piocher dans l'ordre que tu veux, un seul suffit :</p>
 <ol>
 <li>Ajouter une <strong>animation CSS</strong> : l'avatar qui grossit au survol (<code>:hover</code> + <code>transform: scale(...)</code>).</li>
 <li>Proposer <strong>plusieurs thèmes</strong> de couleurs au lieu d'un seul mode sombre.</li>
 <li>Rendre la carte <strong>responsive</strong> : jolie aussi sur téléphone.</li>
 <li>Ajouter une petite icône d'onglet (favicon).</li>
+<li>Installer Git et <strong>essayer</strong> les commandes du tutoriel sur un dossier de test.</li>
 </ol>
 <h2 id="travail-sur-le-markdown-principal-transverse">Travail sur le Markdown (⭐ principal, transverse)</h2>
 <p>Crée un fichier <code>JOURNAL.md</code>. C'est un fichier texte écrit en <strong>Markdown</strong>, le langage qui sert à écrire de la doc lisible (c'est ce qui formate les messages sur Discord, les README sur GitHub, etc.). Dedans, explique avec tes mots :</p>
@@ -1509,6 +1537,7 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <li>La page s'ouvre dans le navigateur et affiche une carte de profil complète.</li>
 <li>Le HTML, le CSS et le JS sont dans <strong>trois fichiers séparés</strong> et reliés correctement.</li>
 <li>Au moins une interaction JS fonctionne (un clic produit un effet visible).</li>
+<li>Le compte GitHub est créé, et l'élève sait dire à quoi servent <code>git add</code>, <code>git commit</code> et <code>git push</code>.</li>
 <li>Le <code>JOURNAL.md</code> est lisible et utilise au moins quatre éléments Markdown différents.</li>
 </ul>
 <h2 id="situation-professionnelle">Situation professionnelle</h2>
@@ -1528,7 +1557,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
 **Durée visée** : 1 journée (7h)
 **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 
-Tu sais déjà demander à une IA de te coder une page. Cette fois, on fait l&#x27;inverse : tu écris le code toi-même, ligne par ligne, pour comprendre ce qu&#x27;il y a vraiment dessous. À la fin de la journée, tu auras une carte de profil web bien à toi, écrite à la main, et tu sauras lire n&#x27;importe quelle page web.
+Aujourd&#x27;hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une carte de profil web complète, et tu sauras lire et modifier le code d&#x27;une page.
 
 ## Contexte du projet
 
@@ -1541,6 +1570,7 @@ Le but du jour : construire **ta carte web**, une mini-page qui te présente. C&
 - MDN, le manuel de référence du web (en français) : &lt;https://developer.mozilla.org/fr/docs/Learn&gt;
 - Toxicode pour s&#x27;entraîner de façon ludique : &lt;https://www.toxicode.fr/learn&gt;
 - Un éditeur de code (VS Code) avec l&#x27;extension Live Server.
+- Tutoriel Git pas à pas : &lt;https://github.com/Selimmmm/git_step_by_step&gt;
 - Antisèche Markdown : &lt;https://www.markdownguide.org/cheat-sheet/&gt;
 
 ## Modalités pédagogiques
@@ -1594,7 +1624,21 @@ Objectif : comprendre qu&#x27;on peut réagir à un clic et modifier la page en 
 
 À la fin : un clic produit un effet visible sur ta page.
 
-### Étape 4 (○ bonus, si le temps)
+### Étape 4 (⭐ principal) : découverte de Git et GitHub
+
+Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta carte demain.
+
+1. Retiens la différence en une phrase :
+   - **Git** : un outil qui garde l&#x27;historique des versions de ton code (qui a changé quoi, et quand).
+   - **GitHub** : le site où on dépose ce code, où on le partage et où on le publie.
+2. Crée un compte sur GitHub (gratuit) et confirme ton adresse e-mail.
+3. Ouvre le tutoriel pas à pas : &lt;https://github.com/Selimmmm/git_step_by_step&gt;.
+4. Parcours-le tranquillement et repère les quatre commandes qui reviennent : `git init`, `git add`, `git commit`, `git push`.
+5. Note dans ton `JOURNAL.md`, avec tes mots, à quoi sert chacune de ces commandes.
+
+On ne tape pas encore les commandes aujourd&#x27;hui : c&#x27;est une première découverte. On s&#x27;en sert pour de vrai au brief 2 (la pratique de Git en ligne de commande y est en bonus).
+
+### Étape 5 (○ bonus, si le temps)
 
 À piocher dans l&#x27;ordre que tu veux, un seul suffit :
 
@@ -1602,6 +1646,7 @@ Objectif : comprendre qu&#x27;on peut réagir à un clic et modifier la page en 
 2. Proposer **plusieurs thèmes** de couleurs au lieu d&#x27;un seul mode sombre.
 3. Rendre la carte **responsive** : jolie aussi sur téléphone.
 4. Ajouter une petite icône d&#x27;onglet (favicon).
+5. Installer Git et **essayer** les commandes du tutoriel sur un dossier de test.
 
 ## Travail sur le Markdown (⭐ principal, transverse)
 
@@ -1627,6 +1672,7 @@ Démonstration de la carte au formateur en fin de journée, et dépôt des fichi
 - La page s&#x27;ouvre dans le navigateur et affiche une carte de profil complète.
 - Le HTML, le CSS et le JS sont dans **trois fichiers séparés** et reliés correctement.
 - Au moins une interaction JS fonctionne (un clic produit un effet visible).
+- Le compte GitHub est créé, et l&#x27;élève sait dire à quoi servent `git add`, `git commit` et `git push`.
 - Le `JOURNAL.md` est lisible et utilise au moins quatre éléments Markdown différents.
 
 ## Situation professionnelle
@@ -1658,7 +1704,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <strong>Durée visée</strong> : 1 journée (7h)
 <strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales
 <strong>Pré-requis</strong> : avoir fini le cœur du <a href="brief-1-html-css-js.md">brief 1</a>.</p>
-<p>Ta carte web existe, mais elle vit sur ton ordi, personne ne peut la voir. Aujourd'hui on règle ça : à la fin de la journée, ta carte aura une <strong>vraie adresse internet</strong> que tu pourras envoyer à qui tu veux. Et tant qu'on y est, on lui ajoute une fonctionnalité JS qui en jette.</p>
+<p>Ta carte web n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une <strong>adresse publique</strong> que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
 <p>Mettre un site « en ligne », c'est le déposer sur un serveur accessible à tous. GitHub propose ça gratuitement avec <strong>GitHub Pages</strong> : tu déposes tes fichiers sur GitHub (une plateforme où les développeurs stockent et partagent leur code), et GitHub publie automatiquement ta page sur une URL publique.</p>
 <p>Au passage, tu découvres <strong>GitHub</strong>, l'outil que tu retrouveras dans absolument toutes les entreprises tech. On reste sur l'essentiel : déposer des fichiers, les mettre à jour, publier.</p>
@@ -1754,7 +1800,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
 **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 **Pré-requis** : avoir fini le cœur du [brief 1](brief-1-html-css-js.md).
 
-Ta carte web existe, mais elle vit sur ton ordi, personne ne peut la voir. Aujourd&#x27;hui on règle ça : à la fin de la journée, ta carte aura une **vraie adresse internet** que tu pourras envoyer à qui tu veux. Et tant qu&#x27;on y est, on lui ajoute une fonctionnalité JS qui en jette.
+Ta carte web n&#x27;existe que sur ton ordinateur. Aujourd&#x27;hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
 
 ## Contexte du projet
 
@@ -1872,7 +1918,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <strong>Durée visée</strong> : 1 journée (7h), la plus dense
 <strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales
 <strong>Pré-requis</strong> : avoir un site en ligne (<a href="brief-2-github-pages.md">brief 2</a>).</p>
-<p>Jusqu'ici, ta carte est figée : elle affiche toujours la même chose. Aujourd'hui on la rend <strong>vivante et partagée</strong>. On ajoute un livre d'or : un endroit où n'importe qui peut laisser un message, et ces messages sont stockés dans une base de données commune à toute la promo. Quand tu écris sur ton site, ça apparaît aussi sur celui des autres. Et tout ça <strong>sans écrire le moindre serveur</strong>.</p>
+<p>Jusqu'ici, ta carte affiche toujours le même contenu. Aujourd'hui, tu lui ajoutes un livre d'or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
 <p>Une base de données, c'est là où une application range ses informations pour les retrouver plus tard (les messages, les comptes, les commandes...). D'habitude, pour y accéder, il faut un <strong>backend</strong> : un programme qui tourne sur un serveur et fait l'intermédiaire entre la page web et la base.</p>
 <p><strong>Supabase</strong> change la donne : dès qu'on crée une table, il génère automatiquement une <strong>API</strong> (un point d'accès standardisé) qu'on peut appeler <strong>directement depuis le JavaScript du navigateur</strong>. Pas de backend à écrire. C'est exactement ce qu'explique cet article : <a href="https://supabase.com/blog/simplify-backend-with-data-api">https://supabase.com/blog/simplify-backend-with-data-api</a>.</p>
@@ -1963,7 +2009,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
 **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 **Pré-requis** : avoir un site en ligne ([brief 2](brief-2-github-pages.md)).
 
-Jusqu&#x27;ici, ta carte est figée : elle affiche toujours la même chose. Aujourd&#x27;hui on la rend **vivante et partagée**. On ajoute un livre d&#x27;or : un endroit où n&#x27;importe qui peut laisser un message, et ces messages sont stockés dans une base de données commune à toute la promo. Quand tu écris sur ton site, ça apparaît aussi sur celui des autres. Et tout ça **sans écrire le moindre serveur**.
+Jusqu&#x27;ici, ta carte affiche toujours le même contenu. Aujourd&#x27;hui, tu lui ajoutes un livre d&#x27;or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.
 
 ## Contexte du projet
 
@@ -2130,7 +2176,10 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
         '["log","info","warn","error","debug"].forEach(function(m){var o=console[m]?console[m].bind(console):function(){};console[m]=function(){send(m,arguments);o.apply(null,arguments)}});',
         'window.addEventListener("error",function(e){send("error",[e.message])});',
         'window.addEventListener("unhandledrejection",function(e){send("error",["Promesse rejetee : "+((e.reason&&e.reason.message)||e.reason)])});',
-        'var CODE=' + safe + ';try{(0,eval)(CODE)}catch(e){send("error",[e.message])}',
+        'function sendSize(){var h=Math.max(document.body?document.body.scrollHeight:0,document.documentElement.scrollHeight);parent.postMessage({__pgsize:true,token:T,height:h},"*")}',
+        'if(window.ResizeObserver){new ResizeObserver(sendSize).observe(document.documentElement)}',
+        'window.addEventListener("load",sendSize);setTimeout(sendSize,60);setTimeout(sendSize,500);',
+        'var CODE=' + safe + ';try{(0,eval)(CODE)}catch(e){send("error",[e.message])}sendSize();',
         '})();<\/scr' + 'ipt></body></html>'].join('');
     }
 
@@ -2141,15 +2190,22 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
       var iframe = w.querySelector('.pg-stage');
       var cons = w.querySelector('.pg-console');
       cons.innerHTML = '';
+      iframe.style.height = '';
       iframe.srcdoc = pgSrcdoc(code, tpl ? tpl.innerHTML : '', ++pgToken);
     }
 
     window.addEventListener('message', function (e) {
       var d = e.data;
-      if (!d || d.__pg !== true) return;
+      if (!d || (d.__pg !== true && d.__pgsize !== true)) return;
       var frames = document.querySelectorAll('.pg-stage'), iframe = null;
       for (var i = 0; i < frames.length; i++) { if (frames[i].contentWindow === e.source) { iframe = frames[i]; break; } }
       if (!iframe) return;
+      if (d.__pgsize === true) {
+        if (!iframe.classList.contains('pg-hidden')) {
+          iframe.style.height = Math.min(Math.max(d.height + 6, 40), 1400) + 'px';
+        }
+        return;
+      }
       var cons = iframe.closest('.pg').querySelector('.pg-console');
       var line = document.createElement('div');
       line.className = 'pg-line pg-' + d.level;
@@ -2165,7 +2221,9 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
       if (reset) reset.addEventListener('click', function () {
         code.value = w.querySelector('.pg-initial').value;
         w.querySelector('.pg-console').innerHTML = '';
-        w.querySelector('.pg-stage').removeAttribute('srcdoc');
+        var st = w.querySelector('.pg-stage');
+        st.removeAttribute('srcdoc');
+        st.style.height = '';
         pgAutosize(code);
       });
       code.addEventListener('keydown', function (ev) {

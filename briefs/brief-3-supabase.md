@@ -5,7 +5,7 @@
 **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 **Pré-requis** : avoir un site en ligne ([brief 2](brief-2-github-pages.md)).
 
-Jusqu'ici, ta carte est figée : elle affiche toujours la même chose. Aujourd'hui on la rend **vivante et partagée**. On ajoute un livre d'or : un endroit où n'importe qui peut laisser un message, et ces messages sont stockés dans une base de données commune à toute la promo. Quand tu écris sur ton site, ça apparaît aussi sur celui des autres. Et tout ça **sans écrire le moindre serveur**.
+Jusqu'ici, ta carte affiche toujours le même contenu. Aujourd'hui, tu lui ajoutes un livre d'or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.
 
 ## Contexte du projet
 

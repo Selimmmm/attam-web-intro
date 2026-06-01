@@ -5,7 +5,7 @@
 **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 **Pré-requis** : avoir fini le cœur du [brief 1](brief-1-html-css-js.md).
 
-Ta carte web existe, mais elle vit sur ton ordi, personne ne peut la voir. Aujourd'hui on règle ça : à la fin de la journée, ta carte aura une **vraie adresse internet** que tu pourras envoyer à qui tu veux. Et tant qu'on y est, on lui ajoute une fonctionnalité JS qui en jette.
+Ta carte web n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
 
 ## Contexte du projet
 

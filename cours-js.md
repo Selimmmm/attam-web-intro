@@ -1,8 +1,9 @@
 # Cours : JavaScript et le DOM
 
-Cette page est interactive. Chaque bloc de code a un bouton **▶ Exécuter** : le code tourne directement dans la page et le résultat s'affiche dessous. La plupart sont **modifiables** (change le code, relance), certains sont en lecture seule. Le bouton ↺ remet le code d'origine.
+Cette page est interactive. Chaque bloc de code a un bouton **▶ Exécuter** : le code s'exécute directement dans la page et le résultat s'affiche dessous. La plupart des blocs sont **modifiables** (change le code, puis relance), certains sont en lecture seule. Le bouton ↺ remet le code d'origine.
 
-Il y a beaucoup d'exemples : ne te contente pas de lire, **clique sur Exécuter et bricole le code**. C'est en cassant des trucs qu'on apprend. On va du plus simple au plus utile : rappel HTML, variables, types, hasard, conditions, listes, objets, requêtes `fetch`, et enfin la modification de la page (le DOM).
+- Lis l'explication, exécute le bloc, puis modifie-le pour vérifier que tu as compris.
+- Le contenu va du plus simple au plus utile : rappel HTML, variables, types, hasard, conditions, listes, objets, requêtes `fetch`, et enfin la modification de la page (le DOM).
 
 ## D'abord, un rappel HTML
 
@@ -372,9 +373,12 @@ document.querySelector("#chien").addEventListener("click", () => {
 
 Le grand final : on tape un nom de Pokémon, on interroge l'API, et on affiche son image et ses stats. C'est exactement le mécanisme qu'on utilisera avec Supabase au brief 3.
 
+Important : l'API ne connaît que les noms **en anglais** (ou le numéro du Pokémon). Donc `charizard` fonctionne, mais `dracaufeu` non.
+
 ```domrun
-<input id="nom" value="pikachu" style="padding:6px">
+<input id="nom" value="pikachu" placeholder="nom en anglais ou numéro" style="padding:6px">
 <button id="chercher">Chercher</button>
+<p style="font-size:13px;color:#666;margin:6px 0">Exemples : bulbasaur, charizard, eevee, mewtwo, ou un numéro de 1 à 1000.</p>
 <div id="resultat" style="margin-top:10px;display:flex;align-items:center;gap:12px"></div>
 ===
 document.querySelector("#chercher").addEventListener("click", () => {
@@ -384,7 +388,7 @@ document.querySelector("#chercher").addEventListener("click", () => {
 
   fetch("https://pokeapi.co/api/v2/pokemon/" + nom)
     .then(reponse => {
-      if (!reponse.ok) throw new Error("Pokémon introuvable");
+      if (!reponse.ok) throw new Error("introuvable");
       return reponse.json();
     })
     .then(p => {
@@ -394,7 +398,9 @@ document.querySelector("#chercher").addEventListener("click", () => {
         "Type : " + p.types[0].type.name + "<br>" +
         "Taille : " + p.height + " · Poids : " + p.weight + "</span>";
     })
-    .catch(erreur => { res.textContent = erreur.message; });
+    .catch(() => {
+      res.textContent = "Pas trouvé. Essaie un nom en anglais (bulbasaur, charizard…) ou un numéro.";
+    });
 });
 ```
 

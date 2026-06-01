@@ -69,7 +69,7 @@ flowchart LR
 
 | Jour | Brief | Cœur (principal ●) | Bonus (○) |
 |---|---|---|---|
-| 1 | [Brief 1](briefs/brief-1-html-css-js.md) | HTML + CSS + 1 interaction JS | animations CSS, thèmes |
+| 1 | [Brief 1](briefs/brief-1-html-css-js.md) | HTML + CSS + 1 interaction JS + découverte Git/GitHub | animations CSS, thèmes, essayer Git |
 | 2 | [Brief 2](briefs/brief-2-github-pages.md) | mise en ligne GitHub Pages + feature JS | Git en ligne de commande |
 | 3 | [Brief 3](briefs/brief-3-supabase.md) | lire + écrire dans Supabase | filtres, tri, suppression, RLS |
 
