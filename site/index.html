@@ -11,6 +11,8 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-clike.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markup.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js" defer></script>
   <style>
     :root {
       --bg: #fbfaf7;
@@ -204,9 +206,8 @@
     <nav id="nav">
       <button class="nav-item" data-target="accueil">Accueil</button>
       <button class="nav-item" data-target="cours-js">Cours · JS et le DOM</button>
+      <button class="nav-item" data-target="atelier">Atelier · reproduire</button>
       <button class="nav-item" data-target="brief-1">Brief 1 · ma page de présentation</button>
-      <button class="nav-item" data-target="brief-2">Brief 2 · en ligne</button>
-      <button class="nav-item" data-target="brief-3">Brief 3 · le mur de la promo</button>
     </nav>
     <div class="legend">
       <span><span class="dot p"></span>principal, à finir</span>
@@ -1400,6 +1401,215 @@ Tu as toutes les briques. Essaie ces petits défis en modifiant les exemples ci-
 Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta page de présentation, puis le mur partagé de la promo.
 </code></pre>
 </section>
+<section class="page" id="atelier" hidden>
+  <div class="page-toolbar">
+    <button class="src-toggle" data-src="src-atelier">Voir la source Markdown</button>
+  </div>
+  <article class="prose"><h1 id="atelier-reproduire-en-html-et-css">Atelier : reproduire en HTML et CSS</h1>
+<p>Avant de te lancer dans ton projet, entraîne-toi sur trois petits modèles. Pour chacun, la méthode est la même : observe le résultat, lis le code, puis reproduis-le dans l'éditeur du dessous.</p>
+<p>Tu n'as rien à installer, tout se passe dans la page. Clique sur <strong>▶ Exécuter</strong> pour afficher le rendu de ton code, et sur ↺ pour repartir de zéro. Prends ton temps, et n'hésite pas à modifier une valeur pour voir ce qu'elle change.</p>
+<h2 id="exercice-1-une-boite">Exercice 1 : une boîte</h2>
+<p>Objectif : afficher une boîte colorée qui contient un titre et une phrase. Tu vas utiliser trois propriétés CSS très courantes : <code>background</code> (la couleur de fond), <code>padding</code> (l'espace intérieur) et <code>border-radius</code> (les coins arrondis).</p>
+<p>Voici le modèle à obtenir. Clique sur Exécuter pour l'afficher, puis lis le code attentivement.</p>
+<div class="pg" data-kind="html" data-frozen="1">
+<div class="pg-bar"><span class="pg-lang">HTML · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly rows="4">&lt;div style=&quot;background: #eaf1ff; padding: 20px; border-radius: 12px; max-width: 320px;&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Bonjour&lt;/h3&gt;
+  &lt;p&gt;Je suis une boîte toute simple : un fond, de l&#x27;espace autour du texte, des coins arrondis.&lt;/p&gt;
+&lt;/div&gt;</textarea></div>
+<textarea class="pg-initial" hidden>&lt;div style=&quot;background: #eaf1ff; padding: 20px; border-radius: 12px; max-width: 320px;&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Bonjour&lt;/h3&gt;
+  &lt;p&gt;Je suis une boîte toute simple : un fond, de l&#x27;espace autour du texte, des coins arrondis.&lt;/p&gt;
+&lt;/div&gt;</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>À toi de jouer. Le squelette est déjà en place, remplace les <code>____</code> par des valeurs, puis clique sur Exécuter.</p>
+<div class="pg" data-kind="html">
+<div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="4">&lt;div style=&quot;background: ____; padding: ____; border-radius: ____;&quot;&gt;
+  &lt;h3&gt;Bonjour&lt;/h3&gt;
+  &lt;p&gt;À moi de remplir les trois valeurs pour retrouver le modèle.&lt;/p&gt;
+&lt;/div&gt;</textarea></div>
+<textarea class="pg-initial" hidden>&lt;div style=&quot;background: ____; padding: ____; border-radius: ____;&quot;&gt;
+  &lt;h3&gt;Bonjour&lt;/h3&gt;
+  &lt;p&gt;À moi de remplir les trois valeurs pour retrouver le modèle.&lt;/p&gt;
+&lt;/div&gt;</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Quand ta boîte ressemble au modèle, l'exercice est réussi.</p>
+<h2 id="exercice-2-une-image-cadree">Exercice 2 : une image cadrée</h2>
+<p>Objectif : afficher une image dans un cadre carré, avec une bordure et des coins arrondis. La propriété importante est <code>object-fit: cover</code> : elle <strong>recadre</strong> l'image pour qu'elle remplisse le cadre sans se déformer.</p>
+<p>Le modèle :</p>
+<div class="pg" data-kind="html" data-frozen="1">
+<div class="pg-bar"><span class="pg-lang">HTML · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly rows="4">&lt;img
+  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
+  alt=&quot;photo d&#x27;exemple&quot;
+  style=&quot;width: 160px; height: 160px; object-fit: cover; border: 3px solid #3b82f6; border-radius: 12px;&quot;&gt;</textarea></div>
+<textarea class="pg-initial" hidden>&lt;img
+  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
+  alt=&quot;photo d&#x27;exemple&quot;
+  style=&quot;width: 160px; height: 160px; object-fit: cover; border: 3px solid #3b82f6; border-radius: 12px;&quot;&gt;</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>À toi. L'image de départ est déjà là, ajoute les styles entre les guillemets de <code>style</code>.</p>
+<div class="pg" data-kind="html">
+<div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="4">&lt;img
+  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
+  alt=&quot;photo d&#x27;exemple&quot;
+  style=&quot;&quot;&gt;</textarea></div>
+<textarea class="pg-initial" hidden>&lt;img
+  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
+  alt=&quot;photo d&#x27;exemple&quot;
+  style=&quot;&quot;&gt;</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Astuce : une fois que ça marche, enlève <code>object-fit: cover</code> et regarde. L'image se déforme, et tu comprends à quoi sert cette propriété.</p>
+<h2 id="exercice-3-une-image-qui-se-retourne-au-clic">Exercice 3 : une image qui se retourne au clic</h2>
+<p>Objectif : afficher une image et un bouton. Quand on clique sur le bouton, l'image se retourne comme dans un miroir. Une petite ligne de JavaScript entre en jeu : au clic, on ajoute ou on retire une classe CSS, et c'est cette classe qui retourne l'image.</p>
+<p>Le modèle, déjà fonctionnel. Clique sur Exécuter, puis sur le bouton.</p>
+<div class="pg" data-kind="html" data-frozen="1">
+<div class="pg-bar"><span class="pg-lang">HTML · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly rows="9">&lt;style&gt;
+  .miroir { transform: scaleX(-1); }
+  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+&lt;/style&gt;
+
+&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
+&lt;button onclick=&quot;document.getElementById(&#x27;photo&#x27;).classList.toggle(&#x27;miroir&#x27;)&quot;&gt;
+  Retourner l&#x27;image
+&lt;/button&gt;</textarea></div>
+<textarea class="pg-initial" hidden>&lt;style&gt;
+  .miroir { transform: scaleX(-1); }
+  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+&lt;/style&gt;
+
+&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
+&lt;button onclick=&quot;document.getElementById(&#x27;photo&#x27;).classList.toggle(&#x27;miroir&#x27;)&quot;&gt;
+  Retourner l&#x27;image
+&lt;/button&gt;</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>À toi. Le bouton et l'image sont en place, mais l'action au clic manque. Complète l'attribut <code>onclick</code> du bouton pour ajouter et retirer la classe <code>miroir</code>, comme dans le modèle.</p>
+<div class="pg" data-kind="html">
+<div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="9">&lt;style&gt;
+  .miroir { transform: scaleX(-1); }
+  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+&lt;/style&gt;
+
+&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
+&lt;button onclick=&quot;&quot;&gt;
+  Retourner l&#x27;image
+&lt;/button&gt;</textarea></div>
+<textarea class="pg-initial" hidden>&lt;style&gt;
+  .miroir { transform: scaleX(-1); }
+  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+&lt;/style&gt;
+
+&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
+&lt;button onclick=&quot;&quot;&gt;
+  Retourner l&#x27;image
+&lt;/button&gt;</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Quand le clic retourne bien l'image, tu tiens le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page. Tu es prêt pour le brief 1.</p></article>
+  <pre class="md-source" id="src-atelier" hidden><code># Atelier : reproduire en HTML et CSS
+
+Avant de te lancer dans ton projet, entraîne-toi sur trois petits modèles. Pour chacun, la méthode est la même : observe le résultat, lis le code, puis reproduis-le dans l&#x27;éditeur du dessous.
+
+Tu n&#x27;as rien à installer, tout se passe dans la page. Clique sur **▶ Exécuter** pour afficher le rendu de ton code, et sur ↺ pour repartir de zéro. Prends ton temps, et n&#x27;hésite pas à modifier une valeur pour voir ce qu&#x27;elle change.
+
+## Exercice 1 : une boîte
+
+Objectif : afficher une boîte colorée qui contient un titre et une phrase. Tu vas utiliser trois propriétés CSS très courantes : `background` (la couleur de fond), `padding` (l&#x27;espace intérieur) et `border-radius` (les coins arrondis).
+
+Voici le modèle à obtenir. Clique sur Exécuter pour l&#x27;afficher, puis lis le code attentivement.
+
+```htmlrun-frozen
+&lt;div style=&quot;background: #eaf1ff; padding: 20px; border-radius: 12px; max-width: 320px;&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Bonjour&lt;/h3&gt;
+  &lt;p&gt;Je suis une boîte toute simple : un fond, de l&#x27;espace autour du texte, des coins arrondis.&lt;/p&gt;
+&lt;/div&gt;
+```
+
+À toi de jouer. Le squelette est déjà en place, remplace les `____` par des valeurs, puis clique sur Exécuter.
+
+```htmlrun
+&lt;div style=&quot;background: ____; padding: ____; border-radius: ____;&quot;&gt;
+  &lt;h3&gt;Bonjour&lt;/h3&gt;
+  &lt;p&gt;À moi de remplir les trois valeurs pour retrouver le modèle.&lt;/p&gt;
+&lt;/div&gt;
+```
+
+Quand ta boîte ressemble au modèle, l&#x27;exercice est réussi.
+
+## Exercice 2 : une image cadrée
+
+Objectif : afficher une image dans un cadre carré, avec une bordure et des coins arrondis. La propriété importante est `object-fit: cover` : elle **recadre** l&#x27;image pour qu&#x27;elle remplisse le cadre sans se déformer.
+
+Le modèle :
+
+```htmlrun-frozen
+&lt;img
+  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
+  alt=&quot;photo d&#x27;exemple&quot;
+  style=&quot;width: 160px; height: 160px; object-fit: cover; border: 3px solid #3b82f6; border-radius: 12px;&quot;&gt;
+```
+
+À toi. L&#x27;image de départ est déjà là, ajoute les styles entre les guillemets de `style`.
+
+```htmlrun
+&lt;img
+  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
+  alt=&quot;photo d&#x27;exemple&quot;
+  style=&quot;&quot;&gt;
+```
+
+Astuce : une fois que ça marche, enlève `object-fit: cover` et regarde. L&#x27;image se déforme, et tu comprends à quoi sert cette propriété.
+
+## Exercice 3 : une image qui se retourne au clic
+
+Objectif : afficher une image et un bouton. Quand on clique sur le bouton, l&#x27;image se retourne comme dans un miroir. Une petite ligne de JavaScript entre en jeu : au clic, on ajoute ou on retire une classe CSS, et c&#x27;est cette classe qui retourne l&#x27;image.
+
+Le modèle, déjà fonctionnel. Clique sur Exécuter, puis sur le bouton.
+
+```htmlrun-frozen
+&lt;style&gt;
+  .miroir { transform: scaleX(-1); }
+  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+&lt;/style&gt;
+
+&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
+&lt;button onclick=&quot;document.getElementById(&#x27;photo&#x27;).classList.toggle(&#x27;miroir&#x27;)&quot;&gt;
+  Retourner l&#x27;image
+&lt;/button&gt;
+```
+
+À toi. Le bouton et l&#x27;image sont en place, mais l&#x27;action au clic manque. Complète l&#x27;attribut `onclick` du bouton pour ajouter et retirer la classe `miroir`, comme dans le modèle.
+
+```htmlrun
+&lt;style&gt;
+  .miroir { transform: scaleX(-1); }
+  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+&lt;/style&gt;
+
+&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
+&lt;button onclick=&quot;&quot;&gt;
+  Retourner l&#x27;image
+&lt;/button&gt;
+```
+
+Quand le clic retourne bien l&#x27;image, tu tiens le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page. Tu es prêt pour le brief 1.
+</code></pre>
+</section>
 <section class="page" id="brief-1" hidden>
   <div class="page-toolbar">
     <button class="src-toggle" data-src="src-brief-1">Voir la source Markdown</button>
@@ -1415,7 +1625,7 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <p>Une page web, c'est trois langages qui travaillent ensemble : le <strong>HTML</strong> (le contenu et la structure : « voici un titre, voici une image »), le <strong>CSS</strong> (l'apparence : couleurs, polices, mise en page) et le <strong>JavaScript</strong> (le comportement : ce qui bouge quand on clique). On va les découvrir dans cet ordre, du plus simple au plus vivant.</p>
 <p>Le but du jour : construire <strong>ta page de présentation</strong>, une mini-page qui met en valeur l'application que tu as créée avec Google AI Studio (son nom, ce qu'elle fait, une capture, un lien pour l'essayer). C'est la première brique d'un projet qu'on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.</p>
 <blockquote>
-<p>Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet perso, une asso, un truc qui te tient à cœur, au lieu de l'appli AI Studio. Les étapes restent exactement les mêmes.</p>
+<p>Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet personnel, une association, ou un sujet qui te tient à cœur, au lieu de l'application AI Studio. Les étapes restent exactement les mêmes.</p>
 </blockquote>
 <h2 id="ressources">Ressources</h2>
 <ul>
@@ -1541,7 +1751,7 @@ Une page web, c&#x27;est trois langages qui travaillent ensemble : le **HTML** (
 
 Le but du jour : construire **ta page de présentation**, une mini-page qui met en valeur l&#x27;application que tu as créée avec Google AI Studio (son nom, ce qu&#x27;elle fait, une capture, un lien pour l&#x27;essayer). C&#x27;est la première brique d&#x27;un projet qu&#x27;on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.
 
-&gt; Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet perso, une asso, un truc qui te tient à cœur, au lieu de l&#x27;appli AI Studio. Les étapes restent exactement les mêmes.
+&gt; Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet personnel, une association, ou un sujet qui te tient à cœur, au lieu de l&#x27;application AI Studio. Les étapes restent exactement les mêmes.
 
 ## Ressources
 
@@ -1673,438 +1883,6 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 </code></pre>
 </section>
-<section class="page" id="brief-2" hidden>
-  <div class="page-toolbar">
-    <button class="src-toggle" data-src="src-brief-2">Voir la source Markdown</button>
-  </div>
-  <article class="prose"><h1 id="brief-2-en-ligne-github-pages-une-feature-js">Brief 2 : en ligne ! (GitHub Pages + une feature JS)</h1>
-<ul>
-<li><strong>Type</strong> : brief individuel</li>
-<li><strong>Durée visée</strong> : 1 journée (7h)</li>
-<li><strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales</li>
-<li><strong>Pré-requis</strong> : avoir fini le cœur du <a href="#brief-1">brief 1</a>.</li>
-</ul>
-<p>Ta page n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une <strong>adresse publique</strong> que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.</p>
-<h2 id="contexte-du-projet">Contexte du projet</h2>
-<p>Mettre un site « en ligne », c'est le déposer sur un serveur accessible à tous. GitHub propose ça gratuitement avec <strong>GitHub Pages</strong> : tu déposes tes fichiers sur GitHub (une plateforme où les développeurs stockent et partagent leur code), et GitHub publie automatiquement ta page sur une URL publique.</p>
-<p>Au passage, tu découvres <strong>GitHub</strong>, l'outil que tu retrouveras dans absolument toutes les entreprises tech. On reste sur l'essentiel : déposer des fichiers, les mettre à jour, publier.</p>
-<h2 id="ressources">Ressources</h2>
-<ul>
-<li>GitHub Pages, démarrage : <a href="https://pages.github.com/">https://pages.github.com/</a></li>
-<li>Doc GitHub (upload de fichiers via le navigateur) : <a href="https://docs.github.com/fr/repositories">https://docs.github.com/fr/repositories</a></li>
-<li>Tutoriel Git pas à pas (pour l'étape bonus) : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a></li>
-<li>Antisèche Markdown : <a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></li>
-<li>Galerie d'idées de features JS : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting">https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting</a></li>
-</ul>
-<h2 id="modalites-pedagogiques">Modalités pédagogiques</h2>
-<p>Travail individuel. Le formateur fait la première mise en ligne en démo, puis chacun refait avec ses fichiers. Avance pas à pas et vérifie chaque résultat avant de continuer.</p>
-<h3 class="is-principal" id="etape-1-principal-creer-son-depot-et-publier">Étape 1 (⭐ principal) : créer son dépôt et publier</h3>
-<p>Objectif : comprendre la différence entre « le fichier sur mon ordi » et « le site publié », et savoir mettre à jour le site.</p>
-<ol>
-<li>Crée un compte GitHub (si tu n'en as pas) et confirme ton adresse e-mail.</li>
-<li>Clique sur « New repository » pour créer un nouveau dépôt.</li>
-<li>Nomme-le <strong>exactement</strong> <code>ton-pseudo.github.io</code> (remplace <code>ton-pseudo</code> par ton pseudo GitHub) et coche « Public ».</li>
-<li>Sur la page du dépôt, clique « Add file » → « Upload files ».</li>
-<li>Glisse-dépose tes fichiers du brief 1 (<code>index.html</code>, <code>style.css</code>, <code>script.js</code>) puis clique « Commit changes ».</li>
-<li>Va dans l'onglet « Settings » → « Pages » et vérifie que la source est bien la branche <code>main</code>.</li>
-<li>Attends une minute, puis ouvre <code>https://ton-pseudo.github.io</code>. Ta page doit s'afficher.</li>
-<li>Teste une mise à jour : modifie une couleur dans <code>style.css</code> sur ton ordi, ré-uploade le fichier, et recharge l'URL pour voir le changement.</li>
-</ol>
-<h3 class="is-principal" id="etape-2-principal-un-vrai-readme-en-markdown">Étape 2 (⭐ principal) : un vrai README en Markdown</h3>
-<p>Objectif : voir le Markdown servir « pour de vrai » et comprendre le rôle d'un README.</p>
-<ol>
-<li>Sur le dépôt, clique « Add file » → « Create new file » et nomme-le <code>README.md</code>.</li>
-<li>Écris un titre (<code>#</code>) avec le nom du projet et une phrase de description.</li>
-<li>Ajoute le lien cliquable vers ton site publié : <code>[Voir le site](https://ton-pseudo.github.io)</code>.</li>
-<li>Ajoute une petite liste de ce que contient ta page.</li>
-<li>Ajoute une capture d'écran : uploade une image dans le dépôt puis insère-la avec <code>![ma page](nom-image.png)</code>.</li>
-<li>« Commit » et vérifie que le README s'affiche, joliment formaté, en page d'accueil du dépôt.</li>
-</ol>
-<h3 class="is-principal" id="etape-3-principal-une-fonctionnalite-js-au-choix">Étape 3 (⭐ principal) : une fonctionnalité JS au choix</h3>
-<p>Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit le JS découvert au brief 1 et au cours.</p>
-<ol>
-<li>Choisis <strong>une seule</strong> fonctionnalité, mais qui marche bien :<ul>
-<li>un <strong>générateur de compliments</strong> (un bouton tire une phrase au hasard dans une liste),</li>
-<li>un <strong>lanceur de dé</strong> ou une <strong>roue de décision</strong> (« qui ramène le café ? »),</li>
-<li>une <strong>mini-horloge</strong> ou un compteur de jours avant un événement,</li>
-<li>un <strong>mini-quiz</strong> de 3 questions avec score,</li>
-<li>un <strong>fond qui change</strong> de couleur à chaque clic.</li>
-</ul>
-</li>
-<li>Ajoute dans le HTML les éléments dont tu as besoin (un bouton, une zone de résultat).</li>
-<li>Dans <code>script.js</code>, récupère ces éléments avec <code>document.querySelector(...)</code>.</li>
-<li>Branche le clic avec <code>addEventListener</code> et fais l'effet voulu (inspire-toi des exemples du cours).</li>
-<li>Teste en local, puis ré-uploade les fichiers modifiés sur GitHub.</li>
-<li>Vérifie que la fonctionnalité marche sur l'URL publique.</li>
-</ol>
-<h3 class="is-bonus" id="etape-4-bonus-si-le-temps">Étape 4 (○ bonus, si le temps)</h3>
-<ol>
-<li><strong>Initiation à Git en ligne de commande.</strong> C'est la « vraie » façon de travailler ; ceux qui galèrent restent sur l'upload web. Suis le tutoriel pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a>. Dans l'ordre :<ol>
-<li>installe Git et configure ton nom / e-mail,</li>
-<li><code>git clone</code> ton dépôt sur ton ordi,</li>
-<li>modifie un fichier,</li>
-<li><code>git add</code> puis <code>git commit -m "mon message"</code>,</li>
-<li><code>git push</code> et vérifie que le changement apparaît en ligne.</li>
-</ol>
-</li>
-<li>Connecter un <strong>nom de domaine</strong> personnalisé (au moins comprendre le principe).</li>
-<li>Ajouter une <strong>deuxième</strong> fonctionnalité JS.</li>
-<li>Soigner le <strong>responsive</strong> et l'accessibilité (textes alternatifs des images).</li>
-</ol>
-<h2 id="modalites-devaluation">Modalités d'évaluation</h2>
-<p>Le formateur ouvre l'URL publique de chaque élève depuis son propre poste pour vérifier que le site est bien en ligne et que la feature fonctionne. Dépôt du lien sur SimplonLine.</p>
-<h2 id="livrables">Livrables</h2>
-<ol>
-<li>L'<strong>URL publique</strong> du site (<code>https://ton-pseudo.github.io</code>), déposée sur SimplonLine.</li>
-<li>Le dépôt GitHub contenant les fichiers + un <code>README.md</code> formaté.</li>
-<li>Mise à jour du <code>JOURNAL.md</code> : explique ce qu'est GitHub Pages et décris ta feature JS.</li>
-</ol>
-<h2 id="criteres-de-performance">Critères de performance</h2>
-<ul>
-<li>Le site est accessible publiquement à son URL, depuis n'importe quel appareil.</li>
-<li>Le <code>README.md</code> s'affiche correctement formaté sur la page du dépôt et contient un lien cliquable vers le site.</li>
-<li>La fonctionnalité JS ajoutée fonctionne sans erreur dans le navigateur.</li>
-<li>L'élève sait expliquer comment mettre à jour son site après une modification.</li>
-</ul>
-<h2 id="situation-professionnelle">Situation professionnelle</h2>
-<p>Hébergement et publication d'un site web statique, découverte de GitHub.</p>
-<h2 id="besoin-vise-ou-probleme-rencontre">Besoin visé ou problème rencontré</h2>
-<p>Toute entreprise tech utilise GitHub pour stocker, partager et publier du code. Savoir déposer un site, le publier et le documenter avec un README est un réflexe attendu dès le premier jour en poste. C'est aussi la base pour collaborer en équipe et montrer son travail à un recruteur (un portfolio en ligne vaut mieux qu'un fichier sur un disque dur).</p>
-<h2 id="competences-visees">Compétences visées</h2>
-<p><strong>C1. Planifier le travail à effectuer individuellement</strong>
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
-<p><strong>C2. Contribuer au pilotage de l'organisation du travail individuel et collectif</strong>
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
-<p><strong>C4. Rechercher de façon méthodique une ou des solutions au problème rencontré</strong>
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
-  <pre class="md-source" id="src-brief-2" hidden><code># Brief 2 : en ligne ! (GitHub Pages + une feature JS)
-
-- **Type** : brief individuel
-- **Durée visée** : 1 journée (7h)
-- **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
-- **Pré-requis** : avoir fini le cœur du [brief 1](#brief-1).
-
-Ta page n&#x27;existe que sur ton ordinateur. Aujourd&#x27;hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
-
-## Contexte du projet
-
-Mettre un site « en ligne », c&#x27;est le déposer sur un serveur accessible à tous. GitHub propose ça gratuitement avec **GitHub Pages** : tu déposes tes fichiers sur GitHub (une plateforme où les développeurs stockent et partagent leur code), et GitHub publie automatiquement ta page sur une URL publique.
-
-Au passage, tu découvres **GitHub**, l&#x27;outil que tu retrouveras dans absolument toutes les entreprises tech. On reste sur l&#x27;essentiel : déposer des fichiers, les mettre à jour, publier.
-
-## Ressources
-
-- GitHub Pages, démarrage : &lt;https://pages.github.com/&gt;
-- Doc GitHub (upload de fichiers via le navigateur) : &lt;https://docs.github.com/fr/repositories&gt;
-- Tutoriel Git pas à pas (pour l&#x27;étape bonus) : &lt;https://github.com/Selimmmm/git_step_by_step&gt;
-- Antisèche Markdown : &lt;https://www.markdownguide.org/cheat-sheet/&gt;
-- Galerie d&#x27;idées de features JS : &lt;https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting&gt;
-
-## Modalités pédagogiques
-
-Travail individuel. Le formateur fait la première mise en ligne en démo, puis chacun refait avec ses fichiers. Avance pas à pas et vérifie chaque résultat avant de continuer.
-
-### Étape 1 (⭐ principal) : créer son dépôt et publier
-
-Objectif : comprendre la différence entre « le fichier sur mon ordi » et « le site publié », et savoir mettre à jour le site.
-
-1. Crée un compte GitHub (si tu n&#x27;en as pas) et confirme ton adresse e-mail.
-2. Clique sur « New repository » pour créer un nouveau dépôt.
-3. Nomme-le **exactement** `ton-pseudo.github.io` (remplace `ton-pseudo` par ton pseudo GitHub) et coche « Public ».
-4. Sur la page du dépôt, clique « Add file » → « Upload files ».
-5. Glisse-dépose tes fichiers du brief 1 (`index.html`, `style.css`, `script.js`) puis clique « Commit changes ».
-6. Va dans l&#x27;onglet « Settings » → « Pages » et vérifie que la source est bien la branche `main`.
-7. Attends une minute, puis ouvre `https://ton-pseudo.github.io`. Ta page doit s&#x27;afficher.
-8. Teste une mise à jour : modifie une couleur dans `style.css` sur ton ordi, ré-uploade le fichier, et recharge l&#x27;URL pour voir le changement.
-
-### Étape 2 (⭐ principal) : un vrai README en Markdown
-
-Objectif : voir le Markdown servir « pour de vrai » et comprendre le rôle d&#x27;un README.
-
-1. Sur le dépôt, clique « Add file » → « Create new file » et nomme-le `README.md`.
-2. Écris un titre (`#`) avec le nom du projet et une phrase de description.
-3. Ajoute le lien cliquable vers ton site publié : `[Voir le site](https://ton-pseudo.github.io)`.
-4. Ajoute une petite liste de ce que contient ta page.
-5. Ajoute une capture d&#x27;écran : uploade une image dans le dépôt puis insère-la avec `![ma page](nom-image.png)`.
-6. « Commit » et vérifie que le README s&#x27;affiche, joliment formaté, en page d&#x27;accueil du dépôt.
-
-### Étape 3 (⭐ principal) : une fonctionnalité JS au choix
-
-Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit le JS découvert au brief 1 et au cours.
-
-1. Choisis **une seule** fonctionnalité, mais qui marche bien :
-    - un **générateur de compliments** (un bouton tire une phrase au hasard dans une liste),
-    - un **lanceur de dé** ou une **roue de décision** (« qui ramène le café ? »),
-    - une **mini-horloge** ou un compteur de jours avant un événement,
-    - un **mini-quiz** de 3 questions avec score,
-    - un **fond qui change** de couleur à chaque clic.
-2. Ajoute dans le HTML les éléments dont tu as besoin (un bouton, une zone de résultat).
-3. Dans `script.js`, récupère ces éléments avec `document.querySelector(...)`.
-4. Branche le clic avec `addEventListener` et fais l&#x27;effet voulu (inspire-toi des exemples du cours).
-5. Teste en local, puis ré-uploade les fichiers modifiés sur GitHub.
-6. Vérifie que la fonctionnalité marche sur l&#x27;URL publique.
-
-### Étape 4 (○ bonus, si le temps)
-
-1. **Initiation à Git en ligne de commande.** C&#x27;est la « vraie » façon de travailler ; ceux qui galèrent restent sur l&#x27;upload web. Suis le tutoriel pas à pas : &lt;https://github.com/Selimmmm/git_step_by_step&gt;. Dans l&#x27;ordre :
-    1. installe Git et configure ton nom / e-mail,
-    2. `git clone` ton dépôt sur ton ordi,
-    3. modifie un fichier,
-    4. `git add` puis `git commit -m &quot;mon message&quot;`,
-    5. `git push` et vérifie que le changement apparaît en ligne.
-2. Connecter un **nom de domaine** personnalisé (au moins comprendre le principe).
-3. Ajouter une **deuxième** fonctionnalité JS.
-4. Soigner le **responsive** et l&#x27;accessibilité (textes alternatifs des images).
-
-## Modalités d&#x27;évaluation
-
-Le formateur ouvre l&#x27;URL publique de chaque élève depuis son propre poste pour vérifier que le site est bien en ligne et que la feature fonctionne. Dépôt du lien sur SimplonLine.
-
-## Livrables
-
-1. L&#x27;**URL publique** du site (`https://ton-pseudo.github.io`), déposée sur SimplonLine.
-2. Le dépôt GitHub contenant les fichiers + un `README.md` formaté.
-3. Mise à jour du `JOURNAL.md` : explique ce qu&#x27;est GitHub Pages et décris ta feature JS.
-
-## Critères de performance
-
-- Le site est accessible publiquement à son URL, depuis n&#x27;importe quel appareil.
-- Le `README.md` s&#x27;affiche correctement formaté sur la page du dépôt et contient un lien cliquable vers le site.
-- La fonctionnalité JS ajoutée fonctionne sans erreur dans le navigateur.
-- L&#x27;élève sait expliquer comment mettre à jour son site après une modification.
-
-## Situation professionnelle
-
-Hébergement et publication d&#x27;un site web statique, découverte de GitHub.
-
-## Besoin visé ou problème rencontré
-
-Toute entreprise tech utilise GitHub pour stocker, partager et publier du code. Savoir déposer un site, le publier et le documenter avec un README est un réflexe attendu dès le premier jour en poste. C&#x27;est aussi la base pour collaborer en équipe et montrer son travail à un recruteur (un portfolio en ligne vaut mieux qu&#x27;un fichier sur un disque dur).
-
-## Compétences visées
-
-**C1. Planifier le travail à effectuer individuellement**
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
-
-**C2. Contribuer au pilotage de l&#x27;organisation du travail individuel et collectif**
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
-
-**C4. Rechercher de façon méthodique une ou des solutions au problème rencontré**
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
-</code></pre>
-</section>
-<section class="page" id="brief-3" hidden>
-  <div class="page-toolbar">
-    <button class="src-toggle" data-src="src-brief-3">Voir la source Markdown</button>
-  </div>
-  <article class="prose"><h1 id="brief-3-le-mur-de-la-promo-supabase-sans-backend">Brief 3 : le mur de la promo (Supabase, sans backend)</h1>
-<ul>
-<li><strong>Type</strong> : brief individuel (avec effet collectif)</li>
-<li><strong>Durée visée</strong> : 1 journée (7h), la plus dense</li>
-<li><strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales</li>
-<li><strong>Pré-requis</strong> : avoir un site en ligne (<a href="#brief-2">brief 2</a>).</li>
-</ul>
-<p>Jusqu'ici, ta page affiche toujours le même contenu. Aujourd'hui, tu lui ajoutes un livre d'or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.</p>
-<h2 id="contexte-du-projet">Contexte du projet</h2>
-<p>Une base de données, c'est là où une application range ses informations pour les retrouver plus tard (les messages, les comptes, les commandes...). D'habitude, pour y accéder, il faut un <strong>backend</strong> : un programme qui tourne sur un serveur et fait l'intermédiaire entre la page web et la base.</p>
-<p><strong>Supabase</strong> change la donne : dès qu'on crée une table, il génère automatiquement une <strong>API</strong> (un point d'accès standardisé) qu'on peut appeler <strong>directement depuis le JavaScript du navigateur</strong>. Pas de backend à écrire. C'est exactement ce qu'explique cet article : <a href="https://supabase.com/blog/simplify-backend-with-data-api">https://supabase.com/blog/simplify-backend-with-data-api</a>.</p>
-<p>Le point de vigilance, c'est la <strong>sécurité</strong>. La clé qu'on met dans le code (la clé « anon ») est publique, c'est normal. Ce qui protège les données, ce sont les règles <strong>RLS</strong> (Row Level Security) définies dans Supabase : elles disent qui a le droit de lire et d'écrire quoi. Pour notre mur public, la règle est simple (« tout le monde peut lire et ajouter un message »), et on prendra 15 minutes pour comprendre <strong>pourquoi cette règle serait dangereuse</strong> sur des données sensibles (un mot de passe, un dossier médical).</p>
-<h2 id="ressources">Ressources</h2>
-<ul>
-<li>Article de référence (à lire au début) : <a href="https://supabase.com/blog/simplify-backend-with-data-api">https://supabase.com/blog/simplify-backend-with-data-api</a></li>
-<li>Doc Supabase JavaScript : <a href="https://supabase.com/docs/reference/javascript/introduction">https://supabase.com/docs/reference/javascript/introduction</a></li>
-<li>L'<strong>URL du projet</strong> et la <strong>clé anon</strong> fournies par le formateur (projet Supabase partagé par la promo).</li>
-</ul>
-<h2 id="modalites-pedagogiques">Modalités pédagogiques</h2>
-<p>Travail individuel sur un <strong>projet Supabase partagé</strong> (le formateur le crée et distribue l'URL + la clé anon, pour ne pas perdre de temps). Le formateur fait la démo complète une fois, puis chacun branche son propre site.</p>
-<p>La table est déjà créée par le formateur, avec ces colonnes : <code>id</code>, <code>created_at</code>, <code>auteur</code> (texte), <code>message</code> (texte). RLS activée avec une politique « lecture + insertion pour tous ».</p>
-<h3 class="is-principal" id="etape-1-principal-lire-les-messages">Étape 1 (⭐ principal) : lire les messages</h3>
-<p>Objectif : comprendre qu'un appel JS va chercher des données ailleurs et les affiche. Premier « aller-retour » avec une base de données.</p>
-<ol>
-<li>Dans <code>index.html</code>, charge la librairie Supabase avec une ligne de <code>&lt;script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"&gt;&lt;/script&gt;</code>.</li>
-<li>Récupère auprès du formateur l'<strong>URL du projet</strong> et la <strong>clé anon</strong>.</li>
-<li>Crée le client : <code>const supabase = window.supabase.createClient(URL, CLE_ANON);</code>.</li>
-<li>Ajoute dans la page une zone vide où afficher les messages : <code>&lt;div id="mur"&gt;&lt;/div&gt;</code>.</li>
-<li>Écris une fonction qui va chercher les messages et vérifie d'abord dans la console :</li>
-</ol>
-<p><code>javascript
-   const { data, error } = await supabase
-     .from('messages')
-     .select('*')
-     .order('created_at', { ascending: false });
-   console.log(data);</code>
-6. Parcours <code>data</code> avec <code>forEach</code> et, pour chaque message, ajoute un élément dans <code>#mur</code> (auteur + message).</p>
-<h3 class="is-principal" id="etape-2-principal-ecrire-un-message">Étape 2 (⭐ principal) : écrire un message</h3>
-<p>Objectif : comprendre le <strong>CRUD</strong> (créer / lire), et voir l'effet collectif : ton message apparaît chez tout le monde.</p>
-<ol>
-<li>Ajoute un petit formulaire : un champ « ton nom », un champ « ton message », un bouton « Envoyer ».</li>
-<li>Au clic sur le bouton, récupère les valeurs des deux champs.</li>
-<li>Insère le message dans la table :</li>
-</ol>
-<p><code>javascript
-   await supabase
-     .from('messages')
-     .insert({ auteur: nom, message: texte });</code>
-4. Après l'insertion, rappelle ta fonction d'affichage pour recharger la liste.
-5. Teste : ton message apparaît. Demande à un voisin d'en poster un : il apparaît aussi chez toi.</p>
-<h3 class="is-principal" id="etape-3-principal-comprendre-la-securite">Étape 3 (⭐ principal) : comprendre la sécurité</h3>
-<p>Pas de code ici, une <strong>discussion guidée</strong> de 15 à 20 min animée par le formateur. Note tes réponses dans <code>JOURNAL.md</code> :</p>
-<ol>
-<li>Pourquoi la clé anon peut-elle être publique, visible dans le code ?</li>
-<li>Qu'est-ce que RLS (Row Level Security) empêche exactement ?</li>
-<li>Pourquoi la règle « tout le monde peut écrire » est ok pour un mur public mais serait catastrophique pour des mots de passe ou un dossier médical ?</li>
-</ol>
-<h3 class="is-bonus" id="etape-4-bonus-si-le-temps">Étape 4 (○ bonus, si le temps)</h3>
-<ol>
-<li><strong>Tri et filtres</strong> : afficher les plus récents en premier, ou filtrer par auteur.</li>
-<li><strong>Suppression</strong> : un bouton « supprimer » (et constater que RLS pourrait l'interdire aux autres : bonne occasion de reparler sécurité).</li>
-<li><strong>Anti-spam léger</strong> : empêcher l'envoi d'un message vide.</li>
-<li><strong>Ton propre projet</strong> : créer ton projet Supabase, ta table, et configurer la politique RLS toi-même depuis l'interface.</li>
-<li><strong>Auth</strong> : découvrir Supabase Auth (connexion par e-mail) et n'autoriser l'écriture qu'aux personnes connectées.</li>
-</ol>
-<h2 id="modalites-devaluation">Modalités d'évaluation</h2>
-<p>Démonstration en direct : l'élève écrit un message sur son site, le formateur vérifie qu'il apparaît sur le mur partagé (donc sur d'autres sites). Dépôt du lien et du journal sur SimplonLine.</p>
-<h2 id="livrables">Livrables</h2>
-<ol>
-<li>Le site mis à jour, en ligne, avec le mur de messages <strong>lecture + écriture</strong> fonctionnel.</li>
-<li>Le <code>JOURNAL.md</code> complété avec la partie <strong>sécurité</strong> (clé anon, RLS, pourquoi c'est ok ici).</li>
-<li>(Bonus) Une courte note Markdown ou Google Doc « Ce que je ferais différemment pour des données sensibles ».</li>
-</ol>
-<h2 id="criteres-de-performance">Critères de performance</h2>
-<ul>
-<li>Le site lit et affiche les messages de la base Supabase.</li>
-<li>Le site permet d'ajouter un nouveau message, qui est bien enregistré dans la base.</li>
-<li>L'élève sait expliquer, à l'oral ou dans son journal, le rôle de la clé anon et de RLS.</li>
-<li>L'effet collectif est constaté : un message écrit sur un site apparaît sur les autres.</li>
-</ul>
-<h2 id="situation-professionnelle">Situation professionnelle</h2>
-<p>Connexion d'une application front-end à une base de données via une API, sans backend dédié.</p>
-<h2 id="besoin-vise-ou-probleme-rencontre">Besoin visé ou problème rencontré</h2>
-<p>Les entreprises veulent livrer vite des produits qui manipulent des données (formulaires, listes, comptes) sans payer la complexité d'un backend complet. Des solutions comme Supabase répondent à ce besoin en exposant une API directement utilisable depuis le front. Savoir brancher une page web sur une telle API, et comprendre les enjeux de sécurité associés (clé publique, règles d'accès), est une compétence directement employable dans une petite équipe ou une startup.</p>
-<h2 id="competences-visees">Compétences visées</h2>
-<p><strong>C1. Planifier le travail à effectuer individuellement</strong>
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
-<p><strong>C3. Définir le périmètre d'un problème rencontré en adoptant une démarche inductive</strong>
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
-<p><strong>C4. Rechercher de façon méthodique une ou des solutions au problème rencontré</strong>
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
-  <pre class="md-source" id="src-brief-3" hidden><code># Brief 3 : le mur de la promo (Supabase, sans backend)
-
-- **Type** : brief individuel (avec effet collectif)
-- **Durée visée** : 1 journée (7h), la plus dense
-- **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
-- **Pré-requis** : avoir un site en ligne ([brief 2](#brief-2)).
-
-Jusqu&#x27;ici, ta page affiche toujours le même contenu. Aujourd&#x27;hui, tu lui ajoutes un livre d&#x27;or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.
-
-## Contexte du projet
-
-Une base de données, c&#x27;est là où une application range ses informations pour les retrouver plus tard (les messages, les comptes, les commandes...). D&#x27;habitude, pour y accéder, il faut un **backend** : un programme qui tourne sur un serveur et fait l&#x27;intermédiaire entre la page web et la base.
-
-**Supabase** change la donne : dès qu&#x27;on crée une table, il génère automatiquement une **API** (un point d&#x27;accès standardisé) qu&#x27;on peut appeler **directement depuis le JavaScript du navigateur**. Pas de backend à écrire. C&#x27;est exactement ce qu&#x27;explique cet article : &lt;https://supabase.com/blog/simplify-backend-with-data-api&gt;.
-
-Le point de vigilance, c&#x27;est la **sécurité**. La clé qu&#x27;on met dans le code (la clé « anon ») est publique, c&#x27;est normal. Ce qui protège les données, ce sont les règles **RLS** (Row Level Security) définies dans Supabase : elles disent qui a le droit de lire et d&#x27;écrire quoi. Pour notre mur public, la règle est simple (« tout le monde peut lire et ajouter un message »), et on prendra 15 minutes pour comprendre **pourquoi cette règle serait dangereuse** sur des données sensibles (un mot de passe, un dossier médical).
-
-## Ressources
-
-- Article de référence (à lire au début) : &lt;https://supabase.com/blog/simplify-backend-with-data-api&gt;
-- Doc Supabase JavaScript : &lt;https://supabase.com/docs/reference/javascript/introduction&gt;
-- L&#x27;**URL du projet** et la **clé anon** fournies par le formateur (projet Supabase partagé par la promo).
-
-## Modalités pédagogiques
-
-Travail individuel sur un **projet Supabase partagé** (le formateur le crée et distribue l&#x27;URL + la clé anon, pour ne pas perdre de temps). Le formateur fait la démo complète une fois, puis chacun branche son propre site.
-
-La table est déjà créée par le formateur, avec ces colonnes : `id`, `created_at`, `auteur` (texte), `message` (texte). RLS activée avec une politique « lecture + insertion pour tous ».
-
-### Étape 1 (⭐ principal) : lire les messages
-
-Objectif : comprendre qu&#x27;un appel JS va chercher des données ailleurs et les affiche. Premier « aller-retour » avec une base de données.
-
-1. Dans `index.html`, charge la librairie Supabase avec une ligne de `&lt;script src=&quot;https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2&quot;&gt;&lt;/script&gt;`.
-2. Récupère auprès du formateur l&#x27;**URL du projet** et la **clé anon**.
-3. Crée le client : `const supabase = window.supabase.createClient(URL, CLE_ANON);`.
-4. Ajoute dans la page une zone vide où afficher les messages : `&lt;div id=&quot;mur&quot;&gt;&lt;/div&gt;`.
-5. Écris une fonction qui va chercher les messages et vérifie d&#x27;abord dans la console :
-
-   ```javascript
-   const { data, error } = await supabase
-     .from(&#x27;messages&#x27;)
-     .select(&#x27;*&#x27;)
-     .order(&#x27;created_at&#x27;, { ascending: false });
-   console.log(data);
-   ```
-6. Parcours `data` avec `forEach` et, pour chaque message, ajoute un élément dans `#mur` (auteur + message).
-
-### Étape 2 (⭐ principal) : écrire un message
-
-Objectif : comprendre le **CRUD** (créer / lire), et voir l&#x27;effet collectif : ton message apparaît chez tout le monde.
-
-1. Ajoute un petit formulaire : un champ « ton nom », un champ « ton message », un bouton « Envoyer ».
-2. Au clic sur le bouton, récupère les valeurs des deux champs.
-3. Insère le message dans la table :
-
-   ```javascript
-   await supabase
-     .from(&#x27;messages&#x27;)
-     .insert({ auteur: nom, message: texte });
-   ```
-4. Après l&#x27;insertion, rappelle ta fonction d&#x27;affichage pour recharger la liste.
-5. Teste : ton message apparaît. Demande à un voisin d&#x27;en poster un : il apparaît aussi chez toi.
-
-### Étape 3 (⭐ principal) : comprendre la sécurité
-
-Pas de code ici, une **discussion guidée** de 15 à 20 min animée par le formateur. Note tes réponses dans `JOURNAL.md` :
-
-1. Pourquoi la clé anon peut-elle être publique, visible dans le code ?
-2. Qu&#x27;est-ce que RLS (Row Level Security) empêche exactement ?
-3. Pourquoi la règle « tout le monde peut écrire » est ok pour un mur public mais serait catastrophique pour des mots de passe ou un dossier médical ?
-
-### Étape 4 (○ bonus, si le temps)
-
-1. **Tri et filtres** : afficher les plus récents en premier, ou filtrer par auteur.
-2. **Suppression** : un bouton « supprimer » (et constater que RLS pourrait l&#x27;interdire aux autres : bonne occasion de reparler sécurité).
-3. **Anti-spam léger** : empêcher l&#x27;envoi d&#x27;un message vide.
-4. **Ton propre projet** : créer ton projet Supabase, ta table, et configurer la politique RLS toi-même depuis l&#x27;interface.
-5. **Auth** : découvrir Supabase Auth (connexion par e-mail) et n&#x27;autoriser l&#x27;écriture qu&#x27;aux personnes connectées.
-
-## Modalités d&#x27;évaluation
-
-Démonstration en direct : l&#x27;élève écrit un message sur son site, le formateur vérifie qu&#x27;il apparaît sur le mur partagé (donc sur d&#x27;autres sites). Dépôt du lien et du journal sur SimplonLine.
-
-## Livrables
-
-1. Le site mis à jour, en ligne, avec le mur de messages **lecture + écriture** fonctionnel.
-2. Le `JOURNAL.md` complété avec la partie **sécurité** (clé anon, RLS, pourquoi c&#x27;est ok ici).
-3. (Bonus) Une courte note Markdown ou Google Doc « Ce que je ferais différemment pour des données sensibles ».
-
-## Critères de performance
-
-- Le site lit et affiche les messages de la base Supabase.
-- Le site permet d&#x27;ajouter un nouveau message, qui est bien enregistré dans la base.
-- L&#x27;élève sait expliquer, à l&#x27;oral ou dans son journal, le rôle de la clé anon et de RLS.
-- L&#x27;effet collectif est constaté : un message écrit sur un site apparaît sur les autres.
-
-## Situation professionnelle
-
-Connexion d&#x27;une application front-end à une base de données via une API, sans backend dédié.
-
-## Besoin visé ou problème rencontré
-
-Les entreprises veulent livrer vite des produits qui manipulent des données (formulaires, listes, comptes) sans payer la complexité d&#x27;un backend complet. Des solutions comme Supabase répondent à ce besoin en exposant une API directement utilisable depuis le front. Savoir brancher une page web sur une telle API, et comprendre les enjeux de sécurité associés (clé publique, règles d&#x27;accès), est une compétence directement employable dans une petite équipe ou une startup.
-
-## Compétences visées
-
-**C1. Planifier le travail à effectuer individuellement**
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
-
-**C3. Définir le périmètre d&#x27;un problème rencontré en adoptant une démarche inductive**
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
-
-**C4. Rechercher de façon méthodique une ou des solutions au problème rencontré**
-niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
-</code></pre>
-</section>
   </main>
 
   <script>
@@ -2152,8 +1930,9 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
     function pgHighlight(ta) {
       var holder = ta.parentNode.querySelector('.pg-hl code');
       if (!holder) return;
-      if (window.Prism && Prism.languages && Prism.languages.javascript) {
-        holder.innerHTML = Prism.highlight(ta.value, Prism.languages.javascript, 'javascript');
+      var lang = holder.className.indexOf('language-markup') >= 0 ? 'markup' : 'javascript';
+      if (window.Prism && Prism.languages && Prism.languages[lang]) {
+        holder.innerHTML = Prism.highlight(ta.value, Prism.languages[lang], lang);
       } else {
         holder.textContent = ta.value;
       }
@@ -2179,15 +1958,34 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
         '})();<\/scr' + 'ipt></body></html>'].join('');
     }
 
+    function pgSrcdocHtml(code, token) {
+      return ['<!doctype html><html><head><meta charset="utf-8"><style>',
+        'body{font:14px/1.6 system-ui,-apple-system,sans-serif;color:#1f2430;margin:12px}',
+        'button{font:inherit;padding:5px 11px;border:1px solid #cfd4dd;border-radius:7px;background:#f3f4f6;cursor:pointer}',
+        'h1,h2,h3{margin:.2em 0 .4em}*{box-sizing:border-box}img{max-width:100%}',
+        '</style></head><body>', code,
+        '<scr' + 'ipt>(function(){var T=' + token + ';',
+        'function send(l,a){parent.postMessage({__pg:true,token:T,level:l,text:[].map.call(a,String).join(" ")},"*")}',
+        'window.addEventListener("error",function(e){send("error",[e.message])});',
+        'function sendSize(){var h=Math.max(document.body?document.body.scrollHeight:0,document.documentElement.scrollHeight);parent.postMessage({__pgsize:true,token:T,height:h},"*")}',
+        'if(window.ResizeObserver){new ResizeObserver(sendSize).observe(document.documentElement)}',
+        'window.addEventListener("load",sendSize);setTimeout(sendSize,60);setTimeout(sendSize,500);sendSize();',
+        '})();<\/scr' + 'ipt></body></html>'].join('');
+    }
+
     var pgToken = 0;
     function pgRun(w) {
       var code = w.querySelector('.pg-code').value;
-      var tpl = w.querySelector('template.pg-html');
       var iframe = w.querySelector('.pg-stage');
       var cons = w.querySelector('.pg-console');
       cons.innerHTML = '';
       iframe.style.height = '';
-      iframe.srcdoc = pgSrcdoc(code, tpl ? tpl.innerHTML : '', ++pgToken);
+      if (w.dataset.kind === 'html') {
+        iframe.srcdoc = pgSrcdocHtml(code, ++pgToken);
+      } else {
+        var tpl = w.querySelector('template.pg-html');
+        iframe.srcdoc = pgSrcdoc(code, tpl ? tpl.innerHTML : '', ++pgToken);
+      }
     }
 
     window.addEventListener('message', function (e) {

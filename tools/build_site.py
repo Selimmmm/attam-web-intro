@@ -31,9 +31,8 @@ OUT = ROOT / "site" / "index.html"
 PAGES = [
     {"file": "accueil.md", "slug": "accueil", "nav": "Accueil"},
     {"file": "cours-js.md", "slug": "cours-js", "nav": "Cours · JS et le DOM"},
+    {"file": "atelier.md", "slug": "atelier", "nav": "Atelier · reproduire"},
     {"file": "briefs/brief-1-html-css-js.md", "slug": "brief-1", "nav": "Brief 1 · ma page de présentation"},
-    {"file": "briefs/brief-2-github-pages.md", "slug": "brief-2", "nav": "Brief 2 · en ligne"},
-    {"file": "briefs/brief-3-supabase.md", "slug": "brief-3", "nav": "Brief 3 · le mur de la promo"},
 ]
 
 MD_EXTENSIONS = ["extra", "fenced_code", "tables", "sane_lists", "codehilite", "toc"]
@@ -76,13 +75,18 @@ def highlight_code(code: str, lang: str) -> str:
 #   ```domrun          HTML de départ + ligne "===" + JS éditable qui manipule le DOM
 #   ```domrun-frozen   idem mais JS en lecture seule
 PG_FENCE = re.compile(
-    r"(?ms)^```(jsrun-frozen|jsrun|domrun-frozen|domrun)[ \t]*\n(.*?)\n```[ \t]*$"
+    r"(?ms)^```(jsrun-frozen|jsrun|domrun-frozen|domrun|htmlrun-frozen|htmlrun)[ \t]*\n(.*?)\n```[ \t]*$"
 )
 
 
 def make_widget(lang: str, content: str) -> str:
     frozen = lang.endswith("-frozen")
-    kind = "dom" if lang.startswith("dom") else "js"
+    if lang.startswith("dom"):
+        kind = "dom"
+    elif lang.startswith("html"):
+        kind = "html"
+    else:
+        kind = "js"
     if kind == "dom":
         parts = re.split(r"(?m)^[ \t]*===[ \t]*$", content, maxsplit=1)
         stage_html = parts[0].strip("\n")
@@ -96,6 +100,8 @@ def make_widget(lang: str, content: str) -> str:
     rows = max(2, js.count("\n") + 1)
     js_esc = html.escape(js)
     label = "lecture seule" if frozen else "à toi de jouer"
+    lang_label = "HTML" if kind == "html" else "JavaScript"
+    hl_lang = "markup" if kind == "html" else "js"
 
     bits = [f'<div class="pg" data-kind="{kind}"{frozen_attr}>']
     if kind == "dom":
@@ -103,7 +109,7 @@ def make_widget(lang: str, content: str) -> str:
         bits.append(highlight_code(stage_html, "html"))
         bits.append(f'<template class="pg-html">{stage_html}</template>')
     bits.append(
-        '<div class="pg-bar"><span class="pg-lang">JavaScript · '
+        '<div class="pg-bar"><span class="pg-lang">' + lang_label + ' · '
         + label
         + '</span><span class="pg-actions">'
         + '<button class="pg-run" type="button">▶ Exécuter</button>'
@@ -112,12 +118,12 @@ def make_widget(lang: str, content: str) -> str:
     )
     bits.append(
         '<div class="pg-editor">'
-        '<pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre>'
+        f'<pre class="pg-hl" aria-hidden="true"><code class="language-{hl_lang}"></code></pre>'
         f'<textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"{ro} rows="{rows}">{js_esc}</textarea>'
         "</div>"
     )
     bits.append(f'<textarea class="pg-initial" hidden>{js_esc}</textarea>')
-    stage_cls = "pg-stage" if kind == "dom" else "pg-stage pg-hidden"
+    stage_cls = "pg-stage" if kind in ("dom", "html") else "pg-stage pg-hidden"
     bits.append(f'<iframe class="{stage_cls}" sandbox="allow-scripts allow-modals" title="résultat"></iframe>')
     bits.append('<div class="pg-console" aria-live="polite"></div>')
     bits.append("</div>")
@@ -217,6 +223,8 @@ TEMPLATE = r"""<!DOCTYPE html>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-clike.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markup.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js" defer></script>
   <style>
     :root {
       --bg: #fbfaf7;
@@ -462,8 +470,9 @@ TEMPLATE = r"""<!DOCTYPE html>
     function pgHighlight(ta) {
       var holder = ta.parentNode.querySelector('.pg-hl code');
       if (!holder) return;
-      if (window.Prism && Prism.languages && Prism.languages.javascript) {
-        holder.innerHTML = Prism.highlight(ta.value, Prism.languages.javascript, 'javascript');
+      var lang = holder.className.indexOf('language-markup') >= 0 ? 'markup' : 'javascript';
+      if (window.Prism && Prism.languages && Prism.languages[lang]) {
+        holder.innerHTML = Prism.highlight(ta.value, Prism.languages[lang], lang);
       } else {
         holder.textContent = ta.value;
       }
@@ -489,15 +498,34 @@ TEMPLATE = r"""<!DOCTYPE html>
         '})();<\/scr' + 'ipt></body></html>'].join('');
     }
 
+    function pgSrcdocHtml(code, token) {
+      return ['<!doctype html><html><head><meta charset="utf-8"><style>',
+        'body{font:14px/1.6 system-ui,-apple-system,sans-serif;color:#1f2430;margin:12px}',
+        'button{font:inherit;padding:5px 11px;border:1px solid #cfd4dd;border-radius:7px;background:#f3f4f6;cursor:pointer}',
+        'h1,h2,h3{margin:.2em 0 .4em}*{box-sizing:border-box}img{max-width:100%}',
+        '</style></head><body>', code,
+        '<scr' + 'ipt>(function(){var T=' + token + ';',
+        'function send(l,a){parent.postMessage({__pg:true,token:T,level:l,text:[].map.call(a,String).join(" ")},"*")}',
+        'window.addEventListener("error",function(e){send("error",[e.message])});',
+        'function sendSize(){var h=Math.max(document.body?document.body.scrollHeight:0,document.documentElement.scrollHeight);parent.postMessage({__pgsize:true,token:T,height:h},"*")}',
+        'if(window.ResizeObserver){new ResizeObserver(sendSize).observe(document.documentElement)}',
+        'window.addEventListener("load",sendSize);setTimeout(sendSize,60);setTimeout(sendSize,500);sendSize();',
+        '})();<\/scr' + 'ipt></body></html>'].join('');
+    }
+
     var pgToken = 0;
     function pgRun(w) {
       var code = w.querySelector('.pg-code').value;
-      var tpl = w.querySelector('template.pg-html');
       var iframe = w.querySelector('.pg-stage');
       var cons = w.querySelector('.pg-console');
       cons.innerHTML = '';
       iframe.style.height = '';
-      iframe.srcdoc = pgSrcdoc(code, tpl ? tpl.innerHTML : '', ++pgToken);
+      if (w.dataset.kind === 'html') {
+        iframe.srcdoc = pgSrcdocHtml(code, ++pgToken);
+      } else {
+        var tpl = w.querySelector('template.pg-html');
+        iframe.srcdoc = pgSrcdoc(code, tpl ? tpl.innerHTML : '', ++pgToken);
+      }
     }
 
     window.addEventListener('message', function (e) {

@@ -12,7 +12,7 @@ Une page web, c'est trois langages qui travaillent ensemble : le **HTML** (le co
 
 Le but du jour : construire **ta page de présentation**, une mini-page qui met en valeur l'application que tu as créée avec Google AI Studio (son nom, ce qu'elle fait, une capture, un lien pour l'essayer). C'est la première brique d'un projet qu'on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.
 
-> Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet perso, une asso, un truc qui te tient à cœur, au lieu de l'appli AI Studio. Les étapes restent exactement les mêmes.
+> Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet personnel, une association, ou un sujet qui te tient à cœur, au lieu de l'application AI Studio. Les étapes restent exactement les mêmes.
 
 ## Ressources
 
