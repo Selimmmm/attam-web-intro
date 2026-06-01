@@ -1458,57 +1458,128 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <div class="pg-console" aria-live="polite"></div>
 </div>
 <p>C'est sur un cadre rectangulaire que la différence entre <code>cover</code>, <code>contain</code> et <code>fill</code> se voit le mieux. Essaie les trois.</p>
-<h2 id="exercice-3-une-image-qui-se-retourne-au-clic">Exercice 3 : une image qui se retourne au clic</h2>
-<p>Objectif : afficher une image et un bouton. Quand on clique sur le bouton, l'image se retourne comme dans un miroir. Une petite ligne de JavaScript entre en jeu : au clic, on ajoute ou on retire une classe CSS, et c'est cette classe qui retourne l'image.</p>
-<p>Le modèle, déjà fonctionnel. Clique sur Exécuter, puis sur le bouton.</p>
-<div class="pg" data-kind="html" data-frozen="1">
-<div class="pg-bar"><span class="pg-lang">HTML · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
-<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly rows="9">&lt;style&gt;
+<h2 id="exercice-3-ton-propre-effet-au-clic">Exercice 3 : ton propre effet au clic</h2>
+<p>Objectif : comprendre comment un clic modifie la page. Le code ci-dessous fonctionne déjà : à chaque clic, le bouton ajoute ou retire la classe <code>miroir</code> sur l'image, et cette classe la retourne comme un miroir. Clique sur Exécuter, puis sur le bouton pour le voir.</p>
+<p>À toi maintenant d'inventer ton propre effet :</p>
+<ol>
+<li>Sous la ligne <code>.miroir { ... }</code>, écris une <strong>nouvelle classe</strong> avec l'effet de ton choix. Quelques idées :<ul>
+<li>agrandir : <code>transform: scale(1.3);</code></li>
+<li>faire pivoter : <code>transform: rotate(15deg);</code></li>
+<li>passer en noir et blanc : <code>filter: grayscale(100%);</code></li>
+<li>rendre l'image ronde : <code>border-radius: 50%;</code></li>
+</ul>
+</li>
+<li>Dans le bouton, remplace <code>toggle('miroir')</code> par le nom de ta nouvelle classe (par exemple <code>toggle('grossir')</code> si tu l'as appelée <code>.grossir</code>).</li>
+<li>Clique sur Exécuter, puis sur le bouton : ton effet doit s'appliquer et se retirer à chaque clic.</li>
+</ol>
+<div class="pg" data-kind="html">
+<div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="13">&lt;style&gt;
   .miroir { transform: scaleX(-1); }
+
+  /* Écris ta nouvelle classe ici, par exemple :
+  .grossir { transform: scale(1.3); } */
+
   img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
 &lt;/style&gt;
 
 &lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
 &lt;button onclick=&quot;document.getElementById(&#x27;photo&#x27;).classList.toggle(&#x27;miroir&#x27;)&quot;&gt;
-  Retourner l&#x27;image
+  Appliquer l&#x27;effet
 &lt;/button&gt;</textarea></div>
 <textarea class="pg-initial" hidden>&lt;style&gt;
   .miroir { transform: scaleX(-1); }
+
+  /* Écris ta nouvelle classe ici, par exemple :
+  .grossir { transform: scale(1.3); } */
+
   img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
 &lt;/style&gt;
 
 &lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
 &lt;button onclick=&quot;document.getElementById(&#x27;photo&#x27;).classList.toggle(&#x27;miroir&#x27;)&quot;&gt;
-  Retourner l&#x27;image
+  Appliquer l&#x27;effet
 &lt;/button&gt;</textarea>
 <iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
 <div class="pg-console" aria-live="polite"></div>
 </div>
-<p>À toi. Le bouton et l'image sont en place, mais l'action au clic manque. Complète l'attribut <code>onclick</code> du bouton pour ajouter et retirer la classe <code>miroir</code>, comme dans le modèle.</p>
+<p>Tu tiens là le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page.</p>
+<h2 id="pour-aller-plus-loin">Pour aller plus loin</h2>
+<p>Ces deux derniers exercices ne sont pas obligatoires. Fais-les si tu as le temps et l'envie : ils introduisent deux outils que tu réutiliseras souvent.</p>
+<h2 id="exercice-4-un-effet-au-survol">Exercice 4 : un effet au survol</h2>
+<p>Objectif : déclencher un effet quand la souris passe sur un élément, sans aucun clic ni JavaScript. Cela se fait avec <code>:hover</code> en CSS, et <code>transition</code> rend le changement progressif.</p>
+<p>Modifie l'exemple et passe la souris sur la carte :</p>
+<ul>
+<li>Change ce qui se passe au survol, dans le bloc <code>.carte:hover { ... }</code> : une autre couleur de fond (<code>background</code>), une légère rotation (<code>transform: rotate(3deg)</code>), une ombre…</li>
+<li>Modifie la durée de la transition (<code>.2s</code>, <code>.5s</code>) pour voir l'effet ralentir ou s'accélérer.</li>
+</ul>
+<div class="pg" data-kind="html">
+<div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="15">&lt;style&gt;
+  .carte {
+    background: lavender;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 280px;
+    transition: transform .2s;
+  }
+  .carte:hover { transform: scale(1.05); }
+&lt;/style&gt;
+
+&lt;div class=&quot;carte&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Passe la souris sur moi&lt;/h3&gt;
+  &lt;p&gt;Je réagis au survol, et tu peux changer ma réaction.&lt;/p&gt;
+&lt;/div&gt;</textarea></div>
+<textarea class="pg-initial" hidden>&lt;style&gt;
+  .carte {
+    background: lavender;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 280px;
+    transition: transform .2s;
+  }
+  .carte:hover { transform: scale(1.05); }
+&lt;/style&gt;
+
+&lt;div class=&quot;carte&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Passe la souris sur moi&lt;/h3&gt;
+  &lt;p&gt;Je réagis au survol, et tu peux changer ma réaction.&lt;/p&gt;
+&lt;/div&gt;</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h2 id="exercice-5-deux-elements-cote-a-cote">Exercice 5 : deux éléments côte à côte</h2>
+<p>Objectif : placer une image et un texte l'un à côté de l'autre, au lieu de l'un sous l'autre. C'est le rôle de <code>display: flex</code>, l'outil de base pour la mise en page.</p>
+<p>Modifie l'exemple et observe :</p>
+<ul>
+<li>Enlève <code>display: flex</code> (ou mets <code>block</code>) : l'image et le texte repassent l'un sous l'autre. C'est la preuve de ce que fait <code>flex</code>.</li>
+<li>Change l'espace entre les deux avec <code>gap</code> (<code>8px</code>, <code>30px</code>).</li>
+<li>Change l'alignement vertical avec <code>align-items</code> (<code>flex-start</code>, <code>center</code>, <code>flex-end</code>).</li>
+</ul>
 <div class="pg" data-kind="html">
 <div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
 <div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="9">&lt;style&gt;
-  .miroir { transform: scaleX(-1); }
-  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+  .ligne { display: flex; gap: 16px; align-items: center; max-width: 440px; }
+  .ligne img { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; }
 &lt;/style&gt;
 
-&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
-&lt;button onclick=&quot;&quot;&gt;
-  Retourner l&#x27;image
-&lt;/button&gt;</textarea></div>
+&lt;div class=&quot;ligne&quot;&gt;
+  &lt;img src=&quot;https://picsum.photos/seed/atelier/200/200&quot; alt=&quot;photo&quot;&gt;
+  &lt;p&gt;Grâce à flex, cette image et ce texte se placent côte à côte. Essaie de changer les valeurs.&lt;/p&gt;
+&lt;/div&gt;</textarea></div>
 <textarea class="pg-initial" hidden>&lt;style&gt;
-  .miroir { transform: scaleX(-1); }
-  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+  .ligne { display: flex; gap: 16px; align-items: center; max-width: 440px; }
+  .ligne img { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; }
 &lt;/style&gt;
 
-&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
-&lt;button onclick=&quot;&quot;&gt;
-  Retourner l&#x27;image
-&lt;/button&gt;</textarea>
+&lt;div class=&quot;ligne&quot;&gt;
+  &lt;img src=&quot;https://picsum.photos/seed/atelier/200/200&quot; alt=&quot;photo&quot;&gt;
+  &lt;p&gt;Grâce à flex, cette image et ce texte se placent côte à côte. Essaie de changer les valeurs.&lt;/p&gt;
+&lt;/div&gt;</textarea>
 <iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
 <div class="pg-console" aria-live="polite"></div>
 </div>
-<p>Quand le clic retourne bien l'image, tu tiens le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page. Tu es prêt pour le brief 1.</p></article>
+<p>Avec ces bases (couleurs, cadres, effets au clic et au survol, mise en page), tu es prêt pour le brief 1.</p></article>
   <pre class="md-source" id="src-atelier" hidden><code># Atelier : reproduire en HTML et CSS
 
 Avant de te lancer dans ton projet, fais ces trois petits exercices pour prendre tes marques. Le principe est toujours le même : modifie le code, clique sur **▶ Exécuter**, et regarde ce qui change. Le bouton ↺ remet le code de départ si tu veux recommencer.
@@ -1557,39 +1628,92 @@ Modifie l&#x27;exemple, clique sur Exécuter, et fais des essais :
 
 C&#x27;est sur un cadre rectangulaire que la différence entre `cover`, `contain` et `fill` se voit le mieux. Essaie les trois.
 
-## Exercice 3 : une image qui se retourne au clic
+## Exercice 3 : ton propre effet au clic
 
-Objectif : afficher une image et un bouton. Quand on clique sur le bouton, l&#x27;image se retourne comme dans un miroir. Une petite ligne de JavaScript entre en jeu : au clic, on ajoute ou on retire une classe CSS, et c&#x27;est cette classe qui retourne l&#x27;image.
+Objectif : comprendre comment un clic modifie la page. Le code ci-dessous fonctionne déjà : à chaque clic, le bouton ajoute ou retire la classe `miroir` sur l&#x27;image, et cette classe la retourne comme un miroir. Clique sur Exécuter, puis sur le bouton pour le voir.
 
-Le modèle, déjà fonctionnel. Clique sur Exécuter, puis sur le bouton.
+À toi maintenant d&#x27;inventer ton propre effet :
 
-```htmlrun-frozen
+1. Sous la ligne `.miroir { ... }`, écris une **nouvelle classe** avec l&#x27;effet de ton choix. Quelques idées :
+    - agrandir : `transform: scale(1.3);`
+    - faire pivoter : `transform: rotate(15deg);`
+    - passer en noir et blanc : `filter: grayscale(100%);`
+    - rendre l&#x27;image ronde : `border-radius: 50%;`
+2. Dans le bouton, remplace `toggle(&#x27;miroir&#x27;)` par le nom de ta nouvelle classe (par exemple `toggle(&#x27;grossir&#x27;)` si tu l&#x27;as appelée `.grossir`).
+3. Clique sur Exécuter, puis sur le bouton : ton effet doit s&#x27;appliquer et se retirer à chaque clic.
+
+```htmlrun
 &lt;style&gt;
   .miroir { transform: scaleX(-1); }
+
+  /* Écris ta nouvelle classe ici, par exemple :
+  .grossir { transform: scale(1.3); } */
+
   img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
 &lt;/style&gt;
 
 &lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
 &lt;button onclick=&quot;document.getElementById(&#x27;photo&#x27;).classList.toggle(&#x27;miroir&#x27;)&quot;&gt;
-  Retourner l&#x27;image
+  Appliquer l&#x27;effet
 &lt;/button&gt;
 ```
 
-À toi. Le bouton et l&#x27;image sont en place, mais l&#x27;action au clic manque. Complète l&#x27;attribut `onclick` du bouton pour ajouter et retirer la classe `miroir`, comme dans le modèle.
+Tu tiens là le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page.
+
+## Pour aller plus loin
+
+Ces deux derniers exercices ne sont pas obligatoires. Fais-les si tu as le temps et l&#x27;envie : ils introduisent deux outils que tu réutiliseras souvent.
+
+## Exercice 4 : un effet au survol
+
+Objectif : déclencher un effet quand la souris passe sur un élément, sans aucun clic ni JavaScript. Cela se fait avec `:hover` en CSS, et `transition` rend le changement progressif.
+
+Modifie l&#x27;exemple et passe la souris sur la carte :
+
+- Change ce qui se passe au survol, dans le bloc `.carte:hover { ... }` : une autre couleur de fond (`background`), une légère rotation (`transform: rotate(3deg)`), une ombre…
+- Modifie la durée de la transition (`.2s`, `.5s`) pour voir l&#x27;effet ralentir ou s&#x27;accélérer.
 
 ```htmlrun
 &lt;style&gt;
-  .miroir { transform: scaleX(-1); }
-  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+  .carte {
+    background: lavender;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 280px;
+    transition: transform .2s;
+  }
+  .carte:hover { transform: scale(1.05); }
 &lt;/style&gt;
 
-&lt;img id=&quot;photo&quot; src=&quot;https://picsum.photos/seed/atelier/300/200&quot; alt=&quot;photo&quot;&gt;
-&lt;button onclick=&quot;&quot;&gt;
-  Retourner l&#x27;image
-&lt;/button&gt;
+&lt;div class=&quot;carte&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Passe la souris sur moi&lt;/h3&gt;
+  &lt;p&gt;Je réagis au survol, et tu peux changer ma réaction.&lt;/p&gt;
+&lt;/div&gt;
 ```
 
-Quand le clic retourne bien l&#x27;image, tu tiens le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page. Tu es prêt pour le brief 1.
+## Exercice 5 : deux éléments côte à côte
+
+Objectif : placer une image et un texte l&#x27;un à côté de l&#x27;autre, au lieu de l&#x27;un sous l&#x27;autre. C&#x27;est le rôle de `display: flex`, l&#x27;outil de base pour la mise en page.
+
+Modifie l&#x27;exemple et observe :
+
+- Enlève `display: flex` (ou mets `block`) : l&#x27;image et le texte repassent l&#x27;un sous l&#x27;autre. C&#x27;est la preuve de ce que fait `flex`.
+- Change l&#x27;espace entre les deux avec `gap` (`8px`, `30px`).
+- Change l&#x27;alignement vertical avec `align-items` (`flex-start`, `center`, `flex-end`).
+
+```htmlrun
+&lt;style&gt;
+  .ligne { display: flex; gap: 16px; align-items: center; max-width: 440px; }
+  .ligne img { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; }
+&lt;/style&gt;
+
+&lt;div class=&quot;ligne&quot;&gt;
+  &lt;img src=&quot;https://picsum.photos/seed/atelier/200/200&quot; alt=&quot;photo&quot;&gt;
+  &lt;p&gt;Grâce à flex, cette image et ce texte se placent côte à côte. Essaie de changer les valeurs.&lt;/p&gt;
+&lt;/div&gt;
+```
+
+Avec ces bases (couleurs, cadres, effets au clic et au survol, mise en page), tu es prêt pour le brief 1.
 </code></pre>
 </section>
 <section class="page" id="brief-1" hidden>

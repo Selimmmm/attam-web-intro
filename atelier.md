@@ -46,36 +46,89 @@ Modifie l'exemple, clique sur Exécuter, et fais des essais :
 
 C'est sur un cadre rectangulaire que la différence entre `cover`, `contain` et `fill` se voit le mieux. Essaie les trois.
 
-## Exercice 3 : une image qui se retourne au clic
+## Exercice 3 : ton propre effet au clic
 
-Objectif : afficher une image et un bouton. Quand on clique sur le bouton, l'image se retourne comme dans un miroir. Une petite ligne de JavaScript entre en jeu : au clic, on ajoute ou on retire une classe CSS, et c'est cette classe qui retourne l'image.
+Objectif : comprendre comment un clic modifie la page. Le code ci-dessous fonctionne déjà : à chaque clic, le bouton ajoute ou retire la classe `miroir` sur l'image, et cette classe la retourne comme un miroir. Clique sur Exécuter, puis sur le bouton pour le voir.
 
-Le modèle, déjà fonctionnel. Clique sur Exécuter, puis sur le bouton.
+À toi maintenant d'inventer ton propre effet :
 
-```htmlrun-frozen
+1. Sous la ligne `.miroir { ... }`, écris une **nouvelle classe** avec l'effet de ton choix. Quelques idées :
+    - agrandir : `transform: scale(1.3);`
+    - faire pivoter : `transform: rotate(15deg);`
+    - passer en noir et blanc : `filter: grayscale(100%);`
+    - rendre l'image ronde : `border-radius: 50%;`
+2. Dans le bouton, remplace `toggle('miroir')` par le nom de ta nouvelle classe (par exemple `toggle('grossir')` si tu l'as appelée `.grossir`).
+3. Clique sur Exécuter, puis sur le bouton : ton effet doit s'appliquer et se retirer à chaque clic.
+
+```htmlrun
 <style>
   .miroir { transform: scaleX(-1); }
+
+  /* Écris ta nouvelle classe ici, par exemple :
+  .grossir { transform: scale(1.3); } */
+
   img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
 </style>
 
 <img id="photo" src="https://picsum.photos/seed/atelier/300/200" alt="photo">
 <button onclick="document.getElementById('photo').classList.toggle('miroir')">
-  Retourner l'image
+  Appliquer l'effet
 </button>
 ```
 
-À toi. Le bouton et l'image sont en place, mais l'action au clic manque. Complète l'attribut `onclick` du bouton pour ajouter et retirer la classe `miroir`, comme dans le modèle.
+Tu tiens là le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page.
+
+## Pour aller plus loin
+
+Ces deux derniers exercices ne sont pas obligatoires. Fais-les si tu as le temps et l'envie : ils introduisent deux outils que tu réutiliseras souvent.
+
+## Exercice 4 : un effet au survol
+
+Objectif : déclencher un effet quand la souris passe sur un élément, sans aucun clic ni JavaScript. Cela se fait avec `:hover` en CSS, et `transition` rend le changement progressif.
+
+Modifie l'exemple et passe la souris sur la carte :
+
+- Change ce qui se passe au survol, dans le bloc `.carte:hover { ... }` : une autre couleur de fond (`background`), une légère rotation (`transform: rotate(3deg)`), une ombre…
+- Modifie la durée de la transition (`.2s`, `.5s`) pour voir l'effet ralentir ou s'accélérer.
 
 ```htmlrun
 <style>
-  .miroir { transform: scaleX(-1); }
-  img { width: 200px; border-radius: 12px; display: block; margin-bottom: 10px; }
+  .carte {
+    background: lavender;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 280px;
+    transition: transform .2s;
+  }
+  .carte:hover { transform: scale(1.05); }
 </style>
 
-<img id="photo" src="https://picsum.photos/seed/atelier/300/200" alt="photo">
-<button onclick="">
-  Retourner l'image
-</button>
+<div class="carte">
+  <h3 style="margin-top: 0;">Passe la souris sur moi</h3>
+  <p>Je réagis au survol, et tu peux changer ma réaction.</p>
+</div>
 ```
 
-Quand le clic retourne bien l'image, tu tiens le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page. Tu es prêt pour le brief 1.
+## Exercice 5 : deux éléments côte à côte
+
+Objectif : placer une image et un texte l'un à côté de l'autre, au lieu de l'un sous l'autre. C'est le rôle de `display: flex`, l'outil de base pour la mise en page.
+
+Modifie l'exemple et observe :
+
+- Enlève `display: flex` (ou mets `block`) : l'image et le texte repassent l'un sous l'autre. C'est la preuve de ce que fait `flex`.
+- Change l'espace entre les deux avec `gap` (`8px`, `30px`).
+- Change l'alignement vertical avec `align-items` (`flex-start`, `center`, `flex-end`).
+
+```htmlrun
+<style>
+  .ligne { display: flex; gap: 16px; align-items: center; max-width: 440px; }
+  .ligne img { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; }
+</style>
+
+<div class="ligne">
+  <img src="https://picsum.photos/seed/atelier/200/200" alt="photo">
+  <p>Grâce à flex, cette image et ce texte se placent côte à côte. Essaie de changer les valeurs.</p>
+</div>
+```
+
+Avec ces bases (couleurs, cadres, effets au clic et au survol, mise en page), tu es prêt pour le brief 1.
