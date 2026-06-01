@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro web : les briefs</title>
+  <meta name="description" content="Briefs du module d'introduction au web : HTML, CSS, JS, GitHub Pages, Supabase.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --panel: #ffffff;
+      --ink: #1f2430;
+      --muted: #6b7280;
+      --line: #e7e3da;
+      --accent: #3b82f6;
+      --accent-soft: #eaf1ff;
+      --principal: #10b981;
+      --bonus: #d97706;
+      --sidebar-w: 270px;
+    }
+    html[data-theme="dark"] {
+      --bg: #14161b;
+      --panel: #1b1e25;
+      --ink: #e8e6e1;
+      --muted: #9aa1ad;
+      --line: #2c313b;
+      --accent: #6ea8fe;
+      --accent-soft: #232a38;
+      --principal: #34d399;
+      --bonus: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex: 0 0 var(--sidebar-w);
+      border-right: 1px solid var(--line);
+      background: var(--panel);
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .brand { font-family: "Crimson Pro", serif; font-size: 1.45rem; font-weight: 700; line-height: 1.1; }
+    .brand small { display: block; font-family: "Inter"; font-size: .72rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-top: 6px; }
+    nav { display: flex; flex-direction: column; gap: 4px; }
+    .nav-item {
+      text-align: left;
+      border: none;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 500;
+      padding: 9px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .12s;
+    }
+    .nav-item:hover { background: var(--accent-soft); }
+    .nav-item.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+    .legend { font-size: .78rem; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+    .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 7px; vertical-align: middle; }
+    .dot.p { background: var(--principal); }
+    .dot.b { background: var(--bonus); }
+    .sidebar-footer { margin-top: auto; font-size: .76rem; color: var(--muted); line-height: 1.5; }
+    .theme-btn { border: 1px solid var(--line); background: transparent; color: var(--muted); font: inherit; font-size: .8rem; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
+    /* Main */
+    main { flex: 1; padding: 48px 7vw; max-width: 960px; }
+    .page-toolbar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+    .src-toggle { border: 1px solid var(--line); background: var(--panel); color: var(--muted); font: inherit; font-size: .8rem; padding: 6px 12px; border-radius: 8px; cursor: pointer; }
+    .src-toggle:hover { color: var(--accent); border-color: var(--accent); }
+    .md-source { background: #0f1117; color: #d6d9e0; border-radius: 10px; padding: 18px; overflow-x: auto; font-size: .82rem; line-height: 1.5; }
+
+    /* Prose */
+    .prose { font-size: 1.02rem; line-height: 1.68; }
+    .prose h1 { font-family: "Crimson Pro", serif; font-size: 2.3rem; line-height: 1.12; margin: 0 0 .3em; }
+    .prose h2 { font-family: "Crimson Pro", serif; font-size: 1.55rem; margin: 1.8em 0 .5em; padding-bottom: .25em; border-bottom: 1px solid var(--line); }
+    .prose h3 { font-size: 1.18rem; margin: 1.5em 0 .4em; }
+    .prose h3.is-principal { color: var(--principal); }
+    .prose h3.is-principal::before { content: "● "; }
+    .prose h3.is-bonus { color: var(--bonus); }
+    .prose h3.is-bonus::before { content: "○ "; }
+    .prose h4 { font-size: 1.02rem; margin: 1.3em 0 .3em; }
+    .prose blockquote { border-left: 3px solid var(--accent); margin: 1.2em 0; padding: .4em 1.1em; background: var(--accent-soft); border-radius: 0 8px 8px 0; color: var(--muted); }
+    .prose code { background: var(--accent-soft); padding: .12em .4em; border-radius: 5px; font-size: .88em; }
+    .prose pre { background: #0f1117; border-radius: 10px; padding: 16px 18px; overflow-x: auto; }
+    .prose pre code { background: none; padding: 0; color: #e6e6e6; }
+    .prose table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .94rem; }
+    .prose th, .prose td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+    .prose th { background: var(--accent-soft); }
+    .prose ul, .prose ol { padding-left: 1.4em; }
+    .prose li { margin: .25em 0; }
+    .prose img { max-width: 100%; border-radius: 8px; }
+    .codehilite { background: #0f1117; border-radius: 10px; padding: 16px 18px; overflow-x: auto; margin: 1.2em 0; }
+    .codehilite pre { background: none; padding: 0; margin: 0; }
+    pre { line-height: 125%; }
+td.linenos .normal { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.codehilite .hll { background-color: #ffffcc }
+.codehilite { background: #f0f0f0; }
+.codehilite .c { color: #60a0b0; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #007020; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #60a0b0; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #007020 } /* Comment.Preproc */
+.codehilite .cpf { color: #60a0b0; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #007020 } /* Keyword.Pseudo */
+.codehilite .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #902000 } /* Keyword.Type */
+.codehilite .m { color: #40a070 } /* Literal.Number */
+.codehilite .s { color: #4070a0 } /* Literal.String */
+.codehilite .na { color: #4070a0 } /* Name.Attribute */
+.codehilite .nb { color: #007020 } /* Name.Builtin */
+.codehilite .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #60add5 } /* Name.Constant */
+.codehilite .nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.codehilite .ni { color: #d55537; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #007020 } /* Name.Exception */
+.codehilite .nf { color: #06287e } /* Name.Function */
+.codehilite .nl { color: #002070; font-weight: bold } /* Name.Label */
+.codehilite .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #bb60d5 } /* Name.Variable */
+.codehilite .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #40a070 } /* Literal.Number.Bin */
+.codehilite .mf { color: #40a070 } /* Literal.Number.Float */
+.codehilite .mh { color: #40a070 } /* Literal.Number.Hex */
+.codehilite .mi { color: #40a070 } /* Literal.Number.Integer */
+.codehilite .mo { color: #40a070 } /* Literal.Number.Oct */
+.codehilite .sa { color: #4070a0 } /* Literal.String.Affix */
+.codehilite .sb { color: #4070a0 } /* Literal.String.Backtick */
+.codehilite .sc { color: #4070a0 } /* Literal.String.Char */
+.codehilite .dl { color: #4070a0 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #4070a0 } /* Literal.String.Double */
+.codehilite .se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #4070a0 } /* Literal.String.Heredoc */
+.codehilite .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
+.codehilite .sx { color: #c65d09 } /* Literal.String.Other */
+.codehilite .sr { color: #235388 } /* Literal.String.Regex */
+.codehilite .s1 { color: #4070a0 } /* Literal.String.Single */
+.codehilite .ss { color: #517918 } /* Literal.String.Symbol */
+.codehilite .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #06287e } /* Name.Function.Magic */
+.codehilite .vc { color: #bb60d5 } /* Name.Variable.Class */
+.codehilite .vg { color: #bb60d5 } /* Name.Variable.Global */
+.codehilite .vi { color: #bb60d5 } /* Name.Variable.Instance */
+.codehilite .vm { color: #bb60d5 } /* Name.Variable.Magic */
+.codehilite .il { color: #40a070 } /* Literal.Number.Integer.Long */
+
+    /* Diagrammes mermaid */
+    .mermaid { background: #fff; text-align: center; margin: 1.4em 0; border: 1px solid var(--line); border-radius: 12px; padding: 18px; overflow-x: auto; }
+    .mermaid:not([data-processed]) { min-height: 40px; color: transparent; }
+    .mermaid svg { max-width: 100%; height: auto; }
+
+    /* Playgrounds interactifs */
+    .pg { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 1.5em 0; background: var(--panel); }
+    .pg-htmllabel { font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); padding: 10px 14px 0; font-weight: 600; }
+    .pg .codehilite { margin: 6px 14px 10px; }
+    .pg-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 14px; background: var(--accent-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .pg-lang { font-size: .76rem; color: var(--muted); font-weight: 600; }
+    .pg-actions { display: flex; gap: 6px; }
+    .pg-run, .pg-reset { font: inherit; font-size: .82rem; font-weight: 600; border: none; border-radius: 7px; cursor: pointer; }
+    .pg-run { background: var(--accent); color: #fff; padding: 6px 13px; }
+    .pg-run:hover { filter: brightness(1.06); }
+    .pg-reset { background: transparent; color: var(--muted); border: 1px solid var(--line); padding: 6px 10px; }
+    .pg-reset:hover { color: var(--ink); }
+    .pg-code { display: block; width: 100%; border: none; resize: vertical; font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; line-height: 1.55; padding: 14px; background: #0f1117; color: #e6e6e6; outline: none; tab-size: 2; }
+    .pg-stage { width: 100%; min-height: 80px; border: none; border-top: 1px solid var(--line); background: #fff; display: block; }
+    .pg-stage.pg-hidden { display: none; }
+    .pg-console { font-family: "SF Mono", ui-monospace, Menlo, monospace; font-size: .84rem; line-height: 1.5; background: #14161b; color: #cfe3ff; }
+    .pg-console:empty { display: none; }
+    .pg-console .pg-line { padding: 5px 14px; border-top: 1px solid rgba(255,255,255,.06); white-space: pre-wrap; word-break: break-word; }
+    .pg-console .pg-error { color: #ff9b9b; }
+    .pg-console .pg-warn { color: #ffd479; }
+    .pg-console .pg-info, .pg-console .pg-debug { color: #9aa1ad; }
+
+    /* Mobile */
+    .mobile-bar { display: none; }
+    @media (max-width: 820px) {
+      body { flex-direction: column; }
+      .mobile-bar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--panel); position: sticky; top: 0; z-index: 20; }
+      .mobile-bar button { border: 1px solid var(--line); background: transparent; color: var(--ink); font: inherit; padding: 6px 10px; border-radius: 8px; }
+      .sidebar { position: fixed; inset: 0 auto 0 0; z-index: 30; transform: translateX(-100%); transition: transform .2s; width: 84vw; }
+      .sidebar.open { transform: translateX(0); }
+      main { padding: 28px 6vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-bar">
+    <button id="menu-btn">☰ Briefs</button>
+    <strong>Intro web</strong>
+  </div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">Intro web<small>HTML · CSS · JS · GitHub · Supabase</small></div>
+    <nav id="nav">
+      <button class="nav-item" data-target="accueil">Accueil</button>
+      <button class="nav-item" data-target="cours-js">Cours · JS et le DOM</button>
+      <button class="nav-item" data-target="brief-1">Brief 1 · ma carte web</button>
+      <button class="nav-item" data-target="brief-2">Brief 2 · en ligne</button>
+      <button class="nav-item" data-target="brief-3">Brief 3 · le mur de la promo</button>
+    </nav>
+    <div class="legend">
+      <span><span class="dot p"></span>principal, à finir</span>
+      <span><span class="dot b"></span>bonus, si le temps</span>
+    </div>
+    <div class="sidebar-footer">
+      <button class="theme-btn" id="theme-btn">Thème clair / sombre</button>
+      <p style="margin:.8em 0 0">Promo Level-Up · briefs en Markdown, compilés en HTML par <code>tools/build_site.py</code>.</p>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section class="page" id="accueil" hidden>
+  <div class="page-toolbar">
+    <button class="src-toggle" data-src="src-accueil">Voir la source Markdown</button>
+  </div>
+  <article class="prose"><h1 id="bienvenue">Bienvenue (:</h1>
+<ul>
+<li>Tu sais déjà faire pondre une page par une IA. Cette semaine, on passe sous le capot.</li>
+<li>Le but : écrire le code toi-même, comprendre ce qu'il y a dessous, et le mettre en ligne pour de vrai.</li>
+<li>Pas de magie, pas de blabla : on construit, on casse, on répare.</li>
+</ul>
+<h2 id="au-programme">Au programme</h2>
+<ul>
+<li><strong>Git et GitHub</strong> : versionner ton code et le publier.</li>
+<li><strong>HTML</strong> : le contenu et la structure de la page.</li>
+<li><strong>CSS</strong> : l'apparence (couleurs, formes, mise en page).</li>
+<li><strong>JavaScript</strong> : le comportement, ce qui réagit quand on clique.</li>
+<li><strong>Supabase</strong> : interagir avec une vraie base de données, directement depuis le front, sans backend.</li>
+</ul>
+<pre class="mermaid">flowchart LR
+  HTML[HTML&lt;br/&gt;le contenu] --&gt; CSS[CSS&lt;br/&gt;l&#x27;apparence]
+  CSS --&gt; JS[JavaScript&lt;br/&gt;le comportement]
+  JS --&gt; Git[Git + GitHub&lt;br/&gt;publier]
+  Git --&gt; Supa[Supabase&lt;br/&gt;la base de données]</pre>
+<h2 id="le-fil-rouge-un-projet-qui-grandit">Le fil rouge : un projet qui grandit</h2>
+<ul>
+<li><strong>Jour 1</strong> : ta carte web (HTML, CSS, un peu de JS).</li>
+<li><strong>Jour 2</strong> : la même carte en ligne sur GitHub Pages, avec une feature sympa.</li>
+<li><strong>Jour 3</strong> : le mur de la promo, branché sur Supabase. Tout le monde écrit sur la même base.</li>
+</ul>
+<pre class="mermaid">flowchart LR
+  J1[Jour 1&lt;br/&gt;ma carte web] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
+  J2 --&gt; J3[Jour 3&lt;br/&gt;le mur de la promo]</pre>
+<h2 id="comment-ca-marche-une-base-de-donnees-depuis-le-front">Comment ça marche, une base de données depuis le front</h2>
+<ul>
+<li>Ta page envoie une requête à l'API de Supabase.</li>
+<li>Supabase parle à la base de données et renvoie les données en JSON.</li>
+<li>Ta page affiche le résultat. Pas de serveur à coder.</li>
+</ul>
+<pre class="mermaid">flowchart LR
+  Page[Ta page web] --&gt;|requête| API[API Supabase]
+  API --&gt; BDD[(Base de données)]
+  BDD --&gt; API
+  API --&gt;|données JSON| Page</pre>
+<h2 id="ce-que-tu-sauras-faire-a-la-fin">Ce que tu sauras faire à la fin</h2>
+<ul>
+<li>Lire et modifier n'importe quelle page web.</li>
+<li>Versionner ton code et le publier avec une vraie URL.</li>
+<li>Brancher une page sur une base de données.</li>
+<li>Écrire de la doc propre en Markdown.</li>
+</ul>
+<h2 id="comment-bosser">Comment bosser</h2>
+<ul>
+<li>Les étapes <strong>● principal</strong> : à finir, c'est le cœur de la journée.</li>
+<li>Les étapes <strong>○ bonus</strong> : si tu as le temps, pour aller plus loin.</li>
+<li>Tiens un <strong><code>JOURNAL.md</code></strong> en Markdown à chaque étape.</li>
+<li>Tu bloques ? La page « Cours » est interactive, va y tester du code.</li>
+<li>Choisis un brief dans le menu de gauche, et c'est parti.</li>
+</ul></article>
+  <pre class="md-source" id="src-accueil" hidden><code># Bienvenue (:
+
+- Tu sais déjà faire pondre une page par une IA. Cette semaine, on passe sous le capot.
+- Le but : écrire le code toi-même, comprendre ce qu&#x27;il y a dessous, et le mettre en ligne pour de vrai.
+- Pas de magie, pas de blabla : on construit, on casse, on répare.
+
+## Au programme
+
+- **Git et GitHub** : versionner ton code et le publier.
+- **HTML** : le contenu et la structure de la page.
+- **CSS** : l&#x27;apparence (couleurs, formes, mise en page).
+- **JavaScript** : le comportement, ce qui réagit quand on clique.
+- **Supabase** : interagir avec une vraie base de données, directement depuis le front, sans backend.
+
+```mermaid
+flowchart LR
+  HTML[HTML&lt;br/&gt;le contenu] --&gt; CSS[CSS&lt;br/&gt;l&#x27;apparence]
+  CSS --&gt; JS[JavaScript&lt;br/&gt;le comportement]
+  JS --&gt; Git[Git + GitHub&lt;br/&gt;publier]
+  Git --&gt; Supa[Supabase&lt;br/&gt;la base de données]
+```
+
+## Le fil rouge : un projet qui grandit
+
+- **Jour 1** : ta carte web (HTML, CSS, un peu de JS).
+- **Jour 2** : la même carte en ligne sur GitHub Pages, avec une feature sympa.
+- **Jour 3** : le mur de la promo, branché sur Supabase. Tout le monde écrit sur la même base.
+
+```mermaid
+flowchart LR
+  J1[Jour 1&lt;br/&gt;ma carte web] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
+  J2 --&gt; J3[Jour 3&lt;br/&gt;le mur de la promo]
+```
+
+## Comment ça marche, une base de données depuis le front
+
+- Ta page envoie une requête à l&#x27;API de Supabase.
+- Supabase parle à la base de données et renvoie les données en JSON.
+- Ta page affiche le résultat. Pas de serveur à coder.
+
+```mermaid
+flowchart LR
+  Page[Ta page web] --&gt;|requête| API[API Supabase]
+  API --&gt; BDD[(Base de données)]
+  BDD --&gt; API
+  API --&gt;|données JSON| Page
+```
+
+## Ce que tu sauras faire à la fin
+
+- Lire et modifier n&#x27;importe quelle page web.
+- Versionner ton code et le publier avec une vraie URL.
+- Brancher une page sur une base de données.
+- Écrire de la doc propre en Markdown.
+
+## Comment bosser
+
+- Les étapes **● principal** : à finir, c&#x27;est le cœur de la journée.
+- Les étapes **○ bonus** : si tu as le temps, pour aller plus loin.
+- Tiens un **`JOURNAL.md`** en Markdown à chaque étape.
+- Tu bloques ? La page « Cours » est interactive, va y tester du code.
+- Choisis un brief dans le menu de gauche, et c&#x27;est parti.
+</code></pre>
+</section>
+<section class="page" id="cours-js" hidden>
+  <div class="page-toolbar">
+    <button class="src-toggle" data-src="src-cours-js">Voir la source Markdown</button>
+  </div>
+  <article class="prose"><h1 id="cours-javascript-et-le-dom">Cours : JavaScript et le DOM</h1>
+<p>Cette page est interactive. Chaque bloc de code a un bouton <strong>▶ Exécuter</strong> : le code tourne directement dans la page et le résultat s'affiche dessous. La plupart sont <strong>modifiables</strong> (change le code, relance), certains sont en lecture seule. Le bouton ↺ remet le code d'origine.</p>
+<p>Il y a beaucoup d'exemples : ne te contente pas de lire, <strong>clique sur Exécuter et bricole le code</strong>. C'est en cassant des trucs qu'on apprend. On va du plus simple au plus utile : rappel HTML, variables, types, hasard, conditions, listes, objets, requêtes <code>fetch</code>, et enfin la modification de la page (le DOM).</p>
+<h2 id="dabord-un-rappel-html">D'abord, un rappel HTML</h2>
+<p>Une page web est faite de <strong>balises</strong>. Une balise ouvre (<code>&lt;p&gt;</code>) et ferme (<code>&lt;/p&gt;</code>), et ce qu'il y a entre les deux est le contenu. Quelques balises de base :</p>
+<ul>
+<li><code>&lt;h1&gt;</code> à <code>&lt;h3&gt;</code> : des titres, du plus gros au plus petit.</li>
+<li><code>&lt;p&gt;</code> : un paragraphe.</li>
+<li><code>&lt;ul&gt;</code> et <code>&lt;li&gt;</code> : une liste à puces.</li>
+<li><code>&lt;button&gt;</code> : un bouton.</li>
+<li><code>&lt;a href="..."&gt;</code> : un lien.</li>
+</ul>
+<p>Chaque balise peut avoir un <strong>identifiant</strong> avec <code>id="..."</code>, qui servira plus tard à la retrouver depuis le JavaScript. Voici du HTML, et juste en dessous ce que ça affiche (clique sur Exécuter) :</p>
+<div class="pg" data-kind="dom" data-frozen="1">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;titre&quot;</span><span class="p">&gt;</span>Ma première page<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Ceci est un paragraphe.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Premier élément<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Deuxième élément<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Un bouton<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><h2 id="titre">Ma première page</h2>
+<p>Ceci est un paragraphe.</p>
+<ul>
+  <li>Premier élément</li>
+  <li>Deuxième élément</li>
+</ul>
+<button>Un bouton</button></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
+<textarea class="pg-code" spellcheck="false" readonly rows="2">console.log(&quot;Le HTML ci-dessus est affiché dans le cadre blanc.&quot;);</textarea>
+<textarea class="pg-initial" hidden>console.log(&quot;Le HTML ci-dessus est affiché dans le cadre blanc.&quot;);</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Le <strong>CSS</strong> sert à habiller ce HTML : couleurs, formes, animations. Tu n'as rien à exécuter ici, regarde juste, et passe la souris sur la carte :</p>
+<div class="pg" data-kind="dom" data-frozen="1">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">carte</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="kt">px</span><span class="w"> </span><span class="mi">26</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span>
+<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nb">linear-gradient</span><span class="p">(</span><span class="mi">135</span><span class="kt">deg</span><span class="p">,</span><span class="w"> </span><span class="mh">#6a11cb</span><span class="p">,</span><span class="w"> </span><span class="mh">#2575fc</span><span class="p">);</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="k">transform</span><span class="w"> </span><span class="mf">.2</span><span class="kt">s</span><span class="p">;</span>
+<span class="w">    </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">carte</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">scale</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span><span class="w"> </span><span class="nb">rotate</span><span class="p">(</span><span class="mi">-2</span><span class="kt">deg</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;carte&quot;</span><span class="p">&gt;</span>Passe la souris sur moi<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><style>
+  .carte {
+    padding: 18px 26px;
+    border-radius: 14px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: inline-block;
+    transition: transform .2s;
+    cursor: pointer;
+  }
+  .carte:hover { transform: scale(1.12) rotate(-2deg); }
+</style>
+<div class="carte">Passe la souris sur moi</div></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
+<textarea class="pg-code" spellcheck="false" readonly rows="2">console.log(&quot;Tout l&#x27;effet vient du CSS, sans une ligne de JavaScript.&quot;);</textarea>
+<textarea class="pg-initial" hidden>console.log(&quot;Tout l&#x27;effet vient du CSS, sans une ligne de JavaScript.&quot;);</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Retiens ça : le HTML décrit <strong>quoi</strong> afficher, le CSS décide <strong>à quoi ça ressemble</strong>, et le JavaScript, qu'on voit maintenant, sert à <strong>calculer</strong> et à <strong>modifier</strong> ce qui est affiché.</p>
+<h2 id="les-variables">Les variables</h2>
+<p>Une variable est une boîte étiquetée où on range une valeur pour la réutiliser. On la crée avec <code>let</code> (valeur qui peut changer) ou <code>const</code> (valeur fixe). <code>console.log(...)</code> affiche une valeur pour vérifier ce qu'on fait.</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="8">let pseudo = &quot;Ada&quot;;
+const niveau = 1;
+
+console.log(pseudo);
+console.log(&quot;Niveau&quot;, niveau);
+
+pseudo = &quot;Ada_la_boss&quot;;
+console.log(&quot;Nouveau pseudo :&quot;, pseudo);</textarea>
+<textarea class="pg-initial" hidden>let pseudo = &quot;Ada&quot;;
+const niveau = 1;
+
+console.log(pseudo);
+console.log(&quot;Niveau&quot;, niveau);
+
+pseudo = &quot;Ada_la_boss&quot;;
+console.log(&quot;Nouveau pseudo :&quot;, pseudo);</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>À toi : change les valeurs, ajoute une variable <code>score</code> et affiche-la.</p>
+<h2 id="les-types-simples">Les types simples</h2>
+<p>Une valeur a un <strong>type</strong>. Les trois types de base :</p>
+<ul>
+<li>le texte (<code>string</code>), entre guillemets : <code>"bonjour"</code>,</li>
+<li>les nombres (<code>number</code>) : <code>42</code>, <code>3.14</code>,</li>
+<li>les booléens (<code>boolean</code>) : <code>true</code> ou <code>false</code>.</li>
+</ul>
+<p><code>typeof</code> donne le type d'une valeur. Attention : <code>+</code> additionne des nombres mais <strong>colle</strong> des textes.</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="8">let texte = &quot;bonjour&quot;;
+let nombre = 42;
+let estMajeur = true;
+
+console.log(typeof texte, typeof nombre, typeof estMajeur);
+
+console.log(nombre + 8);
+console.log(texte + &quot; tout le monde&quot;);</textarea>
+<textarea class="pg-initial" hidden>let texte = &quot;bonjour&quot;;
+let nombre = 42;
+let estMajeur = true;
+
+console.log(typeof texte, typeof nombre, typeof estMajeur);
+
+console.log(nombre + 8);
+console.log(texte + &quot; tout le monde&quot;);</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Essaie <code>"5" + 3</code> puis <code>5 + 3</code> et observe la différence. C'est un piège classique.</p>
+<h2 id="un-peu-de-hasard-et-de-maths">Un peu de hasard et de maths</h2>
+<p><code>Math.random()</code> donne un nombre au hasard entre 0 et 1. Combiné à <code>Math.floor()</code> (qui arrondit vers le bas), on tire un nombre entier au hasard. C'est la base de tous les jeux.</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="7">console.log(&quot;Un hasard entre 0 et 1 :&quot;, Math.random());
+
+let de = Math.floor(Math.random() * 6) + 1;
+console.log(&quot;Tu as lancé un&quot;, de);
+
+console.log(&quot;Arrondi de 4.7 :&quot;, Math.round(4.7));
+console.log(&quot;Le plus grand de 3 et 9 :&quot;, Math.max(3, 9));</textarea>
+<textarea class="pg-initial" hidden>console.log(&quot;Un hasard entre 0 et 1 :&quot;, Math.random());
+
+let de = Math.floor(Math.random() * 6) + 1;
+console.log(&quot;Tu as lancé un&quot;, de);
+
+console.log(&quot;Arrondi de 4.7 :&quot;, Math.round(4.7));
+console.log(&quot;Le plus grand de 3 et 9 :&quot;, Math.max(3, 9));</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Relance plusieurs fois : le dé change à chaque exécution.</p>
+<h2 id="prendre-des-decisions-les-conditions">Prendre des décisions : les conditions</h2>
+<p><code>if ... else</code> exécute un bloc ou un autre selon qu'une condition est vraie ou fausse. On compare avec <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>===</code> (égal).</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="10">let age = 20;
+
+if (age &gt;= 18) {
+  console.log(&quot;Tu es majeur&quot;);
+} else {
+  console.log(&quot;Tu es mineur&quot;);
+}
+
+let piece = Math.random() &lt; 0.5 ? &quot;pile&quot; : &quot;face&quot;;
+console.log(&quot;La pièce tombe sur :&quot;, piece);</textarea>
+<textarea class="pg-initial" hidden>let age = 20;
+
+if (age &gt;= 18) {
+  console.log(&quot;Tu es majeur&quot;);
+} else {
+  console.log(&quot;Tu es mineur&quot;);
+}
+
+let piece = Math.random() &lt; 0.5 ? &quot;pile&quot; : &quot;face&quot;;
+console.log(&quot;La pièce tombe sur :&quot;, piece);</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Change <code>age</code> à 15 et relance. Le <code>&lt; 0.5 ? ... : ...</code> est un raccourci pour un <code>if/else</code> court.</p>
+<h2 id="les-listes-tableaux">Les listes (tableaux)</h2>
+<p>Un <strong>tableau</strong> range plusieurs valeurs dans l'ordre, entre crochets. On accède à un élément par sa position (qui commence à 0), on en ajoute avec <code>push</code>, et on parcourt avec <code>forEach</code>.</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="11">let courses = [&quot;pain&quot;, &quot;lait&quot;, &quot;œufs&quot;];
+
+console.log(&quot;J&#x27;ai&quot;, courses.length, &quot;articles&quot;);
+console.log(&quot;Le premier :&quot;, courses[0]);
+
+courses.push(&quot;café&quot;);
+console.log(&quot;Après ajout :&quot;, courses);
+
+courses.forEach(article =&gt; {
+  console.log(&quot;- &quot; + article);
+});</textarea>
+<textarea class="pg-initial" hidden>let courses = [&quot;pain&quot;, &quot;lait&quot;, &quot;œufs&quot;];
+
+console.log(&quot;J&#x27;ai&quot;, courses.length, &quot;articles&quot;);
+console.log(&quot;Le premier :&quot;, courses[0]);
+
+courses.push(&quot;café&quot;);
+console.log(&quot;Après ajout :&quot;, courses);
+
+courses.forEach(article =&gt; {
+  console.log(&quot;- &quot; + article);
+});</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h2 id="les-dictionnaires-objets">Les dictionnaires (objets)</h2>
+<p>Quand on veut regrouper plusieurs informations qui vont ensemble (un pseudo, un score, un niveau), on utilise un <strong>objet</strong> : une liste de paires <code>clé: valeur</code>. C'est ce qu'on appelle souvent un dictionnaire.</p>
+<p>On accède à une valeur avec un point (<code>joueur.pseudo</code>) ou des crochets (<code>joueur["pseudo"]</code>).</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="11">const joueur = {
+  pseudo: &quot;Ada&quot;,
+  score: 1200,
+  niveau: 7
+};
+
+console.log(joueur.pseudo);
+console.log(joueur[&quot;score&quot;]);
+
+joueur.score = joueur.score + 100;
+console.log(joueur);</textarea>
+<textarea class="pg-initial" hidden>const joueur = {
+  pseudo: &quot;Ada&quot;,
+  score: 1200,
+  niveau: 7
+};
+
+console.log(joueur.pseudo);
+console.log(joueur[&quot;score&quot;]);
+
+joueur.score = joueur.score + 100;
+console.log(joueur);</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>On peut aussi avoir une <strong>liste d'objets</strong>, et la parcourir :</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="9">const equipe = [
+  { nom: &quot;Ada&quot;, role: &quot;dev&quot; },
+  { nom: &quot;Alan&quot;, role: &quot;maths&quot; },
+  { nom: &quot;Grace&quot;, role: &quot;compilateur&quot; }
+];
+
+equipe.forEach(membre =&gt; {
+  console.log(membre.nom + &quot; s&#x27;occupe de &quot; + membre.role);
+});</textarea>
+<textarea class="pg-initial" hidden>const equipe = [
+  { nom: &quot;Ada&quot;, role: &quot;dev&quot; },
+  { nom: &quot;Alan&quot;, role: &quot;maths&quot; },
+  { nom: &quot;Grace&quot;, role: &quot;compilateur&quot; }
+];
+
+equipe.forEach(membre =&gt; {
+  console.log(membre.nom + &quot; s&#x27;occupe de &quot; + membre.role);
+});</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Retiens bien les objets : c'est exactement la forme sous laquelle les données arrivent quand on interroge une API, juste après.</p>
+<h2 id="aller-chercher-des-donnees-fetch">Aller chercher des données : <code>fetch</code></h2>
+<p>Une <strong>API</strong> est un service en ligne qui répond à une question en renvoyant des données, en général sous forme d'objet (comme ceux du dessus). <code>fetch</code> envoie la requête. La réponse arrive plus tard : on enchaîne donc avec <code>.then(...)</code>, qui veut dire « quand la réponse est là, fais ceci ».</p>
+<p>Première API, pour se mettre en jambes : une blague au hasard. Elle renvoie un objet <code>{ setup, punchline }</code>.</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="7">fetch(&quot;https://official-joke-api.appspot.com/random_joke&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(blague =&gt; {
+    console.log(blague.setup);
+    console.log(&quot;👉 &quot; + blague.punchline);
+  })
+  .catch(erreur =&gt; console.log(&quot;Erreur :&quot;, erreur.message));</textarea>
+<textarea class="pg-initial" hidden>fetch(&quot;https://official-joke-api.appspot.com/random_joke&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(blague =&gt; {
+    console.log(blague.setup);
+    console.log(&quot;👉 &quot; + blague.punchline);
+  })
+  .catch(erreur =&gt; console.log(&quot;Erreur :&quot;, erreur.message));</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Relance pour une autre blague. Deux étapes à comprendre : <code>.json()</code> transforme la réponse en objet JavaScript, puis le <code>.then</code> suivant reçoit cet objet et on lit ses clés comme tout à l'heure.</p>
+<p>Une deuxième API devine un âge moyen à partir d'un prénom. Change <code>ada</code> par le tien :</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="6">fetch(&quot;https://api.agify.io?name=ada&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(donnees =&gt; {
+    console.log(&quot;Prénom :&quot;, donnees.name);
+    console.log(&quot;Âge estimé :&quot;, donnees.age);
+  });</textarea>
+<textarea class="pg-initial" hidden>fetch(&quot;https://api.agify.io?name=ada&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(donnees =&gt; {
+    console.log(&quot;Prénom :&quot;, donnees.name);
+    console.log(&quot;Âge estimé :&quot;, donnees.age);
+  });</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<p>Et une troisième, qui renvoie des infos sur un pays (la réponse est une liste, on prend le premier élément avec <code>[0]</code>) :</p>
+<div class="pg" data-kind="js">
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="7">fetch(&quot;https://restcountries.com/v3.1/name/japan?fields=capital,population&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(donnees =&gt; {
+    const pays = donnees[0];
+    console.log(&quot;Capitale :&quot;, pays.capital[0]);
+    console.log(&quot;Population :&quot;, pays.population);
+  });</textarea>
+<textarea class="pg-initial" hidden>fetch(&quot;https://restcountries.com/v3.1/name/japan?fields=capital,population&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(donnees =&gt; {
+    const pays = donnees[0];
+    console.log(&quot;Capitale :&quot;, pays.capital[0]);
+    console.log(&quot;Population :&quot;, pays.population);
+  });</textarea>
+<iframe class="pg-stage pg-hidden" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h2 id="manipuler-le-dom">Manipuler le DOM</h2>
+<p>Le <strong>DOM</strong>, c'est la page HTML vue comme des objets que le JavaScript peut lire et modifier. On retrouve un élément avec <code>document.querySelector("#identifiant")</code>, puis on change son contenu (<code>.textContent</code>) ou son style (<code>.style</code>).</p>
+<p>Dans les blocs qui suivent, le HTML de départ est affiché, et le JavaScript en dessous le modifie. Clique sur Exécuter pour voir le changement dans le cadre blanc.</p>
+<h3 id="changer-un-texte-et-une-couleur">Changer un texte et une couleur</h3>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;titre&quot;</span><span class="p">&gt;</span>Bonjour<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><h2 id="titre">Bonjour</h2></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="3">const titre = document.querySelector(&quot;#titre&quot;);
+titre.textContent = &quot;Bonjour la promo !&quot;;
+titre.style.color = &quot;purple&quot;;</textarea>
+<textarea class="pg-initial" hidden>const titre = document.querySelector(&quot;#titre&quot;);
+titre.textContent = &quot;Bonjour la promo !&quot;;
+titre.style.color = &quot;purple&quot;;</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="reagir-a-un-clic">Réagir à un clic</h3>
+<p><code>addEventListener("click", ...)</code> exécute du code à chaque clic. Ici on compte les clics.</p>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bouton&quot;</span><span class="p">&gt;</span>Clique-moi<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;message&quot;</span><span class="p">&gt;</span>Aucun clic pour l&#39;instant.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><button id="bouton">Clique-moi</button>
+<p id="message">Aucun clic pour l'instant.</p></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="8">const bouton = document.querySelector(&quot;#bouton&quot;);
+const message = document.querySelector(&quot;#message&quot;);
+let compteur = 0;
+
+bouton.addEventListener(&quot;click&quot;, () =&gt; {
+  compteur = compteur + 1;
+  message.textContent = &quot;Nombre de clics : &quot; + compteur;
+});</textarea>
+<textarea class="pg-initial" hidden>const bouton = document.querySelector(&quot;#bouton&quot;);
+const message = document.querySelector(&quot;#message&quot;);
+let compteur = 0;
+
+bouton.addEventListener(&quot;click&quot;, () =&gt; {
+  compteur = compteur + 1;
+  message.textContent = &quot;Nombre de clics : &quot; + compteur;
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="changer-la-couleur-de-fond-au-hasard">Changer la couleur de fond au hasard</h3>
+<p>On réutilise le hasard : à chaque clic, on pioche une couleur dans une liste.</p>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;changer&quot;</span><span class="p">&gt;</span>Change la couleur<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><button id="changer">Change la couleur</button></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="6">const couleurs = [&quot;#ffadad&quot;, &quot;#ffd6a5&quot;, &quot;#fdffb6&quot;, &quot;#caffbf&quot;, &quot;#9bf6ff&quot;, &quot;#bdb2ff&quot;];
+
+document.querySelector(&quot;#changer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const c = couleurs[Math.floor(Math.random() * couleurs.length)];
+  document.body.style.background = c;
+});</textarea>
+<textarea class="pg-initial" hidden>const couleurs = [&quot;#ffadad&quot;, &quot;#ffd6a5&quot;, &quot;#fdffb6&quot;, &quot;#caffbf&quot;, &quot;#9bf6ff&quot;, &quot;#bdb2ff&quot;];
+
+document.querySelector(&quot;#changer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const c = couleurs[Math.floor(Math.random() * couleurs.length)];
+  document.body.style.background = c;
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="la-boule-magique-magic-8-ball">La boule magique (Magic 8-ball)</h3>
+<p>Pose une question dans ta tête, clique, et reçois une réponse au hasard. Tout est là : une liste, le hasard, un clic, et la modification du texte.</p>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;poser&quot;</span><span class="p">&gt;</span>Pose une question, puis clique<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;reponse&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:22px&quot;</span><span class="p">&gt;</span>🎱<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><button id="poser">Pose une question, puis clique</button>
+<p id="reponse" style="font-size:22px">🎱</p></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="6">const reponses = [&quot;Oui, clairement&quot;, &quot;Non&quot;, &quot;Peut-être…&quot;, &quot;Certainement&quot;, &quot;Ça m&#x27;étonnerait&quot;, &quot;Demande plus tard&quot;];
+
+document.querySelector(&quot;#poser&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const i = Math.floor(Math.random() * reponses.length);
+  document.querySelector(&quot;#reponse&quot;).textContent = reponses[i];
+});</textarea>
+<textarea class="pg-initial" hidden>const reponses = [&quot;Oui, clairement&quot;, &quot;Non&quot;, &quot;Peut-être…&quot;, &quot;Certainement&quot;, &quot;Ça m&#x27;étonnerait&quot;, &quot;Demande plus tard&quot;];
+
+document.querySelector(&quot;#poser&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const i = Math.floor(Math.random() * reponses.length);
+  document.querySelector(&quot;#reponse&quot;).textContent = reponses[i];
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="lancer-un-de">Lancer un dé</h3>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;lancer&quot;</span><span class="p">&gt;</span>Lancer le dé<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;de&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:60px&quot;</span><span class="p">&gt;</span>🎲<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><button id="lancer">Lancer le dé</button>
+<p id="de" style="font-size:60px">🎲</p></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="6">const faces = [&quot;⚀&quot;, &quot;⚁&quot;, &quot;⚂&quot;, &quot;⚃&quot;, &quot;⚄&quot;, &quot;⚅&quot;];
+
+document.querySelector(&quot;#lancer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const n = Math.floor(Math.random() * 6);
+  document.querySelector(&quot;#de&quot;).textContent = faces[n];
+});</textarea>
+<textarea class="pg-initial" hidden>const faces = [&quot;⚀&quot;, &quot;⚁&quot;, &quot;⚂&quot;, &quot;⚃&quot;, &quot;⚄&quot;, &quot;⚅&quot;];
+
+document.querySelector(&quot;#lancer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const n = Math.floor(Math.random() * 6);
+  document.querySelector(&quot;#de&quot;).textContent = faces[n];
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="compter-les-caracteres-en-direct">Compter les caractères en direct</h3>
+<p>L'événement <code>input</code> se déclenche à chaque touche tapée. Pratique pour réagir pendant que l'utilisateur écrit.</p>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;champ&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Écris quelque chose…&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:6px;width:240px&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;compte&quot;</span><span class="p">&gt;</span>0 caractère<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><input id="champ" placeholder="Écris quelque chose…" style="padding:6px;width:240px">
+<p id="compte">0 caractère</p></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="6">const champ = document.querySelector(&quot;#champ&quot;);
+const compte = document.querySelector(&quot;#compte&quot;);
+
+champ.addEventListener(&quot;input&quot;, () =&gt; {
+  compte.textContent = champ.value.length + &quot; caractères&quot;;
+});</textarea>
+<textarea class="pg-initial" hidden>const champ = document.querySelector(&quot;#champ&quot;);
+const compte = document.querySelector(&quot;#compte&quot;);
+
+champ.addEventListener(&quot;input&quot;, () =&gt; {
+  compte.textContent = champ.value.length + &quot; caractères&quot;;
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="construire-une-liste-a-partir-dun-tableau">Construire une liste à partir d'un tableau</h3>
+<p>On combine tout : une liste de données, une boucle, et la création d'éléments HTML avec <code>createElement</code> et <code>appendChild</code>.</p>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;liste&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><ul id="liste"></ul></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="8">const fruits = [&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;];
+const liste = document.querySelector(&quot;#liste&quot;);
+
+fruits.forEach(fruit =&gt; {
+  const li = document.createElement(&quot;li&quot;);
+  li.textContent = fruit;
+  liste.appendChild(li);
+});</textarea>
+<textarea class="pg-initial" hidden>const fruits = [&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;];
+const liste = document.querySelector(&quot;#liste&quot;);
+
+fruits.forEach(fruit =&gt; {
+  const li = document.createElement(&quot;li&quot;);
+  li.textContent = fruit;
+  liste.appendChild(li);
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="generateur-de-pseudo">Générateur de pseudo</h3>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;go&quot;</span><span class="p">&gt;</span>Génère mon pseudo<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;pseudo&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:20px;font-weight:bold&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><button id="go">Génère mon pseudo</button>
+<p id="pseudo" style="font-size:20px;font-weight:bold"></p></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="9">const adjectifs = [&quot;Super&quot;, &quot;Méga&quot;, &quot;Ninja&quot;, &quot;Cosmic&quot;, &quot;Turbo&quot;, &quot;Mystic&quot;];
+const animaux = [&quot;Panda&quot;, &quot;Tigre&quot;, &quot;Renard&quot;, &quot;Faucon&quot;, &quot;Loutre&quot;, &quot;Dragon&quot;];
+
+document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const a = adjectifs[Math.floor(Math.random() * adjectifs.length)];
+  const b = animaux[Math.floor(Math.random() * animaux.length)];
+  const n = Math.floor(Math.random() * 100);
+  document.querySelector(&quot;#pseudo&quot;).textContent = a + b + n;
+});</textarea>
+<textarea class="pg-initial" hidden>const adjectifs = [&quot;Super&quot;, &quot;Méga&quot;, &quot;Ninja&quot;, &quot;Cosmic&quot;, &quot;Turbo&quot;, &quot;Mystic&quot;];
+const animaux = [&quot;Panda&quot;, &quot;Tigre&quot;, &quot;Renard&quot;, &quot;Faucon&quot;, &quot;Loutre&quot;, &quot;Dragon&quot;];
+
+document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const a = adjectifs[Math.floor(Math.random() * adjectifs.length)];
+  const b = animaux[Math.floor(Math.random() * animaux.length)];
+  const n = Math.floor(Math.random() * 100);
+  document.querySelector(&quot;#pseudo&quot;).textContent = a + b + n;
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="le-clic-qui-va-chercher-une-image">Le clic qui va chercher une image</h3>
+<p>On combine <code>fetch</code> et le DOM : au clic, on demande une photo de chien au hasard et on l'affiche dans la page.</p>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;chien&quot;</span><span class="p">&gt;</span>Montre-moi un chien 🐶<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;photo&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;max-width:220px;margin-top:10px;border-radius:10px&quot;</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><button id="chien">Montre-moi un chien 🐶</button><br>
+<img id="photo" alt="" style="max-width:220px;margin-top:10px;border-radius:10px"></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="7">document.querySelector(&quot;#chien&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  fetch(&quot;https://dog.ceo/api/breeds/image/random&quot;)
+    .then(reponse =&gt; reponse.json())
+    .then(donnees =&gt; {
+      document.querySelector(&quot;#photo&quot;).src = donnees.message;
+    });
+});</textarea>
+<textarea class="pg-initial" hidden>document.querySelector(&quot;#chien&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  fetch(&quot;https://dog.ceo/api/breeds/image/random&quot;)
+    .then(reponse =&gt; reponse.json())
+    .then(donnees =&gt; {
+      document.querySelector(&quot;#photo&quot;).src = donnees.message;
+    });
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h3 id="un-mini-pokedex">Un mini-Pokédex</h3>
+<p>Le grand final : on tape un nom de Pokémon, on interroge l'API, et on affiche son image et ses stats. C'est exactement le mécanisme qu'on utilisera avec Supabase au brief 3.</p>
+<div class="pg" data-kind="dom">
+<div class="pg-htmllabel">HTML de départ</div>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nom&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;pikachu&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding:6px&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;chercher&quot;</span><span class="p">&gt;</span>Chercher<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;resultat&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-top:10px;display:flex;align-items:center;gap:12px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+
+<template class="pg-html"><input id="nom" value="pikachu" style="padding:6px">
+<button id="chercher">Chercher</button>
+<div id="resultat" style="margin-top:10px;display:flex;align-items:center;gap:12px"></div></template>
+<div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<textarea class="pg-code" spellcheck="false" rows="19">document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const nom = document.querySelector(&quot;#nom&quot;).value.toLowerCase().trim();
+  const res = document.querySelector(&quot;#resultat&quot;);
+  res.textContent = &quot;Recherche…&quot;;
+
+  fetch(&quot;https://pokeapi.co/api/v2/pokemon/&quot; + nom)
+    .then(reponse =&gt; {
+      if (!reponse.ok) throw new Error(&quot;Pokémon introuvable&quot;);
+      return reponse.json();
+    })
+    .then(p =&gt; {
+      res.innerHTML =
+        &quot;&lt;img src=&#x27;&quot; + p.sprites.front_default + &quot;&#x27; alt=&#x27;&#x27; width=&#x27;72&#x27; height=&#x27;72&#x27;&gt;&quot; +
+        &quot;&lt;span&gt;&lt;strong&gt;&quot; + p.name + &quot;&lt;/strong&gt;&lt;br&gt;&quot; +
+        &quot;Type : &quot; + p.types[0].type.name + &quot;&lt;br&gt;&quot; +
+        &quot;Taille : &quot; + p.height + &quot; · Poids : &quot; + p.weight + &quot;&lt;/span&gt;&quot;;
+    })
+    .catch(erreur =&gt; { res.textContent = erreur.message; });
+});</textarea>
+<textarea class="pg-initial" hidden>document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const nom = document.querySelector(&quot;#nom&quot;).value.toLowerCase().trim();
+  const res = document.querySelector(&quot;#resultat&quot;);
+  res.textContent = &quot;Recherche…&quot;;
+
+  fetch(&quot;https://pokeapi.co/api/v2/pokemon/&quot; + nom)
+    .then(reponse =&gt; {
+      if (!reponse.ok) throw new Error(&quot;Pokémon introuvable&quot;);
+      return reponse.json();
+    })
+    .then(p =&gt; {
+      res.innerHTML =
+        &quot;&lt;img src=&#x27;&quot; + p.sprites.front_default + &quot;&#x27; alt=&#x27;&#x27; width=&#x27;72&#x27; height=&#x27;72&#x27;&gt;&quot; +
+        &quot;&lt;span&gt;&lt;strong&gt;&quot; + p.name + &quot;&lt;/strong&gt;&lt;br&gt;&quot; +
+        &quot;Type : &quot; + p.types[0].type.name + &quot;&lt;br&gt;&quot; +
+        &quot;Taille : &quot; + p.height + &quot; · Poids : &quot; + p.weight + &quot;&lt;/span&gt;&quot;;
+    })
+    .catch(erreur =&gt; { res.textContent = erreur.message; });
+});</textarea>
+<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
+<div class="pg-console" aria-live="polite"></div>
+</div>
+<h2 id="a-toi-de-jouer">À toi de jouer</h2>
+<p>Tu as toutes les briques. Essaie ces petits défis en modifiant les exemples ci-dessus :</p>
+<ol>
+<li>Dans la <strong>boule magique</strong>, ajoute trois nouvelles réponses.</li>
+<li>Fais que le <strong>dé</strong> affiche aussi dans la console le numéro tiré.</li>
+<li>Dans le <strong>générateur de pseudo</strong>, ajoute tes propres adjectifs et animaux.</li>
+<li>Dans le <strong>mini-Pokédex</strong>, affiche aussi le premier type du Pokémon (indice : <code>p.types[0].type.name</code>).</li>
+</ol>
+<p>Quand tu es à l'aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta carte web, puis le mur partagé de la promo.</p></article>
+  <pre class="md-source" id="src-cours-js" hidden><code># Cours : JavaScript et le DOM
+
+Cette page est interactive. Chaque bloc de code a un bouton **▶ Exécuter** : le code tourne directement dans la page et le résultat s&#x27;affiche dessous. La plupart sont **modifiables** (change le code, relance), certains sont en lecture seule. Le bouton ↺ remet le code d&#x27;origine.
+
+Il y a beaucoup d&#x27;exemples : ne te contente pas de lire, **clique sur Exécuter et bricole le code**. C&#x27;est en cassant des trucs qu&#x27;on apprend. On va du plus simple au plus utile : rappel HTML, variables, types, hasard, conditions, listes, objets, requêtes `fetch`, et enfin la modification de la page (le DOM).
+
+## D&#x27;abord, un rappel HTML
+
+Une page web est faite de **balises**. Une balise ouvre (`&lt;p&gt;`) et ferme (`&lt;/p&gt;`), et ce qu&#x27;il y a entre les deux est le contenu. Quelques balises de base :
+
+- `&lt;h1&gt;` à `&lt;h3&gt;` : des titres, du plus gros au plus petit.
+- `&lt;p&gt;` : un paragraphe.
+- `&lt;ul&gt;` et `&lt;li&gt;` : une liste à puces.
+- `&lt;button&gt;` : un bouton.
+- `&lt;a href=&quot;...&quot;&gt;` : un lien.
+
+Chaque balise peut avoir un **identifiant** avec `id=&quot;...&quot;`, qui servira plus tard à la retrouver depuis le JavaScript. Voici du HTML, et juste en dessous ce que ça affiche (clique sur Exécuter) :
+
+```domrun-frozen
+&lt;h2 id=&quot;titre&quot;&gt;Ma première page&lt;/h2&gt;
+&lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Premier élément&lt;/li&gt;
+  &lt;li&gt;Deuxième élément&lt;/li&gt;
+&lt;/ul&gt;
+&lt;button&gt;Un bouton&lt;/button&gt;
+===
+console.log(&quot;Le HTML ci-dessus est affiché dans le cadre blanc.&quot;);
+```
+
+Le **CSS** sert à habiller ce HTML : couleurs, formes, animations. Tu n&#x27;as rien à exécuter ici, regarde juste, et passe la souris sur la carte :
+
+```domrun-frozen
+&lt;style&gt;
+  .carte {
+    padding: 18px 26px;
+    border-radius: 14px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: inline-block;
+    transition: transform .2s;
+    cursor: pointer;
+  }
+  .carte:hover { transform: scale(1.12) rotate(-2deg); }
+&lt;/style&gt;
+&lt;div class=&quot;carte&quot;&gt;Passe la souris sur moi&lt;/div&gt;
+===
+console.log(&quot;Tout l&#x27;effet vient du CSS, sans une ligne de JavaScript.&quot;);
+```
+
+Retiens ça : le HTML décrit **quoi** afficher, le CSS décide **à quoi ça ressemble**, et le JavaScript, qu&#x27;on voit maintenant, sert à **calculer** et à **modifier** ce qui est affiché.
+
+## Les variables
+
+Une variable est une boîte étiquetée où on range une valeur pour la réutiliser. On la crée avec `let` (valeur qui peut changer) ou `const` (valeur fixe). `console.log(...)` affiche une valeur pour vérifier ce qu&#x27;on fait.
+
+```jsrun
+let pseudo = &quot;Ada&quot;;
+const niveau = 1;
+
+console.log(pseudo);
+console.log(&quot;Niveau&quot;, niveau);
+
+pseudo = &quot;Ada_la_boss&quot;;
+console.log(&quot;Nouveau pseudo :&quot;, pseudo);
+```
+
+À toi : change les valeurs, ajoute une variable `score` et affiche-la.
+
+## Les types simples
+
+Une valeur a un **type**. Les trois types de base :
+
+- le texte (`string`), entre guillemets : `&quot;bonjour&quot;`,
+- les nombres (`number`) : `42`, `3.14`,
+- les booléens (`boolean`) : `true` ou `false`.
+
+`typeof` donne le type d&#x27;une valeur. Attention : `+` additionne des nombres mais **colle** des textes.
+
+```jsrun
+let texte = &quot;bonjour&quot;;
+let nombre = 42;
+let estMajeur = true;
+
+console.log(typeof texte, typeof nombre, typeof estMajeur);
+
+console.log(nombre + 8);
+console.log(texte + &quot; tout le monde&quot;);
+```
+
+Essaie `&quot;5&quot; + 3` puis `5 + 3` et observe la différence. C&#x27;est un piège classique.
+
+## Un peu de hasard et de maths
+
+`Math.random()` donne un nombre au hasard entre 0 et 1. Combiné à `Math.floor()` (qui arrondit vers le bas), on tire un nombre entier au hasard. C&#x27;est la base de tous les jeux.
+
+```jsrun
+console.log(&quot;Un hasard entre 0 et 1 :&quot;, Math.random());
+
+let de = Math.floor(Math.random() * 6) + 1;
+console.log(&quot;Tu as lancé un&quot;, de);
+
+console.log(&quot;Arrondi de 4.7 :&quot;, Math.round(4.7));
+console.log(&quot;Le plus grand de 3 et 9 :&quot;, Math.max(3, 9));
+```
+
+Relance plusieurs fois : le dé change à chaque exécution.
+
+## Prendre des décisions : les conditions
+
+`if ... else` exécute un bloc ou un autre selon qu&#x27;une condition est vraie ou fausse. On compare avec `&gt;`, `&lt;`, `&gt;=`, `===` (égal).
+
+```jsrun
+let age = 20;
+
+if (age &gt;= 18) {
+  console.log(&quot;Tu es majeur&quot;);
+} else {
+  console.log(&quot;Tu es mineur&quot;);
+}
+
+let piece = Math.random() &lt; 0.5 ? &quot;pile&quot; : &quot;face&quot;;
+console.log(&quot;La pièce tombe sur :&quot;, piece);
+```
+
+Change `age` à 15 et relance. Le `&lt; 0.5 ? ... : ...` est un raccourci pour un `if/else` court.
+
+## Les listes (tableaux)
+
+Un **tableau** range plusieurs valeurs dans l&#x27;ordre, entre crochets. On accède à un élément par sa position (qui commence à 0), on en ajoute avec `push`, et on parcourt avec `forEach`.
+
+```jsrun
+let courses = [&quot;pain&quot;, &quot;lait&quot;, &quot;œufs&quot;];
+
+console.log(&quot;J&#x27;ai&quot;, courses.length, &quot;articles&quot;);
+console.log(&quot;Le premier :&quot;, courses[0]);
+
+courses.push(&quot;café&quot;);
+console.log(&quot;Après ajout :&quot;, courses);
+
+courses.forEach(article =&gt; {
+  console.log(&quot;- &quot; + article);
+});
+```
+
+## Les dictionnaires (objets)
+
+Quand on veut regrouper plusieurs informations qui vont ensemble (un pseudo, un score, un niveau), on utilise un **objet** : une liste de paires `clé: valeur`. C&#x27;est ce qu&#x27;on appelle souvent un dictionnaire.
+
+On accède à une valeur avec un point (`joueur.pseudo`) ou des crochets (`joueur[&quot;pseudo&quot;]`).
+
+```jsrun
+const joueur = {
+  pseudo: &quot;Ada&quot;,
+  score: 1200,
+  niveau: 7
+};
+
+console.log(joueur.pseudo);
+console.log(joueur[&quot;score&quot;]);
+
+joueur.score = joueur.score + 100;
+console.log(joueur);
+```
+
+On peut aussi avoir une **liste d&#x27;objets**, et la parcourir :
+
+```jsrun
+const equipe = [
+  { nom: &quot;Ada&quot;, role: &quot;dev&quot; },
+  { nom: &quot;Alan&quot;, role: &quot;maths&quot; },
+  { nom: &quot;Grace&quot;, role: &quot;compilateur&quot; }
+];
+
+equipe.forEach(membre =&gt; {
+  console.log(membre.nom + &quot; s&#x27;occupe de &quot; + membre.role);
+});
+```
+
+Retiens bien les objets : c&#x27;est exactement la forme sous laquelle les données arrivent quand on interroge une API, juste après.
+
+## Aller chercher des données : `fetch`
+
+Une **API** est un service en ligne qui répond à une question en renvoyant des données, en général sous forme d&#x27;objet (comme ceux du dessus). `fetch` envoie la requête. La réponse arrive plus tard : on enchaîne donc avec `.then(...)`, qui veut dire « quand la réponse est là, fais ceci ».
+
+Première API, pour se mettre en jambes : une blague au hasard. Elle renvoie un objet `{ setup, punchline }`.
+
+```jsrun
+fetch(&quot;https://official-joke-api.appspot.com/random_joke&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(blague =&gt; {
+    console.log(blague.setup);
+    console.log(&quot;👉 &quot; + blague.punchline);
+  })
+  .catch(erreur =&gt; console.log(&quot;Erreur :&quot;, erreur.message));
+```
+
+Relance pour une autre blague. Deux étapes à comprendre : `.json()` transforme la réponse en objet JavaScript, puis le `.then` suivant reçoit cet objet et on lit ses clés comme tout à l&#x27;heure.
+
+Une deuxième API devine un âge moyen à partir d&#x27;un prénom. Change `ada` par le tien :
+
+```jsrun
+fetch(&quot;https://api.agify.io?name=ada&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(donnees =&gt; {
+    console.log(&quot;Prénom :&quot;, donnees.name);
+    console.log(&quot;Âge estimé :&quot;, donnees.age);
+  });
+```
+
+Et une troisième, qui renvoie des infos sur un pays (la réponse est une liste, on prend le premier élément avec `[0]`) :
+
+```jsrun
+fetch(&quot;https://restcountries.com/v3.1/name/japan?fields=capital,population&quot;)
+  .then(reponse =&gt; reponse.json())
+  .then(donnees =&gt; {
+    const pays = donnees[0];
+    console.log(&quot;Capitale :&quot;, pays.capital[0]);
+    console.log(&quot;Population :&quot;, pays.population);
+  });
+```
+
+## Manipuler le DOM
+
+Le **DOM**, c&#x27;est la page HTML vue comme des objets que le JavaScript peut lire et modifier. On retrouve un élément avec `document.querySelector(&quot;#identifiant&quot;)`, puis on change son contenu (`.textContent`) ou son style (`.style`).
+
+Dans les blocs qui suivent, le HTML de départ est affiché, et le JavaScript en dessous le modifie. Clique sur Exécuter pour voir le changement dans le cadre blanc.
+
+### Changer un texte et une couleur
+
+```domrun
+&lt;h2 id=&quot;titre&quot;&gt;Bonjour&lt;/h2&gt;
+===
+const titre = document.querySelector(&quot;#titre&quot;);
+titre.textContent = &quot;Bonjour la promo !&quot;;
+titre.style.color = &quot;purple&quot;;
+```
+
+### Réagir à un clic
+
+`addEventListener(&quot;click&quot;, ...)` exécute du code à chaque clic. Ici on compte les clics.
+
+```domrun
+&lt;button id=&quot;bouton&quot;&gt;Clique-moi&lt;/button&gt;
+&lt;p id=&quot;message&quot;&gt;Aucun clic pour l&#x27;instant.&lt;/p&gt;
+===
+const bouton = document.querySelector(&quot;#bouton&quot;);
+const message = document.querySelector(&quot;#message&quot;);
+let compteur = 0;
+
+bouton.addEventListener(&quot;click&quot;, () =&gt; {
+  compteur = compteur + 1;
+  message.textContent = &quot;Nombre de clics : &quot; + compteur;
+});
+```
+
+### Changer la couleur de fond au hasard
+
+On réutilise le hasard : à chaque clic, on pioche une couleur dans une liste.
+
+```domrun
+&lt;button id=&quot;changer&quot;&gt;Change la couleur&lt;/button&gt;
+===
+const couleurs = [&quot;#ffadad&quot;, &quot;#ffd6a5&quot;, &quot;#fdffb6&quot;, &quot;#caffbf&quot;, &quot;#9bf6ff&quot;, &quot;#bdb2ff&quot;];
+
+document.querySelector(&quot;#changer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const c = couleurs[Math.floor(Math.random() * couleurs.length)];
+  document.body.style.background = c;
+});
+```
+
+### La boule magique (Magic 8-ball)
+
+Pose une question dans ta tête, clique, et reçois une réponse au hasard. Tout est là : une liste, le hasard, un clic, et la modification du texte.
+
+```domrun
+&lt;button id=&quot;poser&quot;&gt;Pose une question, puis clique&lt;/button&gt;
+&lt;p id=&quot;reponse&quot; style=&quot;font-size:22px&quot;&gt;🎱&lt;/p&gt;
+===
+const reponses = [&quot;Oui, clairement&quot;, &quot;Non&quot;, &quot;Peut-être…&quot;, &quot;Certainement&quot;, &quot;Ça m&#x27;étonnerait&quot;, &quot;Demande plus tard&quot;];
+
+document.querySelector(&quot;#poser&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const i = Math.floor(Math.random() * reponses.length);
+  document.querySelector(&quot;#reponse&quot;).textContent = reponses[i];
+});
+```
+
+### Lancer un dé
+
+```domrun
+&lt;button id=&quot;lancer&quot;&gt;Lancer le dé&lt;/button&gt;
+&lt;p id=&quot;de&quot; style=&quot;font-size:60px&quot;&gt;🎲&lt;/p&gt;
+===
+const faces = [&quot;⚀&quot;, &quot;⚁&quot;, &quot;⚂&quot;, &quot;⚃&quot;, &quot;⚄&quot;, &quot;⚅&quot;];
+
+document.querySelector(&quot;#lancer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const n = Math.floor(Math.random() * 6);
+  document.querySelector(&quot;#de&quot;).textContent = faces[n];
+});
+```
+
+### Compter les caractères en direct
+
+L&#x27;événement `input` se déclenche à chaque touche tapée. Pratique pour réagir pendant que l&#x27;utilisateur écrit.
+
+```domrun
+&lt;input id=&quot;champ&quot; placeholder=&quot;Écris quelque chose…&quot; style=&quot;padding:6px;width:240px&quot;&gt;
+&lt;p id=&quot;compte&quot;&gt;0 caractère&lt;/p&gt;
+===
+const champ = document.querySelector(&quot;#champ&quot;);
+const compte = document.querySelector(&quot;#compte&quot;);
+
+champ.addEventListener(&quot;input&quot;, () =&gt; {
+  compte.textContent = champ.value.length + &quot; caractères&quot;;
+});
+```
+
+### Construire une liste à partir d&#x27;un tableau
+
+On combine tout : une liste de données, une boucle, et la création d&#x27;éléments HTML avec `createElement` et `appendChild`.
+
+```domrun
+&lt;ul id=&quot;liste&quot;&gt;&lt;/ul&gt;
+===
+const fruits = [&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;];
+const liste = document.querySelector(&quot;#liste&quot;);
+
+fruits.forEach(fruit =&gt; {
+  const li = document.createElement(&quot;li&quot;);
+  li.textContent = fruit;
+  liste.appendChild(li);
+});
+```
+
+### Générateur de pseudo
+
+```domrun
+&lt;button id=&quot;go&quot;&gt;Génère mon pseudo&lt;/button&gt;
+&lt;p id=&quot;pseudo&quot; style=&quot;font-size:20px;font-weight:bold&quot;&gt;&lt;/p&gt;
+===
+const adjectifs = [&quot;Super&quot;, &quot;Méga&quot;, &quot;Ninja&quot;, &quot;Cosmic&quot;, &quot;Turbo&quot;, &quot;Mystic&quot;];
+const animaux = [&quot;Panda&quot;, &quot;Tigre&quot;, &quot;Renard&quot;, &quot;Faucon&quot;, &quot;Loutre&quot;, &quot;Dragon&quot;];
+
+document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const a = adjectifs[Math.floor(Math.random() * adjectifs.length)];
+  const b = animaux[Math.floor(Math.random() * animaux.length)];
+  const n = Math.floor(Math.random() * 100);
+  document.querySelector(&quot;#pseudo&quot;).textContent = a + b + n;
+});
+```
+
+### Le clic qui va chercher une image
+
+On combine `fetch` et le DOM : au clic, on demande une photo de chien au hasard et on l&#x27;affiche dans la page.
+
+```domrun
+&lt;button id=&quot;chien&quot;&gt;Montre-moi un chien 🐶&lt;/button&gt;&lt;br&gt;
+&lt;img id=&quot;photo&quot; alt=&quot;&quot; style=&quot;max-width:220px;margin-top:10px;border-radius:10px&quot;&gt;
+===
+document.querySelector(&quot;#chien&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  fetch(&quot;https://dog.ceo/api/breeds/image/random&quot;)
+    .then(reponse =&gt; reponse.json())
+    .then(donnees =&gt; {
+      document.querySelector(&quot;#photo&quot;).src = donnees.message;
+    });
+});
+```
+
+### Un mini-Pokédex
+
+Le grand final : on tape un nom de Pokémon, on interroge l&#x27;API, et on affiche son image et ses stats. C&#x27;est exactement le mécanisme qu&#x27;on utilisera avec Supabase au brief 3.
+
+```domrun
+&lt;input id=&quot;nom&quot; value=&quot;pikachu&quot; style=&quot;padding:6px&quot;&gt;
+&lt;button id=&quot;chercher&quot;&gt;Chercher&lt;/button&gt;
+&lt;div id=&quot;resultat&quot; style=&quot;margin-top:10px;display:flex;align-items:center;gap:12px&quot;&gt;&lt;/div&gt;
+===
+document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  const nom = document.querySelector(&quot;#nom&quot;).value.toLowerCase().trim();
+  const res = document.querySelector(&quot;#resultat&quot;);
+  res.textContent = &quot;Recherche…&quot;;
+
+  fetch(&quot;https://pokeapi.co/api/v2/pokemon/&quot; + nom)
+    .then(reponse =&gt; {
+      if (!reponse.ok) throw new Error(&quot;Pokémon introuvable&quot;);
+      return reponse.json();
+    })
+    .then(p =&gt; {
+      res.innerHTML =
+        &quot;&lt;img src=&#x27;&quot; + p.sprites.front_default + &quot;&#x27; alt=&#x27;&#x27; width=&#x27;72&#x27; height=&#x27;72&#x27;&gt;&quot; +
+        &quot;&lt;span&gt;&lt;strong&gt;&quot; + p.name + &quot;&lt;/strong&gt;&lt;br&gt;&quot; +
+        &quot;Type : &quot; + p.types[0].type.name + &quot;&lt;br&gt;&quot; +
+        &quot;Taille : &quot; + p.height + &quot; · Poids : &quot; + p.weight + &quot;&lt;/span&gt;&quot;;
+    })
+    .catch(erreur =&gt; { res.textContent = erreur.message; });
+});
+```
+
+## À toi de jouer
+
+Tu as toutes les briques. Essaie ces petits défis en modifiant les exemples ci-dessus :
+
+1. Dans la **boule magique**, ajoute trois nouvelles réponses.
+2. Fais que le **dé** affiche aussi dans la console le numéro tiré.
+3. Dans le **générateur de pseudo**, ajoute tes propres adjectifs et animaux.
+4. Dans le **mini-Pokédex**, affiche aussi le premier type du Pokémon (indice : `p.types[0].type.name`).
+
+Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta carte web, puis le mur partagé de la promo.
+</code></pre>
+</section>
+<section class="page" id="brief-1" hidden>
+  <div class="page-toolbar">
+    <button class="src-toggle" data-src="src-brief-1">Voir la source Markdown</button>
+  </div>
+  <article class="prose"><h1 id="brief-1-ma-carte-web-html-css-puis-un-peu-de-js">Brief 1 : ma carte web (HTML, CSS, puis un peu de JS)</h1>
+<p><strong>Type</strong> : brief individuel
+<strong>Durée visée</strong> : 1 journée (7h)
+<strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales</p>
+<p>Tu sais déjà demander à une IA de te coder une page. Cette fois, on fait l'inverse : tu écris le code toi-même, ligne par ligne, pour comprendre ce qu'il y a vraiment dessous. À la fin de la journée, tu auras une carte de profil web bien à toi, écrite à la main, et tu sauras lire n'importe quelle page web.</p>
+<h2 id="contexte-du-projet">Contexte du projet</h2>
+<p>Une page web, c'est trois langages qui travaillent ensemble : le <strong>HTML</strong> (le contenu et la structure : « voici un titre, voici une image »), le <strong>CSS</strong> (l'apparence : couleurs, polices, mise en page) et le <strong>JavaScript</strong> (le comportement : ce qui bouge quand on clique). On va les découvrir dans cet ordre, du plus simple au plus vivant.</p>
+<p>Le but du jour : construire <strong>ta carte web</strong>, une mini-page qui te présente. C'est la première brique d'un projet qu'on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.</p>
+<h2 id="ressources">Ressources</h2>
+<ul>
+<li>MDN, le manuel de référence du web (en français) : <a href="https://developer.mozilla.org/fr/docs/Learn">https://developer.mozilla.org/fr/docs/Learn</a></li>
+<li>Toxicode pour s'entraîner de façon ludique : <a href="https://www.toxicode.fr/learn">https://www.toxicode.fr/learn</a></li>
+<li>Un éditeur de code (VS Code) avec l'extension Live Server.</li>
+<li>Antisèche Markdown : <a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></li>
+</ul>
+<h2 id="modalites-pedagogiques">Modalités pédagogiques</h2>
+<p>Travail individuel, avec démos collectives du formateur entre chaque étape. On code en direct, on casse, on répare. Chaque étape est découpée en petits pas : fais-les <strong>un par un</strong>, et vérifie le résultat dans le navigateur après chaque pas avant de passer au suivant.</p>
+<h3 class="is-principal" id="etape-1-principal-le-squelette-html">Étape 1 (⭐ principal) : le squelette HTML</h3>
+<p>Objectif : comprendre qu'une page HTML est une structure d'éléments imbriqués, et savoir nommer les balises de base.</p>
+<ol>
+<li>Crée un dossier <code>ma-carte</code> sur ton ordinateur, et dedans un fichier vide nommé <code>index.html</code>.</li>
+<li>Ouvre ce dossier dans VS Code.</li>
+<li>Tape le squelette d'une page : <code>&lt;!DOCTYPE html&gt;</code>, puis <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> et <code>&lt;body&gt;</code>. (Astuce : taper <code>!</code> puis Entrée dans VS Code génère le squelette.)</li>
+<li>Ouvre <code>index.html</code> dans ton navigateur (ou clic droit → « Open with Live Server »). Tu vois une page blanche : c'est normal.</li>
+<li>Dans le <code>&lt;body&gt;</code>, ajoute un titre avec ton prénom : <code>&lt;h1&gt;Moi, c'est …&lt;/h1&gt;</code>. Recharge la page.</li>
+<li>Ajoute une image d'avatar (une photo ou un dessin) : <code>&lt;img src="..." alt="mon avatar"&gt;</code>.</li>
+<li>Ajoute un paragraphe de présentation : <code>&lt;p&gt;…&lt;/p&gt;</code>.</li>
+<li>Ajoute une liste de 3 choses que tu aimes : un <code>&lt;ul&gt;</code> qui contient trois <code>&lt;li&gt;</code>.</li>
+<li>Ajoute au moins un lien vers quelque chose qui te représente : <code>&lt;a href="..."&gt;…&lt;/a&gt;</code>.</li>
+</ol>
+<p>À la fin : ta carte affiche tout son contenu, sans style. C'est volontaire, on l'habille à l'étape suivante.</p>
+<h3 class="is-principal" id="etape-2-principal-lhabillage-css">Étape 2 (⭐ principal) : l'habillage CSS</h3>
+<p>Objectif : comprendre qu'on sélectionne des éléments HTML et qu'on leur applique des règles de style.</p>
+<ol>
+<li>Crée un fichier <code>style.css</code> dans le même dossier.</li>
+<li>Relie-le à ta page : dans le <code>&lt;head&gt;</code> de <code>index.html</code>, ajoute <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>.</li>
+<li>Vérifie la liaison : dans <code>style.css</code>, écris <code>body { background: lightblue; }</code> et recharge. Si le fond change, c'est branché.</li>
+<li>Change la couleur du fond et celle du texte à ton goût.</li>
+<li>Choisis une police lisible (<code>font-family</code>) et une taille de texte agréable.</li>
+<li>Donne de l'air : ajoute des marges et du <code>padding</code> pour que ça respire.</li>
+<li>Arrondis l'avatar avec <code>border-radius: 50%;</code> sur le <code>&lt;img&gt;</code>.</li>
+<li>Centre ta carte au milieu de la page.</li>
+</ol>
+<p>À la fin : la même carte, mais agréable à regarder.</p>
+<h3 class="is-principal" id="etape-3-principal-une-premiere-interaction-js">Étape 3 (⭐ principal) : une première interaction JS</h3>
+<p>Objectif : comprendre qu'on peut réagir à un clic et modifier la page en direct. Une seule interaction qui marche vaut mieux que trois à moitié faites.</p>
+<ol>
+<li>Crée un fichier <code>script.js</code>. Relie-le juste avant <code>&lt;/body&gt;</code> : <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>.</li>
+<li>Vérifie la liaison : dans <code>script.js</code>, écris <code>console.log("ça marche");</code>. Ouvre la console du navigateur (F12) et vérifie que le message s'affiche.</li>
+<li>Ajoute un bouton dans ton HTML : <code>&lt;button id="bouton"&gt;Clique-moi&lt;/button&gt;</code>.</li>
+<li>Dans le JS, récupère ce bouton : <code>const bouton = document.querySelector("#bouton");</code>.</li>
+<li>Réagis au clic : <code>bouton.addEventListener("click", () =&gt; { ... });</code>.</li>
+<li>À l'intérieur, fais une seule chose visible, au choix :
+   - passer la page en <strong>mode sombre</strong> (changer <code>document.body.style.background</code> et la couleur du texte),
+   - afficher une <strong>phrase surprise</strong> (changer le <code>textContent</code> d'un paragraphe),
+   - <strong>compter les clics</strong> (une variable qui augmente et s'affiche).</li>
+</ol>
+<p>À la fin : un clic produit un effet visible sur ta page.</p>
+<h3 class="is-bonus" id="etape-4-bonus-si-le-temps">Étape 4 (○ bonus, si le temps)</h3>
+<p>À piocher dans l'ordre que tu veux, un seul suffit :</p>
+<ol>
+<li>Ajouter une <strong>animation CSS</strong> : l'avatar qui grossit au survol (<code>:hover</code> + <code>transform: scale(...)</code>).</li>
+<li>Proposer <strong>plusieurs thèmes</strong> de couleurs au lieu d'un seul mode sombre.</li>
+<li>Rendre la carte <strong>responsive</strong> : jolie aussi sur téléphone.</li>
+<li>Ajouter une petite icône d'onglet (favicon).</li>
+</ol>
+<h2 id="travail-sur-le-markdown-principal-transverse">Travail sur le Markdown (⭐ principal, transverse)</h2>
+<p>Crée un fichier <code>JOURNAL.md</code>. C'est un fichier texte écrit en <strong>Markdown</strong>, le langage qui sert à écrire de la doc lisible (c'est ce qui formate les messages sur Discord, les README sur GitHub, etc.). Dedans, explique avec tes mots :</p>
+<ul>
+<li>ce qu'est le HTML, le CSS, le JS, en une phrase chacun,</li>
+<li>ce que tu as construit aujourd'hui,</li>
+<li>une difficulté rencontrée et comment tu l'as réglée.</li>
+</ul>
+<p>Utilise au moins : un titre (<code>#</code>), une liste, un mot en <strong>gras</strong>, et un bloc de code (avec des <code>```</code>). C'est ton premier vrai Markdown, on s'en resservira toute la semaine.</p>
+<h2 id="modalites-devaluation">Modalités d'évaluation</h2>
+<p>Démonstration de la carte au formateur en fin de journée, et dépôt des fichiers (<code>index.html</code>, <code>style.css</code>, <code>script.js</code>, <code>JOURNAL.md</code>) sur SimplonLine.</p>
+<h2 id="livrables">Livrables</h2>
+<ol>
+<li>Les fichiers <code>index.html</code>, <code>style.css</code>, <code>script.js</code> de la carte web.</li>
+<li>Le fichier <code>JOURNAL.md</code> rempli (rendu Markdown explicatif).</li>
+</ol>
+<h2 id="criteres-de-performance">Critères de performance</h2>
+<ul>
+<li>La page s'ouvre dans le navigateur et affiche une carte de profil complète.</li>
+<li>Le HTML, le CSS et le JS sont dans <strong>trois fichiers séparés</strong> et reliés correctement.</li>
+<li>Au moins une interaction JS fonctionne (un clic produit un effet visible).</li>
+<li>Le <code>JOURNAL.md</code> est lisible et utilise au moins quatre éléments Markdown différents.</li>
+</ul>
+<h2 id="situation-professionnelle">Situation professionnelle</h2>
+<p>Découverte du développement web front-end.</p>
+<h2 id="besoin-vise-ou-probleme-rencontre">Besoin visé ou problème rencontré</h2>
+<p>Dans une équipe produit, savoir lire et modifier une page web à la main, sans dépendre entièrement d'un générateur ou d'une IA, est une compétence de base. Comprendre la séparation HTML / CSS / JS permet de dialoguer avec des développeurs, de corriger un détail soi-même et de juger ce que produit un outil de génération de code.</p>
+<h2 id="competences-visees">Compétences visées</h2>
+<p><strong>C1. Planifier le travail à effectuer individuellement</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
+<p><strong>C3. Définir le périmètre d'un problème rencontré en adoptant une démarche inductive</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
+<p><strong>C4. Rechercher de façon méthodique une ou des solutions au problème rencontré</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
+  <pre class="md-source" id="src-brief-1" hidden><code># Brief 1 : ma carte web (HTML, CSS, puis un peu de JS)
+
+**Type** : brief individuel
+**Durée visée** : 1 journée (7h)
+**Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
+
+Tu sais déjà demander à une IA de te coder une page. Cette fois, on fait l&#x27;inverse : tu écris le code toi-même, ligne par ligne, pour comprendre ce qu&#x27;il y a vraiment dessous. À la fin de la journée, tu auras une carte de profil web bien à toi, écrite à la main, et tu sauras lire n&#x27;importe quelle page web.
+
+## Contexte du projet
+
+Une page web, c&#x27;est trois langages qui travaillent ensemble : le **HTML** (le contenu et la structure : « voici un titre, voici une image »), le **CSS** (l&#x27;apparence : couleurs, polices, mise en page) et le **JavaScript** (le comportement : ce qui bouge quand on clique). On va les découvrir dans cet ordre, du plus simple au plus vivant.
+
+Le but du jour : construire **ta carte web**, une mini-page qui te présente. C&#x27;est la première brique d&#x27;un projet qu&#x27;on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.
+
+## Ressources
+
+- MDN, le manuel de référence du web (en français) : &lt;https://developer.mozilla.org/fr/docs/Learn&gt;
+- Toxicode pour s&#x27;entraîner de façon ludique : &lt;https://www.toxicode.fr/learn&gt;
+- Un éditeur de code (VS Code) avec l&#x27;extension Live Server.
+- Antisèche Markdown : &lt;https://www.markdownguide.org/cheat-sheet/&gt;
+
+## Modalités pédagogiques
+
+Travail individuel, avec démos collectives du formateur entre chaque étape. On code en direct, on casse, on répare. Chaque étape est découpée en petits pas : fais-les **un par un**, et vérifie le résultat dans le navigateur après chaque pas avant de passer au suivant.
+
+### Étape 1 (⭐ principal) : le squelette HTML
+
+Objectif : comprendre qu&#x27;une page HTML est une structure d&#x27;éléments imbriqués, et savoir nommer les balises de base.
+
+1. Crée un dossier `ma-carte` sur ton ordinateur, et dedans un fichier vide nommé `index.html`.
+2. Ouvre ce dossier dans VS Code.
+3. Tape le squelette d&#x27;une page : `&lt;!DOCTYPE html&gt;`, puis `&lt;html&gt;`, `&lt;head&gt;` et `&lt;body&gt;`. (Astuce : taper `!` puis Entrée dans VS Code génère le squelette.)
+4. Ouvre `index.html` dans ton navigateur (ou clic droit → « Open with Live Server »). Tu vois une page blanche : c&#x27;est normal.
+5. Dans le `&lt;body&gt;`, ajoute un titre avec ton prénom : `&lt;h1&gt;Moi, c&#x27;est …&lt;/h1&gt;`. Recharge la page.
+6. Ajoute une image d&#x27;avatar (une photo ou un dessin) : `&lt;img src=&quot;...&quot; alt=&quot;mon avatar&quot;&gt;`.
+7. Ajoute un paragraphe de présentation : `&lt;p&gt;…&lt;/p&gt;`.
+8. Ajoute une liste de 3 choses que tu aimes : un `&lt;ul&gt;` qui contient trois `&lt;li&gt;`.
+9. Ajoute au moins un lien vers quelque chose qui te représente : `&lt;a href=&quot;...&quot;&gt;…&lt;/a&gt;`.
+
+À la fin : ta carte affiche tout son contenu, sans style. C&#x27;est volontaire, on l&#x27;habille à l&#x27;étape suivante.
+
+### Étape 2 (⭐ principal) : l&#x27;habillage CSS
+
+Objectif : comprendre qu&#x27;on sélectionne des éléments HTML et qu&#x27;on leur applique des règles de style.
+
+1. Crée un fichier `style.css` dans le même dossier.
+2. Relie-le à ta page : dans le `&lt;head&gt;` de `index.html`, ajoute `&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;`.
+3. Vérifie la liaison : dans `style.css`, écris `body { background: lightblue; }` et recharge. Si le fond change, c&#x27;est branché.
+4. Change la couleur du fond et celle du texte à ton goût.
+5. Choisis une police lisible (`font-family`) et une taille de texte agréable.
+6. Donne de l&#x27;air : ajoute des marges et du `padding` pour que ça respire.
+7. Arrondis l&#x27;avatar avec `border-radius: 50%;` sur le `&lt;img&gt;`.
+8. Centre ta carte au milieu de la page.
+
+À la fin : la même carte, mais agréable à regarder.
+
+### Étape 3 (⭐ principal) : une première interaction JS
+
+Objectif : comprendre qu&#x27;on peut réagir à un clic et modifier la page en direct. Une seule interaction qui marche vaut mieux que trois à moitié faites.
+
+1. Crée un fichier `script.js`. Relie-le juste avant `&lt;/body&gt;` : `&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;`.
+2. Vérifie la liaison : dans `script.js`, écris `console.log(&quot;ça marche&quot;);`. Ouvre la console du navigateur (F12) et vérifie que le message s&#x27;affiche.
+3. Ajoute un bouton dans ton HTML : `&lt;button id=&quot;bouton&quot;&gt;Clique-moi&lt;/button&gt;`.
+4. Dans le JS, récupère ce bouton : `const bouton = document.querySelector(&quot;#bouton&quot;);`.
+5. Réagis au clic : `bouton.addEventListener(&quot;click&quot;, () =&gt; { ... });`.
+6. À l&#x27;intérieur, fais une seule chose visible, au choix :
+   - passer la page en **mode sombre** (changer `document.body.style.background` et la couleur du texte),
+   - afficher une **phrase surprise** (changer le `textContent` d&#x27;un paragraphe),
+   - **compter les clics** (une variable qui augmente et s&#x27;affiche).
+
+À la fin : un clic produit un effet visible sur ta page.
+
+### Étape 4 (○ bonus, si le temps)
+
+À piocher dans l&#x27;ordre que tu veux, un seul suffit :
+
+1. Ajouter une **animation CSS** : l&#x27;avatar qui grossit au survol (`:hover` + `transform: scale(...)`).
+2. Proposer **plusieurs thèmes** de couleurs au lieu d&#x27;un seul mode sombre.
+3. Rendre la carte **responsive** : jolie aussi sur téléphone.
+4. Ajouter une petite icône d&#x27;onglet (favicon).
+
+## Travail sur le Markdown (⭐ principal, transverse)
+
+Crée un fichier `JOURNAL.md`. C&#x27;est un fichier texte écrit en **Markdown**, le langage qui sert à écrire de la doc lisible (c&#x27;est ce qui formate les messages sur Discord, les README sur GitHub, etc.). Dedans, explique avec tes mots :
+
+- ce qu&#x27;est le HTML, le CSS, le JS, en une phrase chacun,
+- ce que tu as construit aujourd&#x27;hui,
+- une difficulté rencontrée et comment tu l&#x27;as réglée.
+
+Utilise au moins : un titre (`#`), une liste, un mot en **gras**, et un bloc de code (avec des `` ``` ``). C&#x27;est ton premier vrai Markdown, on s&#x27;en resservira toute la semaine.
+
+## Modalités d&#x27;évaluation
+
+Démonstration de la carte au formateur en fin de journée, et dépôt des fichiers (`index.html`, `style.css`, `script.js`, `JOURNAL.md`) sur SimplonLine.
+
+## Livrables
+
+1. Les fichiers `index.html`, `style.css`, `script.js` de la carte web.
+2. Le fichier `JOURNAL.md` rempli (rendu Markdown explicatif).
+
+## Critères de performance
+
+- La page s&#x27;ouvre dans le navigateur et affiche une carte de profil complète.
+- Le HTML, le CSS et le JS sont dans **trois fichiers séparés** et reliés correctement.
+- Au moins une interaction JS fonctionne (un clic produit un effet visible).
+- Le `JOURNAL.md` est lisible et utilise au moins quatre éléments Markdown différents.
+
+## Situation professionnelle
+
+Découverte du développement web front-end.
+
+## Besoin visé ou problème rencontré
+
+Dans une équipe produit, savoir lire et modifier une page web à la main, sans dépendre entièrement d&#x27;un générateur ou d&#x27;une IA, est une compétence de base. Comprendre la séparation HTML / CSS / JS permet de dialoguer avec des développeurs, de corriger un détail soi-même et de juger ce que produit un outil de génération de code.
+
+## Compétences visées
+
+**C1. Planifier le travail à effectuer individuellement**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+
+**C3. Définir le périmètre d&#x27;un problème rencontré en adoptant une démarche inductive**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+
+**C4. Rechercher de façon méthodique une ou des solutions au problème rencontré**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+</code></pre>
+</section>
+<section class="page" id="brief-2" hidden>
+  <div class="page-toolbar">
+    <button class="src-toggle" data-src="src-brief-2">Voir la source Markdown</button>
+  </div>
+  <article class="prose"><h1 id="brief-2-en-ligne-github-pages-une-feature-js">Brief 2 : en ligne ! (GitHub Pages + une feature JS)</h1>
+<p><strong>Type</strong> : brief individuel
+<strong>Durée visée</strong> : 1 journée (7h)
+<strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales
+<strong>Pré-requis</strong> : avoir fini le cœur du <a href="brief-1-html-css-js.md">brief 1</a>.</p>
+<p>Ta carte web existe, mais elle vit sur ton ordi, personne ne peut la voir. Aujourd'hui on règle ça : à la fin de la journée, ta carte aura une <strong>vraie adresse internet</strong> que tu pourras envoyer à qui tu veux. Et tant qu'on y est, on lui ajoute une fonctionnalité JS qui en jette.</p>
+<h2 id="contexte-du-projet">Contexte du projet</h2>
+<p>Mettre un site « en ligne », c'est le déposer sur un serveur accessible à tous. GitHub propose ça gratuitement avec <strong>GitHub Pages</strong> : tu déposes tes fichiers sur GitHub (une plateforme où les développeurs stockent et partagent leur code), et GitHub publie automatiquement ta page sur une URL publique.</p>
+<p>Au passage, tu découvres <strong>GitHub</strong>, l'outil que tu retrouveras dans absolument toutes les entreprises tech. On reste sur l'essentiel : déposer des fichiers, les mettre à jour, publier.</p>
+<h2 id="ressources">Ressources</h2>
+<ul>
+<li>GitHub Pages, démarrage : <a href="https://pages.github.com/">https://pages.github.com/</a></li>
+<li>Doc GitHub (upload de fichiers via le navigateur) : <a href="https://docs.github.com/fr/repositories">https://docs.github.com/fr/repositories</a></li>
+<li>Tutoriel Git pas à pas (pour l'étape bonus) : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a></li>
+<li>Antisèche Markdown : <a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></li>
+<li>Galerie d'idées de features JS : <a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript">https://developer.mozilla.org/fr/docs/Learn/JavaScript</a></li>
+</ul>
+<h2 id="modalites-pedagogiques">Modalités pédagogiques</h2>
+<p>Travail individuel. Le formateur fait la première mise en ligne en démo, puis chacun refait avec ses fichiers. Avance pas à pas et vérifie chaque résultat avant de continuer.</p>
+<h3 class="is-principal" id="etape-1-principal-creer-son-depot-et-publier">Étape 1 (⭐ principal) : créer son dépôt et publier</h3>
+<p>Objectif : comprendre la différence entre « le fichier sur mon ordi » et « le site publié », et savoir mettre à jour le site.</p>
+<ol>
+<li>Crée un compte GitHub (si tu n'en as pas) et confirme ton adresse e-mail.</li>
+<li>Clique sur « New repository » pour créer un nouveau dépôt.</li>
+<li>Nomme-le <strong>exactement</strong> <code>ton-pseudo.github.io</code> (remplace <code>ton-pseudo</code> par ton pseudo GitHub) et coche « Public ».</li>
+<li>Sur la page du dépôt, clique « Add file » → « Upload files ».</li>
+<li>Glisse-dépose tes fichiers du brief 1 (<code>index.html</code>, <code>style.css</code>, <code>script.js</code>) puis clique « Commit changes ».</li>
+<li>Va dans l'onglet « Settings » → « Pages » et vérifie que la source est bien la branche <code>main</code>.</li>
+<li>Attends une minute, puis ouvre <code>https://ton-pseudo.github.io</code>. Ta carte doit s'afficher.</li>
+<li>Teste une mise à jour : modifie une couleur dans <code>style.css</code> sur ton ordi, ré-uploade le fichier, et recharge l'URL pour voir le changement.</li>
+</ol>
+<h3 class="is-principal" id="etape-2-principal-un-vrai-readme-en-markdown">Étape 2 (⭐ principal) : un vrai README en Markdown</h3>
+<p>Objectif : voir le Markdown servir « pour de vrai » et comprendre le rôle d'un README.</p>
+<ol>
+<li>Sur le dépôt, clique « Add file » → « Create new file » et nomme-le <code>README.md</code>.</li>
+<li>Écris un titre (<code>#</code>) avec le nom du projet et une phrase de description.</li>
+<li>Ajoute le lien cliquable vers ton site publié : <code>[Voir le site](https://ton-pseudo.github.io)</code>.</li>
+<li>Ajoute une petite liste de ce que contient ta page.</li>
+<li>Ajoute une capture d'écran : uploade une image dans le dépôt puis insère-la avec <code>![ma carte](nom-image.png)</code>.</li>
+<li>« Commit » et vérifie que le README s'affiche, joliment formaté, en page d'accueil du dépôt.</li>
+</ol>
+<h3 class="is-principal" id="etape-3-principal-une-fonctionnalite-js-au-choix">Étape 3 (⭐ principal) : une fonctionnalité JS au choix</h3>
+<p>Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit le JS découvert au brief 1 et au cours.</p>
+<ol>
+<li>Choisis <strong>une seule</strong> fonctionnalité, mais qui marche bien :
+   - un <strong>générateur de compliments</strong> (un bouton tire une phrase au hasard dans une liste),
+   - un <strong>lanceur de dé</strong> ou une <strong>roue de décision</strong> (« qui ramène le café ? »),
+   - une <strong>mini-horloge</strong> ou un compteur de jours avant un événement,
+   - un <strong>mini-quiz</strong> de 3 questions avec score,
+   - un <strong>fond qui change</strong> de couleur à chaque clic.</li>
+<li>Ajoute dans le HTML les éléments dont tu as besoin (un bouton, une zone de résultat).</li>
+<li>Dans <code>script.js</code>, récupère ces éléments avec <code>document.querySelector(...)</code>.</li>
+<li>Branche le clic avec <code>addEventListener</code> et fais l'effet voulu (inspire-toi des exemples du cours).</li>
+<li>Teste en local, puis ré-uploade les fichiers modifiés sur GitHub.</li>
+<li>Vérifie que la fonctionnalité marche sur l'URL publique.</li>
+</ol>
+<h3 class="is-bonus" id="etape-4-bonus-si-le-temps">Étape 4 (○ bonus, si le temps)</h3>
+<ol>
+<li><strong>Initiation à Git en ligne de commande.</strong> C'est la « vraie » façon de travailler ; ceux qui galèrent restent sur l'upload web. Suis le tutoriel pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a>. Dans l'ordre :</li>
+<li>installe Git et configure ton nom / e-mail,</li>
+<li><code>git clone</code> ton dépôt sur ton ordi,</li>
+<li>modifie un fichier,</li>
+<li><code>git add</code> puis <code>git commit -m "mon message"</code>,</li>
+<li><code>git push</code> et vérifie que le changement apparaît en ligne.</li>
+<li>Connecter un <strong>nom de domaine</strong> personnalisé (au moins comprendre le principe).</li>
+<li>Ajouter une <strong>deuxième</strong> fonctionnalité JS.</li>
+<li>Soigner le <strong>responsive</strong> et l'accessibilité (textes alternatifs des images).</li>
+</ol>
+<h2 id="modalites-devaluation">Modalités d'évaluation</h2>
+<p>Le formateur ouvre l'URL publique de chaque élève depuis son propre poste pour vérifier que le site est bien en ligne et que la feature fonctionne. Dépôt du lien sur SimplonLine.</p>
+<h2 id="livrables">Livrables</h2>
+<ol>
+<li>L'<strong>URL publique</strong> du site (<code>https://ton-pseudo.github.io</code>), déposée sur SimplonLine.</li>
+<li>Le dépôt GitHub contenant les fichiers + un <code>README.md</code> formaté.</li>
+<li>Mise à jour du <code>JOURNAL.md</code> : explique ce qu'est GitHub Pages et décris ta feature JS.</li>
+</ol>
+<h2 id="criteres-de-performance">Critères de performance</h2>
+<ul>
+<li>Le site est accessible publiquement à son URL, depuis n'importe quel appareil.</li>
+<li>Le <code>README.md</code> s'affiche correctement formaté sur la page du dépôt et contient un lien cliquable vers le site.</li>
+<li>La fonctionnalité JS ajoutée fonctionne sans erreur dans le navigateur.</li>
+<li>L'élève sait expliquer comment mettre à jour son site après une modification.</li>
+</ul>
+<h2 id="situation-professionnelle">Situation professionnelle</h2>
+<p>Hébergement et publication d'un site web statique, découverte de GitHub.</p>
+<h2 id="besoin-vise-ou-probleme-rencontre">Besoin visé ou problème rencontré</h2>
+<p>Toute entreprise tech utilise GitHub pour stocker, partager et publier du code. Savoir déposer un site, le publier et le documenter avec un README est un réflexe attendu dès le premier jour en poste. C'est aussi la base pour collaborer en équipe et montrer son travail à un recruteur (un portfolio en ligne vaut mieux qu'un fichier sur un disque dur).</p>
+<h2 id="competences-visees">Compétences visées</h2>
+<p><strong>C1. Planifier le travail à effectuer individuellement</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
+<p><strong>C2. Contribuer au pilotage de l'organisation du travail individuel et collectif</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
+<p><strong>C4. Rechercher de façon méthodique une ou des solutions au problème rencontré</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
+  <pre class="md-source" id="src-brief-2" hidden><code># Brief 2 : en ligne ! (GitHub Pages + une feature JS)
+
+**Type** : brief individuel
+**Durée visée** : 1 journée (7h)
+**Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
+**Pré-requis** : avoir fini le cœur du [brief 1](brief-1-html-css-js.md).
+
+Ta carte web existe, mais elle vit sur ton ordi, personne ne peut la voir. Aujourd&#x27;hui on règle ça : à la fin de la journée, ta carte aura une **vraie adresse internet** que tu pourras envoyer à qui tu veux. Et tant qu&#x27;on y est, on lui ajoute une fonctionnalité JS qui en jette.
+
+## Contexte du projet
+
+Mettre un site « en ligne », c&#x27;est le déposer sur un serveur accessible à tous. GitHub propose ça gratuitement avec **GitHub Pages** : tu déposes tes fichiers sur GitHub (une plateforme où les développeurs stockent et partagent leur code), et GitHub publie automatiquement ta page sur une URL publique.
+
+Au passage, tu découvres **GitHub**, l&#x27;outil que tu retrouveras dans absolument toutes les entreprises tech. On reste sur l&#x27;essentiel : déposer des fichiers, les mettre à jour, publier.
+
+## Ressources
+
+- GitHub Pages, démarrage : &lt;https://pages.github.com/&gt;
+- Doc GitHub (upload de fichiers via le navigateur) : &lt;https://docs.github.com/fr/repositories&gt;
+- Tutoriel Git pas à pas (pour l&#x27;étape bonus) : &lt;https://github.com/Selimmmm/git_step_by_step&gt;
+- Antisèche Markdown : &lt;https://www.markdownguide.org/cheat-sheet/&gt;
+- Galerie d&#x27;idées de features JS : &lt;https://developer.mozilla.org/fr/docs/Learn/JavaScript&gt;
+
+## Modalités pédagogiques
+
+Travail individuel. Le formateur fait la première mise en ligne en démo, puis chacun refait avec ses fichiers. Avance pas à pas et vérifie chaque résultat avant de continuer.
+
+### Étape 1 (⭐ principal) : créer son dépôt et publier
+
+Objectif : comprendre la différence entre « le fichier sur mon ordi » et « le site publié », et savoir mettre à jour le site.
+
+1. Crée un compte GitHub (si tu n&#x27;en as pas) et confirme ton adresse e-mail.
+2. Clique sur « New repository » pour créer un nouveau dépôt.
+3. Nomme-le **exactement** `ton-pseudo.github.io` (remplace `ton-pseudo` par ton pseudo GitHub) et coche « Public ».
+4. Sur la page du dépôt, clique « Add file » → « Upload files ».
+5. Glisse-dépose tes fichiers du brief 1 (`index.html`, `style.css`, `script.js`) puis clique « Commit changes ».
+6. Va dans l&#x27;onglet « Settings » → « Pages » et vérifie que la source est bien la branche `main`.
+7. Attends une minute, puis ouvre `https://ton-pseudo.github.io`. Ta carte doit s&#x27;afficher.
+8. Teste une mise à jour : modifie une couleur dans `style.css` sur ton ordi, ré-uploade le fichier, et recharge l&#x27;URL pour voir le changement.
+
+### Étape 2 (⭐ principal) : un vrai README en Markdown
+
+Objectif : voir le Markdown servir « pour de vrai » et comprendre le rôle d&#x27;un README.
+
+1. Sur le dépôt, clique « Add file » → « Create new file » et nomme-le `README.md`.
+2. Écris un titre (`#`) avec le nom du projet et une phrase de description.
+3. Ajoute le lien cliquable vers ton site publié : `[Voir le site](https://ton-pseudo.github.io)`.
+4. Ajoute une petite liste de ce que contient ta page.
+5. Ajoute une capture d&#x27;écran : uploade une image dans le dépôt puis insère-la avec `![ma carte](nom-image.png)`.
+6. « Commit » et vérifie que le README s&#x27;affiche, joliment formaté, en page d&#x27;accueil du dépôt.
+
+### Étape 3 (⭐ principal) : une fonctionnalité JS au choix
+
+Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit le JS découvert au brief 1 et au cours.
+
+1. Choisis **une seule** fonctionnalité, mais qui marche bien :
+   - un **générateur de compliments** (un bouton tire une phrase au hasard dans une liste),
+   - un **lanceur de dé** ou une **roue de décision** (« qui ramène le café ? »),
+   - une **mini-horloge** ou un compteur de jours avant un événement,
+   - un **mini-quiz** de 3 questions avec score,
+   - un **fond qui change** de couleur à chaque clic.
+2. Ajoute dans le HTML les éléments dont tu as besoin (un bouton, une zone de résultat).
+3. Dans `script.js`, récupère ces éléments avec `document.querySelector(...)`.
+4. Branche le clic avec `addEventListener` et fais l&#x27;effet voulu (inspire-toi des exemples du cours).
+5. Teste en local, puis ré-uploade les fichiers modifiés sur GitHub.
+6. Vérifie que la fonctionnalité marche sur l&#x27;URL publique.
+
+### Étape 4 (○ bonus, si le temps)
+
+1. **Initiation à Git en ligne de commande.** C&#x27;est la « vraie » façon de travailler ; ceux qui galèrent restent sur l&#x27;upload web. Suis le tutoriel pas à pas : &lt;https://github.com/Selimmmm/git_step_by_step&gt;. Dans l&#x27;ordre :
+   1. installe Git et configure ton nom / e-mail,
+   2. `git clone` ton dépôt sur ton ordi,
+   3. modifie un fichier,
+   4. `git add` puis `git commit -m &quot;mon message&quot;`,
+   5. `git push` et vérifie que le changement apparaît en ligne.
+2. Connecter un **nom de domaine** personnalisé (au moins comprendre le principe).
+3. Ajouter une **deuxième** fonctionnalité JS.
+4. Soigner le **responsive** et l&#x27;accessibilité (textes alternatifs des images).
+
+## Modalités d&#x27;évaluation
+
+Le formateur ouvre l&#x27;URL publique de chaque élève depuis son propre poste pour vérifier que le site est bien en ligne et que la feature fonctionne. Dépôt du lien sur SimplonLine.
+
+## Livrables
+
+1. L&#x27;**URL publique** du site (`https://ton-pseudo.github.io`), déposée sur SimplonLine.
+2. Le dépôt GitHub contenant les fichiers + un `README.md` formaté.
+3. Mise à jour du `JOURNAL.md` : explique ce qu&#x27;est GitHub Pages et décris ta feature JS.
+
+## Critères de performance
+
+- Le site est accessible publiquement à son URL, depuis n&#x27;importe quel appareil.
+- Le `README.md` s&#x27;affiche correctement formaté sur la page du dépôt et contient un lien cliquable vers le site.
+- La fonctionnalité JS ajoutée fonctionne sans erreur dans le navigateur.
+- L&#x27;élève sait expliquer comment mettre à jour son site après une modification.
+
+## Situation professionnelle
+
+Hébergement et publication d&#x27;un site web statique, découverte de GitHub.
+
+## Besoin visé ou problème rencontré
+
+Toute entreprise tech utilise GitHub pour stocker, partager et publier du code. Savoir déposer un site, le publier et le documenter avec un README est un réflexe attendu dès le premier jour en poste. C&#x27;est aussi la base pour collaborer en équipe et montrer son travail à un recruteur (un portfolio en ligne vaut mieux qu&#x27;un fichier sur un disque dur).
+
+## Compétences visées
+
+**C1. Planifier le travail à effectuer individuellement**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+
+**C2. Contribuer au pilotage de l&#x27;organisation du travail individuel et collectif**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+
+**C4. Rechercher de façon méthodique une ou des solutions au problème rencontré**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+</code></pre>
+</section>
+<section class="page" id="brief-3" hidden>
+  <div class="page-toolbar">
+    <button class="src-toggle" data-src="src-brief-3">Voir la source Markdown</button>
+  </div>
+  <article class="prose"><h1 id="brief-3-le-mur-de-la-promo-supabase-sans-backend">Brief 3 : le mur de la promo (Supabase, sans backend)</h1>
+<p><strong>Type</strong> : brief individuel (avec effet collectif)
+<strong>Durée visée</strong> : 1 journée (7h), la plus dense
+<strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales
+<strong>Pré-requis</strong> : avoir un site en ligne (<a href="brief-2-github-pages.md">brief 2</a>).</p>
+<p>Jusqu'ici, ta carte est figée : elle affiche toujours la même chose. Aujourd'hui on la rend <strong>vivante et partagée</strong>. On ajoute un livre d'or : un endroit où n'importe qui peut laisser un message, et ces messages sont stockés dans une base de données commune à toute la promo. Quand tu écris sur ton site, ça apparaît aussi sur celui des autres. Et tout ça <strong>sans écrire le moindre serveur</strong>.</p>
+<h2 id="contexte-du-projet">Contexte du projet</h2>
+<p>Une base de données, c'est là où une application range ses informations pour les retrouver plus tard (les messages, les comptes, les commandes...). D'habitude, pour y accéder, il faut un <strong>backend</strong> : un programme qui tourne sur un serveur et fait l'intermédiaire entre la page web et la base.</p>
+<p><strong>Supabase</strong> change la donne : dès qu'on crée une table, il génère automatiquement une <strong>API</strong> (un point d'accès standardisé) qu'on peut appeler <strong>directement depuis le JavaScript du navigateur</strong>. Pas de backend à écrire. C'est exactement ce qu'explique cet article : <a href="https://supabase.com/blog/simplify-backend-with-data-api">https://supabase.com/blog/simplify-backend-with-data-api</a>.</p>
+<p>Le point de vigilance, c'est la <strong>sécurité</strong>. La clé qu'on met dans le code (la clé « anon ») est publique, c'est normal. Ce qui protège les données, ce sont les règles <strong>RLS</strong> (Row Level Security) définies dans Supabase : elles disent qui a le droit de lire et d'écrire quoi. Pour notre mur public, la règle est simple (« tout le monde peut lire et ajouter un message »), et on prendra 15 minutes pour comprendre <strong>pourquoi cette règle serait dangereuse</strong> sur des données sensibles (un mot de passe, un dossier médical).</p>
+<h2 id="ressources">Ressources</h2>
+<ul>
+<li>Article de référence (à lire au début) : <a href="https://supabase.com/blog/simplify-backend-with-data-api">https://supabase.com/blog/simplify-backend-with-data-api</a></li>
+<li>Doc Supabase JavaScript : <a href="https://supabase.com/docs/reference/javascript/introduction">https://supabase.com/docs/reference/javascript/introduction</a></li>
+<li>L'<strong>URL du projet</strong> et la <strong>clé anon</strong> fournies par le formateur (projet Supabase partagé par la promo).</li>
+</ul>
+<h2 id="modalites-pedagogiques">Modalités pédagogiques</h2>
+<p>Travail individuel sur un <strong>projet Supabase partagé</strong> (le formateur le crée et distribue l'URL + la clé anon, pour ne pas perdre de temps). Le formateur fait la démo complète une fois, puis chacun branche son propre site.</p>
+<p>La table est déjà créée par le formateur, avec ces colonnes : <code>id</code>, <code>created_at</code>, <code>auteur</code> (texte), <code>message</code> (texte). RLS activée avec une politique « lecture + insertion pour tous ».</p>
+<h3 class="is-principal" id="etape-1-principal-lire-les-messages">Étape 1 (⭐ principal) : lire les messages</h3>
+<p>Objectif : comprendre qu'un appel JS va chercher des données ailleurs et les affiche. Premier « aller-retour » avec une base de données.</p>
+<ol>
+<li>Dans <code>index.html</code>, charge la librairie Supabase avec une ligne de <code>&lt;script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"&gt;&lt;/script&gt;</code>.</li>
+<li>Récupère auprès du formateur l'<strong>URL du projet</strong> et la <strong>clé anon</strong>.</li>
+<li>Crée le client : <code>const supabase = window.supabase.createClient(URL, CLE_ANON);</code>.</li>
+<li>Ajoute dans la page une zone vide où afficher les messages : <code>&lt;div id="mur"&gt;&lt;/div&gt;</code>.</li>
+<li>Écris une fonction qui va chercher les messages et vérifie d'abord dans la console :</li>
+</ol>
+<p><code>javascript
+   const { data, error } = await supabase
+     .from('messages')
+     .select('*')
+     .order('created_at', { ascending: false });
+   console.log(data);</code>
+6. Parcours <code>data</code> avec <code>forEach</code> et, pour chaque message, ajoute un élément dans <code>#mur</code> (auteur + message).</p>
+<h3 class="is-principal" id="etape-2-principal-ecrire-un-message">Étape 2 (⭐ principal) : écrire un message</h3>
+<p>Objectif : comprendre le <strong>CRUD</strong> (créer / lire), et voir l'effet collectif : ton message apparaît chez tout le monde.</p>
+<ol>
+<li>Ajoute un petit formulaire : un champ « ton nom », un champ « ton message », un bouton « Envoyer ».</li>
+<li>Au clic sur le bouton, récupère les valeurs des deux champs.</li>
+<li>Insère le message dans la table :</li>
+</ol>
+<p><code>javascript
+   await supabase
+     .from('messages')
+     .insert({ auteur: nom, message: texte });</code>
+4. Après l'insertion, rappelle ta fonction d'affichage pour recharger la liste.
+5. Teste : ton message apparaît. Demande à un voisin d'en poster un : il apparaît aussi chez toi.</p>
+<h3 class="is-principal" id="etape-3-principal-comprendre-la-securite">Étape 3 (⭐ principal) : comprendre la sécurité</h3>
+<p>Pas de code ici, une <strong>discussion guidée</strong> de 15 à 20 min animée par le formateur. Note tes réponses dans <code>JOURNAL.md</code> :</p>
+<ol>
+<li>Pourquoi la clé anon peut-elle être publique, visible dans le code ?</li>
+<li>Qu'est-ce que RLS (Row Level Security) empêche exactement ?</li>
+<li>Pourquoi la règle « tout le monde peut écrire » est ok pour un mur public mais serait catastrophique pour des mots de passe ou un dossier médical ?</li>
+</ol>
+<h3 class="is-bonus" id="etape-4-bonus-si-le-temps">Étape 4 (○ bonus, si le temps)</h3>
+<ol>
+<li><strong>Tri et filtres</strong> : afficher les plus récents en premier, ou filtrer par auteur.</li>
+<li><strong>Suppression</strong> : un bouton « supprimer » (et constater que RLS pourrait l'interdire aux autres : bonne occasion de reparler sécurité).</li>
+<li><strong>Anti-spam léger</strong> : empêcher l'envoi d'un message vide.</li>
+<li><strong>Ton propre projet</strong> : créer ton projet Supabase, ta table, et configurer la politique RLS toi-même depuis l'interface.</li>
+<li><strong>Auth</strong> : découvrir Supabase Auth (connexion par e-mail) et n'autoriser l'écriture qu'aux personnes connectées.</li>
+</ol>
+<h2 id="modalites-devaluation">Modalités d'évaluation</h2>
+<p>Démonstration en direct : l'élève écrit un message sur son site, le formateur vérifie qu'il apparaît sur le mur partagé (donc sur d'autres sites). Dépôt du lien et du journal sur SimplonLine.</p>
+<h2 id="livrables">Livrables</h2>
+<ol>
+<li>Le site mis à jour, en ligne, avec le mur de messages <strong>lecture + écriture</strong> fonctionnel.</li>
+<li>Le <code>JOURNAL.md</code> complété avec la partie <strong>sécurité</strong> (clé anon, RLS, pourquoi c'est ok ici).</li>
+<li>(Bonus) Une courte note Markdown ou Google Doc « Ce que je ferais différemment pour des données sensibles ».</li>
+</ol>
+<h2 id="criteres-de-performance">Critères de performance</h2>
+<ul>
+<li>Le site lit et affiche les messages de la base Supabase.</li>
+<li>Le site permet d'ajouter un nouveau message, qui est bien enregistré dans la base.</li>
+<li>L'élève sait expliquer, à l'oral ou dans son journal, le rôle de la clé anon et de RLS.</li>
+<li>L'effet collectif est constaté : un message écrit sur un site apparaît sur les autres.</li>
+</ul>
+<h2 id="situation-professionnelle">Situation professionnelle</h2>
+<p>Connexion d'une application front-end à une base de données via une API, sans backend dédié.</p>
+<h2 id="besoin-vise-ou-probleme-rencontre">Besoin visé ou problème rencontré</h2>
+<p>Les entreprises veulent livrer vite des produits qui manipulent des données (formulaires, listes, comptes) sans payer la complexité d'un backend complet. Des solutions comme Supabase répondent à ce besoin en exposant une API directement utilisable depuis le front. Savoir brancher une page web sur une telle API, et comprendre les enjeux de sécurité associés (clé publique, règles d'accès), est une compétence directement employable dans une petite équipe ou une startup.</p>
+<h2 id="competences-visees">Compétences visées</h2>
+<p><strong>C1. Planifier le travail à effectuer individuellement</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
+<p><strong>C3. Définir le périmètre d'un problème rencontré en adoptant une démarche inductive</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
+<p><strong>C4. Rechercher de façon méthodique une ou des solutions au problème rencontré</strong>
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
+  <pre class="md-source" id="src-brief-3" hidden><code># Brief 3 : le mur de la promo (Supabase, sans backend)
+
+**Type** : brief individuel (avec effet collectif)
+**Durée visée** : 1 journée (7h), la plus dense
+**Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
+**Pré-requis** : avoir un site en ligne ([brief 2](brief-2-github-pages.md)).
+
+Jusqu&#x27;ici, ta carte est figée : elle affiche toujours la même chose. Aujourd&#x27;hui on la rend **vivante et partagée**. On ajoute un livre d&#x27;or : un endroit où n&#x27;importe qui peut laisser un message, et ces messages sont stockés dans une base de données commune à toute la promo. Quand tu écris sur ton site, ça apparaît aussi sur celui des autres. Et tout ça **sans écrire le moindre serveur**.
+
+## Contexte du projet
+
+Une base de données, c&#x27;est là où une application range ses informations pour les retrouver plus tard (les messages, les comptes, les commandes...). D&#x27;habitude, pour y accéder, il faut un **backend** : un programme qui tourne sur un serveur et fait l&#x27;intermédiaire entre la page web et la base.
+
+**Supabase** change la donne : dès qu&#x27;on crée une table, il génère automatiquement une **API** (un point d&#x27;accès standardisé) qu&#x27;on peut appeler **directement depuis le JavaScript du navigateur**. Pas de backend à écrire. C&#x27;est exactement ce qu&#x27;explique cet article : &lt;https://supabase.com/blog/simplify-backend-with-data-api&gt;.
+
+Le point de vigilance, c&#x27;est la **sécurité**. La clé qu&#x27;on met dans le code (la clé « anon ») est publique, c&#x27;est normal. Ce qui protège les données, ce sont les règles **RLS** (Row Level Security) définies dans Supabase : elles disent qui a le droit de lire et d&#x27;écrire quoi. Pour notre mur public, la règle est simple (« tout le monde peut lire et ajouter un message »), et on prendra 15 minutes pour comprendre **pourquoi cette règle serait dangereuse** sur des données sensibles (un mot de passe, un dossier médical).
+
+## Ressources
+
+- Article de référence (à lire au début) : &lt;https://supabase.com/blog/simplify-backend-with-data-api&gt;
+- Doc Supabase JavaScript : &lt;https://supabase.com/docs/reference/javascript/introduction&gt;
+- L&#x27;**URL du projet** et la **clé anon** fournies par le formateur (projet Supabase partagé par la promo).
+
+## Modalités pédagogiques
+
+Travail individuel sur un **projet Supabase partagé** (le formateur le crée et distribue l&#x27;URL + la clé anon, pour ne pas perdre de temps). Le formateur fait la démo complète une fois, puis chacun branche son propre site.
+
+La table est déjà créée par le formateur, avec ces colonnes : `id`, `created_at`, `auteur` (texte), `message` (texte). RLS activée avec une politique « lecture + insertion pour tous ».
+
+### Étape 1 (⭐ principal) : lire les messages
+
+Objectif : comprendre qu&#x27;un appel JS va chercher des données ailleurs et les affiche. Premier « aller-retour » avec une base de données.
+
+1. Dans `index.html`, charge la librairie Supabase avec une ligne de `&lt;script src=&quot;https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2&quot;&gt;&lt;/script&gt;`.
+2. Récupère auprès du formateur l&#x27;**URL du projet** et la **clé anon**.
+3. Crée le client : `const supabase = window.supabase.createClient(URL, CLE_ANON);`.
+4. Ajoute dans la page une zone vide où afficher les messages : `&lt;div id=&quot;mur&quot;&gt;&lt;/div&gt;`.
+5. Écris une fonction qui va chercher les messages et vérifie d&#x27;abord dans la console :
+
+   ```javascript
+   const { data, error } = await supabase
+     .from(&#x27;messages&#x27;)
+     .select(&#x27;*&#x27;)
+     .order(&#x27;created_at&#x27;, { ascending: false });
+   console.log(data);
+   ```
+6. Parcours `data` avec `forEach` et, pour chaque message, ajoute un élément dans `#mur` (auteur + message).
+
+### Étape 2 (⭐ principal) : écrire un message
+
+Objectif : comprendre le **CRUD** (créer / lire), et voir l&#x27;effet collectif : ton message apparaît chez tout le monde.
+
+1. Ajoute un petit formulaire : un champ « ton nom », un champ « ton message », un bouton « Envoyer ».
+2. Au clic sur le bouton, récupère les valeurs des deux champs.
+3. Insère le message dans la table :
+
+   ```javascript
+   await supabase
+     .from(&#x27;messages&#x27;)
+     .insert({ auteur: nom, message: texte });
+   ```
+4. Après l&#x27;insertion, rappelle ta fonction d&#x27;affichage pour recharger la liste.
+5. Teste : ton message apparaît. Demande à un voisin d&#x27;en poster un : il apparaît aussi chez toi.
+
+### Étape 3 (⭐ principal) : comprendre la sécurité
+
+Pas de code ici, une **discussion guidée** de 15 à 20 min animée par le formateur. Note tes réponses dans `JOURNAL.md` :
+
+1. Pourquoi la clé anon peut-elle être publique, visible dans le code ?
+2. Qu&#x27;est-ce que RLS (Row Level Security) empêche exactement ?
+3. Pourquoi la règle « tout le monde peut écrire » est ok pour un mur public mais serait catastrophique pour des mots de passe ou un dossier médical ?
+
+### Étape 4 (○ bonus, si le temps)
+
+1. **Tri et filtres** : afficher les plus récents en premier, ou filtrer par auteur.
+2. **Suppression** : un bouton « supprimer » (et constater que RLS pourrait l&#x27;interdire aux autres : bonne occasion de reparler sécurité).
+3. **Anti-spam léger** : empêcher l&#x27;envoi d&#x27;un message vide.
+4. **Ton propre projet** : créer ton projet Supabase, ta table, et configurer la politique RLS toi-même depuis l&#x27;interface.
+5. **Auth** : découvrir Supabase Auth (connexion par e-mail) et n&#x27;autoriser l&#x27;écriture qu&#x27;aux personnes connectées.
+
+## Modalités d&#x27;évaluation
+
+Démonstration en direct : l&#x27;élève écrit un message sur son site, le formateur vérifie qu&#x27;il apparaît sur le mur partagé (donc sur d&#x27;autres sites). Dépôt du lien et du journal sur SimplonLine.
+
+## Livrables
+
+1. Le site mis à jour, en ligne, avec le mur de messages **lecture + écriture** fonctionnel.
+2. Le `JOURNAL.md` complété avec la partie **sécurité** (clé anon, RLS, pourquoi c&#x27;est ok ici).
+3. (Bonus) Une courte note Markdown ou Google Doc « Ce que je ferais différemment pour des données sensibles ».
+
+## Critères de performance
+
+- Le site lit et affiche les messages de la base Supabase.
+- Le site permet d&#x27;ajouter un nouveau message, qui est bien enregistré dans la base.
+- L&#x27;élève sait expliquer, à l&#x27;oral ou dans son journal, le rôle de la clé anon et de RLS.
+- L&#x27;effet collectif est constaté : un message écrit sur un site apparaît sur les autres.
+
+## Situation professionnelle
+
+Connexion d&#x27;une application front-end à une base de données via une API, sans backend dédié.
+
+## Besoin visé ou problème rencontré
+
+Les entreprises veulent livrer vite des produits qui manipulent des données (formulaires, listes, comptes) sans payer la complexité d&#x27;un backend complet. Des solutions comme Supabase répondent à ce besoin en exposant une API directement utilisable depuis le front. Savoir brancher une page web sur une telle API, et comprendre les enjeux de sécurité associés (clé publique, règles d&#x27;accès), est une compétence directement employable dans une petite équipe ou une startup.
+
+## Compétences visées
+
+**C1. Planifier le travail à effectuer individuellement**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+
+**C3. Définir le périmètre d&#x27;un problème rencontré en adoptant une démarche inductive**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+
+**C4. Rechercher de façon méthodique une ou des solutions au problème rencontré**
+niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
+</code></pre>
+</section>
+  </main>
+
+  <script>
+    const pages = [...document.querySelectorAll('.page')];
+    const navItems = [...document.querySelectorAll('.nav-item')];
+    const sidebar = document.getElementById('sidebar');
+
+    function show(slug) {
+      const target = pages.find(p => p.id === slug) ? slug : pages[0].id;
+      pages.forEach(p => p.hidden = p.id !== target);
+      navItems.forEach(n => n.classList.toggle('active', n.dataset.target === target));
+      if (location.hash !== '#' + target) history.replaceState(null, '', '#' + target);
+      sidebar.classList.remove('open');
+      window.scrollTo(0, 0);
+      const vis = pages.find(p => !p.hidden);
+      if (vis) vis.querySelectorAll('.pg-code').forEach(pgAutosize);
+      if (vis && window.__renderMermaid) window.__renderMermaid(vis);
+    }
+
+    navItems.forEach(n => n.addEventListener('click', () => show(n.dataset.target)));
+    window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+
+    document.querySelectorAll('.src-toggle').forEach(btn => {
+      const el = document.getElementById(btn.dataset.src);
+      btn.addEventListener('click', () => {
+        el.hidden = !el.hidden;
+        btn.textContent = el.hidden ? 'Voir la source Markdown' : 'Masquer la source';
+      });
+    });
+
+    document.getElementById('menu-btn')?.addEventListener('click', () => sidebar.classList.toggle('open'));
+
+    const themeBtn = document.getElementById('theme-btn');
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.dataset.theme = saved;
+    themeBtn.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+
+    // --- Playgrounds : exécution de JS dans un iframe sandboxé ---
+    function pgAutosize(t) { t.style.height = 'auto'; t.style.height = (t.scrollHeight + 2) + 'px'; }
+
+    function pgSrcdoc(code, stage, token) {
+      var safe = JSON.stringify(code).replace(/</g, '\\u003c');
+      return ['<!doctype html><html><head><meta charset="utf-8"><style>',
+        'body{font:14px/1.6 system-ui,-apple-system,sans-serif;color:#1f2430;margin:12px}',
+        'button{font:inherit;padding:5px 11px;border:1px solid #cfd4dd;border-radius:7px;background:#f3f4f6;cursor:pointer}',
+        'h1,h2,h3{margin:.2em 0 .4em}*{box-sizing:border-box}',
+        '</style></head><body>', stage,
+        '<scr' + 'ipt>(function(){var T=' + token + ';',
+        'function fmt(v){if(typeof v==="string")return v;if(v===undefined)return "undefined";if(v===null)return "null";try{return JSON.stringify(v)}catch(e){return String(v)}}',
+        'function send(l,a){parent.postMessage({__pg:true,token:T,level:l,text:[].map.call(a,fmt).join(" ")},"*")}',
+        '["log","info","warn","error","debug"].forEach(function(m){var o=console[m]?console[m].bind(console):function(){};console[m]=function(){send(m,arguments);o.apply(null,arguments)}});',
+        'window.addEventListener("error",function(e){send("error",[e.message])});',
+        'window.addEventListener("unhandledrejection",function(e){send("error",["Promesse rejetee : "+((e.reason&&e.reason.message)||e.reason)])});',
+        'var CODE=' + safe + ';try{(0,eval)(CODE)}catch(e){send("error",[e.message])}',
+        '})();<\/scr' + 'ipt></body></html>'].join('');
+    }
+
+    var pgToken = 0;
+    function pgRun(w) {
+      var code = w.querySelector('.pg-code').value;
+      var tpl = w.querySelector('template.pg-html');
+      var iframe = w.querySelector('.pg-stage');
+      var cons = w.querySelector('.pg-console');
+      cons.innerHTML = '';
+      iframe.srcdoc = pgSrcdoc(code, tpl ? tpl.innerHTML : '', ++pgToken);
+    }
+
+    window.addEventListener('message', function (e) {
+      var d = e.data;
+      if (!d || d.__pg !== true) return;
+      var frames = document.querySelectorAll('.pg-stage'), iframe = null;
+      for (var i = 0; i < frames.length; i++) { if (frames[i].contentWindow === e.source) { iframe = frames[i]; break; } }
+      if (!iframe) return;
+      var cons = iframe.closest('.pg').querySelector('.pg-console');
+      var line = document.createElement('div');
+      line.className = 'pg-line pg-' + d.level;
+      line.textContent = d.text;
+      cons.appendChild(line);
+      cons.scrollTop = cons.scrollHeight;
+    });
+
+    document.querySelectorAll('.pg').forEach(function (w) {
+      var code = w.querySelector('.pg-code');
+      w.querySelector('.pg-run').addEventListener('click', function () { pgRun(w); });
+      var reset = w.querySelector('.pg-reset');
+      if (reset) reset.addEventListener('click', function () {
+        code.value = w.querySelector('.pg-initial').value;
+        w.querySelector('.pg-console').innerHTML = '';
+        w.querySelector('.pg-stage').removeAttribute('srcdoc');
+        pgAutosize(code);
+      });
+      code.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Tab') {
+          ev.preventDefault();
+          var s = this.selectionStart, en = this.selectionEnd;
+          this.value = this.value.slice(0, s) + '  ' + this.value.slice(en);
+          this.selectionStart = this.selectionEnd = s + 2;
+        }
+      });
+      code.addEventListener('input', function () { pgAutosize(code); });
+    });
+
+    show(location.hash.slice(1) || pages[0].id);
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'loose' });
+    window.__renderMermaid = function (root) {
+      var nodes = (root || document).querySelectorAll('.mermaid:not([data-processed])');
+      if (nodes.length) mermaid.run({ nodes: nodes });
+    };
+    var vis = document.querySelector('.page:not([hidden])');
+    window.__renderMermaid(vis || document);
+  </script>
+</body>
+</html>
