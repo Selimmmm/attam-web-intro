@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-clike.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js" defer></script>
   <style>
     :root {
       --bg: #fbfaf7;
@@ -204,7 +207,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     .pg-run:hover { filter: brightness(1.06); }
     .pg-reset { background: transparent; color: var(--muted); border: 1px solid var(--line); padding: 6px 10px; }
     .pg-reset:hover { color: var(--ink); }
-    .pg-code { display: block; width: 100%; border: none; resize: vertical; font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; line-height: 1.55; padding: 14px; background: #0f1117; color: #e6e6e6; outline: none; tab-size: 2; }
+    .pg-editor { position: relative; background: #0f1117; }
+    .pg-editor .pg-hl, .pg-editor .pg-code { margin: 0; border: 0; padding: 14px; font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; line-height: 1.55; tab-size: 2; white-space: pre-wrap; word-break: break-word; overflow-wrap: break-word; }
+    .pg-hl { position: absolute; inset: 0; z-index: 0; background: #0f1117; color: #e6e6e6; overflow: hidden; pointer-events: none; }
+    .pg-hl code { font: inherit; white-space: inherit; word-break: inherit; display: block; background: none; }
+    .pg-code { position: relative; z-index: 1; display: block; width: 100%; resize: none; background: transparent; color: transparent; caret-color: #e6e6e6; outline: none; }
+    .pg-code::selection { background: rgba(110,168,254,.35); color: transparent; }
+    .pg-code::-moz-selection { background: rgba(110,168,254,.35); color: transparent; }
+    .pg-hl .token.comment { color: #6b7a8f; font-style: italic; }
+    .pg-hl .token.keyword { color: #c792ea; }
+    .pg-hl .token.string, .pg-hl .token.template-string, .pg-hl .token.char { color: #c3e88d; }
+    .pg-hl .token.number, .pg-hl .token.boolean { color: #f78c6c; }
+    .pg-hl .token.function { color: #82aaff; }
+    .pg-hl .token.operator, .pg-hl .token.punctuation { color: #89ddff; }
+    .pg-hl .token.property-access, .pg-hl .token.constant, .pg-hl .token.class-name, .pg-hl .token.builtin { color: #ffcb6b; }
     .pg-stage { width: 100%; min-height: 80px; border: none; border-top: 1px solid var(--line); background: #fff; display: block; }
     .pg-stage.pg-hidden { display: none; }
     .pg-console { font-family: "SF Mono", ui-monospace, Menlo, monospace; font-size: .84rem; line-height: 1.5; background: #14161b; color: #cfe3ff; }
@@ -411,7 +427,7 @@ flowchart LR
 </ul>
 <button>Un bouton</button></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
-<textarea class="pg-code" spellcheck="false" readonly rows="2">console.log(&quot;Le HTML ci-dessus est affiché dans le cadre blanc.&quot;);</textarea>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly rows="2">console.log(&quot;Le HTML ci-dessus est affiché dans le cadre blanc.&quot;);</textarea></div>
 <textarea class="pg-initial" hidden>console.log(&quot;Le HTML ci-dessus est affiché dans le cadre blanc.&quot;);</textarea>
 <iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
 <div class="pg-console" aria-live="polite"></div>
@@ -452,7 +468,7 @@ flowchart LR
 </style>
 <div class="carte">Passe la souris sur moi</div></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
-<textarea class="pg-code" spellcheck="false" readonly rows="2">console.log(&quot;Tout l&#x27;effet vient du CSS, sans une ligne de JavaScript.&quot;);</textarea>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly rows="2">console.log(&quot;Tout l&#x27;effet vient du CSS, sans une ligne de JavaScript.&quot;);</textarea></div>
 <textarea class="pg-initial" hidden>console.log(&quot;Tout l&#x27;effet vient du CSS, sans une ligne de JavaScript.&quot;);</textarea>
 <iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
 <div class="pg-console" aria-live="polite"></div>
@@ -462,14 +478,14 @@ flowchart LR
 <p>Une variable est une boîte étiquetée où on range une valeur pour la réutiliser. On la crée avec <code>let</code> (valeur qui peut changer) ou <code>const</code> (valeur fixe). <code>console.log(...)</code> affiche une valeur pour vérifier ce qu'on fait.</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="8">let pseudo = &quot;Ada&quot;;
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="8">let pseudo = &quot;Ada&quot;;
 const niveau = 1;
 
 console.log(pseudo);
 console.log(&quot;Niveau&quot;, niveau);
 
 pseudo = &quot;Ada_la_boss&quot;;
-console.log(&quot;Nouveau pseudo :&quot;, pseudo);</textarea>
+console.log(&quot;Nouveau pseudo :&quot;, pseudo);</textarea></div>
 <textarea class="pg-initial" hidden>let pseudo = &quot;Ada&quot;;
 const niveau = 1;
 
@@ -492,14 +508,14 @@ console.log(&quot;Nouveau pseudo :&quot;, pseudo);</textarea>
 <p><code>typeof</code> donne le type d'une valeur. Attention : <code>+</code> additionne des nombres mais <strong>colle</strong> des textes.</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="8">let texte = &quot;bonjour&quot;;
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="8">let texte = &quot;bonjour&quot;;
 let nombre = 42;
 let estMajeur = true;
 
 console.log(typeof texte, typeof nombre, typeof estMajeur);
 
 console.log(nombre + 8);
-console.log(texte + &quot; tout le monde&quot;);</textarea>
+console.log(texte + &quot; tout le monde&quot;);</textarea></div>
 <textarea class="pg-initial" hidden>let texte = &quot;bonjour&quot;;
 let nombre = 42;
 let estMajeur = true;
@@ -516,13 +532,13 @@ console.log(texte + &quot; tout le monde&quot;);</textarea>
 <p><code>Math.random()</code> donne un nombre au hasard entre 0 et 1. Combiné à <code>Math.floor()</code> (qui arrondit vers le bas), on tire un nombre entier au hasard. C'est la base de tous les jeux.</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="7">console.log(&quot;Un hasard entre 0 et 1 :&quot;, Math.random());
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="7">console.log(&quot;Un hasard entre 0 et 1 :&quot;, Math.random());
 
 let de = Math.floor(Math.random() * 6) + 1;
 console.log(&quot;Tu as lancé un&quot;, de);
 
 console.log(&quot;Arrondi de 4.7 :&quot;, Math.round(4.7));
-console.log(&quot;Le plus grand de 3 et 9 :&quot;, Math.max(3, 9));</textarea>
+console.log(&quot;Le plus grand de 3 et 9 :&quot;, Math.max(3, 9));</textarea></div>
 <textarea class="pg-initial" hidden>console.log(&quot;Un hasard entre 0 et 1 :&quot;, Math.random());
 
 let de = Math.floor(Math.random() * 6) + 1;
@@ -538,7 +554,7 @@ console.log(&quot;Le plus grand de 3 et 9 :&quot;, Math.max(3, 9));</textarea>
 <p><code>if ... else</code> exécute un bloc ou un autre selon qu'une condition est vraie ou fausse. On compare avec <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>===</code> (égal).</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="10">let age = 20;
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="10">let age = 20;
 
 if (age &gt;= 18) {
   console.log(&quot;Tu es majeur&quot;);
@@ -547,7 +563,7 @@ if (age &gt;= 18) {
 }
 
 let piece = Math.random() &lt; 0.5 ? &quot;pile&quot; : &quot;face&quot;;
-console.log(&quot;La pièce tombe sur :&quot;, piece);</textarea>
+console.log(&quot;La pièce tombe sur :&quot;, piece);</textarea></div>
 <textarea class="pg-initial" hidden>let age = 20;
 
 if (age &gt;= 18) {
@@ -566,7 +582,7 @@ console.log(&quot;La pièce tombe sur :&quot;, piece);</textarea>
 <p>Un <strong>tableau</strong> range plusieurs valeurs dans l'ordre, entre crochets. On accède à un élément par sa position (qui commence à 0), on en ajoute avec <code>push</code>, et on parcourt avec <code>forEach</code>.</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="11">let courses = [&quot;pain&quot;, &quot;lait&quot;, &quot;œufs&quot;];
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="11">let courses = [&quot;pain&quot;, &quot;lait&quot;, &quot;œufs&quot;];
 
 console.log(&quot;J&#x27;ai&quot;, courses.length, &quot;articles&quot;);
 console.log(&quot;Le premier :&quot;, courses[0]);
@@ -576,7 +592,7 @@ console.log(&quot;Après ajout :&quot;, courses);
 
 courses.forEach(article =&gt; {
   console.log(&quot;- &quot; + article);
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>let courses = [&quot;pain&quot;, &quot;lait&quot;, &quot;œufs&quot;];
 
 console.log(&quot;J&#x27;ai&quot;, courses.length, &quot;articles&quot;);
@@ -596,7 +612,7 @@ courses.forEach(article =&gt; {
 <p>On accède à une valeur avec un point (<code>joueur.pseudo</code>) ou des crochets (<code>joueur["pseudo"]</code>).</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="11">const joueur = {
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="11">const joueur = {
   pseudo: &quot;Ada&quot;,
   score: 1200,
   niveau: 7
@@ -606,7 +622,7 @@ console.log(joueur.pseudo);
 console.log(joueur[&quot;score&quot;]);
 
 joueur.score = joueur.score + 100;
-console.log(joueur);</textarea>
+console.log(joueur);</textarea></div>
 <textarea class="pg-initial" hidden>const joueur = {
   pseudo: &quot;Ada&quot;,
   score: 1200,
@@ -624,7 +640,7 @@ console.log(joueur);</textarea>
 <p>On peut aussi avoir une <strong>liste d'objets</strong>, et la parcourir :</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="9">const equipe = [
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="9">const equipe = [
   { nom: &quot;Ada&quot;, role: &quot;dev&quot; },
   { nom: &quot;Alan&quot;, role: &quot;maths&quot; },
   { nom: &quot;Grace&quot;, role: &quot;compilateur&quot; }
@@ -632,7 +648,7 @@ console.log(joueur);</textarea>
 
 equipe.forEach(membre =&gt; {
   console.log(membre.nom + &quot; s&#x27;occupe de &quot; + membre.role);
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>const equipe = [
   { nom: &quot;Ada&quot;, role: &quot;dev&quot; },
   { nom: &quot;Alan&quot;, role: &quot;maths&quot; },
@@ -651,13 +667,13 @@ equipe.forEach(membre =&gt; {
 <p>Première API, pour se mettre en jambes : une blague au hasard. Elle renvoie un objet <code>{ setup, punchline }</code>.</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="7">fetch(&quot;https://official-joke-api.appspot.com/random_joke&quot;)
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="7">fetch(&quot;https://official-joke-api.appspot.com/random_joke&quot;)
   .then(reponse =&gt; reponse.json())
   .then(blague =&gt; {
     console.log(blague.setup);
     console.log(&quot;👉 &quot; + blague.punchline);
   })
-  .catch(erreur =&gt; console.log(&quot;Erreur :&quot;, erreur.message));</textarea>
+  .catch(erreur =&gt; console.log(&quot;Erreur :&quot;, erreur.message));</textarea></div>
 <textarea class="pg-initial" hidden>fetch(&quot;https://official-joke-api.appspot.com/random_joke&quot;)
   .then(reponse =&gt; reponse.json())
   .then(blague =&gt; {
@@ -672,12 +688,12 @@ equipe.forEach(membre =&gt; {
 <p>Une deuxième API devine un âge moyen à partir d'un prénom. Change <code>ada</code> par le tien :</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="6">fetch(&quot;https://api.agify.io?name=ada&quot;)
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="6">fetch(&quot;https://api.agify.io?name=ada&quot;)
   .then(reponse =&gt; reponse.json())
   .then(donnees =&gt; {
     console.log(&quot;Prénom :&quot;, donnees.name);
     console.log(&quot;Âge estimé :&quot;, donnees.age);
-  });</textarea>
+  });</textarea></div>
 <textarea class="pg-initial" hidden>fetch(&quot;https://api.agify.io?name=ada&quot;)
   .then(reponse =&gt; reponse.json())
   .then(donnees =&gt; {
@@ -690,13 +706,13 @@ equipe.forEach(membre =&gt; {
 <p>Et une troisième, qui renvoie des infos sur un pays (la réponse est une liste, on prend le premier élément avec <code>[0]</code>) :</p>
 <div class="pg" data-kind="js">
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="7">fetch(&quot;https://restcountries.com/v3.1/name/japan?fields=capital,population&quot;)
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="7">fetch(&quot;https://restcountries.com/v3.1/name/japan?fields=capital,population&quot;)
   .then(reponse =&gt; reponse.json())
   .then(donnees =&gt; {
     const pays = donnees[0];
     console.log(&quot;Capitale :&quot;, pays.capital[0]);
     console.log(&quot;Population :&quot;, pays.population);
-  });</textarea>
+  });</textarea></div>
 <textarea class="pg-initial" hidden>fetch(&quot;https://restcountries.com/v3.1/name/japan?fields=capital,population&quot;)
   .then(reponse =&gt; reponse.json())
   .then(donnees =&gt; {
@@ -718,9 +734,9 @@ equipe.forEach(membre =&gt; {
 
 <template class="pg-html"><h2 id="titre">Bonjour</h2></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="3">const titre = document.querySelector(&quot;#titre&quot;);
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="3">const titre = document.querySelector(&quot;#titre&quot;);
 titre.textContent = &quot;Bonjour la promo !&quot;;
-titre.style.color = &quot;purple&quot;;</textarea>
+titre.style.color = &quot;purple&quot;;</textarea></div>
 <textarea class="pg-initial" hidden>const titre = document.querySelector(&quot;#titre&quot;);
 titre.textContent = &quot;Bonjour la promo !&quot;;
 titre.style.color = &quot;purple&quot;;</textarea>
@@ -738,14 +754,14 @@ titre.style.color = &quot;purple&quot;;</textarea>
 <template class="pg-html"><button id="bouton">Clique-moi</button>
 <p id="message">Aucun clic pour l'instant.</p></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="8">const bouton = document.querySelector(&quot;#bouton&quot;);
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="8">const bouton = document.querySelector(&quot;#bouton&quot;);
 const message = document.querySelector(&quot;#message&quot;);
 let compteur = 0;
 
 bouton.addEventListener(&quot;click&quot;, () =&gt; {
   compteur = compteur + 1;
   message.textContent = &quot;Nombre de clics : &quot; + compteur;
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>const bouton = document.querySelector(&quot;#bouton&quot;);
 const message = document.querySelector(&quot;#message&quot;);
 let compteur = 0;
@@ -766,12 +782,12 @@ bouton.addEventListener(&quot;click&quot;, () =&gt; {
 
 <template class="pg-html"><button id="changer">Change la couleur</button></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="6">const couleurs = [&quot;#ffadad&quot;, &quot;#ffd6a5&quot;, &quot;#fdffb6&quot;, &quot;#caffbf&quot;, &quot;#9bf6ff&quot;, &quot;#bdb2ff&quot;];
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="6">const couleurs = [&quot;#ffadad&quot;, &quot;#ffd6a5&quot;, &quot;#fdffb6&quot;, &quot;#caffbf&quot;, &quot;#9bf6ff&quot;, &quot;#bdb2ff&quot;];
 
 document.querySelector(&quot;#changer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   const c = couleurs[Math.floor(Math.random() * couleurs.length)];
   document.body.style.background = c;
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>const couleurs = [&quot;#ffadad&quot;, &quot;#ffd6a5&quot;, &quot;#fdffb6&quot;, &quot;#caffbf&quot;, &quot;#9bf6ff&quot;, &quot;#bdb2ff&quot;];
 
 document.querySelector(&quot;#changer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
@@ -792,12 +808,12 @@ document.querySelector(&quot;#changer&quot;).addEventListener(&quot;click&quot;,
 <template class="pg-html"><button id="poser">Pose une question, puis clique</button>
 <p id="reponse" style="font-size:22px">🎱</p></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="6">const reponses = [&quot;Oui, clairement&quot;, &quot;Non&quot;, &quot;Peut-être…&quot;, &quot;Certainement&quot;, &quot;Ça m&#x27;étonnerait&quot;, &quot;Demande plus tard&quot;];
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="6">const reponses = [&quot;Oui, clairement&quot;, &quot;Non&quot;, &quot;Peut-être…&quot;, &quot;Certainement&quot;, &quot;Ça m&#x27;étonnerait&quot;, &quot;Demande plus tard&quot;];
 
 document.querySelector(&quot;#poser&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   const i = Math.floor(Math.random() * reponses.length);
   document.querySelector(&quot;#reponse&quot;).textContent = reponses[i];
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>const reponses = [&quot;Oui, clairement&quot;, &quot;Non&quot;, &quot;Peut-être…&quot;, &quot;Certainement&quot;, &quot;Ça m&#x27;étonnerait&quot;, &quot;Demande plus tard&quot;];
 
 document.querySelector(&quot;#poser&quot;).addEventListener(&quot;click&quot;, () =&gt; {
@@ -817,12 +833,12 @@ document.querySelector(&quot;#poser&quot;).addEventListener(&quot;click&quot;, (
 <template class="pg-html"><button id="lancer">Lancer le dé</button>
 <p id="de" style="font-size:60px">🎲</p></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="6">const faces = [&quot;⚀&quot;, &quot;⚁&quot;, &quot;⚂&quot;, &quot;⚃&quot;, &quot;⚄&quot;, &quot;⚅&quot;];
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="6">const faces = [&quot;⚀&quot;, &quot;⚁&quot;, &quot;⚂&quot;, &quot;⚃&quot;, &quot;⚄&quot;, &quot;⚅&quot;];
 
 document.querySelector(&quot;#lancer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   const n = Math.floor(Math.random() * 6);
   document.querySelector(&quot;#de&quot;).textContent = faces[n];
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>const faces = [&quot;⚀&quot;, &quot;⚁&quot;, &quot;⚂&quot;, &quot;⚃&quot;, &quot;⚄&quot;, &quot;⚅&quot;];
 
 document.querySelector(&quot;#lancer&quot;).addEventListener(&quot;click&quot;, () =&gt; {
@@ -843,12 +859,12 @@ document.querySelector(&quot;#lancer&quot;).addEventListener(&quot;click&quot;, 
 <template class="pg-html"><input id="champ" placeholder="Écris quelque chose…" style="padding:6px;width:240px">
 <p id="compte">0 caractère</p></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="6">const champ = document.querySelector(&quot;#champ&quot;);
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="6">const champ = document.querySelector(&quot;#champ&quot;);
 const compte = document.querySelector(&quot;#compte&quot;);
 
 champ.addEventListener(&quot;input&quot;, () =&gt; {
   compte.textContent = champ.value.length + &quot; caractères&quot;;
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>const champ = document.querySelector(&quot;#champ&quot;);
 const compte = document.querySelector(&quot;#compte&quot;);
 
@@ -867,14 +883,14 @@ champ.addEventListener(&quot;input&quot;, () =&gt; {
 
 <template class="pg-html"><ul id="liste"></ul></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="8">const fruits = [&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;];
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="8">const fruits = [&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;];
 const liste = document.querySelector(&quot;#liste&quot;);
 
 fruits.forEach(fruit =&gt; {
   const li = document.createElement(&quot;li&quot;);
   li.textContent = fruit;
   liste.appendChild(li);
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>const fruits = [&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;];
 const liste = document.querySelector(&quot;#liste&quot;);
 
@@ -896,7 +912,7 @@ fruits.forEach(fruit =&gt; {
 <template class="pg-html"><button id="go">Génère mon pseudo</button>
 <p id="pseudo" style="font-size:20px;font-weight:bold"></p></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="9">const adjectifs = [&quot;Super&quot;, &quot;Méga&quot;, &quot;Ninja&quot;, &quot;Cosmic&quot;, &quot;Turbo&quot;, &quot;Mystic&quot;];
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="9">const adjectifs = [&quot;Super&quot;, &quot;Méga&quot;, &quot;Ninja&quot;, &quot;Cosmic&quot;, &quot;Turbo&quot;, &quot;Mystic&quot;];
 const animaux = [&quot;Panda&quot;, &quot;Tigre&quot;, &quot;Renard&quot;, &quot;Faucon&quot;, &quot;Loutre&quot;, &quot;Dragon&quot;];
 
 document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =&gt; {
@@ -904,7 +920,7 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
   const b = animaux[Math.floor(Math.random() * animaux.length)];
   const n = Math.floor(Math.random() * 100);
   document.querySelector(&quot;#pseudo&quot;).textContent = a + b + n;
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>const adjectifs = [&quot;Super&quot;, &quot;Méga&quot;, &quot;Ninja&quot;, &quot;Cosmic&quot;, &quot;Turbo&quot;, &quot;Mystic&quot;];
 const animaux = [&quot;Panda&quot;, &quot;Tigre&quot;, &quot;Renard&quot;, &quot;Faucon&quot;, &quot;Loutre&quot;, &quot;Dragon&quot;];
 
@@ -928,13 +944,13 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
 <template class="pg-html"><button id="chien">Montre-moi un chien 🐶</button><br>
 <img id="photo" alt="" style="max-width:220px;margin-top:10px;border-radius:10px"></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="7">document.querySelector(&quot;#chien&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="7">document.querySelector(&quot;#chien&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   fetch(&quot;https://dog.ceo/api/breeds/image/random&quot;)
     .then(reponse =&gt; reponse.json())
     .then(donnees =&gt; {
       document.querySelector(&quot;#photo&quot;).src = donnees.message;
     });
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>document.querySelector(&quot;#chien&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   fetch(&quot;https://dog.ceo/api/breeds/image/random&quot;)
     .then(reponse =&gt; reponse.json())
@@ -961,7 +977,7 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
 <p style="font-size:13px;color:#666;margin:6px 0">Exemples : bulbasaur, charizard, eevee, mewtwo, ou un numéro de 1 à 1000.</p>
 <div id="resultat" style="margin-top:10px;display:flex;align-items:center;gap:12px"></div></template>
 <div class="pg-bar"><span class="pg-lang">JavaScript · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<textarea class="pg-code" spellcheck="false" rows="21">document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="21">document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   const nom = document.querySelector(&quot;#nom&quot;).value.toLowerCase().trim();
   const res = document.querySelector(&quot;#resultat&quot;);
   res.textContent = &quot;Recherche…&quot;;
@@ -981,7 +997,7 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
     .catch(() =&gt; {
       res.textContent = &quot;Pas trouvé. Essaie un nom en anglais (bulbasaur, charizard…) ou un numéro.&quot;;
     });
-});</textarea>
+});</textarea></div>
 <textarea class="pg-initial" hidden>document.querySelector(&quot;#chercher&quot;).addEventListener(&quot;click&quot;, () =&gt; {
   const nom = document.querySelector(&quot;#nom&quot;).value.toLowerCase().trim();
   const res = document.querySelector(&quot;#resultat&quot;);
@@ -1703,7 +1719,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <p><strong>Type</strong> : brief individuel
 <strong>Durée visée</strong> : 1 journée (7h)
 <strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales
-<strong>Pré-requis</strong> : avoir fini le cœur du <a href="brief-1-html-css-js.md">brief 1</a>.</p>
+<strong>Pré-requis</strong> : avoir fini le cœur du <a href="#brief-1">brief 1</a>.</p>
 <p>Ta carte web n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une <strong>adresse publique</strong> que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
 <p>Mettre un site « en ligne », c'est le déposer sur un serveur accessible à tous. GitHub propose ça gratuitement avec <strong>GitHub Pages</strong> : tu déposes tes fichiers sur GitHub (une plateforme où les développeurs stockent et partagent leur code), et GitHub publie automatiquement ta page sur une URL publique.</p>
@@ -1798,7 +1814,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
 **Type** : brief individuel
 **Durée visée** : 1 journée (7h)
 **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
-**Pré-requis** : avoir fini le cœur du [brief 1](brief-1-html-css-js.md).
+**Pré-requis** : avoir fini le cœur du [brief 1](#brief-1).
 
 Ta carte web n&#x27;existe que sur ton ordinateur. Aujourd&#x27;hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
 
@@ -1917,7 +1933,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <p><strong>Type</strong> : brief individuel (avec effet collectif)
 <strong>Durée visée</strong> : 1 journée (7h), la plus dense
 <strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales
-<strong>Pré-requis</strong> : avoir un site en ligne (<a href="brief-2-github-pages.md">brief 2</a>).</p>
+<strong>Pré-requis</strong> : avoir un site en ligne (<a href="#brief-2">brief 2</a>).</p>
 <p>Jusqu'ici, ta carte affiche toujours le même contenu. Aujourd'hui, tu lui ajoutes un livre d'or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
 <p>Une base de données, c'est là où une application range ses informations pour les retrouver plus tard (les messages, les comptes, les commandes...). D'habitude, pour y accéder, il faut un <strong>backend</strong> : un programme qui tourne sur un serveur et fait l'intermédiaire entre la page web et la base.</p>
@@ -2007,7 +2023,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
 **Type** : brief individuel (avec effet collectif)
 **Durée visée** : 1 journée (7h), la plus dense
 **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
-**Pré-requis** : avoir un site en ligne ([brief 2](brief-2-github-pages.md)).
+**Pré-requis** : avoir un site en ligne ([brief 2](#brief-2)).
 
 Jusqu&#x27;ici, ta carte affiche toujours le même contenu. Aujourd&#x27;hui, tu lui ajoutes un livre d&#x27;or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.
 
@@ -2163,6 +2179,16 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
     // --- Playgrounds : exécution de JS dans un iframe sandboxé ---
     function pgAutosize(t) { t.style.height = 'auto'; t.style.height = (t.scrollHeight + 2) + 'px'; }
 
+    function pgHighlight(ta) {
+      var holder = ta.parentNode.querySelector('.pg-hl code');
+      if (!holder) return;
+      if (window.Prism && Prism.languages && Prism.languages.javascript) {
+        holder.innerHTML = Prism.highlight(ta.value, Prism.languages.javascript, 'javascript');
+      } else {
+        holder.textContent = ta.value;
+      }
+    }
+
     function pgSrcdoc(code, stage, token) {
       var safe = JSON.stringify(code).replace(/</g, '\\u003c');
       return ['<!doctype html><html><head><meta charset="utf-8"><style>',
@@ -2216,6 +2242,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 
     document.querySelectorAll('.pg').forEach(function (w) {
       var code = w.querySelector('.pg-code');
+      var hl = w.querySelector('.pg-hl');
       w.querySelector('.pg-run').addEventListener('click', function () { pgRun(w); });
       var reset = w.querySelector('.pg-reset');
       if (reset) reset.addEventListener('click', function () {
@@ -2224,6 +2251,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
         var st = w.querySelector('.pg-stage');
         st.removeAttribute('srcdoc');
         st.style.height = '';
+        pgHighlight(code);
         pgAutosize(code);
       });
       code.addEventListener('keydown', function (ev) {
@@ -2232,9 +2260,17 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
           var s = this.selectionStart, en = this.selectionEnd;
           this.value = this.value.slice(0, s) + '  ' + this.value.slice(en);
           this.selectionStart = this.selectionEnd = s + 2;
+          pgHighlight(this);
         }
       });
-      code.addEventListener('input', function () { pgAutosize(code); });
+      code.addEventListener('input', function () { pgHighlight(code); pgAutosize(code); });
+      code.addEventListener('scroll', function () { hl.scrollTop = code.scrollTop; hl.scrollLeft = code.scrollLeft; });
+      pgHighlight(code);
+    });
+
+    // Prism est chargé en defer : recolorer une fois prêt.
+    window.addEventListener('load', function () {
+      document.querySelectorAll('.pg-code').forEach(function (t) { pgHighlight(t); });
     });
 
     show(location.hash.slice(1) || pages[0].id);
