@@ -29,7 +29,7 @@ Chaque balise peut avoir un **identifiant** avec `id="..."`, qui servira plus ta
 console.log("Le HTML ci-dessus est affiché dans le cadre blanc.");
 ```
 
-Le **CSS** sert à habiller ce HTML : couleurs, formes, animations. Tu n'as rien à exécuter ici, regarde juste, et passe la souris sur la carte :
+Le **CSS** sert à habiller ce HTML : couleurs, formes, animations. Clique sur ▶ Exécuter pour afficher la carte, puis passe la souris dessus :
 
 ```domrun-frozen
 <style>
