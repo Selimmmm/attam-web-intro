@@ -1,8 +1,8 @@
 # Brief 1 : ma carte web (HTML, CSS, puis un peu de JS)
 
-**Type** : brief individuel
-**Durée visée** : 1 journée (7h)
-**Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
+- **Type** : brief individuel
+- **Durée visée** : 1 journée (7h)
+- **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 
 Aujourd'hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une carte de profil web complète, et tu sauras lire et modifier le code d'une page.
 

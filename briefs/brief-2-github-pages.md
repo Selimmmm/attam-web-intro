@@ -1,9 +1,9 @@
 # Brief 2 : en ligne ! (GitHub Pages + une feature JS)
 
-**Type** : brief individuel
-**Durée visée** : 1 journée (7h)
-**Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
-**Pré-requis** : avoir fini le cœur du [brief 1](#brief-1).
+- **Type** : brief individuel
+- **Durée visée** : 1 journée (7h)
+- **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
+- **Pré-requis** : avoir fini le cœur du [brief 1](#brief-1).
 
 Ta carte web n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
 
