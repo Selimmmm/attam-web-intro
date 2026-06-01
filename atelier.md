@@ -1,56 +1,50 @@
 # Atelier : reproduire en HTML et CSS
 
-Avant de te lancer dans ton projet, entraîne-toi sur trois petits modèles. Pour chacun, la méthode est la même : observe le résultat, lis le code, puis reproduis-le dans l'éditeur du dessous.
+Avant de te lancer dans ton projet, fais ces trois petits exercices pour prendre tes marques. Le principe est toujours le même : modifie le code, clique sur **▶ Exécuter**, et regarde ce qui change. Le bouton ↺ remet le code de départ si tu veux recommencer.
 
-Tu n'as rien à installer, tout se passe dans la page. Clique sur **▶ Exécuter** pour afficher le rendu de ton code, et sur ↺ pour repartir de zéro. Prends ton temps, et n'hésite pas à modifier une valeur pour voir ce qu'elle change.
+Tu n'as rien à installer, tout se passe dans la page. Il n'y a pas de note ni de bonne réponse unique : l'important est d'essayer des valeurs et de voir leur effet.
 
-## Exercice 1 : une boîte
+## Exercice 1 : une boîte à ton goût
 
-Objectif : afficher une boîte colorée qui contient un titre et une phrase. Tu vas utiliser trois propriétés CSS très courantes : `background` (la couleur de fond), `padding` (l'espace intérieur) et `border-radius` (les coins arrondis).
+Objectif : composer ta propre boîte et découvrir quatre propriétés CSS très courantes : `background` (la couleur de fond), `padding` (l'espace intérieur), `border-radius` (les coins arrondis) et `font-family` (la police).
 
-Voici le modèle à obtenir. Clique sur Exécuter pour l'afficher, puis lis le code attentivement.
+Modifie l'exemple ci-dessous, clique sur Exécuter, et fais tes propres choix :
 
-```htmlrun-frozen
-<div style="background: #eaf1ff; padding: 20px; border-radius: 12px; max-width: 320px;">
-  <h3 style="margin-top: 0;">Bonjour</h3>
-  <p>Je suis une boîte toute simple : un fond, de l'espace autour du texte, des coins arrondis.</p>
-</div>
-```
-
-À toi de jouer. Le squelette est déjà en place, remplace les `____` par des valeurs, puis clique sur Exécuter.
+- **La couleur de fond** (`background`) : un code couleur comme `#ffe8d6`, ou un nom de couleur en anglais comme `lavender`, `lightyellow`, `mistyrose`.
+- **Les coins** : arrondis avec `border-radius: 16px`, ou bien droits si tu enlèves cette ligne. À toi de voir ce que tu préfères.
+- **La police** (`font-family`) : par exemple `font-family: Georgia, serif;` pour un style classique, ou `font-family: 'Trebuchet MS', sans-serif;` pour un style plus moderne.
+- Garde un peu de `padding` pour que le texte ne colle pas aux bords.
 
 ```htmlrun
-<div style="background: ____; padding: ____; border-radius: ____;">
-  <h3>Bonjour</h3>
-  <p>À moi de remplir les trois valeurs pour retrouver le modèle.</p>
+<div style="background: lightyellow; padding: 20px; border-radius: 16px; font-family: Georgia, serif; max-width: 320px;">
+  <h3 style="margin-top: 0;">Mon titre</h3>
+  <p>Change la couleur, les coins et la police, puis observe le résultat.</p>
 </div>
 ```
 
-Quand ta boîte ressemble au modèle, l'exercice est réussi.
+Il n'y a pas de bonne réponse unique : le but est de voir comment chaque valeur change l'apparence.
 
-## Exercice 2 : une image cadrée
+## Exercice 2 : une image dans un cadre
 
-Objectif : afficher une image dans un cadre carré, avec une bordure et des coins arrondis. La propriété importante est `object-fit: cover` : elle **recadre** l'image pour qu'elle remplisse le cadre sans se déformer.
+Objectif : afficher une image à une taille fixe et comprendre `object-fit`, la propriété qui décide comment l'image remplit son cadre.
 
-Le modèle :
+Modifie l'exemple, clique sur Exécuter, et fais des essais :
 
-```htmlrun-frozen
+- **Change la largeur et la hauteur** (`width`, `height`) : essaie un grand carré (`240px`), un petit (`100px`), ou un rectangle (`width: 240px; height: 120px`).
+- **Change la valeur de `object-fit`** pour voir la différence :
+    - `cover` : l'image remplit le cadre et déborde proprement (elle est recadrée),
+    - `contain` : l'image entière entre dans le cadre, avec des espaces vides éventuels,
+    - `fill` : l'image est étirée pour remplir, quitte à se déformer.
+- La bordure (`border`) et les coins arrondis (`border-radius`) sont là pour faire joli, modifie-les aussi si tu veux.
+
+```htmlrun
 <img
   src="https://picsum.photos/seed/atelier/500/350"
   alt="photo d'exemple"
   style="width: 160px; height: 160px; object-fit: cover; border: 3px solid #3b82f6; border-radius: 12px;">
 ```
 
-À toi. L'image de départ est déjà là, ajoute les styles entre les guillemets de `style`.
-
-```htmlrun
-<img
-  src="https://picsum.photos/seed/atelier/500/350"
-  alt="photo d'exemple"
-  style="">
-```
-
-Astuce : une fois que ça marche, enlève `object-fit: cover` et regarde. L'image se déforme, et tu comprends à quoi sert cette propriété.
+C'est sur un cadre rectangulaire que la différence entre `cover`, `contain` et `fill` se voit le mieux. Essaie les trois.
 
 ## Exercice 3 : une image qui se retourne au clic
 

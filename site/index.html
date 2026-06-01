@@ -1406,45 +1406,47 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
     <button class="src-toggle" data-src="src-atelier">Voir la source Markdown</button>
   </div>
   <article class="prose"><h1 id="atelier-reproduire-en-html-et-css">Atelier : reproduire en HTML et CSS</h1>
-<p>Avant de te lancer dans ton projet, entraîne-toi sur trois petits modèles. Pour chacun, la méthode est la même : observe le résultat, lis le code, puis reproduis-le dans l'éditeur du dessous.</p>
-<p>Tu n'as rien à installer, tout se passe dans la page. Clique sur <strong>▶ Exécuter</strong> pour afficher le rendu de ton code, et sur ↺ pour repartir de zéro. Prends ton temps, et n'hésite pas à modifier une valeur pour voir ce qu'elle change.</p>
-<h2 id="exercice-1-une-boite">Exercice 1 : une boîte</h2>
-<p>Objectif : afficher une boîte colorée qui contient un titre et une phrase. Tu vas utiliser trois propriétés CSS très courantes : <code>background</code> (la couleur de fond), <code>padding</code> (l'espace intérieur) et <code>border-radius</code> (les coins arrondis).</p>
-<p>Voici le modèle à obtenir. Clique sur Exécuter pour l'afficher, puis lis le code attentivement.</p>
-<div class="pg" data-kind="html" data-frozen="1">
-<div class="pg-bar"><span class="pg-lang">HTML · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
-<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly rows="4">&lt;div style=&quot;background: #eaf1ff; padding: 20px; border-radius: 12px; max-width: 320px;&quot;&gt;
-  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Bonjour&lt;/h3&gt;
-  &lt;p&gt;Je suis une boîte toute simple : un fond, de l&#x27;espace autour du texte, des coins arrondis.&lt;/p&gt;
-&lt;/div&gt;</textarea></div>
-<textarea class="pg-initial" hidden>&lt;div style=&quot;background: #eaf1ff; padding: 20px; border-radius: 12px; max-width: 320px;&quot;&gt;
-  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Bonjour&lt;/h3&gt;
-  &lt;p&gt;Je suis une boîte toute simple : un fond, de l&#x27;espace autour du texte, des coins arrondis.&lt;/p&gt;
-&lt;/div&gt;</textarea>
-<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
-<div class="pg-console" aria-live="polite"></div>
-</div>
-<p>À toi de jouer. Le squelette est déjà en place, remplace les <code>____</code> par des valeurs, puis clique sur Exécuter.</p>
+<p>Avant de te lancer dans ton projet, fais ces trois petits exercices pour prendre tes marques. Le principe est toujours le même : modifie le code, clique sur <strong>▶ Exécuter</strong>, et regarde ce qui change. Le bouton ↺ remet le code de départ si tu veux recommencer.</p>
+<p>Tu n'as rien à installer, tout se passe dans la page. Il n'y a pas de note ni de bonne réponse unique : l'important est d'essayer des valeurs et de voir leur effet.</p>
+<h2 id="exercice-1-une-boite-a-ton-gout">Exercice 1 : une boîte à ton goût</h2>
+<p>Objectif : composer ta propre boîte et découvrir quatre propriétés CSS très courantes : <code>background</code> (la couleur de fond), <code>padding</code> (l'espace intérieur), <code>border-radius</code> (les coins arrondis) et <code>font-family</code> (la police).</p>
+<p>Modifie l'exemple ci-dessous, clique sur Exécuter, et fais tes propres choix :</p>
+<ul>
+<li><strong>La couleur de fond</strong> (<code>background</code>) : un code couleur comme <code>#ffe8d6</code>, ou un nom de couleur en anglais comme <code>lavender</code>, <code>lightyellow</code>, <code>mistyrose</code>.</li>
+<li><strong>Les coins</strong> : arrondis avec <code>border-radius: 16px</code>, ou bien droits si tu enlèves cette ligne. À toi de voir ce que tu préfères.</li>
+<li><strong>La police</strong> (<code>font-family</code>) : par exemple <code>font-family: Georgia, serif;</code> pour un style classique, ou <code>font-family: 'Trebuchet MS', sans-serif;</code> pour un style plus moderne.</li>
+<li>Garde un peu de <code>padding</code> pour que le texte ne colle pas aux bords.</li>
+</ul>
 <div class="pg" data-kind="html">
 <div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="4">&lt;div style=&quot;background: ____; padding: ____; border-radius: ____;&quot;&gt;
-  &lt;h3&gt;Bonjour&lt;/h3&gt;
-  &lt;p&gt;À moi de remplir les trois valeurs pour retrouver le modèle.&lt;/p&gt;
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="4">&lt;div style=&quot;background: lightyellow; padding: 20px; border-radius: 16px; font-family: Georgia, serif; max-width: 320px;&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Mon titre&lt;/h3&gt;
+  &lt;p&gt;Change la couleur, les coins et la police, puis observe le résultat.&lt;/p&gt;
 &lt;/div&gt;</textarea></div>
-<textarea class="pg-initial" hidden>&lt;div style=&quot;background: ____; padding: ____; border-radius: ____;&quot;&gt;
-  &lt;h3&gt;Bonjour&lt;/h3&gt;
-  &lt;p&gt;À moi de remplir les trois valeurs pour retrouver le modèle.&lt;/p&gt;
+<textarea class="pg-initial" hidden>&lt;div style=&quot;background: lightyellow; padding: 20px; border-radius: 16px; font-family: Georgia, serif; max-width: 320px;&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Mon titre&lt;/h3&gt;
+  &lt;p&gt;Change la couleur, les coins et la police, puis observe le résultat.&lt;/p&gt;
 &lt;/div&gt;</textarea>
 <iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
 <div class="pg-console" aria-live="polite"></div>
 </div>
-<p>Quand ta boîte ressemble au modèle, l'exercice est réussi.</p>
-<h2 id="exercice-2-une-image-cadree">Exercice 2 : une image cadrée</h2>
-<p>Objectif : afficher une image dans un cadre carré, avec une bordure et des coins arrondis. La propriété importante est <code>object-fit: cover</code> : elle <strong>recadre</strong> l'image pour qu'elle remplisse le cadre sans se déformer.</p>
-<p>Le modèle :</p>
-<div class="pg" data-kind="html" data-frozen="1">
-<div class="pg-bar"><span class="pg-lang">HTML · lecture seule</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button></span></div>
-<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly rows="4">&lt;img
+<p>Il n'y a pas de bonne réponse unique : le but est de voir comment chaque valeur change l'apparence.</p>
+<h2 id="exercice-2-une-image-dans-un-cadre">Exercice 2 : une image dans un cadre</h2>
+<p>Objectif : afficher une image à une taille fixe et comprendre <code>object-fit</code>, la propriété qui décide comment l'image remplit son cadre.</p>
+<p>Modifie l'exemple, clique sur Exécuter, et fais des essais :</p>
+<ul>
+<li><strong>Change la largeur et la hauteur</strong> (<code>width</code>, <code>height</code>) : essaie un grand carré (<code>240px</code>), un petit (<code>100px</code>), ou un rectangle (<code>width: 240px; height: 120px</code>).</li>
+<li><strong>Change la valeur de <code>object-fit</code></strong> pour voir la différence :<ul>
+<li><code>cover</code> : l'image remplit le cadre et déborde proprement (elle est recadrée),</li>
+<li><code>contain</code> : l'image entière entre dans le cadre, avec des espaces vides éventuels,</li>
+<li><code>fill</code> : l'image est étirée pour remplir, quitte à se déformer.</li>
+</ul>
+</li>
+<li>La bordure (<code>border</code>) et les coins arrondis (<code>border-radius</code>) sont là pour faire joli, modifie-les aussi si tu veux.</li>
+</ul>
+<div class="pg" data-kind="html">
+<div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
+<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="4">&lt;img
   src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
   alt=&quot;photo d&#x27;exemple&quot;
   style=&quot;width: 160px; height: 160px; object-fit: cover; border: 3px solid #3b82f6; border-radius: 12px;&quot;&gt;</textarea></div>
@@ -1455,21 +1457,7 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
 <div class="pg-console" aria-live="polite"></div>
 </div>
-<p>À toi. L'image de départ est déjà là, ajoute les styles entre les guillemets de <code>style</code>.</p>
-<div class="pg" data-kind="html">
-<div class="pg-bar"><span class="pg-lang">HTML · à toi de jouer</span><span class="pg-actions"><button class="pg-run" type="button">▶ Exécuter</button><button class="pg-reset" type="button" title="Réinitialiser">↺</button></span></div>
-<div class="pg-editor"><pre class="pg-hl" aria-hidden="true"><code class="language-markup"></code></pre><textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="4">&lt;img
-  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
-  alt=&quot;photo d&#x27;exemple&quot;
-  style=&quot;&quot;&gt;</textarea></div>
-<textarea class="pg-initial" hidden>&lt;img
-  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
-  alt=&quot;photo d&#x27;exemple&quot;
-  style=&quot;&quot;&gt;</textarea>
-<iframe class="pg-stage" sandbox="allow-scripts allow-modals" title="résultat"></iframe>
-<div class="pg-console" aria-live="polite"></div>
-</div>
-<p>Astuce : une fois que ça marche, enlève <code>object-fit: cover</code> et regarde. L'image se déforme, et tu comprends à quoi sert cette propriété.</p>
+<p>C'est sur un cadre rectangulaire que la différence entre <code>cover</code>, <code>contain</code> et <code>fill</code> se voit le mieux. Essaie les trois.</p>
 <h2 id="exercice-3-une-image-qui-se-retourne-au-clic">Exercice 3 : une image qui se retourne au clic</h2>
 <p>Objectif : afficher une image et un bouton. Quand on clique sur le bouton, l'image se retourne comme dans un miroir. Une petite ligne de JavaScript entre en jeu : au clic, on ajoute ou on retire une classe CSS, et c'est cette classe qui retourne l'image.</p>
 <p>Le modèle, déjà fonctionnel. Clique sur Exécuter, puis sur le bouton.</p>
@@ -1523,57 +1511,51 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <p>Quand le clic retourne bien l'image, tu tiens le principe que tu retrouveras dans ton projet : un clic déclenche un changement visible sur la page. Tu es prêt pour le brief 1.</p></article>
   <pre class="md-source" id="src-atelier" hidden><code># Atelier : reproduire en HTML et CSS
 
-Avant de te lancer dans ton projet, entraîne-toi sur trois petits modèles. Pour chacun, la méthode est la même : observe le résultat, lis le code, puis reproduis-le dans l&#x27;éditeur du dessous.
+Avant de te lancer dans ton projet, fais ces trois petits exercices pour prendre tes marques. Le principe est toujours le même : modifie le code, clique sur **▶ Exécuter**, et regarde ce qui change. Le bouton ↺ remet le code de départ si tu veux recommencer.
 
-Tu n&#x27;as rien à installer, tout se passe dans la page. Clique sur **▶ Exécuter** pour afficher le rendu de ton code, et sur ↺ pour repartir de zéro. Prends ton temps, et n&#x27;hésite pas à modifier une valeur pour voir ce qu&#x27;elle change.
+Tu n&#x27;as rien à installer, tout se passe dans la page. Il n&#x27;y a pas de note ni de bonne réponse unique : l&#x27;important est d&#x27;essayer des valeurs et de voir leur effet.
 
-## Exercice 1 : une boîte
+## Exercice 1 : une boîte à ton goût
 
-Objectif : afficher une boîte colorée qui contient un titre et une phrase. Tu vas utiliser trois propriétés CSS très courantes : `background` (la couleur de fond), `padding` (l&#x27;espace intérieur) et `border-radius` (les coins arrondis).
+Objectif : composer ta propre boîte et découvrir quatre propriétés CSS très courantes : `background` (la couleur de fond), `padding` (l&#x27;espace intérieur), `border-radius` (les coins arrondis) et `font-family` (la police).
 
-Voici le modèle à obtenir. Clique sur Exécuter pour l&#x27;afficher, puis lis le code attentivement.
+Modifie l&#x27;exemple ci-dessous, clique sur Exécuter, et fais tes propres choix :
 
-```htmlrun-frozen
-&lt;div style=&quot;background: #eaf1ff; padding: 20px; border-radius: 12px; max-width: 320px;&quot;&gt;
-  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Bonjour&lt;/h3&gt;
-  &lt;p&gt;Je suis une boîte toute simple : un fond, de l&#x27;espace autour du texte, des coins arrondis.&lt;/p&gt;
-&lt;/div&gt;
-```
-
-À toi de jouer. Le squelette est déjà en place, remplace les `____` par des valeurs, puis clique sur Exécuter.
+- **La couleur de fond** (`background`) : un code couleur comme `#ffe8d6`, ou un nom de couleur en anglais comme `lavender`, `lightyellow`, `mistyrose`.
+- **Les coins** : arrondis avec `border-radius: 16px`, ou bien droits si tu enlèves cette ligne. À toi de voir ce que tu préfères.
+- **La police** (`font-family`) : par exemple `font-family: Georgia, serif;` pour un style classique, ou `font-family: &#x27;Trebuchet MS&#x27;, sans-serif;` pour un style plus moderne.
+- Garde un peu de `padding` pour que le texte ne colle pas aux bords.
 
 ```htmlrun
-&lt;div style=&quot;background: ____; padding: ____; border-radius: ____;&quot;&gt;
-  &lt;h3&gt;Bonjour&lt;/h3&gt;
-  &lt;p&gt;À moi de remplir les trois valeurs pour retrouver le modèle.&lt;/p&gt;
+&lt;div style=&quot;background: lightyellow; padding: 20px; border-radius: 16px; font-family: Georgia, serif; max-width: 320px;&quot;&gt;
+  &lt;h3 style=&quot;margin-top: 0;&quot;&gt;Mon titre&lt;/h3&gt;
+  &lt;p&gt;Change la couleur, les coins et la police, puis observe le résultat.&lt;/p&gt;
 &lt;/div&gt;
 ```
 
-Quand ta boîte ressemble au modèle, l&#x27;exercice est réussi.
+Il n&#x27;y a pas de bonne réponse unique : le but est de voir comment chaque valeur change l&#x27;apparence.
 
-## Exercice 2 : une image cadrée
+## Exercice 2 : une image dans un cadre
 
-Objectif : afficher une image dans un cadre carré, avec une bordure et des coins arrondis. La propriété importante est `object-fit: cover` : elle **recadre** l&#x27;image pour qu&#x27;elle remplisse le cadre sans se déformer.
+Objectif : afficher une image à une taille fixe et comprendre `object-fit`, la propriété qui décide comment l&#x27;image remplit son cadre.
 
-Le modèle :
+Modifie l&#x27;exemple, clique sur Exécuter, et fais des essais :
 
-```htmlrun-frozen
+- **Change la largeur et la hauteur** (`width`, `height`) : essaie un grand carré (`240px`), un petit (`100px`), ou un rectangle (`width: 240px; height: 120px`).
+- **Change la valeur de `object-fit`** pour voir la différence :
+    - `cover` : l&#x27;image remplit le cadre et déborde proprement (elle est recadrée),
+    - `contain` : l&#x27;image entière entre dans le cadre, avec des espaces vides éventuels,
+    - `fill` : l&#x27;image est étirée pour remplir, quitte à se déformer.
+- La bordure (`border`) et les coins arrondis (`border-radius`) sont là pour faire joli, modifie-les aussi si tu veux.
+
+```htmlrun
 &lt;img
   src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
   alt=&quot;photo d&#x27;exemple&quot;
   style=&quot;width: 160px; height: 160px; object-fit: cover; border: 3px solid #3b82f6; border-radius: 12px;&quot;&gt;
 ```
 
-À toi. L&#x27;image de départ est déjà là, ajoute les styles entre les guillemets de `style`.
-
-```htmlrun
-&lt;img
-  src=&quot;https://picsum.photos/seed/atelier/500/350&quot;
-  alt=&quot;photo d&#x27;exemple&quot;
-  style=&quot;&quot;&gt;
-```
-
-Astuce : une fois que ça marche, enlève `object-fit: cover` et regarde. L&#x27;image se déforme, et tu comprends à quoi sert cette propriété.
+C&#x27;est sur un cadre rectangulaire que la différence entre `cover`, `contain` et `fill` se voit le mieux. Essaie les trois.
 
 ## Exercice 3 : une image qui se retourne au clic
 
