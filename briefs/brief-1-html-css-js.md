@@ -67,9 +67,9 @@ Objectif : comprendre qu'on peut réagir à un clic et modifier la page en direc
 4. Dans le JS, récupère ce bouton : `const bouton = document.querySelector("#bouton");`.
 5. Réagis au clic : `bouton.addEventListener("click", () => { ... });`.
 6. À l'intérieur, fais une seule chose visible, au choix :
-   - passer la page en **mode sombre** (changer `document.body.style.background` et la couleur du texte),
-   - afficher une **phrase surprise** (changer le `textContent` d'un paragraphe),
-   - **compter les clics** (une variable qui augmente et s'affiche).
+    - passer la page en **mode sombre** (changer `document.body.style.background` et la couleur du texte),
+    - afficher une **phrase surprise** (changer le `textContent` d'un paragraphe),
+    - **compter les clics** (une variable qui augmente et s'affiche).
 
 À la fin : un clic produit un effet visible sur ta page.
 
@@ -78,8 +78,8 @@ Objectif : comprendre qu'on peut réagir à un clic et modifier la page en direc
 Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta page demain.
 
 1. Retiens la différence en une phrase :
-   - **Git** : un outil qui garde l'historique des versions de ton code (qui a changé quoi, et quand).
-   - **GitHub** : le site où on dépose ce code, où on le partage et où on le publie.
+    - **Git** : un outil qui garde l'historique des versions de ton code (qui a changé quoi, et quand).
+    - **GitHub** : le site où on dépose ce code, où on le partage et où on le publie.
 2. Crée un compte sur GitHub (gratuit) et confirme ton adresse e-mail.
 3. Ouvre le tutoriel pas à pas : <https://github.com/Selimmmm/git_step_by_step>.
 4. Parcours-le tranquillement et repère les quatre commandes qui reviennent : `git init`, `git add`, `git commit`, `git push`.

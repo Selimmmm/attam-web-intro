@@ -54,11 +54,11 @@ Objectif : voir le Markdown servir « pour de vrai » et comprendre le rôle d'u
 Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit le JS découvert au brief 1 et au cours.
 
 1. Choisis **une seule** fonctionnalité, mais qui marche bien :
-   - un **générateur de compliments** (un bouton tire une phrase au hasard dans une liste),
-   - un **lanceur de dé** ou une **roue de décision** (« qui ramène le café ? »),
-   - une **mini-horloge** ou un compteur de jours avant un événement,
-   - un **mini-quiz** de 3 questions avec score,
-   - un **fond qui change** de couleur à chaque clic.
+    - un **générateur de compliments** (un bouton tire une phrase au hasard dans une liste),
+    - un **lanceur de dé** ou une **roue de décision** (« qui ramène le café ? »),
+    - une **mini-horloge** ou un compteur de jours avant un événement,
+    - un **mini-quiz** de 3 questions avec score,
+    - un **fond qui change** de couleur à chaque clic.
 2. Ajoute dans le HTML les éléments dont tu as besoin (un bouton, une zone de résultat).
 3. Dans `script.js`, récupère ces éléments avec `document.querySelector(...)`.
 4. Branche le clic avec `addEventListener` et fais l'effet voulu (inspire-toi des exemples du cours).
@@ -68,11 +68,11 @@ Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit
 ### Étape 4 (○ bonus, si le temps)
 
 1. **Initiation à Git en ligne de commande.** C'est la « vraie » façon de travailler ; ceux qui galèrent restent sur l'upload web. Suis le tutoriel pas à pas : <https://github.com/Selimmmm/git_step_by_step>. Dans l'ordre :
-   1. installe Git et configure ton nom / e-mail,
-   2. `git clone` ton dépôt sur ton ordi,
-   3. modifie un fichier,
-   4. `git add` puis `git commit -m "mon message"`,
-   5. `git push` et vérifie que le changement apparaît en ligne.
+    1. installe Git et configure ton nom / e-mail,
+    2. `git clone` ton dépôt sur ton ordi,
+    3. modifie un fichier,
+    4. `git add` puis `git commit -m "mon message"`,
+    5. `git push` et vérifie que le changement apparaît en ligne.
 2. Connecter un **nom de domaine** personnalisé (au moins comprendre le principe).
 3. Ajouter une **deuxième** fonctionnalité JS.
 4. Soigner le **responsive** et l'accessibilité (textes alternatifs des images).

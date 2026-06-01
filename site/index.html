@@ -1462,18 +1462,22 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <li>Ajoute un bouton dans ton HTML : <code>&lt;button id="bouton"&gt;Clique-moi&lt;/button&gt;</code>.</li>
 <li>Dans le JS, récupère ce bouton : <code>const bouton = document.querySelector("#bouton");</code>.</li>
 <li>Réagis au clic : <code>bouton.addEventListener("click", () =&gt; { ... });</code>.</li>
-<li>À l'intérieur, fais une seule chose visible, au choix :
-   - passer la page en <strong>mode sombre</strong> (changer <code>document.body.style.background</code> et la couleur du texte),
-   - afficher une <strong>phrase surprise</strong> (changer le <code>textContent</code> d'un paragraphe),
-   - <strong>compter les clics</strong> (une variable qui augmente et s'affiche).</li>
+<li>À l'intérieur, fais une seule chose visible, au choix :<ul>
+<li>passer la page en <strong>mode sombre</strong> (changer <code>document.body.style.background</code> et la couleur du texte),</li>
+<li>afficher une <strong>phrase surprise</strong> (changer le <code>textContent</code> d'un paragraphe),</li>
+<li><strong>compter les clics</strong> (une variable qui augmente et s'affiche).</li>
+</ul>
+</li>
 </ol>
 <p>À la fin : un clic produit un effet visible sur ta page.</p>
 <h3 class="is-principal" id="etape-4-principal-decouverte-de-git-et-github">Étape 4 (⭐ principal) : découverte de Git et GitHub</h3>
 <p>Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta page demain.</p>
 <ol>
-<li>Retiens la différence en une phrase :
-   - <strong>Git</strong> : un outil qui garde l'historique des versions de ton code (qui a changé quoi, et quand).
-   - <strong>GitHub</strong> : le site où on dépose ce code, où on le partage et où on le publie.</li>
+<li>Retiens la différence en une phrase :<ul>
+<li><strong>Git</strong> : un outil qui garde l'historique des versions de ton code (qui a changé quoi, et quand).</li>
+<li><strong>GitHub</strong> : le site où on dépose ce code, où on le partage et où on le publie.</li>
+</ul>
+</li>
 <li>Crée un compte sur GitHub (gratuit) et confirme ton adresse e-mail.</li>
 <li>Ouvre le tutoriel pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a>.</li>
 <li>Parcours-le tranquillement et repère les quatre commandes qui reviennent : <code>git init</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>.</li>
@@ -1592,9 +1596,9 @@ Objectif : comprendre qu&#x27;on peut réagir à un clic et modifier la page en 
 4. Dans le JS, récupère ce bouton : `const bouton = document.querySelector(&quot;#bouton&quot;);`.
 5. Réagis au clic : `bouton.addEventListener(&quot;click&quot;, () =&gt; { ... });`.
 6. À l&#x27;intérieur, fais une seule chose visible, au choix :
-   - passer la page en **mode sombre** (changer `document.body.style.background` et la couleur du texte),
-   - afficher une **phrase surprise** (changer le `textContent` d&#x27;un paragraphe),
-   - **compter les clics** (une variable qui augmente et s&#x27;affiche).
+    - passer la page en **mode sombre** (changer `document.body.style.background` et la couleur du texte),
+    - afficher une **phrase surprise** (changer le `textContent` d&#x27;un paragraphe),
+    - **compter les clics** (une variable qui augmente et s&#x27;affiche).
 
 À la fin : un clic produit un effet visible sur ta page.
 
@@ -1603,8 +1607,8 @@ Objectif : comprendre qu&#x27;on peut réagir à un clic et modifier la page en 
 Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta page demain.
 
 1. Retiens la différence en une phrase :
-   - **Git** : un outil qui garde l&#x27;historique des versions de ton code (qui a changé quoi, et quand).
-   - **GitHub** : le site où on dépose ce code, où on le partage et où on le publie.
+    - **Git** : un outil qui garde l&#x27;historique des versions de ton code (qui a changé quoi, et quand).
+    - **GitHub** : le site où on dépose ce code, où on le partage et où on le publie.
 2. Crée un compte sur GitHub (gratuit) et confirme ton adresse e-mail.
 3. Ouvre le tutoriel pas à pas : &lt;https://github.com/Selimmmm/git_step_by_step&gt;.
 4. Parcours-le tranquillement et repère les quatre commandes qui reviennent : `git init`, `git add`, `git commit`, `git push`.
@@ -1719,12 +1723,14 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <h3 class="is-principal" id="etape-3-principal-une-fonctionnalite-js-au-choix">Étape 3 (⭐ principal) : une fonctionnalité JS au choix</h3>
 <p>Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit le JS découvert au brief 1 et au cours.</p>
 <ol>
-<li>Choisis <strong>une seule</strong> fonctionnalité, mais qui marche bien :
-   - un <strong>générateur de compliments</strong> (un bouton tire une phrase au hasard dans une liste),
-   - un <strong>lanceur de dé</strong> ou une <strong>roue de décision</strong> (« qui ramène le café ? »),
-   - une <strong>mini-horloge</strong> ou un compteur de jours avant un événement,
-   - un <strong>mini-quiz</strong> de 3 questions avec score,
-   - un <strong>fond qui change</strong> de couleur à chaque clic.</li>
+<li>Choisis <strong>une seule</strong> fonctionnalité, mais qui marche bien :<ul>
+<li>un <strong>générateur de compliments</strong> (un bouton tire une phrase au hasard dans une liste),</li>
+<li>un <strong>lanceur de dé</strong> ou une <strong>roue de décision</strong> (« qui ramène le café ? »),</li>
+<li>une <strong>mini-horloge</strong> ou un compteur de jours avant un événement,</li>
+<li>un <strong>mini-quiz</strong> de 3 questions avec score,</li>
+<li>un <strong>fond qui change</strong> de couleur à chaque clic.</li>
+</ul>
+</li>
 <li>Ajoute dans le HTML les éléments dont tu as besoin (un bouton, une zone de résultat).</li>
 <li>Dans <code>script.js</code>, récupère ces éléments avec <code>document.querySelector(...)</code>.</li>
 <li>Branche le clic avec <code>addEventListener</code> et fais l'effet voulu (inspire-toi des exemples du cours).</li>
@@ -1733,12 +1739,14 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 </ol>
 <h3 class="is-bonus" id="etape-4-bonus-si-le-temps">Étape 4 (○ bonus, si le temps)</h3>
 <ol>
-<li><strong>Initiation à Git en ligne de commande.</strong> C'est la « vraie » façon de travailler ; ceux qui galèrent restent sur l'upload web. Suis le tutoriel pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a>. Dans l'ordre :</li>
+<li><strong>Initiation à Git en ligne de commande.</strong> C'est la « vraie » façon de travailler ; ceux qui galèrent restent sur l'upload web. Suis le tutoriel pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a>. Dans l'ordre :<ol>
 <li>installe Git et configure ton nom / e-mail,</li>
 <li><code>git clone</code> ton dépôt sur ton ordi,</li>
 <li>modifie un fichier,</li>
 <li><code>git add</code> puis <code>git commit -m "mon message"</code>,</li>
 <li><code>git push</code> et vérifie que le changement apparaît en ligne.</li>
+</ol>
+</li>
 <li>Connecter un <strong>nom de domaine</strong> personnalisé (au moins comprendre le principe).</li>
 <li>Ajouter une <strong>deuxième</strong> fonctionnalité JS.</li>
 <li>Soigner le <strong>responsive</strong> et l'accessibilité (textes alternatifs des images).</li>
@@ -1825,11 +1833,11 @@ Objectif : voir le Markdown servir « pour de vrai » et comprendre le rôle d&#
 Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit le JS découvert au brief 1 et au cours.
 
 1. Choisis **une seule** fonctionnalité, mais qui marche bien :
-   - un **générateur de compliments** (un bouton tire une phrase au hasard dans une liste),
-   - un **lanceur de dé** ou une **roue de décision** (« qui ramène le café ? »),
-   - une **mini-horloge** ou un compteur de jours avant un événement,
-   - un **mini-quiz** de 3 questions avec score,
-   - un **fond qui change** de couleur à chaque clic.
+    - un **générateur de compliments** (un bouton tire une phrase au hasard dans une liste),
+    - un **lanceur de dé** ou une **roue de décision** (« qui ramène le café ? »),
+    - une **mini-horloge** ou un compteur de jours avant un événement,
+    - un **mini-quiz** de 3 questions avec score,
+    - un **fond qui change** de couleur à chaque clic.
 2. Ajoute dans le HTML les éléments dont tu as besoin (un bouton, une zone de résultat).
 3. Dans `script.js`, récupère ces éléments avec `document.querySelector(...)`.
 4. Branche le clic avec `addEventListener` et fais l&#x27;effet voulu (inspire-toi des exemples du cours).
@@ -1839,11 +1847,11 @@ Objectif : manipuler une liste, le hasard, et réagir à un clic. On approfondit
 ### Étape 4 (○ bonus, si le temps)
 
 1. **Initiation à Git en ligne de commande.** C&#x27;est la « vraie » façon de travailler ; ceux qui galèrent restent sur l&#x27;upload web. Suis le tutoriel pas à pas : &lt;https://github.com/Selimmmm/git_step_by_step&gt;. Dans l&#x27;ordre :
-   1. installe Git et configure ton nom / e-mail,
-   2. `git clone` ton dépôt sur ton ordi,
-   3. modifie un fichier,
-   4. `git add` puis `git commit -m &quot;mon message&quot;`,
-   5. `git push` et vérifie que le changement apparaît en ligne.
+    1. installe Git et configure ton nom / e-mail,
+    2. `git clone` ton dépôt sur ton ordi,
+    3. modifie un fichier,
+    4. `git add` puis `git commit -m &quot;mon message&quot;`,
+    5. `git push` et vérifie que le changement apparaît en ligne.
 2. Connecter un **nom de domaine** personnalisé (au moins comprendre le principe).
 3. Ajouter une **deuxième** fonctionnalité JS.
 4. Soigner le **responsive** et l&#x27;accessibilité (textes alternatifs des images).
