@@ -110,7 +110,12 @@ def make_widget(lang: str, content: str) -> str:
         + ("" if frozen else '<button class="pg-reset" type="button" title="Réinitialiser">↺</button>')
         + "</span></div>"
     )
-    bits.append(f'<textarea class="pg-code" spellcheck="false"{ro} rows="{rows}">{js_esc}</textarea>')
+    bits.append(
+        '<div class="pg-editor">'
+        '<pre class="pg-hl" aria-hidden="true"><code class="language-js"></code></pre>'
+        f'<textarea class="pg-code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"{ro} rows="{rows}">{js_esc}</textarea>'
+        "</div>"
+    )
     bits.append(f'<textarea class="pg-initial" hidden>{js_esc}</textarea>')
     stage_cls = "pg-stage" if kind == "dom" else "pg-stage pg-hidden"
     bits.append(f'<iframe class="{stage_cls}" sandbox="allow-scripts allow-modals" title="résultat"></iframe>')
@@ -176,7 +181,18 @@ def main() -> None:
         navs.append(nav)
         sections.append(section)
 
-    pygments_css = HtmlFormatter(style="friendly").get_style_defs(".codehilite")
+    # Couleurs des tokens Pygments mappées sur les mêmes variables CSS que
+    # l'éditeur Prism, pour une coloration unifiée et adaptée au thème clair/sombre.
+    pygments_css = (
+        ".codehilite .c,.codehilite .ch,.codehilite .cm,.codehilite .c1,.codehilite .cs,.codehilite .cp{color:var(--tok-comment);font-style:italic}\n"
+        ".codehilite .k,.codehilite .kd,.codehilite .kn,.codehilite .kr,.codehilite .kc,.codehilite .kt,.codehilite .kp{color:var(--tok-keyword)}\n"
+        ".codehilite .s,.codehilite .s1,.codehilite .s2,.codehilite .sb,.codehilite .sc,.codehilite .sd,.codehilite .se,.codehilite .sh,.codehilite .si,.codehilite .sx,.codehilite .sr,.codehilite .ss,.codehilite .dl{color:var(--tok-string)}\n"
+        ".codehilite .m,.codehilite .mi,.codehilite .mf,.codehilite .mh,.codehilite .mo,.codehilite .il{color:var(--tok-number)}\n"
+        ".codehilite .nf,.codehilite .fm,.codehilite .na{color:var(--tok-function)}\n"
+        ".codehilite .o,.codehilite .ow,.codehilite .p{color:var(--tok-operator)}\n"
+        ".codehilite .nb,.codehilite .bp,.codehilite .nc,.codehilite .nn,.codehilite .no,.codehilite .ne{color:var(--tok-builtin)}\n"
+        ".codehilite .nt{color:var(--tok-keyword)}"
+    )
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
@@ -198,6 +214,9 @@ TEMPLATE = r"""<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-clike.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js" defer></script>
   <style>
     :root {
       --bg: #fbfaf7;
@@ -210,6 +229,15 @@ TEMPLATE = r"""<!DOCTYPE html>
       --principal: #10b981;
       --bonus: #d97706;
       --sidebar-w: 270px;
+      --code-bg: #f6f8fa;
+      --code-fg: #24292e;
+      --tok-comment: #6a737d;
+      --tok-keyword: #cf222e;
+      --tok-string: #0a7d33;
+      --tok-number: #0550ae;
+      --tok-function: #6639ba;
+      --tok-operator: #57606a;
+      --tok-builtin: #953800;
     }
     html[data-theme="dark"] {
       --bg: #14161b;
@@ -221,6 +249,15 @@ TEMPLATE = r"""<!DOCTYPE html>
       --accent-soft: #232a38;
       --principal: #34d399;
       --bonus: #f59e0b;
+      --code-bg: #0f1117;
+      --code-fg: #e6e6e6;
+      --tok-comment: #6b7a8f;
+      --tok-keyword: #c792ea;
+      --tok-string: #c3e88d;
+      --tok-number: #f78c6c;
+      --tok-function: #82aaff;
+      --tok-operator: #89ddff;
+      --tok-builtin: #ffcb6b;
     }
     * { box-sizing: border-box; }
     body {
@@ -277,7 +314,7 @@ TEMPLATE = r"""<!DOCTYPE html>
     .page-toolbar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
     .src-toggle { border: 1px solid var(--line); background: var(--panel); color: var(--muted); font: inherit; font-size: .8rem; padding: 6px 12px; border-radius: 8px; cursor: pointer; }
     .src-toggle:hover { color: var(--accent); border-color: var(--accent); }
-    .md-source { background: #0f1117; color: #d6d9e0; border-radius: 10px; padding: 18px; overflow-x: auto; font-size: .82rem; line-height: 1.5; }
+    .md-source { background: var(--code-bg); color: var(--code-fg); border: 1px solid var(--line); border-radius: 10px; padding: 18px; overflow-x: auto; font-size: .82rem; line-height: 1.5; }
 
     /* Prose */
     .prose { font-size: 1.02rem; line-height: 1.68; }
@@ -291,16 +328,16 @@ TEMPLATE = r"""<!DOCTYPE html>
     .prose h4 { font-size: 1.02rem; margin: 1.3em 0 .3em; }
     .prose blockquote { border-left: 3px solid var(--accent); margin: 1.2em 0; padding: .4em 1.1em; background: var(--accent-soft); border-radius: 0 8px 8px 0; color: var(--muted); }
     .prose code { background: var(--accent-soft); padding: .12em .4em; border-radius: 5px; font-size: .88em; }
-    .prose pre { background: #0f1117; border-radius: 10px; padding: 16px 18px; overflow-x: auto; }
-    .prose pre code { background: none; padding: 0; color: #e6e6e6; }
+    .prose pre { background: var(--code-bg); border-radius: 10px; padding: 16px 18px; overflow-x: auto; border: 1px solid var(--line); }
+    .prose pre code { background: none; padding: 0; color: var(--code-fg); }
     .prose table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: .94rem; }
     .prose th, .prose td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
     .prose th { background: var(--accent-soft); }
     .prose ul, .prose ol { padding-left: 1.4em; }
     .prose li { margin: .25em 0; }
     .prose img { max-width: 100%; border-radius: 8px; }
-    .codehilite { background: #0f1117; border-radius: 10px; padding: 16px 18px; overflow-x: auto; margin: 1.2em 0; }
-    .codehilite pre { background: none; padding: 0; margin: 0; }
+    .codehilite { background: var(--code-bg); color: var(--code-fg); border-radius: 10px; padding: 16px 18px; overflow-x: auto; margin: 1.2em 0; border: 1px solid var(--line); }
+    .codehilite pre { background: none; padding: 0; margin: 0; color: var(--code-fg); }
     /*__PYGMENTS__*/
 
     /* Diagrammes mermaid */
@@ -320,7 +357,20 @@ TEMPLATE = r"""<!DOCTYPE html>
     .pg-run:hover { filter: brightness(1.06); }
     .pg-reset { background: transparent; color: var(--muted); border: 1px solid var(--line); padding: 6px 10px; }
     .pg-reset:hover { color: var(--ink); }
-    .pg-code { display: block; width: 100%; border: none; resize: vertical; font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; line-height: 1.55; padding: 14px; background: #0f1117; color: #e6e6e6; outline: none; tab-size: 2; }
+    .pg-editor { position: relative; background: var(--code-bg); }
+    .pg-editor .pg-hl, .pg-editor .pg-code { margin: 0; border: 0; padding: 14px; font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; line-height: 1.55; tab-size: 2; white-space: pre-wrap; word-break: break-word; overflow-wrap: break-word; }
+    .pg-hl { position: absolute; inset: 0; z-index: 0; background: var(--code-bg); color: var(--code-fg); overflow: hidden; pointer-events: none; }
+    .pg-hl code { font: inherit; white-space: inherit; word-break: inherit; display: block; background: none; }
+    .pg-code { position: relative; z-index: 1; display: block; width: 100%; resize: none; background: transparent; color: transparent; caret-color: var(--code-fg); outline: none; }
+    .pg-code::selection { background: rgba(110,168,254,.35); color: transparent; }
+    .pg-code::-moz-selection { background: rgba(110,168,254,.35); color: transparent; }
+    .pg-hl .token.comment, .pg-hl .token.prolog, .pg-hl .token.doctype, .pg-hl .token.cdata { color: var(--tok-comment); font-style: italic; }
+    .pg-hl .token.keyword { color: var(--tok-keyword); }
+    .pg-hl .token.string, .pg-hl .token.template-string, .pg-hl .token.char, .pg-hl .token.attr-value, .pg-hl .token.regex { color: var(--tok-string); }
+    .pg-hl .token.number, .pg-hl .token.boolean { color: var(--tok-number); }
+    .pg-hl .token.function, .pg-hl .token.attr-name { color: var(--tok-function); }
+    .pg-hl .token.operator, .pg-hl .token.punctuation { color: var(--tok-operator); }
+    .pg-hl .token.property-access, .pg-hl .token.constant, .pg-hl .token.class-name, .pg-hl .token.builtin, .pg-hl .token.tag { color: var(--tok-builtin); }
     .pg-stage { width: 100%; min-height: 80px; border: none; border-top: 1px solid var(--line); background: #fff; display: block; }
     .pg-stage.pg-hidden { display: none; }
     .pg-console { font-family: "SF Mono", ui-monospace, Menlo, monospace; font-size: .84rem; line-height: 1.5; background: #14161b; color: #cfe3ff; }
@@ -409,6 +459,16 @@ TEMPLATE = r"""<!DOCTYPE html>
     // --- Playgrounds : exécution de JS dans un iframe sandboxé ---
     function pgAutosize(t) { t.style.height = 'auto'; t.style.height = (t.scrollHeight + 2) + 'px'; }
 
+    function pgHighlight(ta) {
+      var holder = ta.parentNode.querySelector('.pg-hl code');
+      if (!holder) return;
+      if (window.Prism && Prism.languages && Prism.languages.javascript) {
+        holder.innerHTML = Prism.highlight(ta.value, Prism.languages.javascript, 'javascript');
+      } else {
+        holder.textContent = ta.value;
+      }
+    }
+
     function pgSrcdoc(code, stage, token) {
       var safe = JSON.stringify(code).replace(/</g, '\\u003c');
       return ['<!doctype html><html><head><meta charset="utf-8"><style>',
@@ -462,6 +522,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 
     document.querySelectorAll('.pg').forEach(function (w) {
       var code = w.querySelector('.pg-code');
+      var hl = w.querySelector('.pg-hl');
       w.querySelector('.pg-run').addEventListener('click', function () { pgRun(w); });
       var reset = w.querySelector('.pg-reset');
       if (reset) reset.addEventListener('click', function () {
@@ -470,6 +531,7 @@ TEMPLATE = r"""<!DOCTYPE html>
         var st = w.querySelector('.pg-stage');
         st.removeAttribute('srcdoc');
         st.style.height = '';
+        pgHighlight(code);
         pgAutosize(code);
       });
       code.addEventListener('keydown', function (ev) {
@@ -478,9 +540,17 @@ TEMPLATE = r"""<!DOCTYPE html>
           var s = this.selectionStart, en = this.selectionEnd;
           this.value = this.value.slice(0, s) + '  ' + this.value.slice(en);
           this.selectionStart = this.selectionEnd = s + 2;
+          pgHighlight(this);
         }
       });
-      code.addEventListener('input', function () { pgAutosize(code); });
+      code.addEventListener('input', function () { pgHighlight(code); pgAutosize(code); });
+      code.addEventListener('scroll', function () { hl.scrollTop = code.scrollTop; hl.scrollLeft = code.scrollLeft; });
+      pgHighlight(code);
+    });
+
+    // Prism est chargé en defer : recolorer une fois prêt.
+    window.addEventListener('load', function () {
+      document.querySelectorAll('.pg-code').forEach(function (t) { pgHighlight(t); });
     });
 
     show(location.hash.slice(1) || pages[0].id);
