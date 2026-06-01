@@ -5,7 +5,7 @@
 - **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 - **Pré-requis** : avoir un site en ligne ([brief 2](#brief-2)).
 
-Jusqu'ici, ta carte affiche toujours le même contenu. Aujourd'hui, tu lui ajoutes un livre d'or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.
+Jusqu'ici, ta page affiche toujours le même contenu. Aujourd'hui, tu lui ajoutes un livre d'or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.
 
 ## Contexte du projet
 

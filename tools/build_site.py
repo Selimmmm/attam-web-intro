@@ -31,7 +31,7 @@ OUT = ROOT / "site" / "index.html"
 PAGES = [
     {"file": "accueil.md", "slug": "accueil", "nav": "Accueil"},
     {"file": "cours-js.md", "slug": "cours-js", "nav": "Cours · JS et le DOM"},
-    {"file": "briefs/brief-1-html-css-js.md", "slug": "brief-1", "nav": "Brief 1 · ma carte web"},
+    {"file": "briefs/brief-1-html-css-js.md", "slug": "brief-1", "nav": "Brief 1 · ma page de présentation"},
     {"file": "briefs/brief-2-github-pages.md", "slug": "brief-2", "nav": "Brief 2 · en ligne"},
     {"file": "briefs/brief-3-supabase.md", "slug": "brief-3", "nav": "Brief 3 · le mur de la promo"},
 ]

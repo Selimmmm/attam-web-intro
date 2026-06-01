@@ -21,13 +21,13 @@ flowchart LR
 
 ## Le projet de la semaine
 
-- **Jour 1** : ta carte de profil web (HTML, CSS, une première interaction en JavaScript).
-- **Jour 2** : mise en ligne de la carte sur GitHub Pages, avec une fonctionnalité supplémentaire.
+- **Jour 1** : ta page de présentation (HTML, CSS, une première interaction en JavaScript).
+- **Jour 2** : mise en ligne de la page sur GitHub Pages, avec une fonctionnalité supplémentaire.
 - **Jour 3** : un mur de messages partagé par la promo, connecté à Supabase.
 
 ```mermaid
 flowchart LR
-  J1[Jour 1<br/>ma carte web] --> J2[Jour 2<br/>en ligne sur GitHub]
+  J1[Jour 1<br/>ma page de présentation] --> J2[Jour 2<br/>en ligne sur GitHub]
   J2 --> J3[Jour 3<br/>le mur de la promo]
 ```
 

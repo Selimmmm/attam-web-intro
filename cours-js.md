@@ -413,4 +413,4 @@ Tu as toutes les briques. Essaie ces petits défis en modifiant les exemples ci-
 3. Dans le **générateur de pseudo**, ajoute tes propres adjectifs et animaux.
 4. Dans le **mini-Pokédex**, affiche aussi le premier type du Pokémon (indice : `p.types[0].type.name`).
 
-Quand tu es à l'aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta carte web, puis le mur partagé de la promo.
+Quand tu es à l'aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta page de présentation, puis le mur partagé de la promo.

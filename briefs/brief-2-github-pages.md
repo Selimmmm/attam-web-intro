@@ -5,7 +5,7 @@
 - **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 - **Pré-requis** : avoir fini le cœur du [brief 1](#brief-1).
 
-Ta carte web n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
+Ta page n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
 
 ## Contexte du projet
 
@@ -35,7 +35,7 @@ Objectif : comprendre la différence entre « le fichier sur mon ordi » et « l
 4. Sur la page du dépôt, clique « Add file » → « Upload files ».
 5. Glisse-dépose tes fichiers du brief 1 (`index.html`, `style.css`, `script.js`) puis clique « Commit changes ».
 6. Va dans l'onglet « Settings » → « Pages » et vérifie que la source est bien la branche `main`.
-7. Attends une minute, puis ouvre `https://ton-pseudo.github.io`. Ta carte doit s'afficher.
+7. Attends une minute, puis ouvre `https://ton-pseudo.github.io`. Ta page doit s'afficher.
 8. Teste une mise à jour : modifie une couleur dans `style.css` sur ton ordi, ré-uploade le fichier, et recharge l'URL pour voir le changement.
 
 ### Étape 2 (⭐ principal) : un vrai README en Markdown
@@ -46,7 +46,7 @@ Objectif : voir le Markdown servir « pour de vrai » et comprendre le rôle d'u
 2. Écris un titre (`#`) avec le nom du projet et une phrase de description.
 3. Ajoute le lien cliquable vers ton site publié : `[Voir le site](https://ton-pseudo.github.io)`.
 4. Ajoute une petite liste de ce que contient ta page.
-5. Ajoute une capture d'écran : uploade une image dans le dépôt puis insère-la avec `![ma carte](nom-image.png)`.
+5. Ajoute une capture d'écran : uploade une image dans le dépôt puis insère-la avec `![ma page](nom-image.png)`.
 6. « Commit » et vérifie que le README s'affiche, joliment formaté, en page d'accueil du dépôt.
 
 ### Étape 3 (⭐ principal) : une fonctionnalité JS au choix

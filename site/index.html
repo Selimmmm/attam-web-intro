@@ -204,7 +204,7 @@
     <nav id="nav">
       <button class="nav-item" data-target="accueil">Accueil</button>
       <button class="nav-item" data-target="cours-js">Cours · JS et le DOM</button>
-      <button class="nav-item" data-target="brief-1">Brief 1 · ma carte web</button>
+      <button class="nav-item" data-target="brief-1">Brief 1 · ma page de présentation</button>
       <button class="nav-item" data-target="brief-2">Brief 2 · en ligne</button>
       <button class="nav-item" data-target="brief-3">Brief 3 · le mur de la promo</button>
     </nav>
@@ -243,12 +243,12 @@
   Git --&gt; Supa[Supabase&lt;br/&gt;la base de données]</pre>
 <h2 id="le-projet-de-la-semaine">Le projet de la semaine</h2>
 <ul>
-<li><strong>Jour 1</strong> : ta carte de profil web (HTML, CSS, une première interaction en JavaScript).</li>
-<li><strong>Jour 2</strong> : mise en ligne de la carte sur GitHub Pages, avec une fonctionnalité supplémentaire.</li>
+<li><strong>Jour 1</strong> : ta page de présentation (HTML, CSS, une première interaction en JavaScript).</li>
+<li><strong>Jour 2</strong> : mise en ligne de la page sur GitHub Pages, avec une fonctionnalité supplémentaire.</li>
 <li><strong>Jour 3</strong> : un mur de messages partagé par la promo, connecté à Supabase.</li>
 </ul>
 <pre class="mermaid">flowchart LR
-  J1[Jour 1&lt;br/&gt;ma carte web] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
+  J1[Jour 1&lt;br/&gt;ma page de présentation] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
   J2 --&gt; J3[Jour 3&lt;br/&gt;le mur de la promo]</pre>
 <h2 id="lacces-a-une-base-de-donnees-depuis-le-navigateur">L'accès à une base de données depuis le navigateur</h2>
 <ul>
@@ -299,13 +299,13 @@ flowchart LR
 
 ## Le projet de la semaine
 
-- **Jour 1** : ta carte de profil web (HTML, CSS, une première interaction en JavaScript).
-- **Jour 2** : mise en ligne de la carte sur GitHub Pages, avec une fonctionnalité supplémentaire.
+- **Jour 1** : ta page de présentation (HTML, CSS, une première interaction en JavaScript).
+- **Jour 2** : mise en ligne de la page sur GitHub Pages, avec une fonctionnalité supplémentaire.
 - **Jour 3** : un mur de messages partagé par la promo, connecté à Supabase.
 
 ```mermaid
 flowchart LR
-  J1[Jour 1&lt;br/&gt;ma carte web] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
+  J1[Jour 1&lt;br/&gt;ma page de présentation] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
   J2 --&gt; J3[Jour 3&lt;br/&gt;le mur de la promo]
 ```
 
@@ -981,7 +981,7 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
 <li>Dans le <strong>générateur de pseudo</strong>, ajoute tes propres adjectifs et animaux.</li>
 <li>Dans le <strong>mini-Pokédex</strong>, affiche aussi le premier type du Pokémon (indice : <code>p.types[0].type.name</code>).</li>
 </ol>
-<p>Quand tu es à l'aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta carte web, puis le mur partagé de la promo.</p></article>
+<p>Quand tu es à l'aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta page de présentation, puis le mur partagé de la promo.</p></article>
   <pre class="md-source" id="src-cours-js" hidden><code># Cours : JavaScript et le DOM
 
 Cette page est interactive. Chaque bloc de code a un bouton **▶ Exécuter** : le code s&#x27;exécute directement dans la page et le résultat s&#x27;affiche dessous. La plupart des blocs sont **modifiables** (change le code, puis relance), certains sont en lecture seule. Le bouton ↺ remet le code d&#x27;origine.
@@ -1397,23 +1397,26 @@ Tu as toutes les briques. Essaie ces petits défis en modifiant les exemples ci-
 3. Dans le **générateur de pseudo**, ajoute tes propres adjectifs et animaux.
 4. Dans le **mini-Pokédex**, affiche aussi le premier type du Pokémon (indice : `p.types[0].type.name`).
 
-Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta carte web, puis le mur partagé de la promo.
+Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser exactement ces mécanismes pour construire ta page de présentation, puis le mur partagé de la promo.
 </code></pre>
 </section>
 <section class="page" id="brief-1" hidden>
   <div class="page-toolbar">
     <button class="src-toggle" data-src="src-brief-1">Voir la source Markdown</button>
   </div>
-  <article class="prose"><h1 id="brief-1-ma-carte-web-html-css-puis-un-peu-de-js">Brief 1 : ma carte web (HTML, CSS, puis un peu de JS)</h1>
+  <article class="prose"><h1 id="brief-1-ma-page-de-presentation-html-css-puis-un-peu-de-js">Brief 1 : ma page de présentation (HTML, CSS, puis un peu de JS)</h1>
 <ul>
 <li><strong>Type</strong> : brief individuel</li>
 <li><strong>Durée visée</strong> : 1 journée (7h)</li>
 <li><strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales</li>
 </ul>
-<p>Aujourd'hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une carte de profil web complète, et tu sauras lire et modifier le code d'une page.</p>
+<p>Aujourd'hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une page qui présente une application, et tu sauras lire et modifier le code d'une page.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
 <p>Une page web, c'est trois langages qui travaillent ensemble : le <strong>HTML</strong> (le contenu et la structure : « voici un titre, voici une image »), le <strong>CSS</strong> (l'apparence : couleurs, polices, mise en page) et le <strong>JavaScript</strong> (le comportement : ce qui bouge quand on clique). On va les découvrir dans cet ordre, du plus simple au plus vivant.</p>
-<p>Le but du jour : construire <strong>ta carte web</strong>, une mini-page qui te présente. C'est la première brique d'un projet qu'on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.</p>
+<p>Le but du jour : construire <strong>ta page de présentation</strong>, une mini-page qui met en valeur l'application que tu as créée avec Google AI Studio (son nom, ce qu'elle fait, une capture, un lien pour l'essayer). C'est la première brique d'un projet qu'on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.</p>
+<blockquote>
+<p>Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet perso, une asso, un truc qui te tient à cœur, au lieu de l'appli AI Studio. Les étapes restent exactement les mêmes.</p>
+</blockquote>
 <h2 id="ressources">Ressources</h2>
 <ul>
 <li>MDN, le manuel de référence du web (en français) : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development">https://developer.mozilla.org/fr/docs/Learn_web_development</a></li>
@@ -1427,17 +1430,17 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <h3 class="is-principal" id="etape-1-principal-le-squelette-html">Étape 1 (⭐ principal) : le squelette HTML</h3>
 <p>Objectif : comprendre qu'une page HTML est une structure d'éléments imbriqués, et savoir nommer les balises de base.</p>
 <ol>
-<li>Crée un dossier <code>ma-carte</code> sur ton ordinateur, et dedans un fichier vide nommé <code>index.html</code>.</li>
+<li>Crée un dossier <code>ma-page</code> sur ton ordinateur, et dedans un fichier vide nommé <code>index.html</code>.</li>
 <li>Ouvre ce dossier dans VS Code.</li>
 <li>Tape le squelette d'une page : <code>&lt;!DOCTYPE html&gt;</code>, puis <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> et <code>&lt;body&gt;</code>. (Astuce : taper <code>!</code> puis Entrée dans VS Code génère le squelette.)</li>
 <li>Ouvre <code>index.html</code> dans ton navigateur (ou clic droit → « Open with Live Server »). Tu vois une page blanche : c'est normal.</li>
-<li>Dans le <code>&lt;body&gt;</code>, ajoute un titre avec ton prénom : <code>&lt;h1&gt;Moi, c'est …&lt;/h1&gt;</code>. Recharge la page.</li>
-<li>Ajoute une image d'avatar (une photo ou un dessin) : <code>&lt;img src="..." alt="mon avatar"&gt;</code>.</li>
-<li>Ajoute un paragraphe de présentation : <code>&lt;p&gt;…&lt;/p&gt;</code>.</li>
-<li>Ajoute une liste de 3 choses que tu aimes : un <code>&lt;ul&gt;</code> qui contient trois <code>&lt;li&gt;</code>.</li>
-<li>Ajoute au moins un lien vers quelque chose qui te représente : <code>&lt;a href="..."&gt;…&lt;/a&gt;</code>.</li>
+<li>Dans le <code>&lt;body&gt;</code>, ajoute un titre avec le nom de ton appli : <code>&lt;h1&gt;…&lt;/h1&gt;</code>. Recharge la page.</li>
+<li>Ajoute une capture d'écran de ton appli : <code>&lt;img src="..." alt="capture de mon appli"&gt;</code>.</li>
+<li>Ajoute un paragraphe qui explique ce que fait l'appli : <code>&lt;p&gt;…&lt;/p&gt;</code>.</li>
+<li>Ajoute une liste de 3 fonctionnalités (ce qu'on peut faire avec) : un <code>&lt;ul&gt;</code> qui contient trois <code>&lt;li&gt;</code>.</li>
+<li>Ajoute au moins un lien pour essayer l'appli en ligne : <code>&lt;a href="..."&gt;…&lt;/a&gt;</code>.</li>
 </ol>
-<p>À la fin : ta carte affiche tout son contenu, sans style. C'est volontaire, on l'habille à l'étape suivante.</p>
+<p>À la fin : ta page affiche tout son contenu, sans style. C'est volontaire, on l'habille à l'étape suivante.</p>
 <h3 class="is-principal" id="etape-2-principal-lhabillage-css">Étape 2 (⭐ principal) : l'habillage CSS</h3>
 <p>Objectif : comprendre qu'on sélectionne des éléments HTML et qu'on leur applique des règles de style.</p>
 <ol>
@@ -1447,10 +1450,10 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <li>Change la couleur du fond et celle du texte à ton goût.</li>
 <li>Choisis une police lisible (<code>font-family</code>) et une taille de texte agréable.</li>
 <li>Donne de l'air : ajoute des marges et du <code>padding</code> pour que ça respire.</li>
-<li>Arrondis l'avatar avec <code>border-radius: 50%;</code> sur le <code>&lt;img&gt;</code>.</li>
-<li>Centre ta carte au milieu de la page.</li>
+<li>Arrondis les coins de la capture avec <code>border-radius: 12px;</code> sur le <code>&lt;img&gt;</code>.</li>
+<li>Centre ta page au milieu de la fenêtre.</li>
 </ol>
-<p>À la fin : la même carte, mais agréable à regarder.</p>
+<p>À la fin : la même page, mais agréable à regarder.</p>
 <h3 class="is-principal" id="etape-3-principal-une-premiere-interaction-js">Étape 3 (⭐ principal) : une première interaction JS</h3>
 <p>Objectif : comprendre qu'on peut réagir à un clic et modifier la page en direct. Une seule interaction qui marche vaut mieux que trois à moitié faites.</p>
 <ol>
@@ -1466,7 +1469,7 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 </ol>
 <p>À la fin : un clic produit un effet visible sur ta page.</p>
 <h3 class="is-principal" id="etape-4-principal-decouverte-de-git-et-github">Étape 4 (⭐ principal) : découverte de Git et GitHub</h3>
-<p>Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta carte demain.</p>
+<p>Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta page demain.</p>
 <ol>
 <li>Retiens la différence en une phrase :
    - <strong>Git</strong> : un outil qui garde l'historique des versions de ton code (qui a changé quoi, et quand).
@@ -1480,9 +1483,9 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 <h3 class="is-bonus" id="etape-5-bonus-si-le-temps">Étape 5 (○ bonus, si le temps)</h3>
 <p>À piocher dans l'ordre que tu veux, un seul suffit :</p>
 <ol>
-<li>Ajouter une <strong>animation CSS</strong> : l'avatar qui grossit au survol (<code>:hover</code> + <code>transform: scale(...)</code>).</li>
+<li>Ajouter une <strong>animation CSS</strong> : la capture qui grossit au survol (<code>:hover</code> + <code>transform: scale(...)</code>).</li>
 <li>Proposer <strong>plusieurs thèmes</strong> de couleurs au lieu d'un seul mode sombre.</li>
-<li>Rendre la carte <strong>responsive</strong> : jolie aussi sur téléphone.</li>
+<li>Rendre la page <strong>responsive</strong> : jolie aussi sur téléphone.</li>
 <li>Ajouter une petite icône d'onglet (favicon).</li>
 <li>Installer Git et <strong>essayer</strong> les commandes du tutoriel sur un dossier de test.</li>
 </ol>
@@ -1495,15 +1498,15 @@ Quand tu es à l&#x27;aise avec tout ça, passe aux briefs : tu vas réutiliser 
 </ul>
 <p>Utilise au moins : un titre (<code>#</code>), une liste, un mot en <strong>gras</strong>, et un bloc de code (avec des <code>```</code>). C'est ton premier vrai Markdown, on s'en resservira toute la semaine.</p>
 <h2 id="modalites-devaluation">Modalités d'évaluation</h2>
-<p>Démonstration de la carte au formateur en fin de journée, et dépôt des fichiers (<code>index.html</code>, <code>style.css</code>, <code>script.js</code>, <code>JOURNAL.md</code>) sur SimplonLine.</p>
+<p>Démonstration de la page au formateur en fin de journée, et dépôt des fichiers (<code>index.html</code>, <code>style.css</code>, <code>script.js</code>, <code>JOURNAL.md</code>) sur SimplonLine.</p>
 <h2 id="livrables">Livrables</h2>
 <ol>
-<li>Les fichiers <code>index.html</code>, <code>style.css</code>, <code>script.js</code> de la carte web.</li>
+<li>Les fichiers <code>index.html</code>, <code>style.css</code>, <code>script.js</code> de ta page de présentation.</li>
 <li>Le fichier <code>JOURNAL.md</code> rempli (rendu Markdown explicatif).</li>
 </ol>
 <h2 id="criteres-de-performance">Critères de performance</h2>
 <ul>
-<li>La page s'ouvre dans le navigateur et affiche une carte de profil complète.</li>
+<li>La page s'ouvre dans le navigateur et affiche une présentation complète (titre, capture, description, lien).</li>
 <li>Le HTML, le CSS et le JS sont dans <strong>trois fichiers séparés</strong> et reliés correctement.</li>
 <li>Au moins une interaction JS fonctionne (un clic produit un effet visible).</li>
 <li>Le compte GitHub est créé, et l'élève sait dire à quoi servent <code>git add</code>, <code>git commit</code> et <code>git push</code>.</li>
@@ -1520,19 +1523,21 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
 niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
 <p><strong>C4. Rechercher de façon méthodique une ou des solutions au problème rencontré</strong>
 niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
-  <pre class="md-source" id="src-brief-1" hidden><code># Brief 1 : ma carte web (HTML, CSS, puis un peu de JS)
+  <pre class="md-source" id="src-brief-1" hidden><code># Brief 1 : ma page de présentation (HTML, CSS, puis un peu de JS)
 
 - **Type** : brief individuel
 - **Durée visée** : 1 journée (7h)
 - **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 
-Aujourd&#x27;hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une carte de profil web complète, et tu sauras lire et modifier le code d&#x27;une page.
+Aujourd&#x27;hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une page qui présente une application, et tu sauras lire et modifier le code d&#x27;une page.
 
 ## Contexte du projet
 
 Une page web, c&#x27;est trois langages qui travaillent ensemble : le **HTML** (le contenu et la structure : « voici un titre, voici une image »), le **CSS** (l&#x27;apparence : couleurs, polices, mise en page) et le **JavaScript** (le comportement : ce qui bouge quand on clique). On va les découvrir dans cet ordre, du plus simple au plus vivant.
 
-Le but du jour : construire **ta carte web**, une mini-page qui te présente. C&#x27;est la première brique d&#x27;un projet qu&#x27;on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.
+Le but du jour : construire **ta page de présentation**, une mini-page qui met en valeur l&#x27;application que tu as créée avec Google AI Studio (son nom, ce qu&#x27;elle fait, une capture, un lien pour l&#x27;essayer). C&#x27;est la première brique d&#x27;un projet qu&#x27;on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.
+
+&gt; Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet perso, une asso, un truc qui te tient à cœur, au lieu de l&#x27;appli AI Studio. Les étapes restent exactement les mêmes.
 
 ## Ressources
 
@@ -1550,17 +1555,17 @@ Travail individuel, avec démos collectives du formateur entre chaque étape. On
 
 Objectif : comprendre qu&#x27;une page HTML est une structure d&#x27;éléments imbriqués, et savoir nommer les balises de base.
 
-1. Crée un dossier `ma-carte` sur ton ordinateur, et dedans un fichier vide nommé `index.html`.
+1. Crée un dossier `ma-page` sur ton ordinateur, et dedans un fichier vide nommé `index.html`.
 2. Ouvre ce dossier dans VS Code.
 3. Tape le squelette d&#x27;une page : `&lt;!DOCTYPE html&gt;`, puis `&lt;html&gt;`, `&lt;head&gt;` et `&lt;body&gt;`. (Astuce : taper `!` puis Entrée dans VS Code génère le squelette.)
 4. Ouvre `index.html` dans ton navigateur (ou clic droit → « Open with Live Server »). Tu vois une page blanche : c&#x27;est normal.
-5. Dans le `&lt;body&gt;`, ajoute un titre avec ton prénom : `&lt;h1&gt;Moi, c&#x27;est …&lt;/h1&gt;`. Recharge la page.
-6. Ajoute une image d&#x27;avatar (une photo ou un dessin) : `&lt;img src=&quot;...&quot; alt=&quot;mon avatar&quot;&gt;`.
-7. Ajoute un paragraphe de présentation : `&lt;p&gt;…&lt;/p&gt;`.
-8. Ajoute une liste de 3 choses que tu aimes : un `&lt;ul&gt;` qui contient trois `&lt;li&gt;`.
-9. Ajoute au moins un lien vers quelque chose qui te représente : `&lt;a href=&quot;...&quot;&gt;…&lt;/a&gt;`.
+5. Dans le `&lt;body&gt;`, ajoute un titre avec le nom de ton appli : `&lt;h1&gt;…&lt;/h1&gt;`. Recharge la page.
+6. Ajoute une capture d&#x27;écran de ton appli : `&lt;img src=&quot;...&quot; alt=&quot;capture de mon appli&quot;&gt;`.
+7. Ajoute un paragraphe qui explique ce que fait l&#x27;appli : `&lt;p&gt;…&lt;/p&gt;`.
+8. Ajoute une liste de 3 fonctionnalités (ce qu&#x27;on peut faire avec) : un `&lt;ul&gt;` qui contient trois `&lt;li&gt;`.
+9. Ajoute au moins un lien pour essayer l&#x27;appli en ligne : `&lt;a href=&quot;...&quot;&gt;…&lt;/a&gt;`.
 
-À la fin : ta carte affiche tout son contenu, sans style. C&#x27;est volontaire, on l&#x27;habille à l&#x27;étape suivante.
+À la fin : ta page affiche tout son contenu, sans style. C&#x27;est volontaire, on l&#x27;habille à l&#x27;étape suivante.
 
 ### Étape 2 (⭐ principal) : l&#x27;habillage CSS
 
@@ -1572,10 +1577,10 @@ Objectif : comprendre qu&#x27;on sélectionne des éléments HTML et qu&#x27;on 
 4. Change la couleur du fond et celle du texte à ton goût.
 5. Choisis une police lisible (`font-family`) et une taille de texte agréable.
 6. Donne de l&#x27;air : ajoute des marges et du `padding` pour que ça respire.
-7. Arrondis l&#x27;avatar avec `border-radius: 50%;` sur le `&lt;img&gt;`.
-8. Centre ta carte au milieu de la page.
+7. Arrondis les coins de la capture avec `border-radius: 12px;` sur le `&lt;img&gt;`.
+8. Centre ta page au milieu de la fenêtre.
 
-À la fin : la même carte, mais agréable à regarder.
+À la fin : la même page, mais agréable à regarder.
 
 ### Étape 3 (⭐ principal) : une première interaction JS
 
@@ -1595,7 +1600,7 @@ Objectif : comprendre qu&#x27;on peut réagir à un clic et modifier la page en 
 
 ### Étape 4 (⭐ principal) : découverte de Git et GitHub
 
-Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta carte demain.
+Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta page demain.
 
 1. Retiens la différence en une phrase :
    - **Git** : un outil qui garde l&#x27;historique des versions de ton code (qui a changé quoi, et quand).
@@ -1611,9 +1616,9 @@ On ne tape pas encore les commandes aujourd&#x27;hui : c&#x27;est une première 
 
 À piocher dans l&#x27;ordre que tu veux, un seul suffit :
 
-1. Ajouter une **animation CSS** : l&#x27;avatar qui grossit au survol (`:hover` + `transform: scale(...)`).
+1. Ajouter une **animation CSS** : la capture qui grossit au survol (`:hover` + `transform: scale(...)`).
 2. Proposer **plusieurs thèmes** de couleurs au lieu d&#x27;un seul mode sombre.
-3. Rendre la carte **responsive** : jolie aussi sur téléphone.
+3. Rendre la page **responsive** : jolie aussi sur téléphone.
 4. Ajouter une petite icône d&#x27;onglet (favicon).
 5. Installer Git et **essayer** les commandes du tutoriel sur un dossier de test.
 
@@ -1629,16 +1634,16 @@ Utilise au moins : un titre (`#`), une liste, un mot en **gras**, et un bloc de 
 
 ## Modalités d&#x27;évaluation
 
-Démonstration de la carte au formateur en fin de journée, et dépôt des fichiers (`index.html`, `style.css`, `script.js`, `JOURNAL.md`) sur SimplonLine.
+Démonstration de la page au formateur en fin de journée, et dépôt des fichiers (`index.html`, `style.css`, `script.js`, `JOURNAL.md`) sur SimplonLine.
 
 ## Livrables
 
-1. Les fichiers `index.html`, `style.css`, `script.js` de la carte web.
+1. Les fichiers `index.html`, `style.css`, `script.js` de ta page de présentation.
 2. Le fichier `JOURNAL.md` rempli (rendu Markdown explicatif).
 
 ## Critères de performance
 
-- La page s&#x27;ouvre dans le navigateur et affiche une carte de profil complète.
+- La page s&#x27;ouvre dans le navigateur et affiche une présentation complète (titre, capture, description, lien).
 - Le HTML, le CSS et le JS sont dans **trois fichiers séparés** et reliés correctement.
 - Au moins une interaction JS fonctionne (un clic produit un effet visible).
 - Le compte GitHub est créé, et l&#x27;élève sait dire à quoi servent `git add`, `git commit` et `git push`.
@@ -1675,7 +1680,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <li><strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales</li>
 <li><strong>Pré-requis</strong> : avoir fini le cœur du <a href="#brief-1">brief 1</a>.</li>
 </ul>
-<p>Ta carte web n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une <strong>adresse publique</strong> que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.</p>
+<p>Ta page n'existe que sur ton ordinateur. Aujourd'hui, tu vas la publier sur internet : à la fin de la journée, elle aura une <strong>adresse publique</strong> que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
 <p>Mettre un site « en ligne », c'est le déposer sur un serveur accessible à tous. GitHub propose ça gratuitement avec <strong>GitHub Pages</strong> : tu déposes tes fichiers sur GitHub (une plateforme où les développeurs stockent et partagent leur code), et GitHub publie automatiquement ta page sur une URL publique.</p>
 <p>Au passage, tu découvres <strong>GitHub</strong>, l'outil que tu retrouveras dans absolument toutes les entreprises tech. On reste sur l'essentiel : déposer des fichiers, les mettre à jour, publier.</p>
@@ -1698,7 +1703,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <li>Sur la page du dépôt, clique « Add file » → « Upload files ».</li>
 <li>Glisse-dépose tes fichiers du brief 1 (<code>index.html</code>, <code>style.css</code>, <code>script.js</code>) puis clique « Commit changes ».</li>
 <li>Va dans l'onglet « Settings » → « Pages » et vérifie que la source est bien la branche <code>main</code>.</li>
-<li>Attends une minute, puis ouvre <code>https://ton-pseudo.github.io</code>. Ta carte doit s'afficher.</li>
+<li>Attends une minute, puis ouvre <code>https://ton-pseudo.github.io</code>. Ta page doit s'afficher.</li>
 <li>Teste une mise à jour : modifie une couleur dans <code>style.css</code> sur ton ordi, ré-uploade le fichier, et recharge l'URL pour voir le changement.</li>
 </ol>
 <h3 class="is-principal" id="etape-2-principal-un-vrai-readme-en-markdown">Étape 2 (⭐ principal) : un vrai README en Markdown</h3>
@@ -1708,7 +1713,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <li>Écris un titre (<code>#</code>) avec le nom du projet et une phrase de description.</li>
 <li>Ajoute le lien cliquable vers ton site publié : <code>[Voir le site](https://ton-pseudo.github.io)</code>.</li>
 <li>Ajoute une petite liste de ce que contient ta page.</li>
-<li>Ajoute une capture d'écran : uploade une image dans le dépôt puis insère-la avec <code>![ma carte](nom-image.png)</code>.</li>
+<li>Ajoute une capture d'écran : uploade une image dans le dépôt puis insère-la avec <code>![ma page](nom-image.png)</code>.</li>
 <li>« Commit » et vérifie que le README s'affiche, joliment formaté, en page d'accueil du dépôt.</li>
 </ol>
 <h3 class="is-principal" id="etape-3-principal-une-fonctionnalite-js-au-choix">Étape 3 (⭐ principal) : une fonctionnalité JS au choix</h3>
@@ -1771,7 +1776,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
 - **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 - **Pré-requis** : avoir fini le cœur du [brief 1](#brief-1).
 
-Ta carte web n&#x27;existe que sur ton ordinateur. Aujourd&#x27;hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
+Ta page n&#x27;existe que sur ton ordinateur. Aujourd&#x27;hui, tu vas la publier sur internet : à la fin de la journée, elle aura une **adresse publique** que tu pourras partager. Tu lui ajouteras aussi une fonctionnalité en JavaScript.
 
 ## Contexte du projet
 
@@ -1801,7 +1806,7 @@ Objectif : comprendre la différence entre « le fichier sur mon ordi » et « l
 4. Sur la page du dépôt, clique « Add file » → « Upload files ».
 5. Glisse-dépose tes fichiers du brief 1 (`index.html`, `style.css`, `script.js`) puis clique « Commit changes ».
 6. Va dans l&#x27;onglet « Settings » → « Pages » et vérifie que la source est bien la branche `main`.
-7. Attends une minute, puis ouvre `https://ton-pseudo.github.io`. Ta carte doit s&#x27;afficher.
+7. Attends une minute, puis ouvre `https://ton-pseudo.github.io`. Ta page doit s&#x27;afficher.
 8. Teste une mise à jour : modifie une couleur dans `style.css` sur ton ordi, ré-uploade le fichier, et recharge l&#x27;URL pour voir le changement.
 
 ### Étape 2 (⭐ principal) : un vrai README en Markdown
@@ -1812,7 +1817,7 @@ Objectif : voir le Markdown servir « pour de vrai » et comprendre le rôle d&#
 2. Écris un titre (`#`) avec le nom du projet et une phrase de description.
 3. Ajoute le lien cliquable vers ton site publié : `[Voir le site](https://ton-pseudo.github.io)`.
 4. Ajoute une petite liste de ce que contient ta page.
-5. Ajoute une capture d&#x27;écran : uploade une image dans le dépôt puis insère-la avec `![ma carte](nom-image.png)`.
+5. Ajoute une capture d&#x27;écran : uploade une image dans le dépôt puis insère-la avec `![ma page](nom-image.png)`.
 6. « Commit » et vérifie que le README s&#x27;affiche, joliment formaté, en page d&#x27;accueil du dépôt.
 
 ### Étape 3 (⭐ principal) : une fonctionnalité JS au choix
@@ -1891,7 +1896,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 <li><strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales</li>
 <li><strong>Pré-requis</strong> : avoir un site en ligne (<a href="#brief-2">brief 2</a>).</li>
 </ul>
-<p>Jusqu'ici, ta carte affiche toujours le même contenu. Aujourd'hui, tu lui ajoutes un livre d'or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.</p>
+<p>Jusqu'ici, ta page affiche toujours le même contenu. Aujourd'hui, tu lui ajoutes un livre d'or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
 <p>Une base de données, c'est là où une application range ses informations pour les retrouver plus tard (les messages, les comptes, les commandes...). D'habitude, pour y accéder, il faut un <strong>backend</strong> : un programme qui tourne sur un serveur et fait l'intermédiaire entre la page web et la base.</p>
 <p><strong>Supabase</strong> change la donne : dès qu'on crée une table, il génère automatiquement une <strong>API</strong> (un point d'accès standardisé) qu'on peut appeler <strong>directement depuis le JavaScript du navigateur</strong>. Pas de backend à écrire. C'est exactement ce qu'explique cet article : <a href="https://supabase.com/blog/simplify-backend-with-data-api">https://supabase.com/blog/simplify-backend-with-data-api</a>.</p>
@@ -1982,7 +1987,7 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
 - **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 - **Pré-requis** : avoir un site en ligne ([brief 2](#brief-2)).
 
-Jusqu&#x27;ici, ta carte affiche toujours le même contenu. Aujourd&#x27;hui, tu lui ajoutes un livre d&#x27;or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.
+Jusqu&#x27;ici, ta page affiche toujours le même contenu. Aujourd&#x27;hui, tu lui ajoutes un livre d&#x27;or : un espace où chacun peut laisser un message. Ces messages sont stockés dans une base de données commune à toute la promo, donc un message écrit sur ton site apparaît aussi sur celui des autres. Le tout sans développer de serveur.
 
 ## Contexte du projet
 
