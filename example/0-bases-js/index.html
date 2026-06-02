@@ -1,124 +1,163 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Les bases de JavaScript, en exemples</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: #f4f6fb;
-      color: #1f2430;
-      margin: 0;
-      padding: 40px 16px;
-      line-height: 1.6;
-    }
-    main { max-width: 640px; margin: 0 auto; }
-    h1 { color: #4f46e5; }
-    section {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin: 16px 0;
-      box-shadow: 0 8px 24px rgba(31, 36, 48, 0.06);
-    }
-    h2 { font-size: 1.15rem; margin-top: 0; }
-    pre {
-      background: #0f1117;
-      color: #e6e6e6;
-      padding: 12px 16px;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-size: .9rem;
-    }
-    .res {
-      background: #eef2ff;
-      border-radius: 8px;
-      padding: 8px 14px;
-      margin-bottom: 0;
-    }
-    .res strong { color: #4f46e5; }
-    button {
-      font: inherit;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      background: #4f46e5;
-      color: #ffffff;
-      padding: 10px 18px;
-      border-radius: 8px;
-    }
-    button:hover { background: #4338ca; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Les bases de JavaScript</h1>
-    <p>Pour chaque notion : le code, puis son résultat calculé en direct. Ouvre aussi la console (touche F12) pour voir le message de <code>console.log</code>.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les bases de JavaScript, en exemples</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            background: #f4f6fb;
+            color: #1f2430;
+            margin: 0;
+            padding: 40px 16px;
+            line-height: 1.6;
+        }
 
-    <section>
-      <h2>const : une valeur qui ne changera plus</h2>
-      <pre><code>const ville = "Paris";</code></pre>
-      <p class="res">ville vaut : <strong id="r-const"></strong></p>
-    </section>
+        main {
+            max-width: 640px;
+            margin: 0 auto;
+        }
 
-    <section>
-      <h2>let : une valeur qui peut changer</h2>
-      <pre><code>let score = 0;
+        h1 {
+            color: #4f46e5;
+        }
+
+        section {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 16px 0;
+            box-shadow: 0 8px 24px rgba(31, 36, 48, 0.06);
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            margin-top: 0;
+        }
+
+        pre {
+            background: #0f1117;
+            color: #e6e6e6;
+            padding: 12px 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: .9rem;
+        }
+
+        .res {
+            background: #eef2ff;
+            border-radius: 8px;
+            padding: 8px 14px;
+            margin-bottom: 0;
+        }
+
+        .res strong {
+            color: #4f46e5;
+        }
+
+        button {
+            font: inherit;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            background: #4f46e5;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Les bases de JavaScript</h1>
+      <p>
+        Pour chaque notion : le code, puis son résultat calculé en direct. Ouvre aussi la console (touche F12) pour voir le message de <code>console.log</code>.
+      </p>
+
+      <section>
+        <h2>const : une valeur qui ne changera plus</h2>
+        <pre><code>const ville = "Paris";</code></pre>
+        <p class="res">
+          ville vaut : <strong id="r-const"></strong>
+        </p>
+      </section>
+
+      <section>
+        <h2>let : une valeur qui peut changer</h2>
+        <pre><code>let score = 0;
 score = score + 10;</code></pre>
-      <p class="res">score vaut maintenant : <strong id="r-let"></strong></p>
-    </section>
+        <p class="res">
+          score vaut maintenant : <strong id="r-let"></strong>
+        </p>
+      </section>
 
-    <section>
-      <h2>console.log : afficher un message dans la console</h2>
-      <pre><code>console.log("Bonjour");</code></pre>
-      <p class="res">Ouvre la console (F12) : le mot <strong>Bonjour</strong> s'y affiche.</p>
-    </section>
+      <section>
+        <h2>console.log : afficher un message dans la console</h2>
+        <pre><code>console.log("Bonjour");</code></pre>
+        <p class="res">
+          Ouvre la console (F12) : le mot <strong>Bonjour</strong> s'y affiche.
+        </p>
+      </section>
 
-    <section>
-      <h2>Les nombres : 2 + 2</h2>
-      <pre><code>2 + 2</code></pre>
-      <p class="res">résultat : <strong id="r-addition"></strong></p>
-    </section>
+      <section>
+        <h2>Les nombres : 2 + 2</h2>
+        <pre><code>2 + 2</code></pre>
+        <p class="res">
+          résultat : <strong id="r-addition"></strong>
+        </p>
+      </section>
 
-    <section>
-      <h2>Les chaînes de caractères : entre guillemets</h2>
-      <pre><code>"2" + "2"</code></pre>
-      <p class="res">avec des guillemets, le + colle les textes : <strong id="r-concat"></strong></p>
-    </section>
+      <section>
+        <h2>Les chaînes de caractères : entre guillemets</h2>
+        <pre><code>"2" + "2"</code></pre>
+        <p class="res">
+          avec des guillemets, le + colle les textes : <strong id="r-concat"></strong>
+        </p>
+      </section>
 
-    <section>
-      <h2>Les booléens : vrai ou faux</h2>
-      <pre><code>const majeur = true;</code></pre>
-      <p class="res">majeur vaut : <strong id="r-bool"></strong></p>
-    </section>
+      <section>
+        <h2>Les booléens : vrai ou faux</h2>
+        <pre><code>const majeur = true;</code></pre>
+        <p class="res">
+          majeur vaut : <strong id="r-bool"></strong>
+        </p>
+      </section>
 
-    <section>
-      <h2>La condition if : tester quelque chose</h2>
-      <pre><code>const age = 20;
+      <section>
+        <h2>La condition if : tester quelque chose</h2>
+        <pre><code>const age = 20;
 if (age >= 18) {
   // ...
 }</code></pre>
-      <p class="res"><strong id="r-if"></strong></p>
-    </section>
+        <p class="res">
+          <strong id="r-if"></strong>
+        </p>
+      </section>
 
-    <section>
-      <h2>La boucle for : répéter une action</h2>
-      <pre><code>for (let i = 1; i &lt;= 5; i++) {
+      <section>
+        <h2>La boucle for : répéter une action</h2>
+        <pre><code>for (let i = 1; i &lt;= 5; i++) {
   // ...
 }</code></pre>
-      <p class="res">les nombres parcourus : <strong id="r-for"></strong></p>
-    </section>
+        <p class="res">
+          les nombres parcourus : <strong id="r-for"></strong>
+        </p>
+      </section>
 
-    <section>
-      <h2>Le DOM : modifier la page avec du code</h2>
-      <pre><code>const titre = document.getElementById("titre-demo");
+      <section>
+        <h2>Le DOM : modifier la page avec du code</h2>
+        <pre><code>const titre = document.getElementById("titre-demo");
 titre.textContent = "Texte modifié !";</code></pre>
-      <p id="titre-demo">Clique sur le bouton pour me changer.</p>
-      <button id="bouton-demo">Modifier le texte</button>
-    </section>
-  </main>
+        <p id="titre-demo">Clique sur le bouton pour me changer.</p>
+        <button id="bouton-demo">Modifier le texte</button>
+      </section>
+    </main>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -6,5 +6,8 @@ Des petites pages pour voir ce qu'on peut faire avec HTML, CSS et JavaScript. Ou
 - `1-html/` : une page de présentation en HTML seul. Tout le contenu est là, mais sans aucune mise en forme.
 - `2-html-css/` : la même page, habillée avec un fichier `style.css`.
 - `3-html-css-js/` : la même page, avec en plus un fichier `script.js` qui ajoute un compteur de sessions cliquable.
+- `4-page-vitrine/` : une vraie page d'accueil (navbar, hero, fonctions, histoire, avis, téléchargement). Le style est volontairement neutre pour qu'on voie d'abord la structure.
 
 Les pages 1 à 3 présentent la même application fictive, « Focus » : compare-les pour voir ce que chaque langage apporte.
+
+`themes.md` reprend la page vitrine et l'habille de deux façons (brutaliste et minimaliste), sans changer le HTML.

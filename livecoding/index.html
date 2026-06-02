@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<!-- 💫 On indique que la langue est le français-->
+<html lang="fr">
+  <head>
+
+
+    <!-- 💫 Titre de la page (et titre de l'onglet)-->
+    <title>Ma Super Page pour super social app</title>
+
+
+    <!-- 💫 On indique l'encoding -->
+    <meta charset="UTF-8" />
+
+    <!-- 💫 On précise le 'viewport' pour affichage sympa sur tablette et téléphone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+
+  <!-- La balise body indique le début du corps de la page -->
+  <body>
+    <!-- La balise nav indique une section de navigation (des boutons) -->
+    <nav>
+
+      <!-- On utilise le système flexbox pour aligner les elements horizontalement -->
+      <!-- et les placer à droite -->
+      <ul style="display: flex;
+                 justify-content: flex-end;
+                 gap: 2rem;
+                 list-style: none;
+                 padding: 1rem;
+                 margin: 0;
+                 color: black">
+        <li>Fonctionnalités</li>
+        <li>Téléchargement</li>
+      </ul>
+    </nav>
+    <main>
+
+
+      <!-- 💫 Le titre h1 est très important pour les navigateurs (et le bon référencement) -->
+      <h1>Ma Super Page pour ma super Social App</h1>
+      <h2>Fonctionnalités</h2>
+
+      <!-- 💫 Système flexbox pour des alignements sympas -->
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        <div style="min-width: 200px;
+                    flex: 1;
+                    background-color: #4E4E4E;
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 8px">
+          <h3>Rapide</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div style="min-width: 200px;
+                    flex: 1;
+                    background-color: #4E4E4E;
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 8px">
+          <h3>Simple</h3>
+          <p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        </div>
+        <div style="min-width: 200px;
+                    flex: 1;
+                    background-color: #4E4E4E;
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 8px">
+          <h3>Gratuit</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        </div>
+      </div>
+
+      <h2>Téléchargement</h2>
+
+
+      <!-- 💫 Un bouton optimisé -->
+      <!-- Suffisamment gros--->
+      <!-- Très visible sur la page grâce à une ombre -->
+      <!-- On ajoute du padding pour que le bouton soit aéré -->
+      <button style="background-color: #42027a;
+                     color: white;
+                     border: 0;
+                     padding: 0.75rem 1.5rem;
+                     text-decoration: none;
+                     border-radius: 8px;
+                     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px">
+        Rejoindre le crew !
+      </button>
+
+
+    </main>
+  </body>
+</html>
