@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>daisyUI, maquette d'iPhone</title>
+
+  <!-- Tout via CDN, sans build ni config :
+       - Tailwind navigateur pour les classes utilitaires (flex, gap…)
+       - daisyUI 5 (CSS déjà compilé) pour les composants prêts à l'emploi -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center gap-6 bg-gray-100">
+
+  <h1 class="text-2xl font-bold">Maquette d'iPhone</h1>
+
+  <!-- Composant mockup-phone de daisyUI -->
+  <div class="mockup-phone border-[#ff8938]">
+    <div class="mockup-phone-camera"></div>
+    <div class="mockup-phone-display">
+      <img alt="Fond d'écran" src="https://img.daisyui.com/images/stock/453966.webp" />
+    </div>
+  </div>
+
+</body>
+</html>

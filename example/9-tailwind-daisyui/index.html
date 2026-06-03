@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumen, l'appli qui éclaire tes journées</title>
+
+  <!-- Tout via CDN, sans build ni config :
+       - Tailwind navigateur pour les classes utilitaires (grid, flex, gap…)
+       - daisyUI 5 (CSS déjà compilé) pour les composants : btn, card, navbar, avatar… -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="bg-base-200">
+
+  <!-- Barre de navigation (composant navbar de daisyUI) -->
+  <header class="navbar bg-base-100 shadow-sm px-6">
+    <div class="flex-1">
+      <a href="#" class="text-xl font-bold">Lumen</a>
+    </div>
+    <nav class="flex items-center gap-2">
+      <a href="#fonctions" class="btn btn-ghost btn-sm">Fonctions</a>
+      <a href="#histoire" class="btn btn-ghost btn-sm">Histoire</a>
+      <a href="#avis" class="btn btn-ghost btn-sm">Avis</a>
+      <a href="#telecharger" class="btn btn-primary btn-sm">Télécharger</a>
+    </nav>
+  </header>
+
+  <!-- Section d'accueil : texte à gauche, image à droite -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto px-6 py-16">
+    <div>
+      <h1 class="text-4xl font-bold mb-4">Reprends le contrôle de tes journées</h1>
+      <p class="text-base-content/60 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="#telecharger" class="btn btn-primary">Commencer gratuitement</a>
+        <a href="#fonctions" class="btn btn-outline">Voir la démo</a>
+      </div>
+    </div>
+    <img src="https://picsum.photos/seed/lumen-hero/640/440" alt="Aperçu de l'application Lumen"
+         class="w-full rounded-2xl shadow-lg" />
+  </section>
+
+  <!-- Section fonctions : image à gauche, 4 cartes en 2x2 à droite -->
+  <section id="fonctions" class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto px-6 py-16">
+    <img src="https://picsum.photos/seed/lumen-fonctions/520/520" alt="Écran des fonctions de Lumen"
+         class="w-full rounded-2xl shadow-lg" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Lorem ipsum</h3>
+          <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+        </div>
+      </article>
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Dolor sit</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        </div>
+      </article>
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Tempor incididunt</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+        </div>
+      </article>
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Magna aliqua</h3>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Section histoire : texte à gauche, image à droite -->
+  <section id="histoire" class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto px-6 py-16">
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Notre histoire</h2>
+      <p class="text-base-content/70 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+      <p class="text-base-content/70">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+    </div>
+    <img src="https://picsum.photos/seed/lumen-histoire/560/400" alt="L'équipe de Lumen"
+         class="w-full rounded-2xl shadow-lg" />
+  </section>
+
+  <!-- Section avis : petites cartes avec avatar -->
+  <section id="avis" class="max-w-5xl mx-auto px-6 py-16 text-center">
+    <h2 class="text-2xl font-bold">Ils utilisent Lumen</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body items-center text-center">
+          <div class="avatar">
+            <div class="w-16 rounded-full">
+              <img src="https://i.pravatar.cc/80?img=12" alt="Photo de Camille" />
+            </div>
+          </div>
+          <p>« Lorem ipsum dolor sit amet, consectetur adipiscing elit. »</p>
+          <span class="text-sm text-base-content/60">Camille, étudiante</span>
+        </div>
+      </article>
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body items-center text-center">
+          <div class="avatar">
+            <div class="w-16 rounded-full">
+              <img src="https://i.pravatar.cc/80?img=32" alt="Photo de Mehdi" />
+            </div>
+          </div>
+          <p>« Sed do eiusmod tempor incididunt ut labore et dolore. »</p>
+          <span class="text-sm text-base-content/60">Mehdi, développeur</span>
+        </div>
+      </article>
+      <article class="card bg-base-100 shadow-sm">
+        <div class="card-body items-center text-center">
+          <div class="avatar">
+            <div class="w-16 rounded-full">
+              <img src="https://i.pravatar.cc/80?img=45" alt="Photo de Léa" />
+            </div>
+          </div>
+          <p>« Ut enim ad minim veniam, quis nostrud exercitation. »</p>
+          <span class="text-sm text-base-content/60">Léa, designeuse</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Section téléchargement -->
+  <section id="telecharger" class="max-w-5xl mx-auto px-6 py-16">
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body items-center text-center py-16">
+        <h2 class="text-2xl font-bold">Télécharge Lumen gratuitement</h2>
+        <p class="text-base-content/70 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aucune carte bancaire requise.</p>
+        <a href="#" class="btn btn-primary">Télécharger maintenant</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
