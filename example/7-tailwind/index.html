@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumen, l'appli qui éclaire tes journées</title>
+
+  <!-- Tailwind CSS chargé via le CDN.
+       Du coup, plus de fichier style.css : on écrit le style
+       directement dans les attributs class, avec les « utilitaires »
+       de Tailwind (flex, gap-4, text-gray-500, rounded-xl, etc.). -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+  <!-- Barre de navigation -->
+  <header class="flex justify-between items-center px-6 py-4 border-b border-gray-200 bg-white">
+    <a href="#" class="text-xl font-bold text-gray-900">Lumen</a>
+    <nav class="flex items-center gap-5">
+      <a href="#fonctions" class="font-semibold text-gray-600 hover:text-gray-900">Fonctions</a>
+      <a href="#histoire" class="font-semibold text-gray-600 hover:text-gray-900">Histoire</a>
+      <a href="#avis" class="font-semibold text-gray-600 hover:text-gray-900">Avis</a>
+      <a href="#telecharger" class="px-5 py-3 rounded-lg font-semibold bg-gray-900 text-white hover:bg-gray-700">Télécharger</a>
+    </nav>
+  </header>
+
+  <!-- Section d'accueil : texte à gauche, image à droite -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto px-6 py-16">
+    <div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Reprends le contrôle de tes journées</h1>
+      <p class="text-lg text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="#telecharger" class="px-5 py-3 rounded-lg font-semibold bg-gray-900 text-white hover:bg-gray-700">Commencer gratuitement</a>
+        <a href="#fonctions" class="px-5 py-3 rounded-lg font-semibold bg-white text-gray-700 border border-gray-300 hover:bg-gray-100">Voir la démo</a>
+      </div>
+    </div>
+    <img src="https://picsum.photos/seed/lumen-hero/640/440" alt="Aperçu de l'application Lumen"
+         class="w-full rounded-2xl shadow-lg" />
+  </section>
+
+  <!-- Section fonctions : image à gauche, 4 cartes en 2x2 à droite -->
+  <section id="fonctions" class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto px-6 py-16">
+    <img src="https://picsum.photos/seed/lumen-fonctions/520/520" alt="Écran des fonctions de Lumen"
+         class="w-full rounded-2xl shadow-lg" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <article class="p-5 bg-white border border-gray-200 rounded-2xl shadow-sm">
+        <h3 class="font-bold text-gray-900 mb-2">Lorem ipsum</h3>
+        <p class="text-gray-500">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+      </article>
+      <article class="p-5 bg-white border border-gray-200 rounded-2xl shadow-sm">
+        <h3 class="font-bold text-gray-900 mb-2">Dolor sit</h3>
+        <p class="text-gray-500">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+      </article>
+      <article class="p-5 bg-white border border-gray-200 rounded-2xl shadow-sm">
+        <h3 class="font-bold text-gray-900 mb-2">Tempor incididunt</h3>
+        <p class="text-gray-500">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+      </article>
+      <article class="p-5 bg-white border border-gray-200 rounded-2xl shadow-sm">
+        <h3 class="font-bold text-gray-900 mb-2">Magna aliqua</h3>
+        <p class="text-gray-500">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Section histoire : texte à gauche, image à droite -->
+  <section id="histoire" class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto px-6 py-16">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Notre histoire</h2>
+      <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+      <p class="text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+    </div>
+    <img src="https://picsum.photos/seed/lumen-histoire/560/400" alt="L'équipe de Lumen"
+         class="w-full rounded-2xl shadow-lg" />
+  </section>
+
+  <!-- Section avis : petites cartes avec avatar -->
+  <section id="avis" class="max-w-5xl mx-auto px-6 py-16 text-center">
+    <h2 class="text-2xl font-bold text-gray-900">Ils utilisent Lumen</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
+      <article class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm text-center">
+        <img src="https://i.pravatar.cc/80?img=12" alt="Photo de Camille" class="w-16 h-16 rounded-full mx-auto mb-3" />
+        <p>« Lorem ipsum dolor sit amet, consectetur adipiscing elit. »</p>
+        <span class="block mt-3 text-sm text-gray-500">Camille, étudiante</span>
+      </article>
+      <article class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm text-center">
+        <img src="https://i.pravatar.cc/80?img=32" alt="Photo de Mehdi" class="w-16 h-16 rounded-full mx-auto mb-3" />
+        <p>« Sed do eiusmod tempor incididunt ut labore et dolore. »</p>
+        <span class="block mt-3 text-sm text-gray-500">Mehdi, développeur</span>
+      </article>
+      <article class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm text-center">
+        <img src="https://i.pravatar.cc/80?img=45" alt="Photo de Léa" class="w-16 h-16 rounded-full mx-auto mb-3" />
+        <p>« Ut enim ad minim veniam, quis nostrud exercitation. »</p>
+        <span class="block mt-3 text-sm text-gray-500">Léa, designeuse</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- Section téléchargement -->
+  <section id="telecharger" class="max-w-5xl mx-auto px-6 py-16">
+    <div class="bg-gray-100 rounded-3xl px-6 py-16 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Télécharge Lumen gratuitement</h2>
+      <p class="text-gray-600 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aucune carte bancaire requise.</p>
+      <a href="#" class="inline-block px-5 py-3 rounded-lg font-semibold bg-gray-900 text-white hover:bg-gray-700">Télécharger maintenant</a>
+    </div>
+  </section>
+
+</body>
+</html>

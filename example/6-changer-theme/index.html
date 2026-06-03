@@ -4,17 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lumen, l'appli qui éclaire tes journées</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <!-- Polices Google, chargées via le CDN.
+       Les deux fichiers de style piochent dedans :
+       - Space Grotesk pour le thème brutaliste
+       - Inter pour le thème minimaliste -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Cette fois, c'est le bouton (en bas de page, dans script.js)
+       qui change le fichier de style. On lui donne un id pour le retrouver. -->
+    <link rel="stylesheet" href="style-brutaliste.css" id="theme" />
   </head>
-  <body>
+  <body class="page">
 
     <!-- Barre de navigation -->
     <header class="navbar">
       <a class="logo" href="#">Lumen</a>
       <nav class="menu">
-        <a href="#fonctions">Fonctions</a>
-        <a href="#histoire">Histoire</a>
-        <a href="#avis">Avis</a>
+        <a class="lien" href="#fonctions">Fonctions</a>
+        <a class="lien" href="#histoire">Histoire</a>
+        <a class="lien" href="#avis">Avis</a>
+        <button class="bouton-secondaire" id="changer-theme">Thème minimaliste</button>
         <a class="bouton" href="#telecharger">Télécharger</a>
       </nav>
     </header>
@@ -43,20 +56,22 @@
            alt="Écran des fonctions de Lumen" />
       <div class="cartes">
         <article class="carte">
-          <h3>Lorem ipsum</h3>
-          <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <h3 class="carte-titre">Lorem ipsum</h3>
+          <p class="carte-texte">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
         </article>
         <article class="carte">
-          <h3>Dolor sit</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          <h3 class="carte-titre">Dolor sit</h3>
+          <p class="carte-texte">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
         </article>
         <article class="carte">
-          <h3>Tempor incididunt</h3>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+          <h3 class="carte-titre">Tempor incididunt</h3>
+          <p class="carte-texte">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
         </article>
         <article class="carte">
-          <h3>Magna aliqua</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+          <h3 class="carte-titre">Magna aliqua</h3>
+          <p class="carte-texte">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+          </p>
         </article>
       </div>
     </section>
@@ -64,11 +79,11 @@
     <!-- Section histoire : texte à gauche, image à droite -->
     <section class="histoire" id="histoire">
       <div class="histoire-texte">
-        <h2>Notre histoire</h2>
-        <p>
+        <h2 class="section-titre">Notre histoire</h2>
+        <p class="paragraphe">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
         </p>
-        <p>
+        <p class="paragraphe">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
         </p>
       </div>
@@ -79,21 +94,21 @@
 
     <!-- Section avis : petites cartes avec avatar -->
     <section class="temoignages" id="avis">
-      <h2>Ils utilisent Lumen</h2>
+      <h2 class="section-titre">Ils utilisent Lumen</h2>
       <div class="avis">
         <article class="temoignage">
           <img class="avatar" src="https://i.pravatar.cc/80?img=12" alt="Photo de Camille" />
-          <p>« Lorem ipsum dolor sit amet, consectetur adipiscing elit. »</p>
-          <span class="auteur">Mehdi, étudiante</span>
+          <p class="temoignage-texte">« Lorem ipsum dolor sit amet, consectetur adipiscing elit. »</p>
+          <span class="auteur">Mehdi, développeur</span>
         </article>
         <article class="temoignage">
           <img class="avatar" src="https://i.pravatar.cc/80?img=32" alt="Photo de Mehdi" />
-          <p>« Sed do eiusmod tempor incididunt ut labore et dolore. »</p>
-          <span class="auteur">Camille, développeur</span>
+          <p class="temoignage-texte">« Sed do eiusmod tempor incididunt ut labore et dolore. »</p>
+          <span class="auteur">Camille, étudiante</span>
         </article>
         <article class="temoignage">
           <img class="avatar" src="https://i.pravatar.cc/80?img=45" alt="Photo de Léa" />
-          <p>« Ut enim ad minim veniam, quis nostrud exercitation. »</p>
+          <p class="temoignage-texte">« Ut enim ad minim veniam, quis nostrud exercitation. »</p>
           <span class="auteur">Léa, designer</span>
         </article>
       </div>
@@ -101,10 +116,13 @@
 
     <!-- Section téléchargement -->
     <section class="telechargement" id="telecharger">
-      <h2>Télécharge Lumen gratuitement</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aucune carte bancaire requise.</p>
+      <h2 class="section-titre">Télécharge Lumen gratuitement</h2>
+      <p class="paragraphe">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aucune carte bancaire requise.
+      </p>
       <a class="bouton" href="#">Télécharger maintenant</a>
     </section>
 
+    <script src="script.js"></script>
   </body>
 </html>
