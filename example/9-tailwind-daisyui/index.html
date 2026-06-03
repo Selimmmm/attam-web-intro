@@ -19,9 +19,9 @@
       <a href="#" class="text-xl font-bold">Lumen</a>
     </div>
     <nav class="flex items-center gap-2">
-      <a href="#fonctions" class="btn btn-ghost btn-sm">Fonctions</a>
-      <a href="#histoire" class="btn btn-ghost btn-sm">Histoire</a>
-      <a href="#avis" class="btn btn-ghost btn-sm">Avis</a>
+      <a href="#fonctions" class="btn btn-ghost btn-sm hidden sm:inline-flex">Fonctions</a>
+      <a href="#histoire" class="btn btn-ghost btn-sm hidden sm:inline-flex">Histoire</a>
+      <a href="#avis" class="btn btn-ghost btn-sm hidden sm:inline-flex">Avis</a>
       <a href="#telecharger" class="btn btn-primary btn-sm">Télécharger</a>
     </nav>
   </header>
@@ -36,8 +36,17 @@
         <a href="#fonctions" class="btn btn-outline">Voir la démo</a>
       </div>
     </div>
-    <img src="https://picsum.photos/seed/lumen-hero/640/440" alt="Aperçu de l'application Lumen"
-         class="w-full rounded-2xl shadow-lg" />
+    <div class="flex justify-center overflow-hidden">
+      <!-- Maquette d'iPhone (composant mockup-phone de daisyUI).
+           scale-[0.6] la réduit ; les marges négatives rattrapent
+           l'espace vide laissé par la mise à l'échelle. -->
+      <div class="mockup-phone border-primary scale-[0.6] -my-32">
+        <div class="mockup-phone-camera"></div>
+        <div class="mockup-phone-display">
+          <img alt="Aperçu de l'application Lumen" src="https://img.daisyui.com/images/stock/453966.webp" />
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Section fonctions : image à gauche, 4 cartes en 2x2 à droite -->

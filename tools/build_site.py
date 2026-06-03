@@ -39,6 +39,25 @@ MD_EXTENSIONS = ["extra", "fenced_code", "tables", "sane_lists", "codehilite", "
 MD_CONFIG = {"codehilite": {"guess_lang": False}}
 
 
+def discover_examples() -> str:
+    """Liste les exemples présents dans site/ (sous-dossiers avec un index.html).
+    Chaque exemple devient un lien en bas de la barre latérale."""
+    site_dir = OUT.parent
+    liens = []
+    for sub in sorted(p for p in site_dir.iterdir() if p.is_dir()):
+        if not (sub / "index.html").exists():
+            continue
+        libelle = html.escape(sub.name.replace("-", " "))
+        liens.append(f'<a class="ex-link" href="{sub.name}/">{libelle}</a>')
+    if not liens:
+        return ""
+    return (
+        '<div class="examples"><strong>Exemples</strong>'
+        + "".join(liens)
+        + "</div>"
+    )
+
+
 def extract_title(text: str) -> str:
     for line in text.splitlines():
         if line.startswith("# "):
@@ -204,6 +223,7 @@ def main() -> None:
     OUT.write_text(
         TEMPLATE.replace("/*__PYGMENTS__*/", pygments_css)
         .replace("<!--__NAV__-->", "\n      ".join(navs))
+        .replace("<!--__EXAMPLES__-->", discover_examples())
         .replace("<!--__SECTIONS__-->", "\n".join(sections)),
         encoding="utf-8",
     )
@@ -315,6 +335,10 @@ TEMPLATE = r"""<!DOCTYPE html>
     .dot.p { background: var(--principal); }
     .dot.b { background: var(--bonus); }
     .sidebar-footer { margin-top: auto; font-size: .76rem; color: var(--muted); line-height: 1.5; }
+    .examples { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+    .examples strong { font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: 2px; }
+    .ex-link { color: var(--accent); text-decoration: none; font-size: .82rem; text-transform: capitalize; }
+    .ex-link:hover { text-decoration: underline; }
     .theme-btn { border: 1px solid var(--line); background: transparent; color: var(--muted); font: inherit; font-size: .8rem; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
 
     /* Main */
@@ -416,6 +440,7 @@ TEMPLATE = r"""<!DOCTYPE html>
       <span><span class="dot b"></span>bonus, si le temps</span>
     </div>
     <div class="sidebar-footer">
+      <!--__EXAMPLES__-->
       <button class="theme-btn" id="theme-btn">Thème clair / sombre</button>
       <p style="margin:.8em 0 0">Promo Level-Up · briefs en Markdown, compilés en HTML par <code>tools/build_site.py</code>.</p>
     </div>

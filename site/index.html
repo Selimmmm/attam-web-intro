@@ -103,6 +103,10 @@
     .dot.p { background: var(--principal); }
     .dot.b { background: var(--bonus); }
     .sidebar-footer { margin-top: auto; font-size: .76rem; color: var(--muted); line-height: 1.5; }
+    .examples { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+    .examples strong { font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: 2px; }
+    .ex-link { color: var(--accent); text-decoration: none; font-size: .82rem; text-transform: capitalize; }
+    .ex-link:hover { text-decoration: underline; }
     .theme-btn { border: 1px solid var(--line); background: transparent; color: var(--muted); font: inherit; font-size: .8rem; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
 
     /* Main */
@@ -214,6 +218,7 @@
       <span><span class="dot b"></span>bonus, si le temps</span>
     </div>
     <div class="sidebar-footer">
+      <div class="examples"><strong>Exemples</strong><a class="ex-link" href="daisyui/">daisyui</a></div>
       <button class="theme-btn" id="theme-btn">Thème clair / sombre</button>
       <p style="margin:.8em 0 0">Promo Level-Up · briefs en Markdown, compilés en HTML par <code>tools/build_site.py</code>.</p>
     </div>
