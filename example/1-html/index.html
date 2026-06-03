@@ -4,15 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Focus, l'appli qui t'aide à te concentrer</title>
+
+    <!--- Définir du CSS --->
+    <style>
+        /*Styling via un TAG*/
+        h1 {
+            color: purple;
+        }
+
+        /*Styling via une classe */
+        .is-red {
+            color: red;
+        }
+
+        /* Styling via id */
+        #focus-opener {
+            padding: 0.8rem;
+            background-color: #E4E4E4;
+            color: #222222;
+            border-radius: 4px;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 5px rgba(17, 24, 39, 0.35);
+        }
+    </style>
+
+
+    <!--- Définir un fichier JS --->
+    <script>
+        console.log("Salut la promo");
+    </script>
   </head>
   <body>
     <h1>Focus</h1>
-    <p>L'application qui t'aide à travailler sans te disperser.</p>
+
+    <p class="is-red">L'application qui t'aide à travailler sans te disperser.</p>
 
     <img src="https://picsum.photos/seed/focus/600/360" alt="Capture d'écran de l'application Focus" />
 
     <h2>À quoi ça sert</h2>
-    <p>
+    <p class="is-red">
       Focus découpe ton travail en sessions de 25 minutes, suivies d'une courte pause. Tu avances un pas à la fois, sans t'épuiser.
     </p>
 
@@ -25,6 +56,10 @@
 
     <h2>Essayer</h2>
     <p>L'application est gratuite et fonctionne dans le navigateur.</p>
-    <a href="https://example.com">Ouvrir Focus</a>
+
+    <br />
+    <a id="focus-opener" href="#">Ouvrir Focus</a>
+    <br />
+    <br />
   </body>
 </html>
