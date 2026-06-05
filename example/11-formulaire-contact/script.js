@@ -27,4 +27,8 @@ form.addEventListener("submit", (event) => {
   // Pas de base de données ici : on se contente de valider et de répondre.
   confirmation.textContent = `Merci ${nom}, ton message a bien été pris en compte.`;
   form.reset();
+
+
+  // Exemple (inutile pour le formulaire) de modification d'un text
+  //document.querySelector("#mon-unique-h1").textContent = "⭐️ Contact";
 });
