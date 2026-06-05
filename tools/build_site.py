@@ -33,6 +33,9 @@ PAGES = [
     {"file": "cours-js.md", "slug": "cours-js", "nav": "Cours · JS et le DOM"},
     {"file": "atelier.md", "slug": "atelier", "nav": "Atelier · reproduire"},
     {"file": "briefs/brief-1-html-css-js.md", "slug": "brief-1", "nav": "Brief 1 · ma page de présentation"},
+    # Brief 2 et 3 retirés de la sidebar (fichiers conservés dans briefs/).
+    # {"file": "briefs/brief-2-github-pages.md", "slug": "brief-2", "nav": "Brief 2 · publier sur GitHub Pages"},
+    # {"file": "briefs/brief-3-supabase.md", "slug": "brief-3", "nav": "Brief 3 · Supabase"},
 ]
 
 MD_EXTENSIONS = ["extra", "fenced_code", "tables", "sane_lists", "codehilite", "toc"]
@@ -74,7 +77,7 @@ def tag_section_headings(rendered: str) -> str:
         cls = None
         if "principal" in plain:
             cls = "is-principal"
-        elif "bonus" in plain or "secondaire" in plain:
+        elif "bonus" in plain or "secondaire" in plain or "facultatif" in plain:
             cls = "is-bonus"
         if cls and "class=" not in attrs:
             attrs = f' class="{cls}"' + attrs

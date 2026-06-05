@@ -1,34 +1,36 @@
 # Bienvenue
 
-- Cette semaine : apprendre à construire une page web, la publier en ligne, et la connecter à une base de données.
-- Tu écris le code toi-même, étape par étape, pour comprendre comment chaque morceau fonctionne.
+- Ce module : construire une page web, la publier en ligne, et la connecter à une base de données. Tout dans un seul projet fil rouge.
+- Vous écrivez le code vous-mêmes, étape par étape, pour comprendre comment chaque morceau fonctionne.
 
 ## Au programme
 
-- **Git et GitHub** : suivre les versions de son code et le publier.
 - **HTML** : le contenu et la structure de la page.
-- **CSS** : l'apparence (couleurs, formes, mise en page).
+- **CSS, Tailwind et daisyUI** : l'apparence (couleurs, mise en page, composants prêts à l'emploi).
 - **JavaScript** : le comportement, ce qui réagit aux actions de l'utilisateur.
-- **Supabase** : lire et écrire dans une base de données, directement depuis la page, sans serveur à développer.
+- **GitHub Pages** : publier la page en ligne, sur une adresse publique.
+- **Supabase** : enregistrer les messages d'un formulaire dans une base de données, directement depuis la page, sans serveur à développer.
 
 ```mermaid
 flowchart LR
-  HTML[HTML<br/>le contenu] --> CSS[CSS<br/>l'apparence]
+  HTML[HTML<br/>le contenu] --> CSS[CSS + Tailwind<br/>l'apparence]
   CSS --> JS[JavaScript<br/>le comportement]
-  JS --> Git[Git + GitHub<br/>publier]
+  JS --> Git[GitHub Pages<br/>publier]
   Git --> Supa[Supabase<br/>la base de données]
 ```
 
-## Le projet de la semaine
+## Le projet
 
-- **Jour 1** : ta page de présentation (HTML, CSS, une première interaction en JavaScript).
-- **Jour 2** : mise en ligne de la page sur GitHub Pages, avec une fonctionnalité supplémentaire.
-- **Jour 3** : un mur de messages partagé par la promo, connecté à Supabase.
+Une seule page, qu'on construit puis qu'on enrichit étape par étape :
+
+- présenter une application (titre, capture, description, lien) ;
+- l'habiller avec Tailwind et daisyUI ;
+- la publier en ligne sur GitHub Pages ;
+- y ajouter un formulaire de contact qui enregistre les messages dans Supabase.
 
 ```mermaid
 flowchart LR
-  J1[Jour 1<br/>ma page de présentation] --> J2[Jour 2<br/>en ligne sur GitHub]
-  J2 --> J3[Jour 3<br/>le mur de la promo]
+  P[Présentation<br/>HTML] --> S[Style<br/>Tailwind] --> L[En ligne<br/>GitHub Pages] --> F[Formulaire<br/>+ Supabase]
 ```
 
 ## L'accès à une base de données depuis le navigateur
@@ -45,17 +47,18 @@ flowchart LR
   API -->|données JSON| Page
 ```
 
-## Ce que tu sauras faire à la fin
+## Ce que vous saurez faire à la fin
 
 - Lire et modifier une page web.
-- Suivre les versions de ton code et le publier avec une adresse publique.
-- Connecter une page à une base de données.
+- L'habiller rapidement avec Tailwind et daisyUI.
+- La publier avec une adresse publique.
+- Enregistrer des données dans une base depuis la page.
 - Rédiger de la documentation en Markdown.
 
 ## Méthode de travail
 
-- Les étapes **● principal** constituent le cœur de chaque journée : à terminer en priorité.
-- Les étapes **○ bonus** servent à aller plus loin une fois le principal terminé.
-- Tiens un fichier **`JOURNAL.md`** en Markdown à chaque étape.
-- La page « Cours » est interactive : utilise-la pour tester du code.
-- Choisis un brief dans le menu de gauche pour commencer.
+- Les étapes **● principal** sont le cœur du brief : à terminer en priorité.
+- Les étapes **○ bonus / facultatif** servent à aller plus loin une fois le principal terminé.
+- Tenez un fichier **`JOURNAL.md`** en Markdown à chaque étape.
+- La page « Cours » est interactive : utilisez-la pour tester du code.
+- Ouvrez le **brief** dans le menu de gauche pour commencer.

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="nord">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumen, ma page de présentation</title>
+
+  <!-- Les trois lignes de l'étape 3 : Tailwind, daisyUI, et ses thèmes. -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+  <main class="p-6 max-w-2xl mx-auto flex flex-col gap-8">
+
+    <!-- Présentation (étapes 1 et 3) -->
+    <section class="flex flex-col gap-4">
+      <h1 class="text-3xl font-bold">Lumen</h1>
+      <img src="https://picsum.photos/seed/lumen/640/360"
+           alt="Capture d'écran de l'application Lumen"
+           class="rounded-xl shadow-lg" />
+      <p>
+        Lumen, l'appli qui éclaire tes journées : reprends le contrôle de ton temps
+        avec des rituels simples, un suivi clair et des rappels au bon moment.
+      </p>
+      <ul class="list-disc list-inside">
+        <li>Planifier ses journées sans se surcharger</li>
+        <li>Suivre ses habitudes au fil des semaines</li>
+        <li>Recevoir des rappels au bon moment</li>
+      </ul>
+      <a href="https://lumen.example/" class="link link-primary">
+        Essayer l'application en ligne
+      </a>
+    </section>
+
+    <!-- Un composant daisyUI : une carte (étape 3) -->
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title">En bref</h2>
+        <p>Une appli pensée pour avancer en douceur, sans pression.</p>
+      </div>
+    </div>
+
+    <!-- Formulaire de contact (étapes 5 et 6) -->
+    <section class="flex flex-col gap-4">
+      <h2 class="text-2xl font-bold">Me contacter</h2>
+
+      <form id="contact" class="flex flex-col gap-3">
+        <div class="flex flex-col gap-1">
+          <label for="nom">Ton nom</label>
+          <input type="text" id="nom" class="input w-full" placeholder="Camille" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="email">Ton e-mail</label>
+          <input type="email" id="email" class="input w-full" placeholder="camille@exemple.fr" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="message">Ton message</label>
+          <textarea id="message" class="textarea w-full" rows="4" placeholder="Ton message…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+
+      <!-- Zone de retour, remplie par script.js -->
+      <p id="confirmation" class="font-semibold"></p>
+    </section>
+
+  </main>
+
+  <!-- L'ordre compte : la librairie Supabase d'abord, script.js ensuite. -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>

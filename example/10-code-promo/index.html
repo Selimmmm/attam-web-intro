@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bouton code promo</title>
+
+  <!-- Tout via CDN, sans build ni config :
+       - Tailwind navigateur pour les classes utilitaires (flex, gap…)
+       - daisyUI 5 (CSS déjà compilé) pour le bouton et la carte -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center gap-6 bg-gray-100">
+
+  <h1 class="text-2xl font-bold">Ton code promo</h1>
+
+  <!-- onclick appelle la fonction afficherCode, définie dans script.js -->
+  <button class="btn btn-primary" onclick="afficherCode()">Afficher mon code</button>
+
+  <!-- Zone vide au départ : le JS viendra y écrire le code -->
+  <p id="code" class="text-2xl font-mono font-bold"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>

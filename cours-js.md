@@ -371,7 +371,7 @@ document.querySelector("#chien").addEventListener("click", () => {
 
 ### Un mini-Pokédex
 
-Le grand final : on tape un nom de Pokémon, on interroge l'API, et on affiche son image et ses stats. C'est exactement le mécanisme qu'on utilisera avec Supabase au brief 3.
+Le grand final : on tape un nom de Pokémon, on interroge l'API, et on affiche son image et ses stats. C'est exactement le mécanisme qu'on utilise avec Supabase à l'étape 6 du brief.
 
 Important : l'API ne connaît que les noms **en anglais** (ou le numéro du Pokémon). Donc `charizard` fonctionne, mais `dracaufeu` non.
 

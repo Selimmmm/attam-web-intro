@@ -231,31 +231,32 @@
   </div>
   <article class="prose"><h1 id="bienvenue">Bienvenue</h1>
 <ul>
-<li>Cette semaine : apprendre à construire une page web, la publier en ligne, et la connecter à une base de données.</li>
-<li>Tu écris le code toi-même, étape par étape, pour comprendre comment chaque morceau fonctionne.</li>
+<li>Ce module : construire une page web, la publier en ligne, et la connecter à une base de données. Tout dans un seul projet fil rouge.</li>
+<li>Vous écrivez le code vous-mêmes, étape par étape, pour comprendre comment chaque morceau fonctionne.</li>
 </ul>
 <h2 id="au-programme">Au programme</h2>
 <ul>
-<li><strong>Git et GitHub</strong> : suivre les versions de son code et le publier.</li>
 <li><strong>HTML</strong> : le contenu et la structure de la page.</li>
-<li><strong>CSS</strong> : l'apparence (couleurs, formes, mise en page).</li>
+<li><strong>CSS, Tailwind et daisyUI</strong> : l'apparence (couleurs, mise en page, composants prêts à l'emploi).</li>
 <li><strong>JavaScript</strong> : le comportement, ce qui réagit aux actions de l'utilisateur.</li>
-<li><strong>Supabase</strong> : lire et écrire dans une base de données, directement depuis la page, sans serveur à développer.</li>
+<li><strong>GitHub Pages</strong> : publier la page en ligne, sur une adresse publique.</li>
+<li><strong>Supabase</strong> : enregistrer les messages d'un formulaire dans une base de données, directement depuis la page, sans serveur à développer.</li>
 </ul>
 <pre class="mermaid">flowchart LR
-  HTML[HTML&lt;br/&gt;le contenu] --&gt; CSS[CSS&lt;br/&gt;l&#x27;apparence]
+  HTML[HTML&lt;br/&gt;le contenu] --&gt; CSS[CSS + Tailwind&lt;br/&gt;l&#x27;apparence]
   CSS --&gt; JS[JavaScript&lt;br/&gt;le comportement]
-  JS --&gt; Git[Git + GitHub&lt;br/&gt;publier]
+  JS --&gt; Git[GitHub Pages&lt;br/&gt;publier]
   Git --&gt; Supa[Supabase&lt;br/&gt;la base de données]</pre>
-<h2 id="le-projet-de-la-semaine">Le projet de la semaine</h2>
+<h2 id="le-projet">Le projet</h2>
+<p>Une seule page, qu'on construit puis qu'on enrichit étape par étape :</p>
 <ul>
-<li><strong>Jour 1</strong> : ta page de présentation (HTML, CSS, une première interaction en JavaScript).</li>
-<li><strong>Jour 2</strong> : mise en ligne de la page sur GitHub Pages, avec une fonctionnalité supplémentaire.</li>
-<li><strong>Jour 3</strong> : un mur de messages partagé par la promo, connecté à Supabase.</li>
+<li>présenter une application (titre, capture, description, lien) ;</li>
+<li>l'habiller avec Tailwind et daisyUI ;</li>
+<li>la publier en ligne sur GitHub Pages ;</li>
+<li>y ajouter un formulaire de contact qui enregistre les messages dans Supabase.</li>
 </ul>
 <pre class="mermaid">flowchart LR
-  J1[Jour 1&lt;br/&gt;ma page de présentation] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
-  J2 --&gt; J3[Jour 3&lt;br/&gt;le mur de la promo]</pre>
+  P[Présentation&lt;br/&gt;HTML] --&gt; S[Style&lt;br/&gt;Tailwind] --&gt; L[En ligne&lt;br/&gt;GitHub Pages] --&gt; F[Formulaire&lt;br/&gt;+ Supabase]</pre>
 <h2 id="lacces-a-une-base-de-donnees-depuis-le-navigateur">L'accès à une base de données depuis le navigateur</h2>
 <ul>
 <li>La page envoie une requête à l'API de Supabase.</li>
@@ -267,52 +268,55 @@
   API --&gt; BDD[(Base de données)]
   BDD --&gt; API
   API --&gt;|données JSON| Page</pre>
-<h2 id="ce-que-tu-sauras-faire-a-la-fin">Ce que tu sauras faire à la fin</h2>
+<h2 id="ce-que-vous-saurez-faire-a-la-fin">Ce que vous saurez faire à la fin</h2>
 <ul>
 <li>Lire et modifier une page web.</li>
-<li>Suivre les versions de ton code et le publier avec une adresse publique.</li>
-<li>Connecter une page à une base de données.</li>
+<li>L'habiller rapidement avec Tailwind et daisyUI.</li>
+<li>La publier avec une adresse publique.</li>
+<li>Enregistrer des données dans une base depuis la page.</li>
 <li>Rédiger de la documentation en Markdown.</li>
 </ul>
 <h2 id="methode-de-travail">Méthode de travail</h2>
 <ul>
-<li>Les étapes <strong>● principal</strong> constituent le cœur de chaque journée : à terminer en priorité.</li>
-<li>Les étapes <strong>○ bonus</strong> servent à aller plus loin une fois le principal terminé.</li>
-<li>Tiens un fichier <strong><code>JOURNAL.md</code></strong> en Markdown à chaque étape.</li>
-<li>La page « Cours » est interactive : utilise-la pour tester du code.</li>
-<li>Choisis un brief dans le menu de gauche pour commencer.</li>
+<li>Les étapes <strong>● principal</strong> sont le cœur du brief : à terminer en priorité.</li>
+<li>Les étapes <strong>○ bonus / facultatif</strong> servent à aller plus loin une fois le principal terminé.</li>
+<li>Tenez un fichier <strong><code>JOURNAL.md</code></strong> en Markdown à chaque étape.</li>
+<li>La page « Cours » est interactive : utilisez-la pour tester du code.</li>
+<li>Ouvrez le <strong>brief</strong> dans le menu de gauche pour commencer.</li>
 </ul></article>
   <pre class="md-source" id="src-accueil" hidden><code># Bienvenue
 
-- Cette semaine : apprendre à construire une page web, la publier en ligne, et la connecter à une base de données.
-- Tu écris le code toi-même, étape par étape, pour comprendre comment chaque morceau fonctionne.
+- Ce module : construire une page web, la publier en ligne, et la connecter à une base de données. Tout dans un seul projet fil rouge.
+- Vous écrivez le code vous-mêmes, étape par étape, pour comprendre comment chaque morceau fonctionne.
 
 ## Au programme
 
-- **Git et GitHub** : suivre les versions de son code et le publier.
 - **HTML** : le contenu et la structure de la page.
-- **CSS** : l&#x27;apparence (couleurs, formes, mise en page).
+- **CSS, Tailwind et daisyUI** : l&#x27;apparence (couleurs, mise en page, composants prêts à l&#x27;emploi).
 - **JavaScript** : le comportement, ce qui réagit aux actions de l&#x27;utilisateur.
-- **Supabase** : lire et écrire dans une base de données, directement depuis la page, sans serveur à développer.
+- **GitHub Pages** : publier la page en ligne, sur une adresse publique.
+- **Supabase** : enregistrer les messages d&#x27;un formulaire dans une base de données, directement depuis la page, sans serveur à développer.
 
 ```mermaid
 flowchart LR
-  HTML[HTML&lt;br/&gt;le contenu] --&gt; CSS[CSS&lt;br/&gt;l&#x27;apparence]
+  HTML[HTML&lt;br/&gt;le contenu] --&gt; CSS[CSS + Tailwind&lt;br/&gt;l&#x27;apparence]
   CSS --&gt; JS[JavaScript&lt;br/&gt;le comportement]
-  JS --&gt; Git[Git + GitHub&lt;br/&gt;publier]
+  JS --&gt; Git[GitHub Pages&lt;br/&gt;publier]
   Git --&gt; Supa[Supabase&lt;br/&gt;la base de données]
 ```
 
-## Le projet de la semaine
+## Le projet
 
-- **Jour 1** : ta page de présentation (HTML, CSS, une première interaction en JavaScript).
-- **Jour 2** : mise en ligne de la page sur GitHub Pages, avec une fonctionnalité supplémentaire.
-- **Jour 3** : un mur de messages partagé par la promo, connecté à Supabase.
+Une seule page, qu&#x27;on construit puis qu&#x27;on enrichit étape par étape :
+
+- présenter une application (titre, capture, description, lien) ;
+- l&#x27;habiller avec Tailwind et daisyUI ;
+- la publier en ligne sur GitHub Pages ;
+- y ajouter un formulaire de contact qui enregistre les messages dans Supabase.
 
 ```mermaid
 flowchart LR
-  J1[Jour 1&lt;br/&gt;ma page de présentation] --&gt; J2[Jour 2&lt;br/&gt;en ligne sur GitHub]
-  J2 --&gt; J3[Jour 3&lt;br/&gt;le mur de la promo]
+  P[Présentation&lt;br/&gt;HTML] --&gt; S[Style&lt;br/&gt;Tailwind] --&gt; L[En ligne&lt;br/&gt;GitHub Pages] --&gt; F[Formulaire&lt;br/&gt;+ Supabase]
 ```
 
 ## L&#x27;accès à une base de données depuis le navigateur
@@ -329,20 +333,21 @@ flowchart LR
   API --&gt;|données JSON| Page
 ```
 
-## Ce que tu sauras faire à la fin
+## Ce que vous saurez faire à la fin
 
 - Lire et modifier une page web.
-- Suivre les versions de ton code et le publier avec une adresse publique.
-- Connecter une page à une base de données.
+- L&#x27;habiller rapidement avec Tailwind et daisyUI.
+- La publier avec une adresse publique.
+- Enregistrer des données dans une base depuis la page.
 - Rédiger de la documentation en Markdown.
 
 ## Méthode de travail
 
-- Les étapes **● principal** constituent le cœur de chaque journée : à terminer en priorité.
-- Les étapes **○ bonus** servent à aller plus loin une fois le principal terminé.
-- Tiens un fichier **`JOURNAL.md`** en Markdown à chaque étape.
-- La page « Cours » est interactive : utilise-la pour tester du code.
-- Choisis un brief dans le menu de gauche pour commencer.
+- Les étapes **● principal** sont le cœur du brief : à terminer en priorité.
+- Les étapes **○ bonus / facultatif** servent à aller plus loin une fois le principal terminé.
+- Tenez un fichier **`JOURNAL.md`** en Markdown à chaque étape.
+- La page « Cours » est interactive : utilisez-la pour tester du code.
+- Ouvrez le **brief** dans le menu de gauche pour commencer.
 </code></pre>
 </section>
 <section class="page" id="cours-js" hidden>
@@ -919,7 +924,7 @@ document.querySelector(&quot;#go&quot;).addEventListener(&quot;click&quot;, () =
 <div class="pg-console" aria-live="polite"></div>
 </div>
 <h3 id="un-mini-pokedex">Un mini-Pokédex</h3>
-<p>Le grand final : on tape un nom de Pokémon, on interroge l'API, et on affiche son image et ses stats. C'est exactement le mécanisme qu'on utilisera avec Supabase au brief 3.</p>
+<p>Le grand final : on tape un nom de Pokémon, on interroge l'API, et on affiche son image et ses stats. C'est exactement le mécanisme qu'on utilise avec Supabase à l'étape 6 du brief.</p>
 <p>Important : l'API ne connaît que les noms <strong>en anglais</strong> (ou le numéro du Pokémon). Donc <code>charizard</code> fonctionne, mais <code>dracaufeu</code> non.</p>
 <div class="pg" data-kind="dom">
 <div class="pg-htmllabel">HTML de départ</div>
@@ -1361,7 +1366,7 @@ document.querySelector(&quot;#chien&quot;).addEventListener(&quot;click&quot;, (
 
 ### Un mini-Pokédex
 
-Le grand final : on tape un nom de Pokémon, on interroge l&#x27;API, et on affiche son image et ses stats. C&#x27;est exactement le mécanisme qu&#x27;on utilisera avec Supabase au brief 3.
+Le grand final : on tape un nom de Pokémon, on interroge l&#x27;API, et on affiche son image et ses stats. C&#x27;est exactement le mécanisme qu&#x27;on utilise avec Supabase à l&#x27;étape 6 du brief.
 
 Important : l&#x27;API ne connaît que les noms **en anglais** (ou le numéro du Pokémon). Donc `charizard` fonctionne, mais `dracaufeu` non.
 
@@ -1725,116 +1730,227 @@ Avec ces bases (couleurs, cadres, effets au clic et au survol, mise en page), tu
   <div class="page-toolbar">
     <button class="src-toggle" data-src="src-brief-1">Voir la source Markdown</button>
   </div>
-  <article class="prose"><h1 id="brief-1-ma-page-de-presentation-html-css-puis-un-peu-de-js">Brief 1 : ma page de présentation (HTML, CSS, puis un peu de JS)</h1>
+  <article class="prose"><h1 id="brief-1-ma-page-de-presentation-en-ligne-html-tailwind-js-github-pages-supabase">Brief 1 : ma page de présentation, en ligne (HTML, Tailwind, JS, GitHub Pages, Supabase)</h1>
 <ul>
-<li><strong>Type</strong> : brief individuel</li>
-<li><strong>Durée visée</strong> : 1 journée (7h)</li>
+<li><strong>Type</strong> : brief par groupe</li>
 <li><strong>Référentiel</strong> : [2025] Mobiliser les compétences informatiques fondamentales</li>
 </ul>
-<p>Aujourd'hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une page qui présente une application, et tu sauras lire et modifier le code d'une page.</p>
+<p>Aujourd'hui, vous écrivez le code vous-mêmes, ligne par ligne, pour comprendre comment une page web est construite. À la fin, vous aurez une page qui présente une application, publiée en ligne, avec un formulaire de contact dont les messages sont enregistrés dans une base de données.</p>
 <h2 id="contexte-du-projet">Contexte du projet</h2>
-<p>Une page web, c'est trois langages qui travaillent ensemble : le <strong>HTML</strong> (le contenu et la structure : « voici un titre, voici une image »), le <strong>CSS</strong> (l'apparence : couleurs, polices, mise en page) et le <strong>JavaScript</strong> (le comportement : ce qui bouge quand on clique). On va les découvrir dans cet ordre, du plus simple au plus vivant.</p>
-<p>Le but du jour : construire <strong>ta page de présentation</strong>, une mini-page qui met en valeur l'application que tu as créée avec Google AI Studio (son nom, ce qu'elle fait, une capture, un lien pour l'essayer). C'est la première brique d'un projet qu'on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.</p>
+<p>Une page web, c'est trois langages qui travaillent ensemble : le <strong>HTML</strong> (le contenu et la structure : « voici un titre, voici une image »), le <strong>CSS</strong> (l'apparence : couleurs, polices, mise en page) et le <strong>JavaScript</strong> (le comportement : ce qui bouge quand on clique). On goûte d'abord au CSS « à la main », puis on passe à <strong>Tailwind</strong> (et daisyUI) pour styler vite, sans écrire de feuille de style.</p>
+<p>Le but du jour : construire <strong>votre page de présentation</strong>, une mini-page qui met en valeur l'application que vous avez créée avec Google AI Studio (son nom, ce qu'elle fait, une capture, un lien pour l'essayer), la <strong>mettre en ligne</strong> sur une adresse publique, et y ajouter un <strong>formulaire de contact</strong> dont les messages sont enregistrés dans une base de données.</p>
 <blockquote>
-<p>Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet personnel, une association, ou un sujet qui te tient à cœur, au lieu de l'application AI Studio. Les étapes restent exactement les mêmes.</p>
+<p>Si vous préférez un autre sujet, c'est libre : vous pouvez présenter un projet personnel, une association, ou un sujet qui vous tient à cœur, au lieu de l'application AI Studio. Les étapes restent exactement les mêmes.</p>
 </blockquote>
 <h2 id="ressources">Ressources</h2>
 <ul>
 <li>MDN, le manuel de référence du web (en français) : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development">https://developer.mozilla.org/fr/docs/Learn_web_development</a></li>
 <li>Toxicode pour s'entraîner de façon ludique : <a href="https://www.toxicode.fr/learn">https://www.toxicode.fr/learn</a></li>
 <li>Un éditeur de code (VS Code) avec l'extension Live Server.</li>
-<li>Tutoriel Git pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a></li>
+<li>GitHub Pages, démarrage : <a href="https://pages.github.com/">https://pages.github.com/</a></li>
+<li>Tailwind (classes utilitaires) : <a href="https://tailwindcss.com/docs/styling-with-utility-classes">https://tailwindcss.com/docs/styling-with-utility-classes</a></li>
+<li>daisyUI (composants) et ses thèmes : <a href="https://daisyui.com/components/">https://daisyui.com/components/</a> · <a href="https://daisyui.com/docs/themes/">https://daisyui.com/docs/themes/</a></li>
+<li>Supabase, doc JavaScript : <a href="https://supabase.com/docs/reference/javascript/introduction">https://supabase.com/docs/reference/javascript/introduction</a></li>
 <li>Antisèche Markdown : <a href="https://www.markdownguide.org/cheat-sheet/">https://www.markdownguide.org/cheat-sheet/</a></li>
 </ul>
 <h2 id="modalites-pedagogiques">Modalités pédagogiques</h2>
-<p>Travail individuel, avec démos collectives du formateur entre chaque étape. On code en direct, on casse, on répare. Chaque étape est découpée en petits pas : fais-les <strong>un par un</strong>, et vérifie le résultat dans le navigateur après chaque pas avant de passer au suivant.</p>
+<p>Travail en groupe, avec démos collectives du formateur entre chaque étape. On code en direct, on casse, on répare. Chaque étape est découpée en petits pas : faites-les <strong>un par un</strong>, et vérifiez le résultat dans le navigateur après chaque pas avant de passer au suivant. Répartissez-vous les rôles dans le groupe, mais avancez sur <strong>une seule page</strong> commune.</p>
 <h3 class="is-principal" id="etape-1-principal-le-squelette-html">Étape 1 (⭐ principal) : le squelette HTML</h3>
 <p>Objectif : comprendre qu'une page HTML est une structure d'éléments imbriqués, et savoir nommer les balises de base.</p>
 <ol>
-<li>Crée un dossier <code>ma-page</code> sur ton ordinateur, et dedans un fichier vide nommé <code>index.html</code>.</li>
-<li>Ouvre ce dossier dans VS Code.</li>
-<li>Tape le squelette d'une page : <code>&lt;!DOCTYPE html&gt;</code>, puis <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> et <code>&lt;body&gt;</code>. (Astuce : taper <code>!</code> puis Entrée dans VS Code génère le squelette.)</li>
-<li>Ouvre <code>index.html</code> dans ton navigateur (ou clic droit → « Open with Live Server »). Tu vois une page blanche : c'est normal.</li>
-<li>Dans le <code>&lt;body&gt;</code>, ajoute un titre avec le nom de ton appli : <code>&lt;h1&gt;…&lt;/h1&gt;</code>. Recharge la page.</li>
-<li>Ajoute une capture d'écran de ton appli : <code>&lt;img src="..." alt="capture de mon appli"&gt;</code>.</li>
-<li>Ajoute un paragraphe qui explique ce que fait l'appli : <code>&lt;p&gt;…&lt;/p&gt;</code>.</li>
-<li>Ajoute une liste de 3 fonctionnalités (ce qu'on peut faire avec) : un <code>&lt;ul&gt;</code> qui contient trois <code>&lt;li&gt;</code>.</li>
-<li>Ajoute au moins un lien pour essayer l'appli en ligne : <code>&lt;a href="..."&gt;…&lt;/a&gt;</code>.</li>
+<li>Créez un dossier <code>ma-page</code> sur votre ordinateur, et dedans un fichier vide nommé <code>index.html</code>.</li>
+<li>Ouvrez ce dossier dans VS Code.</li>
+<li>Tapez le squelette d'une page : <code>&lt;!DOCTYPE html&gt;</code>, puis <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> et <code>&lt;body&gt;</code>. (Astuce : taper <code>!</code> puis Entrée dans VS Code génère le squelette.)</li>
+<li>Ouvrez <code>index.html</code> dans votre navigateur (ou clic droit → « Open with Live Server »). Vous voyez une page blanche : c'est normal.</li>
+<li>Dans le <code>&lt;body&gt;</code>, ajoutez un titre avec le nom de votre appli : <code>&lt;h1&gt;…&lt;/h1&gt;</code>. Rechargez la page.</li>
+<li>Ajoutez une capture d'écran de votre appli : <code>&lt;img src="..." alt="capture de mon appli"&gt;</code>.</li>
+<li>Ajoutez un paragraphe qui explique ce que fait l'appli : <code>&lt;p&gt;…&lt;/p&gt;</code>.</li>
+<li>Ajoutez une liste de 3 fonctionnalités (ce qu'on peut faire avec) : un <code>&lt;ul&gt;</code> qui contient trois <code>&lt;li&gt;</code>.</li>
+<li>Ajoutez au moins un lien pour essayer l'appli en ligne : <code>&lt;a href="..."&gt;…&lt;/a&gt;</code>.</li>
 </ol>
-<p>À la fin : ta page affiche tout son contenu, sans style. C'est volontaire, on l'habille à l'étape suivante.</p>
-<h3 class="is-principal" id="etape-2-principal-lhabillage-css">Étape 2 (⭐ principal) : l'habillage CSS</h3>
-<p>Objectif : comprendre qu'on sélectionne des éléments HTML et qu'on leur applique des règles de style.</p>
+<p>À la fin : votre page affiche tout son contenu, sans style. C'est volontaire, on l'habille à l'étape suivante.</p>
+<h3 class="is-bonus" id="etape-2-facultatif-un-avant-gout-de-css">Étape 2 (○ facultatif) : un avant-goût de CSS</h3>
+<p>Objectif : comprendre qu'on sélectionne des éléments HTML et qu'on leur applique des règles de style. On n'en fait qu'un avant-goût : à l'étape Tailwind, on stylera beaucoup plus vite.</p>
 <ol>
-<li>Crée un fichier <code>style.css</code> dans le même dossier.</li>
-<li>Relie-le à ta page : dans le <code>&lt;head&gt;</code> de <code>index.html</code>, ajoute <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>.</li>
-<li>Vérifie la liaison : dans <code>style.css</code>, écris <code>body { background: lightblue; }</code> et recharge. Si le fond change, c'est branché.</li>
-<li>Change la couleur du fond et celle du texte à ton goût.</li>
-<li>Choisis une police lisible (<code>font-family</code>) et une taille de texte agréable.</li>
-<li>Donne de l'air : ajoute des marges et du <code>padding</code> pour que ça respire.</li>
-<li>Arrondis les coins de la capture avec <code>border-radius: 12px;</code> sur le <code>&lt;img&gt;</code>.</li>
-<li>Centre ta page au milieu de la fenêtre.</li>
+<li>Créez un fichier <code>style.css</code> dans le même dossier.</li>
+<li>Reliez-le à votre page : dans le <code>&lt;head&gt;</code> de <code>index.html</code>, ajoutez <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>.</li>
+<li>Vérifiez la liaison : dans <code>style.css</code>, écrivez <code>body { background: lightblue; }</code> et rechargez. Si le fond change, c'est branché.</li>
+<li>Changez la couleur du fond et celle du texte, choisissez une police lisible (<code>font-family</code>).</li>
 </ol>
-<p>À la fin : la même page, mais agréable à regarder.</p>
-<h3 class="is-principal" id="etape-3-principal-une-premiere-interaction-js">Étape 3 (⭐ principal) : une première interaction JS</h3>
-<p>Objectif : comprendre qu'on peut réagir à un clic et modifier la page en direct. Une seule interaction qui marche vaut mieux que trois à moitié faites.</p>
+<p>À la fin : vous avez vu comment marche une feuille de style. À l'étape 3, Tailwind fera la même chose, mais directement dans les attributs <code>class</code>.</p>
+<h3 class="is-principal" id="etape-3-principal-styler-avec-tailwind-et-daisyui">Étape 3 (⭐ principal) : styler avec Tailwind et daisyUI</h3>
+<p>Objectif : styler vite, sans écrire de CSS, en posant des classes « utilitaires » sur vos balises et en utilisant des composants prêts à l'emploi.</p>
 <ol>
-<li>Crée un fichier <code>script.js</code>. Relie-le juste avant <code>&lt;/body&gt;</code> : <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>.</li>
-<li>Vérifie la liaison : dans <code>script.js</code>, écris <code>console.log("ça marche");</code>. Ouvre la console du navigateur (F12) et vérifie que le message s'affiche.</li>
-<li>Ajoute un bouton dans ton HTML : <code>&lt;button id="bouton"&gt;Clique-moi&lt;/button&gt;</code>.</li>
-<li>Dans le JS, récupère ce bouton : <code>const bouton = document.querySelector("#bouton");</code>.</li>
-<li>Réagis au clic : <code>bouton.addEventListener("click", () =&gt; { ... });</code>.</li>
-<li>À l'intérieur, fais une seule chose visible, au choix :<ul>
-<li>passer la page en <strong>mode sombre</strong> (changer <code>document.body.style.background</code> et la couleur du texte),</li>
-<li>afficher une <strong>phrase surprise</strong> (changer le <code>textContent</code> d'un paragraphe),</li>
-<li><strong>compter les clics</strong> (une variable qui augmente et s'affiche).</li>
+<li>Dans le <code>&lt;head&gt;</code> de <code>index.html</code>, ajoutez ces trois lignes (Tailwind, daisyUI, et ses thèmes) :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/daisyui@5/themes.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+<ol start="2">
+<li>Choisissez un thème daisyUI sur la balise <code>&lt;html&gt;</code> : <code>&lt;html lang="fr" data-theme="nord"&gt;</code> (essayez aussi <code>bumblebee</code>, <code>dracula</code>… galerie : <a href="https://daisyui.com/docs/themes/">https://daisyui.com/docs/themes/</a>).</li>
+<li>Posez quelques classes Tailwind sur vos balises : par exemple <code>class="text-3xl font-bold"</code> sur le <code>&lt;h1&gt;</code>, <code>class="rounded-xl shadow-lg"</code> sur le <code>&lt;img&gt;</code>, et un conteneur <code>class="p-6 max-w-2xl mx-auto"</code> pour centrer et aérer.</li>
+<li>Utilisez au moins <strong>un composant daisyUI</strong>, par exemple une carte pour présenter votre appli :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card w-96 bg-base-100 shadow-sm&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-body&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-title&quot;</span><span class="p">&gt;</span>Mon appli<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Ce qu&#39;elle fait, en deux phrases.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<ol start="5">
+<li>Rechargez : le style s'applique sans aucun fichier CSS.</li>
+</ol>
+<p>À la fin : votre page est habillée avec Tailwind et utilise au moins un composant daisyUI.</p>
+<h3 class="is-principal" id="etape-4-principal-mettre-votre-page-en-ligne-github-pages">Étape 4 (⭐ principal) : mettre votre page en ligne (GitHub Pages)</h3>
+<p>Objectif : votre page n'existe que sur votre ordinateur. Là, vous lui donnez une <strong>adresse publique</strong> partageable, et vous apprenez à la mettre à jour. Mettre un site « en ligne », c'est le déposer sur un serveur accessible à tous ; GitHub le fait gratuitement avec <strong>GitHub Pages</strong>.</p>
+<ol>
+<li>Créez un compte GitHub (gratuit) et confirmez l'adresse e-mail. Un seul compte pour le groupe suffit.</li>
+<li>Cliquez « New repository », nommez-le comme vous voulez (<code>ma-page</code> par exemple : lettres, chiffres et tirets, pas d'espaces) et cochez « Public ».</li>
+<li>Sur la page du dépôt : « Add file » → « Upload files », glissez-déposez vos fichiers (<code>index.html</code>, et <code>style.css</code> si vous l'avez fait), puis « Commit changes ».</li>
+<li>Onglet « Settings » → « Pages » : choisissez la branche <code>main</code> comme source et cliquez « Save ».</li>
+<li>Attendez une minute, rechargez « Settings » → « Pages » : GitHub y affiche l'URL publique, de la forme <code>https://votre-pseudo.github.io/nom-du-repo/</code>. Ouvrez-la, votre page doit s'afficher.</li>
+<li>Gardez des chemins <strong>relatifs</strong> dans votre HTML (<code>style.css</code>, <code>script.js</code>, pas <code>/style.css</code>) pour que tout soit trouvé dans le sous-dossier.</li>
+</ol>
+<p>À chaque modification suivante, vous ré-uploaderez vos fichiers de la même façon (« Add file » → « Upload files »), et vous rechargerez l'URL pour voir le changement en ligne.</p>
+<h3 class="is-principal" id="etape-5-principal-un-formulaire-de-contact-tailwind-js">Étape 5 (⭐ principal) : un formulaire de contact (Tailwind + JS)</h3>
+<p>Objectif : construire un formulaire, le styler avec daisyUI, lire la saisie en JavaScript, la valider et réagir à l'envoi.</p>
+<ol>
+<li>Dans <code>index.html</code>, ajoutez un <code>&lt;form&gt;</code> avec au moins trois champs, stylés avec les classes daisyUI :<ul>
+<li>un champ <strong>nom</strong> (<code>&lt;input type="text" class="input" id="nom"&gt;</code>),</li>
+<li>un champ <strong>e-mail</strong> (<code>&lt;input type="email" class="input" id="email"&gt;</code>),</li>
+<li>un champ <strong>message</strong> (<code>&lt;textarea class="textarea" id="message"&gt;&lt;/textarea&gt;</code>),</li>
+<li>un bouton d'envoi (<code>&lt;button type="submit" class="btn btn-primary"&gt;Envoyer&lt;/button&gt;</code>).</li>
 </ul>
 </li>
+<li>Mettez un <code>&lt;label&gt;</code> devant chaque champ. Prévoyez une zone de retour vide : <code>&lt;p id="confirmation"&gt;&lt;/p&gt;</code>.</li>
+<li>Créez <code>script.js</code> et reliez-le juste avant <code>&lt;/body&gt;</code> : <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>.</li>
+<li>Dans <code>script.js</code>, récupérez le formulaire et les champs avec <code>document.querySelector(...)</code>.</li>
+<li>Branchez l'envoi avec <code>addEventListener("submit", ...)</code> et appelez <code>event.preventDefault()</code> pour empêcher le rechargement de la page.</li>
+<li>Vérifiez que les champs ne sont pas vides et que l'e-mail contient bien un <code>@</code>. Si quelque chose manque, affichez un message d'erreur ; sinon, affichez une confirmation du type « Merci NOM, ton message a bien été pris en compte ».</li>
+<li>Testez en local, puis ré-uploadez <code>index.html</code> et <code>script.js</code> sur GitHub et vérifiez sur l'URL publique.</li>
 </ol>
-<p>À la fin : un clic produit un effet visible sur ta page.</p>
-<h3 class="is-principal" id="etape-4-principal-decouverte-de-git-et-github">Étape 4 (⭐ principal) : découverte de Git et GitHub</h3>
-<p>Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta page demain.</p>
+<blockquote>
+<p>Note : GitHub Pages héberge un site statique, sans serveur. Pour l'instant, votre formulaire valide la saisie et affiche un retour, mais le message n'est enregistré nulle part. À l'étape 6, vous le rangez pour de vrai dans une base de données.</p>
+</blockquote>
+<h3 class="is-principal" id="etape-6-principal-enregistrer-le-formulaire-dans-supabase">Étape 6 (⭐ principal) : enregistrer le formulaire dans Supabase</h3>
+<p>Objectif : ranger les messages du formulaire dans une vraie base de données, <strong>directement depuis le JavaScript du navigateur</strong>, sans serveur à coder. C'est ce que permet <strong>Supabase</strong> : dès qu'on crée une table, il génère une API appelable depuis le front.</p>
+<p><strong>Créez votre compte et votre projet</strong></p>
 <ol>
-<li>Retiens la différence en une phrase :<ul>
-<li><strong>Git</strong> : un outil qui garde l'historique des versions de ton code (qui a changé quoi, et quand).</li>
-<li><strong>GitHub</strong> : le site où on dépose ce code, où on le partage et où on le publie.</li>
-</ul>
-</li>
-<li>Crée un compte sur GitHub (gratuit) et confirme ton adresse e-mail.</li>
-<li>Ouvre le tutoriel pas à pas : <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a>.</li>
-<li>Parcours-le tranquillement et repère les quatre commandes qui reviennent : <code>git init</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>.</li>
-<li>Note dans ton <code>JOURNAL.md</code>, avec tes mots, à quoi sert chacune de ces commandes.</li>
+<li>Allez sur <a href="https://supabase.com">https://supabase.com</a>, créez un compte (gratuit) et confirmez l'e-mail. Un seul projet pour le groupe suffit.</li>
+<li>Cliquez « New project », donnez-lui un nom, choisissez un mot de passe pour la base et attendez que le projet soit prêt (une à deux minutes).</li>
+<li>Dans le menu « SQL Editor », collez ce code et cliquez « Run » pour créer la table :</li>
 </ol>
-<p>On ne tape pas encore les commandes aujourd'hui : c'est une première découverte. On s'en sert pour de vrai au brief 2 (la pratique de Git en ligne de commande y est en bonus).</p>
-<h3 class="is-bonus" id="etape-5-bonus-si-le-temps">Étape 5 (○ bonus, si le temps)</h3>
-<p>À piocher dans l'ordre que tu veux, un seul suffit :</p>
+<div class="codehilite"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">contacts</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="k">generated</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">identity</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span>
+<span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="n">timestamptz</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span>
+<span class="w">  </span><span class="n">nom</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">  </span><span class="n">email</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">  </span><span class="n">message</span><span class="w"> </span><span class="nb">text</span>
+<span class="p">);</span>
+</code></pre></div>
+
+<ol start="4">
+<li>Activez la sécurité au niveau des lignes (RLS) et autorisez <strong>l'envoi</strong> par tout le monde. Toujours dans le SQL Editor :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">contacts</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="k">security</span><span class="p">;</span>
+
+<span class="k">create</span><span class="w"> </span><span class="n">policy</span><span class="w"> </span><span class="ss">&quot;Tout le monde peut envoyer un message&quot;</span>
+<span class="w">  </span><span class="k">on</span><span class="w"> </span><span class="n">contacts</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">insert</span>
+<span class="w">  </span><span class="k">to</span><span class="w"> </span><span class="n">anon</span>
+<span class="w">  </span><span class="k">with</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</code></pre></div>
+
+<ol start="5">
+<li>Récupérez vos deux identifiants dans « Project Settings » → « API » : l'<strong>URL du projet</strong> (<code>https://xxxx.supabase.co</code>) et la <strong>clé anon</strong> (la clé « anon public »).</li>
+</ol>
+<p><strong>Branchez votre formulaire</strong></p>
+<ol start="6">
+<li>Donnez un <code>id</code> à votre formulaire : <code>&lt;form id="contact"&gt;</code>.</li>
+<li>Dans <code>index.html</code>, chargez la librairie Supabase, puis votre <code>script.js</code> <strong>juste après</strong>. L'ordre compte : <code>script.js</code> utilise <code>window.supabase</code>, donc la librairie doit être chargée avant. Placez les deux lignes ensemble, juste avant <code>&lt;/body&gt;</code> :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;script.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>(Si vous aviez déjà mis <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code> à l'étape 5, déplacez-le ici, après la ligne Supabase, et ne le laissez qu'une seule fois.)</p>
+<ol start="8">
+<li>Dans <code>script.js</code>, créez le client puis enregistrez la saisie à l'envoi. Remplacez votre ancien code par celui-ci (avec vos propres URL et clé) :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">URL_SUPABASE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://xxxx.supabase.co&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// votre URL de projet</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">CLE_ANON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOi...&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// votre clé anon (Project Settings → API)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">supabase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">supabase</span><span class="p">.</span><span class="nx">createClient</span><span class="p">(</span><span class="nx">URL_SUPABASE</span><span class="p">,</span><span class="w"> </span><span class="nx">CLE_ANON</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#contact&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">confirmation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#confirmation&quot;</span><span class="p">);</span>
+
+<span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;submit&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"> </span><span class="c1">// empêche le rechargement de la page</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#nom&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#email&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#message&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">nom</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">email</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">confirmation</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Remplis tous les champs avec un e-mail valide.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">supabase</span>
+<span class="w">    </span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="s2">&quot;contacts&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="w"> </span><span class="nx">nom</span><span class="o">:</span><span class="w"> </span><span class="nx">nom</span><span class="p">,</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">confirmation</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Oups, l&#39;envoi a échoué. Réessaie.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">confirmation</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Merci </span><span class="si">${</span><span class="nx">nom</span><span class="si">}</span><span class="sb">, ton message a bien été enregistré.`</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">form</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<ol start="9">
+<li>Testez en local : envoyez un message, puis allez voir dans Supabase « Table Editor » → <code>contacts</code>. Votre ligne doit y être.</li>
+<li>Ré-uploadez <code>index.html</code> et <code>script.js</code> sur GitHub, et vérifiez que ça marche aussi sur l'URL publique.</li>
+</ol>
+<blockquote>
+<p>La clé anon est <strong>publique</strong>, c'est normal : elle finit dans le code envoyé au navigateur. Ce qui protège les données, ce sont les règles <strong>RLS</strong> (Row Level Security). Ici on autorise seulement l'<strong>insertion</strong> : personne ne peut lire les messages des autres depuis le front. On pourra creuser ce sujet plus tard (lecture des données, règles d'accès plus fines).</p>
+</blockquote>
+<h3 class="is-bonus" id="etape-7-bonus-si-le-temps">Étape 7 (○ bonus, si le temps)</h3>
+<p>À piocher dans l'ordre que vous voulez :</p>
 <ol>
-<li>Ajouter une <strong>animation CSS</strong> : la capture qui grossit au survol (<code>:hover</code> + <code>transform: scale(...)</code>).</li>
-<li>Proposer <strong>plusieurs thèmes</strong> de couleurs au lieu d'un seul mode sombre.</li>
-<li>Rendre la page <strong>responsive</strong> : jolie aussi sur téléphone.</li>
+<li>Soigner les <strong>messages d'erreur</strong> du formulaire : dire précisément quel champ pose problème.</li>
+<li>Proposer <strong>plusieurs thèmes</strong> daisyUI au choix (un bouton qui change l'attribut <code>data-theme</code>).</li>
+<li>Rendre la page <strong>responsive</strong> (préfixes Tailwind <code>sm:</code>, <code>md:</code>…).</li>
 <li>Ajouter une petite icône d'onglet (favicon).</li>
-<li>Installer Git et <strong>essayer</strong> les commandes du tutoriel sur un dossier de test.</li>
+<li>Découvrir <strong>Git en ligne de commande</strong> : installez Git et essayez <code>git clone</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code> en suivant <a href="https://github.com/Selimmmm/git_step_by_step">https://github.com/Selimmmm/git_step_by_step</a>.</li>
 </ol>
 <h2 id="travail-sur-le-markdown-principal-transverse">Travail sur le Markdown (⭐ principal, transverse)</h2>
-<p>Crée un fichier <code>JOURNAL.md</code>. C'est un fichier texte écrit en <strong>Markdown</strong>, le langage qui sert à écrire de la doc lisible (c'est ce qui formate les messages sur Discord, les README sur GitHub, etc.). Dedans, explique avec tes mots :</p>
+<p>Créez un fichier <code>JOURNAL.md</code>. C'est un fichier texte écrit en <strong>Markdown</strong>, le langage qui sert à écrire de la doc lisible (c'est ce qui formate les messages sur Discord, les README sur GitHub, etc.). Dedans, expliquez avec vos mots :</p>
 <ul>
 <li>ce qu'est le HTML, le CSS, le JS, en une phrase chacun,</li>
-<li>ce que tu as construit aujourd'hui,</li>
-<li>une difficulté rencontrée et comment tu l'as réglée.</li>
+<li>ce que vous avez construit aujourd'hui,</li>
+<li>une difficulté rencontrée et comment vous l'avez réglée.</li>
 </ul>
-<p>Utilise au moins : un titre (<code>#</code>), une liste, un mot en <strong>gras</strong>, et un bloc de code (avec des <code>```</code>). C'est ton premier vrai Markdown, on s'en resservira toute la semaine.</p>
+<p>Utilisez au moins : un titre (<code>#</code>), une liste, un mot en <strong>gras</strong>, et un bloc de code (avec des <code>```</code>). C'est votre premier vrai Markdown, on s'en resservira toute la semaine.</p>
 <h2 id="modalites-devaluation">Modalités d'évaluation</h2>
-<p>Démonstration de la page au formateur en fin de journée, et dépôt des fichiers (<code>index.html</code>, <code>style.css</code>, <code>script.js</code>, <code>JOURNAL.md</code>) sur SimplonLine.</p>
+<p>Le formateur ouvre l'URL publique de la page depuis son poste en fin de journée, et le groupe fait la démo du formulaire. Dépôt sur SimplonLine de l'URL publique et des fichiers (<code>index.html</code>, <code>script.js</code>, <code>JOURNAL.md</code>, et <code>style.css</code> s'il a été fait).</p>
 <h2 id="livrables">Livrables</h2>
 <ol>
-<li>Les fichiers <code>index.html</code>, <code>style.css</code>, <code>script.js</code> de ta page de présentation.</li>
+<li>L'<strong>URL publique</strong> de la page (<code>https://votre-pseudo.github.io/nom-du-repo/</code>), déposée sur SimplonLine.</li>
+<li>Les fichiers <code>index.html</code> et <code>script.js</code> (plus <code>style.css</code> si vous avez fait l'étape 2).</li>
 <li>Le fichier <code>JOURNAL.md</code> rempli (rendu Markdown explicatif).</li>
 </ol>
 <h2 id="criteres-de-performance">Critères de performance</h2>
 <ul>
-<li>La page s'ouvre dans le navigateur et affiche une présentation complète (titre, capture, description, lien).</li>
-<li>Le HTML, le CSS et le JS sont dans <strong>trois fichiers séparés</strong> et reliés correctement.</li>
-<li>Au moins une interaction JS fonctionne (un clic produit un effet visible).</li>
-<li>Le compte GitHub est créé, et l'élève sait dire à quoi servent <code>git add</code>, <code>git commit</code> et <code>git push</code>.</li>
+<li>La page est accessible publiquement à son URL et affiche une présentation complète (titre, capture, description, lien).</li>
+<li>La page est habillée avec <strong>Tailwind</strong> et utilise au moins un <strong>composant daisyUI</strong>.</li>
+<li>Le formulaire de contact valide les champs et affiche un message de retour clair, sans erreur dans le navigateur.</li>
+<li>Un message envoyé via le formulaire est bien enregistré dans la table Supabase du groupe.</li>
 <li>Le <code>JOURNAL.md</code> est lisible et utilise au moins quatre éléments Markdown différents.</li>
 </ul>
 <h2 id="situation-professionnelle">Situation professionnelle</h2>
@@ -1848,130 +1964,245 @@ niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
 niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p>
 <p><strong>C4. Rechercher de façon méthodique une ou des solutions au problème rencontré</strong>
 niveau 1, imiter · niveau 2, adapter · niveau 3, transposer</p></article>
-  <pre class="md-source" id="src-brief-1" hidden><code># Brief 1 : ma page de présentation (HTML, CSS, puis un peu de JS)
+  <pre class="md-source" id="src-brief-1" hidden><code># Brief 1 : ma page de présentation, en ligne (HTML, Tailwind, JS, GitHub Pages, Supabase)
 
-- **Type** : brief individuel
-- **Durée visée** : 1 journée (7h)
+- **Type** : brief par groupe
 - **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 
-Aujourd&#x27;hui, tu écris le code toi-même, ligne par ligne, pour comprendre comment une page web est construite. À la fin de la journée, tu auras une page qui présente une application, et tu sauras lire et modifier le code d&#x27;une page.
+Aujourd&#x27;hui, vous écrivez le code vous-mêmes, ligne par ligne, pour comprendre comment une page web est construite. À la fin, vous aurez une page qui présente une application, publiée en ligne, avec un formulaire de contact dont les messages sont enregistrés dans une base de données.
 
 ## Contexte du projet
 
-Une page web, c&#x27;est trois langages qui travaillent ensemble : le **HTML** (le contenu et la structure : « voici un titre, voici une image »), le **CSS** (l&#x27;apparence : couleurs, polices, mise en page) et le **JavaScript** (le comportement : ce qui bouge quand on clique). On va les découvrir dans cet ordre, du plus simple au plus vivant.
+Une page web, c&#x27;est trois langages qui travaillent ensemble : le **HTML** (le contenu et la structure : « voici un titre, voici une image »), le **CSS** (l&#x27;apparence : couleurs, polices, mise en page) et le **JavaScript** (le comportement : ce qui bouge quand on clique). On goûte d&#x27;abord au CSS « à la main », puis on passe à **Tailwind** (et daisyUI) pour styler vite, sans écrire de feuille de style.
 
-Le but du jour : construire **ta page de présentation**, une mini-page qui met en valeur l&#x27;application que tu as créée avec Google AI Studio (son nom, ce qu&#x27;elle fait, une capture, un lien pour l&#x27;essayer). C&#x27;est la première brique d&#x27;un projet qu&#x27;on fera grandir toute la semaine : demain on la met en ligne, après-demain on la connecte à une base de données partagée par toute la promo.
+Le but du jour : construire **votre page de présentation**, une mini-page qui met en valeur l&#x27;application que vous avez créée avec Google AI Studio (son nom, ce qu&#x27;elle fait, une capture, un lien pour l&#x27;essayer), la **mettre en ligne** sur une adresse publique, et y ajouter un **formulaire de contact** dont les messages sont enregistrés dans une base de données.
 
-&gt; Si tu préfères travailler de ton côté, le sujet est libre : tu peux présenter un projet personnel, une association, ou un sujet qui te tient à cœur, au lieu de l&#x27;application AI Studio. Les étapes restent exactement les mêmes.
+&gt; Si vous préférez un autre sujet, c&#x27;est libre : vous pouvez présenter un projet personnel, une association, ou un sujet qui vous tient à cœur, au lieu de l&#x27;application AI Studio. Les étapes restent exactement les mêmes.
 
 ## Ressources
 
 - MDN, le manuel de référence du web (en français) : &lt;https://developer.mozilla.org/fr/docs/Learn_web_development&gt;
 - Toxicode pour s&#x27;entraîner de façon ludique : &lt;https://www.toxicode.fr/learn&gt;
 - Un éditeur de code (VS Code) avec l&#x27;extension Live Server.
-- Tutoriel Git pas à pas : &lt;https://github.com/Selimmmm/git_step_by_step&gt;
+- GitHub Pages, démarrage : &lt;https://pages.github.com/&gt;
+- Tailwind (classes utilitaires) : &lt;https://tailwindcss.com/docs/styling-with-utility-classes&gt;
+- daisyUI (composants) et ses thèmes : &lt;https://daisyui.com/components/&gt; · &lt;https://daisyui.com/docs/themes/&gt;
+- Supabase, doc JavaScript : &lt;https://supabase.com/docs/reference/javascript/introduction&gt;
 - Antisèche Markdown : &lt;https://www.markdownguide.org/cheat-sheet/&gt;
 
 ## Modalités pédagogiques
 
-Travail individuel, avec démos collectives du formateur entre chaque étape. On code en direct, on casse, on répare. Chaque étape est découpée en petits pas : fais-les **un par un**, et vérifie le résultat dans le navigateur après chaque pas avant de passer au suivant.
+Travail en groupe, avec démos collectives du formateur entre chaque étape. On code en direct, on casse, on répare. Chaque étape est découpée en petits pas : faites-les **un par un**, et vérifiez le résultat dans le navigateur après chaque pas avant de passer au suivant. Répartissez-vous les rôles dans le groupe, mais avancez sur **une seule page** commune.
 
 ### Étape 1 (⭐ principal) : le squelette HTML
 
 Objectif : comprendre qu&#x27;une page HTML est une structure d&#x27;éléments imbriqués, et savoir nommer les balises de base.
 
-1. Crée un dossier `ma-page` sur ton ordinateur, et dedans un fichier vide nommé `index.html`.
-2. Ouvre ce dossier dans VS Code.
-3. Tape le squelette d&#x27;une page : `&lt;!DOCTYPE html&gt;`, puis `&lt;html&gt;`, `&lt;head&gt;` et `&lt;body&gt;`. (Astuce : taper `!` puis Entrée dans VS Code génère le squelette.)
-4. Ouvre `index.html` dans ton navigateur (ou clic droit → « Open with Live Server »). Tu vois une page blanche : c&#x27;est normal.
-5. Dans le `&lt;body&gt;`, ajoute un titre avec le nom de ton appli : `&lt;h1&gt;…&lt;/h1&gt;`. Recharge la page.
-6. Ajoute une capture d&#x27;écran de ton appli : `&lt;img src=&quot;...&quot; alt=&quot;capture de mon appli&quot;&gt;`.
-7. Ajoute un paragraphe qui explique ce que fait l&#x27;appli : `&lt;p&gt;…&lt;/p&gt;`.
-8. Ajoute une liste de 3 fonctionnalités (ce qu&#x27;on peut faire avec) : un `&lt;ul&gt;` qui contient trois `&lt;li&gt;`.
-9. Ajoute au moins un lien pour essayer l&#x27;appli en ligne : `&lt;a href=&quot;...&quot;&gt;…&lt;/a&gt;`.
+1. Créez un dossier `ma-page` sur votre ordinateur, et dedans un fichier vide nommé `index.html`.
+2. Ouvrez ce dossier dans VS Code.
+3. Tapez le squelette d&#x27;une page : `&lt;!DOCTYPE html&gt;`, puis `&lt;html&gt;`, `&lt;head&gt;` et `&lt;body&gt;`. (Astuce : taper `!` puis Entrée dans VS Code génère le squelette.)
+4. Ouvrez `index.html` dans votre navigateur (ou clic droit → « Open with Live Server »). Vous voyez une page blanche : c&#x27;est normal.
+5. Dans le `&lt;body&gt;`, ajoutez un titre avec le nom de votre appli : `&lt;h1&gt;…&lt;/h1&gt;`. Rechargez la page.
+6. Ajoutez une capture d&#x27;écran de votre appli : `&lt;img src=&quot;...&quot; alt=&quot;capture de mon appli&quot;&gt;`.
+7. Ajoutez un paragraphe qui explique ce que fait l&#x27;appli : `&lt;p&gt;…&lt;/p&gt;`.
+8. Ajoutez une liste de 3 fonctionnalités (ce qu&#x27;on peut faire avec) : un `&lt;ul&gt;` qui contient trois `&lt;li&gt;`.
+9. Ajoutez au moins un lien pour essayer l&#x27;appli en ligne : `&lt;a href=&quot;...&quot;&gt;…&lt;/a&gt;`.
 
-À la fin : ta page affiche tout son contenu, sans style. C&#x27;est volontaire, on l&#x27;habille à l&#x27;étape suivante.
+À la fin : votre page affiche tout son contenu, sans style. C&#x27;est volontaire, on l&#x27;habille à l&#x27;étape suivante.
 
-### Étape 2 (⭐ principal) : l&#x27;habillage CSS
+### Étape 2 (○ facultatif) : un avant-goût de CSS
 
-Objectif : comprendre qu&#x27;on sélectionne des éléments HTML et qu&#x27;on leur applique des règles de style.
+Objectif : comprendre qu&#x27;on sélectionne des éléments HTML et qu&#x27;on leur applique des règles de style. On n&#x27;en fait qu&#x27;un avant-goût : à l&#x27;étape Tailwind, on stylera beaucoup plus vite.
 
-1. Crée un fichier `style.css` dans le même dossier.
-2. Relie-le à ta page : dans le `&lt;head&gt;` de `index.html`, ajoute `&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;`.
-3. Vérifie la liaison : dans `style.css`, écris `body { background: lightblue; }` et recharge. Si le fond change, c&#x27;est branché.
-4. Change la couleur du fond et celle du texte à ton goût.
-5. Choisis une police lisible (`font-family`) et une taille de texte agréable.
-6. Donne de l&#x27;air : ajoute des marges et du `padding` pour que ça respire.
-7. Arrondis les coins de la capture avec `border-radius: 12px;` sur le `&lt;img&gt;`.
-8. Centre ta page au milieu de la fenêtre.
+1. Créez un fichier `style.css` dans le même dossier.
+2. Reliez-le à votre page : dans le `&lt;head&gt;` de `index.html`, ajoutez `&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;`.
+3. Vérifiez la liaison : dans `style.css`, écrivez `body { background: lightblue; }` et rechargez. Si le fond change, c&#x27;est branché.
+4. Changez la couleur du fond et celle du texte, choisissez une police lisible (`font-family`).
 
-À la fin : la même page, mais agréable à regarder.
+À la fin : vous avez vu comment marche une feuille de style. À l&#x27;étape 3, Tailwind fera la même chose, mais directement dans les attributs `class`.
 
-### Étape 3 (⭐ principal) : une première interaction JS
+### Étape 3 (⭐ principal) : styler avec Tailwind et daisyUI
 
-Objectif : comprendre qu&#x27;on peut réagir à un clic et modifier la page en direct. Une seule interaction qui marche vaut mieux que trois à moitié faites.
+Objectif : styler vite, sans écrire de CSS, en posant des classes « utilitaires » sur vos balises et en utilisant des composants prêts à l&#x27;emploi.
 
-1. Crée un fichier `script.js`. Relie-le juste avant `&lt;/body&gt;` : `&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;`.
-2. Vérifie la liaison : dans `script.js`, écris `console.log(&quot;ça marche&quot;);`. Ouvre la console du navigateur (F12) et vérifie que le message s&#x27;affiche.
-3. Ajoute un bouton dans ton HTML : `&lt;button id=&quot;bouton&quot;&gt;Clique-moi&lt;/button&gt;`.
-4. Dans le JS, récupère ce bouton : `const bouton = document.querySelector(&quot;#bouton&quot;);`.
-5. Réagis au clic : `bouton.addEventListener(&quot;click&quot;, () =&gt; { ... });`.
-6. À l&#x27;intérieur, fais une seule chose visible, au choix :
-    - passer la page en **mode sombre** (changer `document.body.style.background` et la couleur du texte),
-    - afficher une **phrase surprise** (changer le `textContent` d&#x27;un paragraphe),
-    - **compter les clics** (une variable qui augmente et s&#x27;affiche).
+1. Dans le `&lt;head&gt;` de `index.html`, ajoutez ces trois lignes (Tailwind, daisyUI, et ses thèmes) :
 
-À la fin : un clic produit un effet visible sur ta page.
+```html
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;link href=&quot;https://cdn.jsdelivr.net/npm/daisyui@5/themes.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+```
 
-### Étape 4 (⭐ principal) : découverte de Git et GitHub
+2. Choisissez un thème daisyUI sur la balise `&lt;html&gt;` : `&lt;html lang=&quot;fr&quot; data-theme=&quot;nord&quot;&gt;` (essayez aussi `bumblebee`, `dracula`… galerie : &lt;https://daisyui.com/docs/themes/&gt;).
+3. Posez quelques classes Tailwind sur vos balises : par exemple `class=&quot;text-3xl font-bold&quot;` sur le `&lt;h1&gt;`, `class=&quot;rounded-xl shadow-lg&quot;` sur le `&lt;img&gt;`, et un conteneur `class=&quot;p-6 max-w-2xl mx-auto&quot;` pour centrer et aérer.
+4. Utilisez au moins **un composant daisyUI**, par exemple une carte pour présenter votre appli :
 
-Objectif : comprendre à quoi servent Git et GitHub, et créer ton compte, pour être prêt à publier ta page demain.
+```html
+&lt;div class=&quot;card w-96 bg-base-100 shadow-sm&quot;&gt;
+  &lt;div class=&quot;card-body&quot;&gt;
+    &lt;h2 class=&quot;card-title&quot;&gt;Mon appli&lt;/h2&gt;
+    &lt;p&gt;Ce qu&#x27;elle fait, en deux phrases.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+```
 
-1. Retiens la différence en une phrase :
-    - **Git** : un outil qui garde l&#x27;historique des versions de ton code (qui a changé quoi, et quand).
-    - **GitHub** : le site où on dépose ce code, où on le partage et où on le publie.
-2. Crée un compte sur GitHub (gratuit) et confirme ton adresse e-mail.
-3. Ouvre le tutoriel pas à pas : &lt;https://github.com/Selimmmm/git_step_by_step&gt;.
-4. Parcours-le tranquillement et repère les quatre commandes qui reviennent : `git init`, `git add`, `git commit`, `git push`.
-5. Note dans ton `JOURNAL.md`, avec tes mots, à quoi sert chacune de ces commandes.
+5. Rechargez : le style s&#x27;applique sans aucun fichier CSS.
 
-On ne tape pas encore les commandes aujourd&#x27;hui : c&#x27;est une première découverte. On s&#x27;en sert pour de vrai au brief 2 (la pratique de Git en ligne de commande y est en bonus).
+À la fin : votre page est habillée avec Tailwind et utilise au moins un composant daisyUI.
 
-### Étape 5 (○ bonus, si le temps)
+### Étape 4 (⭐ principal) : mettre votre page en ligne (GitHub Pages)
 
-À piocher dans l&#x27;ordre que tu veux, un seul suffit :
+Objectif : votre page n&#x27;existe que sur votre ordinateur. Là, vous lui donnez une **adresse publique** partageable, et vous apprenez à la mettre à jour. Mettre un site « en ligne », c&#x27;est le déposer sur un serveur accessible à tous ; GitHub le fait gratuitement avec **GitHub Pages**.
 
-1. Ajouter une **animation CSS** : la capture qui grossit au survol (`:hover` + `transform: scale(...)`).
-2. Proposer **plusieurs thèmes** de couleurs au lieu d&#x27;un seul mode sombre.
-3. Rendre la page **responsive** : jolie aussi sur téléphone.
+1. Créez un compte GitHub (gratuit) et confirmez l&#x27;adresse e-mail. Un seul compte pour le groupe suffit.
+2. Cliquez « New repository », nommez-le comme vous voulez (`ma-page` par exemple : lettres, chiffres et tirets, pas d&#x27;espaces) et cochez « Public ».
+3. Sur la page du dépôt : « Add file » → « Upload files », glissez-déposez vos fichiers (`index.html`, et `style.css` si vous l&#x27;avez fait), puis « Commit changes ».
+4. Onglet « Settings » → « Pages » : choisissez la branche `main` comme source et cliquez « Save ».
+5. Attendez une minute, rechargez « Settings » → « Pages » : GitHub y affiche l&#x27;URL publique, de la forme `https://votre-pseudo.github.io/nom-du-repo/`. Ouvrez-la, votre page doit s&#x27;afficher.
+6. Gardez des chemins **relatifs** dans votre HTML (`style.css`, `script.js`, pas `/style.css`) pour que tout soit trouvé dans le sous-dossier.
+
+À chaque modification suivante, vous ré-uploaderez vos fichiers de la même façon (« Add file » → « Upload files »), et vous rechargerez l&#x27;URL pour voir le changement en ligne.
+
+### Étape 5 (⭐ principal) : un formulaire de contact (Tailwind + JS)
+
+Objectif : construire un formulaire, le styler avec daisyUI, lire la saisie en JavaScript, la valider et réagir à l&#x27;envoi.
+
+1. Dans `index.html`, ajoutez un `&lt;form&gt;` avec au moins trois champs, stylés avec les classes daisyUI :
+    - un champ **nom** (`&lt;input type=&quot;text&quot; class=&quot;input&quot; id=&quot;nom&quot;&gt;`),
+    - un champ **e-mail** (`&lt;input type=&quot;email&quot; class=&quot;input&quot; id=&quot;email&quot;&gt;`),
+    - un champ **message** (`&lt;textarea class=&quot;textarea&quot; id=&quot;message&quot;&gt;&lt;/textarea&gt;`),
+    - un bouton d&#x27;envoi (`&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Envoyer&lt;/button&gt;`).
+2. Mettez un `&lt;label&gt;` devant chaque champ. Prévoyez une zone de retour vide : `&lt;p id=&quot;confirmation&quot;&gt;&lt;/p&gt;`.
+3. Créez `script.js` et reliez-le juste avant `&lt;/body&gt;` : `&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;`.
+4. Dans `script.js`, récupérez le formulaire et les champs avec `document.querySelector(...)`.
+5. Branchez l&#x27;envoi avec `addEventListener(&quot;submit&quot;, ...)` et appelez `event.preventDefault()` pour empêcher le rechargement de la page.
+6. Vérifiez que les champs ne sont pas vides et que l&#x27;e-mail contient bien un `@`. Si quelque chose manque, affichez un message d&#x27;erreur ; sinon, affichez une confirmation du type « Merci NOM, ton message a bien été pris en compte ».
+7. Testez en local, puis ré-uploadez `index.html` et `script.js` sur GitHub et vérifiez sur l&#x27;URL publique.
+
+&gt; Note : GitHub Pages héberge un site statique, sans serveur. Pour l&#x27;instant, votre formulaire valide la saisie et affiche un retour, mais le message n&#x27;est enregistré nulle part. À l&#x27;étape 6, vous le rangez pour de vrai dans une base de données.
+
+### Étape 6 (⭐ principal) : enregistrer le formulaire dans Supabase
+
+Objectif : ranger les messages du formulaire dans une vraie base de données, **directement depuis le JavaScript du navigateur**, sans serveur à coder. C&#x27;est ce que permet **Supabase** : dès qu&#x27;on crée une table, il génère une API appelable depuis le front.
+
+**Créez votre compte et votre projet**
+
+1. Allez sur &lt;https://supabase.com&gt;, créez un compte (gratuit) et confirmez l&#x27;e-mail. Un seul projet pour le groupe suffit.
+2. Cliquez « New project », donnez-lui un nom, choisissez un mot de passe pour la base et attendez que le projet soit prêt (une à deux minutes).
+3. Dans le menu « SQL Editor », collez ce code et cliquez « Run » pour créer la table :
+
+```sql
+create table contacts (
+  id bigint generated always as identity primary key,
+  created_at timestamptz default now(),
+  nom text,
+  email text,
+  message text
+);
+```
+
+4. Activez la sécurité au niveau des lignes (RLS) et autorisez **l&#x27;envoi** par tout le monde. Toujours dans le SQL Editor :
+
+```sql
+alter table contacts enable row level security;
+
+create policy &quot;Tout le monde peut envoyer un message&quot;
+  on contacts for insert
+  to anon
+  with check (true);
+```
+
+5. Récupérez vos deux identifiants dans « Project Settings » → « API » : l&#x27;**URL du projet** (`https://xxxx.supabase.co`) et la **clé anon** (la clé « anon public »).
+
+**Branchez votre formulaire**
+
+6. Donnez un `id` à votre formulaire : `&lt;form id=&quot;contact&quot;&gt;`.
+7. Dans `index.html`, chargez la librairie Supabase, puis votre `script.js` **juste après**. L&#x27;ordre compte : `script.js` utilise `window.supabase`, donc la librairie doit être chargée avant. Placez les deux lignes ensemble, juste avant `&lt;/body&gt;` :
+
+```html
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+```
+
+(Si vous aviez déjà mis `&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;` à l&#x27;étape 5, déplacez-le ici, après la ligne Supabase, et ne le laissez qu&#x27;une seule fois.)
+
+8. Dans `script.js`, créez le client puis enregistrez la saisie à l&#x27;envoi. Remplacez votre ancien code par celui-ci (avec vos propres URL et clé) :
+
+```javascript
+const URL_SUPABASE = &quot;https://xxxx.supabase.co&quot;; // votre URL de projet
+const CLE_ANON = &quot;eyJhbGciOi...&quot;; // votre clé anon (Project Settings → API)
+const supabase = window.supabase.createClient(URL_SUPABASE, CLE_ANON);
+
+const form = document.querySelector(&quot;#contact&quot;);
+const confirmation = document.querySelector(&quot;#confirmation&quot;);
+
+form.addEventListener(&quot;submit&quot;, async (event) =&gt; {
+  event.preventDefault(); // empêche le rechargement de la page
+
+  const nom = document.querySelector(&quot;#nom&quot;).value;
+  const email = document.querySelector(&quot;#email&quot;).value;
+  const message = document.querySelector(&quot;#message&quot;).value;
+
+  if (!nom || !email.includes(&quot;@&quot;) || !message) {
+    confirmation.textContent = &quot;Remplis tous les champs avec un e-mail valide.&quot;;
+    return;
+  }
+
+  const { error } = await supabase
+    .from(&quot;contacts&quot;)
+    .insert({ nom: nom, email: email, message: message });
+
+  if (error) {
+    confirmation.textContent = &quot;Oups, l&#x27;envoi a échoué. Réessaie.&quot;;
+    console.error(error);
+  } else {
+    confirmation.textContent = `Merci ${nom}, ton message a bien été enregistré.`;
+    form.reset();
+  }
+});
+```
+
+9. Testez en local : envoyez un message, puis allez voir dans Supabase « Table Editor » → `contacts`. Votre ligne doit y être.
+10. Ré-uploadez `index.html` et `script.js` sur GitHub, et vérifiez que ça marche aussi sur l&#x27;URL publique.
+
+&gt; La clé anon est **publique**, c&#x27;est normal : elle finit dans le code envoyé au navigateur. Ce qui protège les données, ce sont les règles **RLS** (Row Level Security). Ici on autorise seulement l&#x27;**insertion** : personne ne peut lire les messages des autres depuis le front. On pourra creuser ce sujet plus tard (lecture des données, règles d&#x27;accès plus fines).
+
+### Étape 7 (○ bonus, si le temps)
+
+À piocher dans l&#x27;ordre que vous voulez :
+
+1. Soigner les **messages d&#x27;erreur** du formulaire : dire précisément quel champ pose problème.
+2. Proposer **plusieurs thèmes** daisyUI au choix (un bouton qui change l&#x27;attribut `data-theme`).
+3. Rendre la page **responsive** (préfixes Tailwind `sm:`, `md:`…).
 4. Ajouter une petite icône d&#x27;onglet (favicon).
-5. Installer Git et **essayer** les commandes du tutoriel sur un dossier de test.
+5. Découvrir **Git en ligne de commande** : installez Git et essayez `git clone`, `git add`, `git commit`, `git push` en suivant &lt;https://github.com/Selimmmm/git_step_by_step&gt;.
 
 ## Travail sur le Markdown (⭐ principal, transverse)
 
-Crée un fichier `JOURNAL.md`. C&#x27;est un fichier texte écrit en **Markdown**, le langage qui sert à écrire de la doc lisible (c&#x27;est ce qui formate les messages sur Discord, les README sur GitHub, etc.). Dedans, explique avec tes mots :
+Créez un fichier `JOURNAL.md`. C&#x27;est un fichier texte écrit en **Markdown**, le langage qui sert à écrire de la doc lisible (c&#x27;est ce qui formate les messages sur Discord, les README sur GitHub, etc.). Dedans, expliquez avec vos mots :
 
 - ce qu&#x27;est le HTML, le CSS, le JS, en une phrase chacun,
-- ce que tu as construit aujourd&#x27;hui,
-- une difficulté rencontrée et comment tu l&#x27;as réglée.
+- ce que vous avez construit aujourd&#x27;hui,
+- une difficulté rencontrée et comment vous l&#x27;avez réglée.
 
-Utilise au moins : un titre (`#`), une liste, un mot en **gras**, et un bloc de code (avec des `` ``` ``). C&#x27;est ton premier vrai Markdown, on s&#x27;en resservira toute la semaine.
+Utilisez au moins : un titre (`#`), une liste, un mot en **gras**, et un bloc de code (avec des `` ``` ``). C&#x27;est votre premier vrai Markdown, on s&#x27;en resservira toute la semaine.
 
 ## Modalités d&#x27;évaluation
 
-Démonstration de la page au formateur en fin de journée, et dépôt des fichiers (`index.html`, `style.css`, `script.js`, `JOURNAL.md`) sur SimplonLine.
+Le formateur ouvre l&#x27;URL publique de la page depuis son poste en fin de journée, et le groupe fait la démo du formulaire. Dépôt sur SimplonLine de l&#x27;URL publique et des fichiers (`index.html`, `script.js`, `JOURNAL.md`, et `style.css` s&#x27;il a été fait).
 
 ## Livrables
 
-1. Les fichiers `index.html`, `style.css`, `script.js` de ta page de présentation.
-2. Le fichier `JOURNAL.md` rempli (rendu Markdown explicatif).
+1. L&#x27;**URL publique** de la page (`https://votre-pseudo.github.io/nom-du-repo/`), déposée sur SimplonLine.
+2. Les fichiers `index.html` et `script.js` (plus `style.css` si vous avez fait l&#x27;étape 2).
+3. Le fichier `JOURNAL.md` rempli (rendu Markdown explicatif).
 
 ## Critères de performance
 
-- La page s&#x27;ouvre dans le navigateur et affiche une présentation complète (titre, capture, description, lien).
-- Le HTML, le CSS et le JS sont dans **trois fichiers séparés** et reliés correctement.
-- Au moins une interaction JS fonctionne (un clic produit un effet visible).
-- Le compte GitHub est créé, et l&#x27;élève sait dire à quoi servent `git add`, `git commit` et `git push`.
+- La page est accessible publiquement à son URL et affiche une présentation complète (titre, capture, description, lien).
+- La page est habillée avec **Tailwind** et utilise au moins un **composant daisyUI**.
+- Le formulaire de contact valide les champs et affiche un message de retour clair, sans erreur dans le navigateur.
+- Un message envoyé via le formulaire est bien enregistré dans la table Supabase du groupe.
 - Le `JOURNAL.md` est lisible et utilise au moins quatre éléments Markdown différents.
 
 ## Situation professionnelle

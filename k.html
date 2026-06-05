@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Découvrez Boost'Avenir !</title>
+    <!-- Tout via CDN, sans build ni config :
+       - Tailwind navigateur pour les classes utilitaires (grid, flex, gap…)
+       - daisyUI 5 (CSS déjà compilé) pour les composants : btn, card, navbar, avatar… -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css" rel="stylesheet" type="text/css" />
+
+    <!--- J'ai ajouté la ligne magique qui permet d'avoir tous les thèmes de tailwind --->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="navbar min-h-14 py-0 bg-base-100 shadow-sm">
+      <div class="navbar-start">
+        <a class="btn btn-ghost btn-square">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="#c50d0d"
+               stroke-width="1.75"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               class="w-6 h-6">
+            <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+            <path d="M20 2v4" />
+            <path d="M22 4h-4" />
+            <circle cx="4" cy="20" r="2" />
+          </svg>
+        </a>
+      </div>
+      <div class="navbar-center hidden lg:flex"></div>
+      <div class="navbar-end">
+        <a class="btn">Button</a>
+      </div>
+    </div>
+
+
+    <h1 id="sous-titre" class="text-6xl font-bold pt-8">
+      Tes compétences
+      <br />
+      ont de l'avenir
+    </h1>
+    <div style="margin-bottom: 5rem;"></div>
+    <div class="mockup-phone border-[#ff8938]">
+      <div class="mockup-phone-camera"></div>
+      <div class="mockup-phone-display">
+        <div class="flex flex-col items-center justify-center h-full p-4"
+             style="background: linear-gradient(135deg, #ff8938 0%, #ff5e62 100%)">
+          <h2 class="text-lg font-bold">Boost'Avenir</h2>
+          <p class="text-sm">Préparez-vous à l'avenir !</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom: 5rem;"></div>
+    <h2>Qu'est-ce que Boost'Avenir ?</h2>
+    <div style="margin-bottom: 2rem;"></div>
+    <p>
+      Boost'Avenir est un projet de développement de compétences pour les jeunes, visant à les préparer à l'avenir en
+      leur offrant des opportunités d'apprentissage et de croissance personnelle.
+    </p>
+    <div style="margin-bottom: 5rem;"></div>
+    <h2>Pourquoi choisir Boost'Avenir ?</h2>
+    <div style="margin-bottom: 2rem;"></div>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Opportunités d'apprentissage</li>
+      <div class="card w-96 bg-base-100 card-md shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title">Medium Card</h2>
+          <p>
+            A card component has a figure, a body part, and inside body there are title and actions parts
+          </p>
+          <div class="justify-end card-actions"></div>
+        </div>
+      </div>
+      <li>Croissance personnelle</li>
+      <li>Discussion avec un Chatbot</li>
+    </ul>
+    <a href="https://boost-avenir.vercel.app/">👉🏾 Cliquez ici pour téléhargez l'app !</a>
+    <script src="script.js"></script>
+  </body>
+
+</html>

@@ -1,7 +1,6 @@
 # Brief 3 : le mur de la promo (Supabase, sans backend)
 
 - **Type** : brief individuel (avec effet collectif)
-- **Durée visée** : 1 journée (7h), la plus dense
 - **Référentiel** : [2025] Mobiliser les compétences informatiques fondamentales
 - **Pré-requis** : avoir un site en ligne ([brief 2](#brief-2)).
 
@@ -37,13 +36,13 @@ Objectif : comprendre qu'un appel JS va chercher des données ailleurs et les af
 4. Ajoute dans la page une zone vide où afficher les messages : `<div id="mur"></div>`.
 5. Écris une fonction qui va chercher les messages et vérifie d'abord dans la console :
 
-   ```javascript
-   const { data, error } = await supabase
-     .from('messages')
-     .select('*')
-     .order('created_at', { ascending: false });
-   console.log(data);
-   ```
+```javascript
+const { data, error } = await supabase
+  .from('messages')
+  .select('*')
+  .order('created_at', { ascending: false });
+console.log(data);
+```
 6. Parcours `data` avec `forEach` et, pour chaque message, ajoute un élément dans `#mur` (auteur + message).
 
 ### Étape 2 (⭐ principal) : écrire un message
@@ -54,11 +53,11 @@ Objectif : comprendre le **CRUD** (créer / lire), et voir l'effet collectif : t
 2. Au clic sur le bouton, récupère les valeurs des deux champs.
 3. Insère le message dans la table :
 
-   ```javascript
-   await supabase
-     .from('messages')
-     .insert({ auteur: nom, message: texte });
-   ```
+```javascript
+await supabase
+  .from('messages')
+  .insert({ auteur: nom, message: texte });
+```
 4. Après l'insertion, rappelle ta fonction d'affichage pour recharger la liste.
 5. Teste : ton message apparaît. Demande à un voisin d'en poster un : il apparaît aussi chez toi.
 
