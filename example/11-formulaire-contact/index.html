@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="nord">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulaire de contact (sans base de données)</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulaire de contact (sans base de données)</title>
 
-  <!-- Tailwind + daisyUI via CDN, comme à l'étape 3 du brief. -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
+    <!-- Tailwind + daisyUI via CDN, comme à l'étape 3 du brief. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
 
-  <main class="p-6 max-w-md mx-auto flex flex-col gap-4">
+    <main class="p-6 max-w-md mx-auto flex flex-col gap-4">
 
-    <h1 class="text-2xl font-bold">Me contacter</h1>
+      <h1 class="text-2xl font-bold">Me contacter</h1>
 
-    <form id="contact" class="flex flex-col gap-3">
-      <div class="flex flex-col gap-1">
-        <label for="nom">Ton nom</label>
-        <input type="text" id="nom" class="input w-full" placeholder="Camille" />
-      </div>
+      <form id="contact" class="flex flex-col gap-3">
+        <div class="flex flex-col gap-1">
+          <label for="nom">Ton nom</label>
+          <input type="text" id="nom" class="input w-full" placeholder="Camille" />
+        </div>
 
-      <div class="flex flex-col gap-1">
-        <label for="email">Ton e-mail</label>
-        <input type="email" id="email" class="input w-full" placeholder="camille@exemple.fr" />
-      </div>
+        <div class="flex flex-col gap-1">
+          <label for="email">Ton e-mail</label>
+          <input type="email" id="email" class="input w-full" placeholder="camille@exemple.fr" />
+        </div>
 
-      <div class="flex flex-col gap-1">
-        <label for="message">Ton message</label>
-        <textarea id="message" class="textarea w-full" rows="4" placeholder="Ton message…"></textarea>
-      </div>
+        <div class="flex flex-col gap-1">
+          <label for="message">Ton message</label>
+          <textarea id="message" class="textarea w-full" rows="4" placeholder="Ton message…"></textarea>
+        </div>
 
-      <button type="submit" class="btn btn-primary">Envoyer</button>
-    </form>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
 
-    <!-- Zone de retour, remplie par script.js -->
-    <p id="confirmation" class="font-semibold"></p>
+      <!-- Zone de retour, remplie par script.js -->
+      <p id="confirmation" class="font-semibold"></p>
 
-  </main>
+    </main>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
