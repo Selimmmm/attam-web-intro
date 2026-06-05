@@ -101,6 +101,18 @@ Objectif : votre page n'existe que sur votre ordinateur. Là, vous lui donnez un
 
 Objectif : construire un formulaire, le styler avec daisyUI, lire la saisie en JavaScript, la valider et réagir à l'envoi.
 
+Le flux, pour l'instant sans base de données :
+
+```mermaid
+flowchart TD
+  A["Remplir le formulaire"] --> B["Clic sur Envoyer"]
+  B --> C["preventDefault() : la page ne recharge pas"]
+  C --> D{"Champs remplis et e-mail valide ?"}
+  D -->|Non| E["Afficher un message d'erreur"]
+  D -->|Oui| F["Afficher la confirmation, vider le formulaire"]
+  F --> G["Rien n'est enregistré : le message n'est stocké nulle part"]
+```
+
 1. Dans `index.html`, ajoutez un `<form>` avec au moins trois champs, stylés avec les classes daisyUI :
     - un champ **nom** (`<input type="text" class="input" id="nom">`),
     - un champ **e-mail** (`<input type="email" class="input" id="email">`),

@@ -1818,6 +1818,14 @@ Avec ces bases (couleurs, cadres, effets au clic et au survol, mise en page), tu
 <p>À chaque modification suivante, vous ré-uploaderez vos fichiers de la même façon (« Add file » → « Upload files »), et vous rechargerez l'URL pour voir le changement en ligne.</p>
 <h3 class="is-principal" id="etape-5-principal-un-formulaire-de-contact-tailwind-js">Étape 5 (⭐ principal) : un formulaire de contact (Tailwind + JS)</h3>
 <p>Objectif : construire un formulaire, le styler avec daisyUI, lire la saisie en JavaScript, la valider et réagir à l'envoi.</p>
+<p>Le flux, pour l'instant sans base de données :</p>
+<pre class="mermaid">flowchart TD
+  A[&quot;Remplir le formulaire&quot;] --&gt; B[&quot;Clic sur Envoyer&quot;]
+  B --&gt; C[&quot;preventDefault() : la page ne recharge pas&quot;]
+  C --&gt; D{&quot;Champs remplis et e-mail valide ?&quot;}
+  D --&gt;|Non| E[&quot;Afficher un message d&#x27;erreur&quot;]
+  D --&gt;|Oui| F[&quot;Afficher la confirmation, vider le formulaire&quot;]
+  F --&gt; G[&quot;Rien n&#x27;est enregistré : le message n&#x27;est stocké nulle part&quot;]</pre>
 <ol>
 <li>Dans <code>index.html</code>, ajoutez un <code>&lt;form&gt;</code> avec au moins trois champs, stylés avec les classes daisyUI :<ul>
 <li>un champ <strong>nom</strong> (<code>&lt;input type="text" class="input" id="nom"&gt;</code>),</li>
@@ -2066,6 +2074,18 @@ Objectif : votre page n&#x27;existe que sur votre ordinateur. Là, vous lui donn
 ### Étape 5 (⭐ principal) : un formulaire de contact (Tailwind + JS)
 
 Objectif : construire un formulaire, le styler avec daisyUI, lire la saisie en JavaScript, la valider et réagir à l&#x27;envoi.
+
+Le flux, pour l&#x27;instant sans base de données :
+
+```mermaid
+flowchart TD
+  A[&quot;Remplir le formulaire&quot;] --&gt; B[&quot;Clic sur Envoyer&quot;]
+  B --&gt; C[&quot;preventDefault() : la page ne recharge pas&quot;]
+  C --&gt; D{&quot;Champs remplis et e-mail valide ?&quot;}
+  D --&gt;|Non| E[&quot;Afficher un message d&#x27;erreur&quot;]
+  D --&gt;|Oui| F[&quot;Afficher la confirmation, vider le formulaire&quot;]
+  F --&gt; G[&quot;Rien n&#x27;est enregistré : le message n&#x27;est stocké nulle part&quot;]
+```
 
 1. Dans `index.html`, ajoutez un `&lt;form&gt;` avec au moins trois champs, stylés avec les classes daisyUI :
     - un champ **nom** (`&lt;input type=&quot;text&quot; class=&quot;input&quot; id=&quot;nom&quot;&gt;`),

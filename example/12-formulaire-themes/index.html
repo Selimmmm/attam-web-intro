@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="nord">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulaire de contact avec choix du thème</title>
+
+    <!-- Tailwind + daisyUI via CDN. themes.css donne accès à tous les thèmes. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/daisyui.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+    <main class="p-6 max-w-md mx-auto flex flex-col gap-4">
+
+      <!-- Sélecteur de thème : changer ici restyle tout le formulaire. -->
+      <div class="flex flex-col gap-1">
+        <label for="theme">Thème</label>
+        <select id="theme" class="select w-full">
+          <option value="nord">Nord</option>
+          <option value="bumblebee">Bumblebee</option>
+          <option value="dracula">Dracula</option>
+          <option value="cupcake">Cupcake</option>
+          <option value="synthwave">Synthwave</option>
+          <option value="retro">Retro</option>
+          <option value="forest">Forest</option>
+        </select>
+      </div>
+
+      <h1 class="text-2xl font-bold">Me contacter</h1>
+
+      <form id="contact" class="flex flex-col gap-3">
+        <div class="flex flex-col gap-1">
+          <label for="nom">Ton nom</label>
+          <input type="text" id="nom" class="input w-full" placeholder="Camille" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="email">Ton e-mail</label>
+          <input type="email" id="email" class="input w-full" placeholder="camille@exemple.fr" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="message">Ton message</label>
+          <textarea id="message" class="textarea w-full" rows="4" placeholder="Ton message…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+
+      <p id="confirmation" class="font-semibold"></p>
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
