@@ -249,11 +249,11 @@ Dans une équipe produit, savoir lire et modifier une page web à la main, sans 
 
 ## Compétences visées
 
-**C1. Planifier le travail à effectuer individuellement**
+**C1. Réaliser des interfaces utilisateur statiques web ou web mobile** (visé : niveau 1 et 2)
 niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 
-**C3. Définir le périmètre d'un problème rencontré en adoptant une démarche inductive**
+**C2. Développer la partie dynamique des interfaces utilisateur web ou web mobile** (visé : niveau 1)
 niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
 
-**C4. Rechercher de façon méthodique une ou des solutions au problème rencontré**
+**C3. Mettre en place une base de données relationnelle** (visé : niveau 1)
 niveau 1, imiter · niveau 2, adapter · niveau 3, transposer
