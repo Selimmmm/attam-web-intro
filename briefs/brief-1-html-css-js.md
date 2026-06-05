@@ -177,7 +177,9 @@ create policy "Tout le monde peut envoyer un message"
 ```javascript
 const URL_SUPABASE = "https://xxxx.supabase.co"; // votre URL de projet
 const CLE_ANON = "eyJhbGciOi..."; // votre clé anon (Project Settings → API)
-const supabase = window.supabase.createClient(URL_SUPABASE, CLE_ANON);
+// On nomme la variable `db` (et pas `supabase`) : `supabase` est déjà pris
+// par la librairie (window.supabase), le réutiliser provoque une erreur.
+const db = window.supabase.createClient(URL_SUPABASE, CLE_ANON);
 
 const form = document.querySelector("#contact");
 const confirmation = document.querySelector("#confirmation");
@@ -194,7 +196,7 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
-  const { error } = await supabase
+  const { error } = await db
     .from("contacts")
     .insert({ nom: nom, email: email, message: message });
 

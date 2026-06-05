@@ -1890,7 +1890,9 @@ Avec ces bases (couleurs, cadres, effets au clic et au survol, mise en page), tu
 </ol>
 <div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">URL_SUPABASE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://xxxx.supabase.co&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// votre URL de projet</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">CLE_ANON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOi...&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// votre clé anon (Project Settings → API)</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">supabase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">supabase</span><span class="p">.</span><span class="nx">createClient</span><span class="p">(</span><span class="nx">URL_SUPABASE</span><span class="p">,</span><span class="w"> </span><span class="nx">CLE_ANON</span><span class="p">);</span>
+<span class="c1">// On nomme la variable `db` (et pas `supabase`) : `supabase` est déjà pris</span>
+<span class="c1">// par la librairie (window.supabase), le réutiliser provoque une erreur.</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">supabase</span><span class="p">.</span><span class="nx">createClient</span><span class="p">(</span><span class="nx">URL_SUPABASE</span><span class="p">,</span><span class="w"> </span><span class="nx">CLE_ANON</span><span class="p">);</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#contact&quot;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">confirmation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#confirmation&quot;</span><span class="p">);</span>
@@ -1907,7 +1909,7 @@ Avec ces bases (couleurs, cadres, effets au clic et au survol, mise en page), tu
 <span class="w">    </span><span class="k">return</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">supabase</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span>
 <span class="w">    </span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="s2">&quot;contacts&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="w"> </span><span class="nx">nom</span><span class="o">:</span><span class="w"> </span><span class="nx">nom</span><span class="p">,</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="p">});</span>
 
@@ -2151,7 +2153,9 @@ create policy &quot;Tout le monde peut envoyer un message&quot;
 ```javascript
 const URL_SUPABASE = &quot;https://xxxx.supabase.co&quot;; // votre URL de projet
 const CLE_ANON = &quot;eyJhbGciOi...&quot;; // votre clé anon (Project Settings → API)
-const supabase = window.supabase.createClient(URL_SUPABASE, CLE_ANON);
+// On nomme la variable `db` (et pas `supabase`) : `supabase` est déjà pris
+// par la librairie (window.supabase), le réutiliser provoque une erreur.
+const db = window.supabase.createClient(URL_SUPABASE, CLE_ANON);
 
 const form = document.querySelector(&quot;#contact&quot;);
 const confirmation = document.querySelector(&quot;#confirmation&quot;);
@@ -2168,7 +2172,7 @@ form.addEventListener(&quot;submit&quot;, async (event) =&gt; {
     return;
   }
 
-  const { error } = await supabase
+  const { error } = await db
     .from(&quot;contacts&quot;)
     .insert({ nom: nom, email: email, message: message });
 

@@ -1,8 +1,8 @@
 // À remplir avec tes propres identifiants (Project Settings → API dans Supabase).
-const URL_SUPABASE = "https://xxxx.supabase.co"; // ton URL de projet
-const CLE_ANON = "eyJhbGciOi..."; // ta clé anon (anon public)
+const URL_SUPABASE = "https://sirfetudyasgwpdevfql.supabase.co" ; //"https://xxxx.supabase.co"; // ton URL de projet
+const CLE_ANON = ""; // ta clé anon (anon public)
 
-const supabase = window.supabase.createClient(URL_SUPABASE, CLE_ANON);
+const db = window.supabase.createClient(URL_SUPABASE, CLE_ANON);
 
 const form = document.querySelector("#contact");
 const confirmation = document.querySelector("#confirmation");
@@ -19,7 +19,7 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
-  const { error } = await supabase
+  const { error } = await db
     .from("contacts")
     .insert({ nom: nom, email: email, message: message });
 
